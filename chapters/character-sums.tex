@@ -56,10 +56,40 @@ For any two distinct elements $g_1,g_2\in G$, $g_1\neq g_2$ we can get a charact
 Now every element of $\hG$ is a function $\chi$ which takes an element of $G$ and maps to a complex number in $S^1$. Similarly we can think of every element of as a function from $\hG$ to $S^1$. In fact for every element $g\in G$ define the homomorphism $\ev_g:\hG\to S^1$ where $\ev_g(\chi)=\chi(g)$. Hence $\ev_g$ is a character of $\hG$ for all $g\in G$. 
 \begin{Theorem}{}{}
   Let $G$ be a finite abelian group.   \begin{enumerate}[label=(\roman*)]
-    \item If $\chi\in \hG$ be any nontrivial character then $$\sum_{g\in G}\chi(g)=0$$
-    \item If $g\in G$ with $g\neq 1_G$ then $$\sum_{\chi\in \hG}\chi(g)=0$$
+    \item If $\chi\in \hG$ be any nontrivial character then \begin{equation}
+      \sum_{g\in G}\chi(g)=0
+    \end{equation}
+    \item If $g\in G$ with $g\neq 1_G$ then \begin{equation}
+      \sum_{\chi\in \hG}\chi(g)=0
+    \end{equation}
   \end{enumerate}  
 \end{Theorem}
+\begin{proof}
+  Since $\chi$ is nontrivial there exists $h\in G$ such that $\chi(h)\neq 1$. Then $$\chi(h)\sum_{g\in G}\chi(g)=\sum_{g\in G}\chi(h\cdot g)= \sum_{g\in G}\chi(g)$$Hence we have $$(\chi(h)-1)\sum_{g\in G}\chi(g)=0$$Since we know $\chi(h)\neq 1$ we have $\sum_{g\in G}\chi(g)=0$. 
+
+  Now from the discussion above for any $g\in G$ and $\chi\in hG$ we have $\chi(g)=\ev_g(\chi)$. Hence $$\sum_{\chi\in \hG}\chi(g)=\sum_{\chi\in \hG}\ev_g(\chi)$$Since $g\neq 1_G$, there is a $\chi\in\hG$ such that $\chi(g)\neq 1$. Hence $\ev_g$ is a nontrivial character of $\hG$. Hence by the first part of the theorem we have $\sum_{\chi\in \hG}\ev_g(\chi)=0$.
+\end{proof}
+
+The above theorem leaves the case when $\chi$ is the trivial character. Then for all $g\in G$, $\chi(g)=1$. Hence we have $\sum_{g\in G}\chi(g)=|G|$. Hence we have the following corollary
+\begin{observation}\label{obs:char-sum}
+  For any finite abelian group $G$. Then \begin{enumerate}[label=(\roman*)]
+    \item Let $\chi$ is a character of $G$. \begin{equation}\label{eq:char-sum}
+      \sum_{g\in G}\chi(g)=\begin{cases}
+        |G| & \text{if $\chi=\chi_0$}\\
+        0 & \text{otherwise}
+      \end{cases}
+    \end{equation}
+    \item $|G|=\sum_{\chi\in \hG}\sum_{g\in G}\chi(g)$ 
+  \end{enumerate}
+\end{observation}
+
+So now by counting in two ways for the sum $\sum_{\chi\in \hG}\sum_{g\in G}\chi(g)$ we get the following theorem:
+\begin{Theorem}{}{}
+  For any finite abelian group $G$, we have $|G|=|\hG|$. 
+\end{Theorem}
+\begin{proof}
+  
+\end{proof}
 \section{Gauss Sums}
 \section{Jacobi Sums}
 \section{\texorpdfstring{$L$}{L}-functions}
