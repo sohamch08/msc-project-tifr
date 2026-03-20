@@ -1,1 +1,79 @@
 \section{Characters of Finite Fields}
+In a finite field $\bbF_q$ there are two inherent group structures--namely, the additive group and the multiplicatve group. The nonzero elements of $\bbF_q$ forms a cyclic group of $q-1$ elements under multiplication and the whole $\bbF_q$ forms a group of $q$ elements under addition. 
+
+\subsection{Additive Characters of \texorpdfstring{$\bbF_q$}{Fq}}
+We first turn to the additive group of $\bbF_q$. Let $p$ be the characteristic of $\bbF_q$. Characters of the additive group $\bbF_q$ are called \emph{additive characters} of $\bbF_q$. Then the prime field contained in $\bbF_q$ is $\bbF_p$. Let $\tr:\bbF_q\to\bbF_p$ be the absolute trace function from $\bbF_q$ to $\bbF_p$. Then define the function $\chi_1$ by $$\chi_1(\alpha)=e(\nicefrac{\tr(\alpha)}{p})\quad \forall\ \alpha\in \bbF_q$$Then $\chi_1$ is an additive character of $\bbF_q$ since for all $\alpha_1,\alpha_2\in\bbF_q$, $\tr(\alpha_1+\alpha_2)=\tr(\alpha_1)+\tr(\alpha_2)$ and hence $\chi_1(\alpha_1+\alpha_2)=\chi_1(\alpha_1)\cdot \chi_1(\alpha_2)$. This character $\chi_1$ is called the \emph{canonical additive character} of $\bbF_q$. 
+\begin{Theorem}{}{thm:additive-char-finite-field}
+  For $\beta\in\bbF_q$, define the function $\chi_{\beta}$ with $\chi_{\beta}(\alpha)=\chi_1(\beta\cdot \alpha)$ for all $\alpha\in\bbF_q$. Then $\chi_{\beta}$ is an additive character of $\bbF_q$ and every additive character of $\bbF_q$ is obtained this way. 
+\end{Theorem}
+\begin{proof}
+  Now for any $\alpha_1,\alpha_2\in\bbF_q$, we have $$\chi_{\beta}(\alpha_1+\alpha_2)=\chi_1(\beta(\alpha_1+\alpha_2))=\chi_1(\beta\cdot \alpha_1)\cdot \chi_1(\beta\cdot \alpha_2)=\chi_{\beta}(\alpha_1)\cdot \chi_{\beta}(\alpha_2)$$ Hence $\chi_{\beta}$ is an additive character of $\bbF_q$.
+
+  Now we will show that for any two distinct $\beta_1,\beta_2\in\bbF_q$ with $\beta_1\neq \beta_2$ there exists an $\alpha\in\bbF_q$ such that $\chi_{\beta_1}(\alpha)\neq \chi_{\beta_2}(\alpha)$. Suppose that is not the case. Then for all $\alpha\in\bbF_q$, $$\chi_{\beta_2}(\alpha)=\chi_{\beta_2}(\alpha)\iff \chi_1(\beta_1\cdot \alpha)=\chi_1(\beta_2\cdot \alpha)\iff \chi_1((\beta_1-\beta_2)\alpha)=1$$. Now $\chi_1((\beta_1-\beta_2)\alpha)=1$ for all $\alpha\in \bbF_q$ if and only if $\tr((\beta_1-\beta_2)\alpha)=0$ for all $\alpha\in\bbF_q$. Since  $\tr(X)=X+X^{p}+\cdots+X^{p{r-1}}$ where $q=p^r$, $\tr((\beta_1-\beta_2)X)$ has $p^r$ roots in $\bbF_q$ which is more than the degree $p^{r-1}$. Hence $\tr((\beta_1-\beta_2)X)$ is the zero polynomial. Therefore $\beta_1=\beta_2$. Hence for any two distinct $\beta_1,\beta_2\in\bbF_q$ with $\beta_1\neq \beta_2$ there exists an $\alpha\in\bbF_q$ such that $\chi_{\beta_1}(\alpha)\neq \chi_{\beta_2}(\alpha)$. 
+
+  Hence for every $\beta\in\bbF_q$ we have a distinct additive character. Therefore we have $q$ additive characters. Since there are $q$ additive characters of $\bbF_q$ by \thmref{thm:group-char-equal} every additive character of $\bbF_q$ can be obtained the above way. 
+\end{proof}
+
+The orthogonality relations in \obsref{obs:orthogonal-relation} when applied to additive characters and along with \thmref{thm:additive-char-finite-field} gives the following result.
+\begin{Theorem}{}{thm:add-char-props}
+  \begin{enumerate}[label=(\roman*)]
+    \item For any $a\in\bbF_q$, $$\sum_{\gm\in\bbF_q}\chi_a(\gm)=\begin{cases}
+      0 & \text{if $a\neq 0$}\\
+      q & \text{if $a=0$}
+    \end{cases}$$
+    \item For any two additive characters $\chi_{a},\chi_{b}$ where $a,b\in\bbF_q$, $$\sum_{\gm\in\bbF_q}\chi_{a}(\gm)\cdot \ov{\chi_{b}}(\gm)=\begin{cases}
+      0 & \text{if $a\neq b$}\\
+      q & \text{if $a=b$}
+    \end{cases}$$
+    \item For any two elements $\alpha,\beta\in\bbF_q$, $$\sum_{c\in\bbF_q}\chi_c(\alpha)\cdot\ov{\chi_c(\beta)}=\begin{cases}
+      0 & \text{if $\alpha\neq \beta$}\\
+      q & \text{if $\alpha=\beta$}
+    \end{cases}$$
+  \end{enumerate}
+\end{Theorem}
+
+\subsection{Multiplicative Characters of \texorpdfstring{$\bbF_q$}{Fq}}
+Characters of the multiplicate group $\bbF_q^*$ are called \emph{multiplicative characters} of $\bbF_q$. Since $\bbF_q^*$ is a cyclic group of order $q-1$ by \lemref{lem:chars-cyclic-group} we have the following:
+\begin{lemma}{}{}
+  The group of multiplicative characters of $\bbF_q$ is a cycic group of order $q-1$ and are given by $\{\psi_j\colon 0\leq j\leq q-2\}$ where if $g$ is the generator of $\bbF_q^*$ then for all $k\in\{0,1,\dots, q-2\}$ we have $\psi_j(g^k)=e(\nicefrac{j\cdot k}{q-1})$ where $\psi_0$ is the identity element of the group and the trivial character.  
+\end{lemma}
+
+Every multiplicative character $\psi$ of $\bbF_q$ has the property that $\psi^{q-1}=\psi_0$. Let $\psi$ is generator of the cyclic group of multiplicative characters. Then $\psi$ is called the \emph{principle character}. For any multiplicative character $\psi$ of $\bbF_q$ we say $\psi$ is of \emph{order} $d$ if $\psi^d=\psi_0$ and $d$ is the smallest positive integer with this property. We use $\ord(\psi)$ to denote the order of $\psi$. Hence $d\mid q-1$. We say $\psi$ is of \emph{exponent} $e$ is $\psi^e=\psi_0$. Clearly $d\mid e$ where $d$ is the order of $\psi$.
+
+Suppose $d\mid q-1$. Then for every multiplicative character $\psi$ of exponent $d$ and for every $\alpha\in \bbF_q^*$, we have $\psi(\alpha^d)=\psi^d(\alpha)=1$. Hence $\psi(\alpha)=1$ if $\alpha\in (\bbF_q^*)^{(d)}$. Conversely if $\psi(\alpha)=1$ for every $\alpha\in (\bbF_q^*)^{(d)}$ then $\psi^d=\psi_0$. Hence $\psi$ is a character of exponent $d$ then $\psi(\alpha)$ depends only on the cosets of $\quot{\bbF_q^*}{(\bbF_q^*)^{(d)}}$. Therefore there are precisely $d$ such characters of exponent $d$. 
+
+\begin{Theorem}{}{}
+  Suppose $d\mid q-1$. Then $$\sum_{\psi\colon \psi\text{ of exponent }d}\chi(\alpha)=\begin{cases}
+    d& \text{if }\alpha\in (\bbF_q^*)^{(d)}\\
+    0 & \text{otherwise}
+  \end{cases}$$
+\end{Theorem}
+\begin{proof}
+  The characters of exponent $d$ are characters of the group $\quot{\bbF_q^*}{(\bbF_q^*)^{(d)}}$. Hence this follows from \obsref{obs:char-sum}. 
+\end{proof}
+
+Again, the orthogonality relations in \obsref{obs:orthogonal-relation} when applied to multiplicative characters gives the following result.
+\begin{Theorem}{}{thm:mult-char-props}
+  \begin{enumerate}[label=(\roman*)]
+    \item For any multiplicative character $\psi$ of $\bbF_q$ $$\sum_{\alpha\in\bbF^*_q}\psi(\alpha)=\begin{cases}
+      0 & \text{if $\psi\neq \psi_0$}\\
+      q-1 & \text{if $\psi= \psi_0$}
+    \end{cases}$$
+    \item For any two multiplicative characters $\psi$ and $\lm$ of $\bbF_q$, $$\sum_{\alpha\in\bbF^*_q}\psi(\alpha)\cdot \ov{\lm(\alpha)}=\begin{cases}
+      0 & \text{if $\psi\neq \lm$}\\
+      q-1 & \text{if $\psi= \lm$}
+    \end{cases}$$
+    \item For any two elements $\alpha,\beta\in\bbF^*_q$, $$\sum_{\psi\colon \text{multiplicative character}}\psi(\alpha)\cdot\ov{\psi(\beta)}=\begin{cases}
+      0 & \text{if $\alpha\neq \beta$}\\
+      q-1 & \text{if $\alpha=\beta$}
+    \end{cases}$$
+  \end{enumerate}
+\end{Theorem}
+\subsection{Lifting of Characters to Finite Extension}
+Let $E$ be a finite extension field of $\bbF_q$. Let $\chi_1$ and $\mu_1$ be the canonical additive character of $\bbF_q$ and $E$ respectively. Let $\tr_{E/\bbF_q}$ be the trace function from $E$ to $\bbF_q$. 
+
+Then $\chi_1$ and $\mu_1$ are related by the identity $$\chi_1(Tr_{E/\bbF_q}(\alpha))=\mu_1(\alpha) \quad \forall\ \alpha\in E$$Since the trace function satisfies transitivity property we have $\tr_E=\tr_{\bbF_q}\circ\tr_{E/\bbF_q}$. Hence for all $\alpha\in E$, $\mu_1(\alpha)=\chi_1(\tr_{E/\bbF_q}(\alpha))$.
+
+Similarly if $\psi_1$ and $\lambda_1$ are principle multiplicative characters of $\bbF_q$ and $E$ respectively then for all $\alpha\in E^*$, $$\lambda_1(\alpha)=\psi_1(\norm_{E/\bbF_q}(\alpha))$$ where $\norm_{E/\bbF_q}$ is the norm function from $E$ to $\bbF_q$.
+
+In the opposite way for any additive character $\chi$ of $\bbF_q$ or multiplicative character $\psi$ of $\bbF_q$ we get lift the characters to an additive and multiplicative character of $E$ respectively by defining $\chi\circ\tr_{E/\bbF_q}$ and $\psi\circ\norm_{E/\bbF_q}$ respectively. We denote these by $\chi^{(r)}\coloneqq \chi\circ\tr_{E/\bbF_q}$ and $\psi^{(r)}\coloneqq \psi\circ\norm_{E/\bbF_q}$ where $r=[E:\bbF_q]$.
