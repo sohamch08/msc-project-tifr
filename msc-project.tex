@@ -10,22 +10,22 @@
 \definecolor{mycolor2}{HTML}{2E3192}
 
 
-\newcommand*{\titre}[1]{\begingroup
-	\newlength{\drop}
-	\setlength{\drop}{0.1\textheight}
-	\centering
-	\settowidth{\unitlength}{\Huge\scshape La matiere et fsdfdsf\hspace{3pt}-temps}
-	\vspace*{\baselineskip}
-	\rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
-	\rule{\unitlength}{0.4pt}\\[\baselineskip]
-	{\Huge\scshape\color{white} #1}\\[\baselineskip]
-	{\large\itshape TIFR 2024, Aug-Nov}\\[0.2\baselineskip]
-	\rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
-	\rule{\unitlength}{1.6pt}\\[4\baselineskip]
-	{\Large\scshape Scribe: Soham Chatterjee\\[10mm] soham.chatterjee@tifr.res.in \\[2mm] Website: \colorlink{black}{https://sohamch08.github.io/}{sohamch08.github.io} }\par
-	\vfill
-	% {\large\scshape\color{white} 2024}\par
-	\endgroup}
+% \newcommand*{\titre}[1]{\begingroup
+% 	\newlength{\drop}
+% 	\setlength{\drop}{0.1\textheight}
+% 	\centering
+% 	\settowidth{\unitlength}{\Huge\scshape La matiere et fsdfdsf\hspace{3pt}-temps}
+% 	\vspace*{\baselineskip}
+% 	\rule{\unitlength}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}
+% 	\rule{\unitlength}{0.4pt}\\[\baselineskip]
+% 	{\Huge\scshape\color{white} #1}\\[\baselineskip]
+% 	{\large\itshape TIFR 2024, Aug-Nov}\\[0.2\baselineskip]
+% 	\rule{\unitlength}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}
+% 	\rule{\unitlength}{1.6pt}\\[4\baselineskip]
+% 	{\Large\scshape Scribe: Soham Chatterjee\\[10mm] soham.chatterjee@tifr.res.in \\[2mm] Website: \colorlink{black}{https://sohamch08.github.io/}{sohamch08.github.io} }\par
+% 	\vfill
+% 	% {\large\scshape\color{white} 2024}\par
+% 	\endgroup}
 	
 
 
@@ -103,7 +103,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\setcounter{page}{1}
 \include{chapters/introduction}
+\include{chapters/trace-norm}
 \include{chapters/character-sums}
+\include{chapters/equations-over-finite-fields}
+\include{chapters/decoding-from-character-evaluations}
 
 \bibliographystyle{alpha}
 \bibliography{algorithms_refs}
