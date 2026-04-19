@@ -1,15 +1,26 @@
 \documentclass[twoside]{report}
 \usepackage{url}
-
+\usepackage{thmtools,thm-restate,nicefrac}
 \usepackage[nottoc,numbib]{tocbibind}
 \input{preamble}
 \input{letterfonts}
 \input{macros}
 
+\linespread{1.2}
 \definecolor{mycolor1}{HTML}{1becff}
 \definecolor{mycolor2}{HTML}{2E3192}
-
-
+\let\oldchi\chi
+\renewcommand{\chi}{\protect\raisebox{2pt}{$\oldchi$}}
+\let\latexchi\chi
+\makeatletter
+\renewcommand\chi{\@ifnextchar_\sub@chi\latexchi}
+\newcommand{\sub@chi}[2]{% #1 is _, #2 is the subscript
+  \@ifnextchar^{\subsup@chi{#2}}{\latexchi^{}_{#2}}%
+}
+\newcommand{\subsup@chi}[3]{% #1 is the subscript, #2 is ^, #3 is the superscript
+  \latexchi_{#1}^{#3}%
+}
+\makeatother
 % \newcommand*{\titre}[1]{\begingroup
 % 	\newlength{\drop}
 % 	\setlength{\drop}{0.1\textheight}
