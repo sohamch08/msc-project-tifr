@@ -13,9 +13,9 @@ So if $\chi$ is any character of $G$ then $\chi(1_G)=1$. Since by definition for
 There are some special characters of $G$ which have specific name. The character $\chi_0$ defined by $\chi_0(g)=1$ for all $g\in G$ is called the \textit{trivial character}. For any character $\chi$ of $G$, the character $\overline{\chi}$ defined by $\overline{\chi}(g)=\overline{\chi(g)}$ for all $g\in G$ is called the \textit{conjugate character} of $\chi$. 
 
 Given any finitely many characters of $G$, $\chi_1,\dots, \chi_n$ we can define the product character $\chi=\chi_1\cdot \chi_2\cdots \chi_n$ such that for all $g\in G$, $$\chi(g)=\chi_1(g)\cdot \chi_2(g)\cdots \chi_n(g)$$
-Hence for all $g\in G$, $$\chi(g)\cdot \overline{\chi}(g)=|\chi(g)|^2=1$$Hence the $\overline{\chi}$ is also the inverse character of $\chi$. Hence the set of all characters of $G$ forms a group under multiplication whose identity element is the trivial character $\chi_0$. 
+Hence for all $g\in G$, $$\chi(g)\cdot \overline{\chi}(g)=|\chi(g)|^2=1$$Hence the $\overline{\chi}$ is also the inverse character of $\chi$. Hence the set of all characters of $G$ forms a group, $\Hom(G,S^1)$ under multiplication whose identity element is the trivial character $\chi_0$. 
 \begin{Definition}{Dual Group to $G$}{}
-  For a finite abelian group $G$, the group of all characters of $G$ with the identity element $\chi_0$ is called the \textit{dual group} to $G$ and is denoted by $\widehat{G}$.
+  For a finite abelian group $G$, the group of all characters of $G$ with the identity element $\chi_0$ is called the \textit{dual group} to $G$ and is denoted by $\widehat{G}$ i.e. $\hG\coloneqq \Hom(G,S^1)$.
 \end{Definition}
 
 \begin{observation}
@@ -53,7 +53,13 @@ Therefore if we have two distinct elements $g_1,g_2\in G$, $g_1\neq g_2$ then ta
 For any two distinct elements $g_1,g_2\in G$, $g_1\neq g_2$ we can get a character $\chi\in\hG$ such that $\chi(g_1)\neq \chi(g_2)$. 
 \end{observation} 
 
-Now every element of $\hG$ is a function $\chi$ which takes an element of $G$ and maps to a complex number in $S^1$. Similarly we can think of every element of as a function from $\hG$ to $S^1$. In fact for every element $g\in G$ define the homomorphism $\ev_g:\hG\to S^1$ where $\varphi_g(\chi)=\chi(g)$. 
+Now every element of $\hG$ is a function $\chi$ which takes an element of $G$ and maps to a complex number in $S^1$. Similarly we can think of every element of as a function from $\hG$ to $S^1$. In fact for every element $g\in G$ define the homomorphism $\ev_g:\hG\to S^1$ where $\ev_g(\chi)=\chi(g)$. Hence $\ev_g$ is a character of $\hG$ for all $g\in G$. 
+\begin{Theorem}{}{}
+  Let $G$ be a finite abelian group.   \begin{enumerate}[label=(\roman*)]
+    \item If $\chi\in \hG$ be any nontrivial character then $$\sum_{g\in G}\chi(g)=0$$
+    \item If $g\in G$ with $g\neq 1_G$ then $$\sum_{\chi\in \hG}\chi(g)=0$$
+  \end{enumerate}  
+\end{Theorem}
 \section{Gauss Sums}
 \section{Jacobi Sums}
 \section{\texorpdfstring{$L$}{L}-functions}
