@@ -10,7 +10,7 @@
 \usepackage{cancel}
 \usepackage{hyperref,theoremref}
 \hypersetup{
-	colorlinks=true, linkcolor=doc!80, urlcolor=doc!80, citecolor=mydefinitfr!80!black,
+	colorlinks=true, linkcolor=mytheoremfr, urlcolor=doc!80, citecolor=mydefinitfr!80!black,
 	bookmarksnumbered=true,
 	bookmarksopen=true
 }
@@ -132,7 +132,7 @@
 	borderline west = {2pt}{0pt}{mytheoremfr},
 	sharp corners,
 	detach title,
-	before upper = \tcbtitle\par\smallskip,
+	before upper = \tcbtitle\par\smallskip\itshape,
 	coltitle = mytheoremfr,
 	fonttitle = \bfseries\sffamily,
 	description font = \mdseries,
@@ -152,7 +152,7 @@
 	borderline west = {2pt}{0pt}{mytheoremfr},
 	sharp corners,
 	detach title,
-	before upper = \tcbtitle\par\smallskip,
+	before upper = \tcbtitle\par\smallskip\itshape,
 	coltitle = mytheoremfr,
 	fonttitle = \bfseries\sffamily,
 	description font = \mdseries,
@@ -174,6 +174,7 @@
 	,sharp corners
 	,description font = \mdseries
 	,separator sign none
+	,fontupper = \itshape
 }
 
 
@@ -191,26 +192,12 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\itshape
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
 	,separator sign none
 	,segmentation style={solid, mytheoremfr}
-%	enhanced
-%	,breakable
-%	,colback = mytheorembg
-%	,frame hidden
-%	,boxrule = 0sp
-%	,borderline west = {2pt}{0pt}{mytheoremfr}
-%	,sharp corners
-%	,detach title
-%	,before upper = \tcbtitle\par\smallskip
-%	,coltitle = mytheoremfr
-%	,fonttitle = \bfseries\sffamily
-%	,description font = \mdseries
-%	,separator sign none
-%	,segmentation style={solid, mytheoremfr}
 }
 {th}
 \tcbuselibrary{theorems,skins,hooks}
@@ -224,7 +211,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\itshape
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -248,7 +235,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\itshape
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -268,7 +255,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\itshape
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -292,7 +279,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\itshape
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -312,7 +299,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip
+	,before upper = \tcbtitle\par\smallskip\itshape
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -382,6 +369,7 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	fontupper=\itshape,
 	title={#2},#1}{def}
 \newtcbtheorem[number within=chapter]{definition}{Definition}{enhanced,
 	before skip=2mm,after skip=2mm, colback=red!5,colframe=red!80!black,boxrule=0.5mm,
@@ -402,6 +390,7 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	fontupper=\itshape,
 	title={#2},#1}{def}
 
 
@@ -428,6 +417,7 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	fontupper=\itshape,
 	title={#2},#1}{def}
 \newtcbtheorem[number within=chapter]{Open}{Open Question}{enhanced,
 	before skip=2mm,after skip=2mm, colback=myp!5,colframe=myp!80!black,boxrule=0.5mm,
@@ -448,6 +438,7 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	fontupper=\itshape,
 	title={#2},#1}{def}
 
 
@@ -679,7 +670,7 @@
 \newenvironment{alternate-proof}[1][]{\noindent{\textit{\textbf{Alternate Proof #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{proofof}[1]{\noindent{\textbf{\textit{Proof:
 	of #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
-\newenvironment{remark}{\noindent{Remark:}\hspace*{1em}}{\bigskip\\}
+\newenvironment{remark}{\noindent\textbf{Remark:}\hspace*{1em}}{\bigskip\\}
 \newenvironment{idea}{\noindent{Idea: }}{\bigskip\\}
 
 
