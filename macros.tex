@@ -68,10 +68,21 @@
 \newcommand{\ctr}{\text{\marvosymLightning}\hspace{0.5ex}} % Requires marvosym package
 
 \newcommand{\ov}[1]{\overline{#1}}
-\newcommand{\thmref}[1]{\hyperref[th:#1]{Theorem \ref{th:#1}}}
-\newcommand{\propref}[1]{\hyperref[th:#1]{Proposition \ref{th:#1}}}
-\newcommand{\lemref}[1]{\hyperref[th:#1]{Lemma \ref{th:#1}}}
-\newcommand{\corref}[1]{\hyperref[th:#1]{Corollary \ref{th:#1}}}
+\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\Xq}{\bm{\mathcal{X}}_q}
+\newcommand{\Mq}{\bm{\mathcal{M}}_q}
+\newcommand{\thmref}[2][]{%
+	\hyperref[th:#2]{Theorem~\ref{th:#2}#1}%
+}
+\newcommand{\propref}[2][]{%
+	\hyperref[th:#2]{Proposition~\ref{th:#2}#1}%
+}
+\newcommand{\lemref}[2][]{%
+	\hyperref[th:#2]{Lemma~\ref{th:#2}#1}%
+}
+\newcommand{\corref}[2][]{%
+	\hyperref[th:#2]{Corollary~\ref{th:#2}#1}%
+}
 \newcommand{\obsref}[2][]{%
   \hyperref[#2]{Observation~\ref{#2}#1}%
 }
@@ -89,6 +100,7 @@
 \DeclareMathOperator{\ord}{ord}
 \DeclareMathOperator{\tr}{Tr}
 \DeclareMathOperator{\norm}{N}
+\DeclareMathOperator{\Char}{char}
 \newcommand{\Tfae}{The following are equivalent:}
 \newcommand{\tfae}{the following are equivalent:}
 \newcommand{\sparsity}{\textit{sparsity}}

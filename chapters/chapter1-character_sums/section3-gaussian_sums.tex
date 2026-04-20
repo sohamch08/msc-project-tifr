@@ -1,1 +1,76 @@
 \section{Gaussian Sums}
+So the first hybrid sum we will be looking at is the Gaussian sum. This is a sum of product of a multiplicative character and an additive character over all elements of the field $\bbF_q$. So it is defined as follows.
+\begin{Definition}{Gaussian Sum}{def:gaussian-sum}
+  Let $\psi $ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then the Gaussian sum associated to $\psi$ and $\chi$ is defined as $$G(\psi,\chi)=\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\cdot \chi(\alpha)$$
+\end{Definition}
+Hence the absolute value of the Gaussian sum is at most $q-1$. But later we will see that the Gaussian sum in most cases is much smaller, $\sqrt{q}$ to be precise.
+\begin{Theorem}{}{thm:gaussian-sum}
+  Let $\psi$ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then \begin{equation}
+    G(\psi,\chi)=\begin{cases}
+      q-1 & \text{if $\psi=\psi_0$, $\chi=\chi_0$}     \\
+      -1  & \text{if $\psi=\psi_0$, $\chi\neq \chi_0$} \\
+      0   & \text{if $\psi\neq \psi_0$, $\chi=\chi_0$}
+    \end{cases}
+  \end{equation}
+  If $\psi$ is non-trivial multiplicative character and $\chi$ is non-trivial additive character then $|G(\psi,\chi)|=\sqrt{q}$.
+\end{Theorem}
+\begin{proof}
+  If $\psi=\psi_0$ and $\chi=\chi_0$ then for all $\alpha\in\bbF_q^*$ we have $\psi(\alpha)=1$ and $\chi(\alpha)=1$. Hence $G(\psi_0,\chi_0)=q-1$.
+
+  Now suppose $\psi=\psi_0$ and $\chi$ is non-trivial additive character. Then by \thmref[(i)]{thm:add-char-props} $$G(\psi_0,\chi)=\sum_{\alpha\in\bbF_q^*}\chi(\alpha)=\sum_{\alpha\in\bbF_q}\chi(\alpha)-\chi(0)=-1$$
+
+  Let $\psi$ be a non-trivial multiplicative character and $\chi=\chi_0$. Then for all $\alpha\in\bbF_q^*$ we have $\chi(\alpha)=1$. Hence by \thmref[(i)]{thm:mult-char-props}$$G(\psi,\chi_0)=\sum_{\alpha\in\bbF_q^*}\psi(\alpha)=0$$
+
+  So now assume both $\psi$ and $\chi$ are non-trivial multiplicative and additive characters of $\bbF_q$ respectively. Then we have \begin{align*}
+    |G(\psi,\chi)|^2 & = \ov{G(\psi,\chi)}\cdot G(\psi,\chi)                                                                                                                                                    \\
+                     & = \lt(\sum_{\alpha\in\bbF_q^*}\ov{\psi(\alpha)}\cdot \ov{\chi(\alpha)}\rt) \cdot \lt(\sum_{\beta\in\bbF_q^*}\psi(\beta)\cdot \chi(\beta) \rt)                                            \\
+                     & = \sum_{\alpha\in\bbF_q^*}\sum_{\beta\in\bbF_q^*}\ov{\psi(\alpha)}\cdot \ov{\chi(\alpha)}\cdot \psi(\beta)\cdot \chi(\beta)                                                              \\
+                     & = \sum_{\alpha\in\bbF_q^*}\sum_{\beta\in\bbF_q^*}\psi(\beta\cdot \alpha^{-1})\cdot \chi(\beta-\alpha)                                                                                    \\
+                     & = \sum_{\alpha\in\bbF_q^*}\sum_{\gm\in\bbF_q^*}\psi(\gm)\cdot \chi(\alpha(\gm-1))                                                             & [\text{Take }\gm=\beta\cdot \alpha^{-1}] \\
+                     & = \sum_{\gm\in\bbF_q^*}\psi(\gm)\cdot \lt(\sum_{\alpha\in\bbF_q^*}\chi(\alpha(\gm-1))\rt)                                                                                                \\
+                     & = \sum_{\gm\in\bbF_q^*}\psi(\gm)\cdot \lt(\sum_{\alpha\in\bbF_q}\chi(\alpha(\gm-1))\rt) -\chi(0)\sum_{\gm\in\bbF_q^*}\psi(\gm)                                                           \\
+                     & = \sum_{\gm\in\bbF_q^*}\psi(\gm) \cdot \lt(\sum_{\alpha\in\bbF_q}\chi(\alpha(\gm-1))\rt)                                                      & [\thmref[(i)]{thm:mult-char-props}]
+  \end{align*}
+  Hence by \thmref[(i)]{thm:add-char-props} $$\sum_{\alpha\in\bbF_q}\chi(\alpha(\gm-1))=\begin{cases}
+      0 & \text{if $\gm\neq 1$} \\
+      q & \text{if $\gm=1$}
+    \end{cases}$$
+  Therefore $|G(\psi,\chi)|^2=\psi(1)q=q$ and so we have the required result.
+\end{proof}
+Now under various transformations of the additive or multiplicative characters Gaussian sums gives some useful identities. We will see some of these below.
+
+\begin{lemma}{}{lem:gaussian-sum-identity}
+  Gaussian sums for the finite field $\bbF_q$ satisfy the following identities. For any $a\in \bbF_q$ let $\chi_a$ be the additive character. Let $\psi$ be any multiplicative character and $\chi$ be any additive character of $\bbF_q$.  Then we have the following identities\begin{enumerate}[label=(\roman*)]
+    \item $G(\psi,\chi_{ab})=\ov{\psi(a)}\cdot G(\psi,\chi_b)$ for any $a\in \bbF_q^*$ and $b\in \bbF_q$.
+    \item $G(\psi,\ov{\chi})=\psi(-1)\cdot G(\psi,\chi)$.
+    \item $G(\ov{\psi},\chi)=\psi(-1)\ov{G(\psi,\chi)}$.
+    \item $G(\psi,\chi)\cdot G(\ov{\psi},\chi)=\psi(-1)q$ if $\psi$ and $\chi$ are non-trivial multiplicative and additive characters of $\bbF_q$ respectively.
+    \item $G(\psi^p,\chi_b)=G(\psi,\chi_{\sg(b)} )$ for any $b\in \bbF_q$ where $p=\Char(\bbF_q)$ and $\sg(X)=X^p$ be the Frobenius automorphism of $\bbF_q$.
+  \end{enumerate}
+\end{lemma}
+\begin{proof}
+  \begin{enumerate}[label=(\roman*)]
+    \item For any $\gm\in\bbF_q$ we have $\chi_{ab}(\gm)=\chi_1(ab\cdot \gm)=\chi_b(a\cdot \gm)$. Hence $$G(\psi,\chi_{ab})=\sum_{\gm\in\bbF_q^*}\psi(\gm)\cdot \chi_{ab}(\gm)=\sum_{\gm\in\bbF_q^*}\psi(\gm)\cdot \chi_b(a\cdot \gm)$$Now take $d=a\cdot \gm$. Then $gm=a^{-1}\cdot d$. Hence $$G(\psi,\chi_{ab})=\sum_{d\in\bbF_q^*}\psi(a^{-1}\cdot d)\cdot \chi_b(d)=\psi(a^{-1})\cdot \sum_{d\in\bbF_q^*}\psi(d)\cdot \chi_b(d)=\ov{\psi(a)}\cdot G(\psi,\chi_b)$$Hence we have the first identity.
+    \item Now we have $\chi=\chi_b$ for some suitable $b\in \bbF_q$. Therefore $\ov{\chi}=\chi_{(-1)\cdot b}$. Hence by the first identity we have $G(\psi,\ov{\chi})=\ov{\psi(-1)}\cdot G(\psi,\chi_b)=\psi(-1)\cdot G(\psi,\chi)$. The last equality holds because $\psi(-1)=\pm 1$.
+    \item Now again we have $\ov{\chi}=\chi_b$ for some suitable $b\in \bbF_q$. Hence $\chi=\chi_{(-1)\cdot b}$. Again by using the first identity we have $$G(\ov{\psi},\chi)=G\lt(\ov{\psi},\chi_{(-1)\cdot b}\rt)=\ov{\psi(-1)}\cdot G(\ov{\psi},\chi_b)=\psi(-1)\cdot G(\ov{\psi},\ov{\chi})$$Now we definition of Gaussian sums we have $G(\ov{\psi},\ov{\chi})=\ov{G(\psi,\chi)}$. Hence we have the required identity.
+    \item Now using part (ii) and (iii) we have $$G(\psi,\chi)\cdot G(\ov{\psi},\chi)=G(\psi,\chi)\cdot \psi(-1)\ov{G(\psi,\chi)}=\psi(-1)\cdot |G(\psi,\chi)|^2$$Since $\psi$ and $\chi$ are non-trivial multiplicative and additive characters of $\bbF_q$ respectively by \thmref{thm:gaussian-sum} we have $|G(\psi,\chi)|^2=q$. Hence we have the required identity.
+    \item If $\tr$ is the absolute trace function from $\bbF_q$ to $\bbF_p$ then for any $\alpha\in\bbF_q$ we have $\tr(\alpha)=\tr(\alpha^p)$. Hence $\chi_1(\alpha)=\chi_1(\alpha^p)$. Hence for any $\alpha\in \bbF_q$, we get $\chi_b(\alpha)=\chi_1(b\cdot \alpha)=\chi_1(b^p\cdot \alpha^p)=\chi_{\sg(b)}(\alpha^p)$. Therefore $$G(\psi^p,\chi_b)=\sum_{\alpha\in\bbF_q^*}\psi^p(\alpha)\cdot \chi_b(\alpha)=\sum_{\alpha\in\bbF_q^*}\psi(\alpha^p)\chi_{\sg(b)}(\alpha^p)=G(\psi,\chi_{\sg(b)})$$Therefore  we have the required result.
+  \end{enumerate}
+\end{proof}
+
+Now we can use Gaussian Sums in a variety of context. For any multiplicative character $\psi$ we can express the value of $\psi$ at any nonzero $\alpha\in\bbF_q$ using Gaussian sums and additive characters. And similarly for any additive character $\chi$ of $\bbF_q$ we can express the value of $\chi$ at any nonzero $\alpha\in\bbF_q$ using Gaussian sums and multiplicative characters.
+
+Now by \thmref[(iii)]{thm:add-char-props} for any $\alpha\in\bbF_q^*$ we have \begin{align*}
+  \psi(\alpha) & =\frac1q\sum_{\beta\in \bbF_q^*}\psi(\beta)\sum_{c\in\bbF_q}\chi_{c}(\alpha)\ov{\chi_{c}(\beta)}  \\
+               & =\frac1q\sum_{c\in\bbF_q}\chi_c(\alpha)\sum_{\beta\in\bbF_q^*}\psi(\beta)\cdot \ov{\chi}_c(\beta) \\
+               & =\frac1q\sum_{c\in\bbF_q}\chi_c(\alpha)\cdot G(\psi,\ov{\chi}_c)                                  \\
+               & =\frac1q\sum_{\chi\in\Xq}G(\psi,\ov{\chi})\chi(\alpha)
+\end{align*}This may be thought of as the Fourier expansion of $\psi$ in terms of the additive characters of $\bbF_q$, with Gaussian sums appearing as Fourier coefficients. 
+
+We can do similar thing for multiplicative characters of $\bbF_q$. By using \thmref[(iii)]{thm:mult-char-props} we get $$\chi(\alpha)=\frac1{q-1}\sum_{\psi\in\Mq}G(\ov{\psi},\chi)\chi(\alpha)$$ This can be interpreted as the Fourier expansion of the multiplicative characters of $\bbF_q$ with the Gaussian sums as Fourier coefficients. Hence we have the observations:
+\begin{observation}
+  For any multiplicative character $\psi$ and additive character $\chi$ of $\bbF_q$ and any  $\alpha\in\bbF_q^*$ we have \begin{enumerate}[label=(\roman*)]
+    \item $\psi(\alpha)=\frac1q\sum\limits_{\chi\in \Xq}G(\psi,\ov{\chi})\chi(\alpha)$ 
+    \item $\chi(\alpha)=\frac1{q-1}\sum\limits_{\psi\in\Mq}G(\ov{\psi},\chi)\psi(\alpha)$
+  \end{enumerate}
+\end{observation}
