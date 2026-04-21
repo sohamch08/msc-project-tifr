@@ -5,6 +5,7 @@
 \input{letterfonts}
 \input{macros}
 \usepackage{thmtools,thm-restate,nicefrac}
+\usepackage{longtable,booktabs}
 \usepackage{faktor}
 \linespread{1.2}
 \definecolor{mycolor1}{HTML}{1becff}
@@ -96,6 +97,80 @@
 f
 \end{abstract}
 
+\chapter*{Preface}
+...
+
+\chapter*{Acknowledgements}
+...
+
+\chapter*{List of Notations}
+\addcontentsline{toc}{chapter}{List of Notations}
+
+\noindent The following table lists the notation used throughout this report, organized by topic.
+
+\vspace{1em}
+\noindent\begin{longtable}{@{}p{0.32\textwidth} p{0.63\textwidth}@{}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} \\\midrule\endfirsthead
+\multicolumn{2}{c}{(\textit{continued from previous page})}\\[4pt]\toprule
+\textbf{Symbol} & \textbf{Meaning} \\\midrule\endhead
+\midrule\multicolumn{2}{r}{\textit{continued on next page}}\\\endfoot
+\bottomrule\endlastfoot
+
+\multicolumn{2}{@{}l}{\textit{General}}\\[2pt]
+$\bbC$ & Set of complex numbers \\
+$S^1$ & $\{z\in\bbC:|z|=1\}$. The multiplicative group of complex numbers of absolute value $1$ \\
+$\zeta_m$ & A primitive $m$-th root of unity \\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Finite Fields}}\\[2pt]
+$\bbF_q$ & Finite field with $q$ elements \\
+$\bbF_q^*$ & Multiplicative group of nonzero elements of $\bbF_q$ \\
+$\bbF_p$ & Prime field with $p$ elements \\
+$(\bbF_q^*)^{(d)}$ & Subgroup of $d$-th powers in $\bbF_q^*$ \\
+$r=[E:\bbF_q]$ & Degree of the extension $E/\bbF_q$ \\
+$E,F,L,K$ & Generic notation for finite fields or finite extensions of finite fields \\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Characters of Finite Abelian Groups}}\\[2pt]
+$G$ & A finite abelian group with identity element $1_G$ \\
+$Z_k$ & Cyclic multiplicative group of order $k$ \\
+$\chi_0$ & Trivial character of $G$: $\chi_0(g)=1$ for all $g\in G$ \\
+$\ov{\chi}$ & Conjugate (and inverse) character of $\chi$: $\ov{\chi}(g)=\overline{\chi(g)}$ \\
+$\Hom(A,B)$ & Set of all group homomorphisms from $A$ to $B$ \\
+$\hG=\Hom(G,S^1)$ & Dual group of $G$; the group of all characters of $G$ \\
+$\Ann(\chi)$ & Annihilator of character $\chi$: $\{g\in G:\chi(g)=1\}$, a subgroup of $G$ \\
+$\Ann(H)$ & Annihilator of subgroup $H\leq G$: $\{\chi\in\hG:\chi(h)=1\ \forall h\in H\}$, a subgroup of $\hG$ \\
+$\ev_g$ & Evaluation character of $\hG$ defined by $\ev_g(\chi)=\chi(g)$ \\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Maps on Finite Fields}}\\[2pt]
+$\tr:\bbF_q\to\bbF_p$ & Absolute trace function \\
+$\tr_{E/\bbF_q}$ & Trace function from $E$ to $\bbF_q$ \\
+$\norm_{E/\bbF_q}$ & Norm function from $E$ to $\bbF_q$ \\
+$\sg:\bbF_q\to\bbF_q$ & Frobenius automorphism: $\sg(\alpha)=\alpha^p$ \\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Additive Characters of $\bbF_q$}}\\[2pt]
+$\chi,\tau$ & Generic notation for additive characters \\
+$\chi_1$ & Canonical additive character of $\bbF_q$: $\chi_1(\alpha)=e^{2\pi i\,\tr(\alpha)/p}$ \\
+$\chi_\beta$ & Additive character defined by $\chi_\beta(\alpha)=\chi_1(\beta\alpha)$, for $\beta\in\bbF_q$ \\
+$\Xq$ & Set of all additive characters of $\bbF_q$ \\
+$\chi^{(r)}$ & Additive character of $\bbF_q$ lifted to $E$ by  $\chi^{(r)}=\chi\circ\tr_{E/\bbF_q}$ with $[E:\bbF_q]=r$ \\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Multiplicative Characters of $\bbF_q$}}\\[2pt]
+$\psi,\lm$ & Generic notation for multiplicative characters \\
+$\psi_0$ & Trivial multiplicative character of $\bbF_q$ \\
+$\psi_j$ & Multiplicative character defined by $\psi_j(g^k)=e^{2\pi ijk/(q-1)}$, for $0\leq j\leq q-2$ \\
+$\eta$ & Quadratic character of $\bbF_q$ (for odd $q$): $\eta(\alpha)=1$ if $\alpha$ is a square in $\bbF_q^*$, and $-1$ otherwise \\
+$\Mq$ & Set of all multiplicative characters of $\bbF_q^*$ \\
+$\Mq^{(e)}$ & Set of multiplicative characters of $\bbF_q$ of exponent $e$ \\
+$\ord(\psi)$ & Order of $\psi$: smallest positive integer $d$ with $\psi^d=\psi_0$ \\
+$\Leg{\alpha}{q}$ & Legendre symbol; equals $\eta(\alpha)$ for $\alpha\in\bbF_q$ \\
+$\psi^{(r)}$ & Multiplicative character of $\bbF_q$ lifted to $E$ by $\psi^{(r)}=\psi\circ\norm_{E/\bbF_q}$ with $[E:\bbF_q]=r$ \\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Exponential Sums}}\\[2pt]
+$G(\psi,\chi)$ & Gaussian sum: $\displaystyle\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\,\chi(\alpha)$, for $\psi\in\Mq$, $\chi\in\Xq$ \\[12pt]
+$J_\alpha(\lm_1,\dots,\lm_k)$ & Generalized Jacobi sum: $\displaystyle\sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\\alpha_1+\cdots+\alpha_k=\alpha}}\lm_1(\alpha_1)\cdots\lm_k(\alpha_k)$, for $\lm_i\in\Mq$ \\[16pt]
+$J(\lm_1,\dots,\lm_k)$ & Jacobi sum; the special case $\alpha=1$ of $J_\alpha$ \\
+$J_0(\lm_1,\dots,\lm_k)$ & Jacobi sum at $0$; the special case $\alpha=0$ of $J_\alpha$ \\
+\end{longtable}
 
 \newpage
 \titleformat{name=\chapter,numberless}[display]
