@@ -1,1 +1,128 @@
 \section{Jacobi Sums}
+Jacobi sums form another class of exponential sums which are of great importance in algebraic number theory. Jacobi sums are defined on product of many multiplicative characters. 
+
+Let $\psi\in\Mq$ is a multiplicative character of $\bbF_q$. So we extend the definition of $\psi$ following \autoref{sec:mult-char} by setting $\psi(0)=1$ if $\psi$ is the trivial character and $\psi(0)=0$ if $\psi$ is a non-trivial character. From now on by default we will always use this extended definition of multiplicative characters. 
+
+So now let $\lm_1,\lm_2,\dots, \lm_k\in\Mq$ be $k$ multiplicative characters of $\bbF_q$. Let $\alpha\in \bbF_q$ be fixed. Then define the sum $$J_{\alpha}(\lm_1,\dots, \lm_k)=\sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\ \alpha_1+\cdots+\alpha_k=\alpha}}\lm_1(\alpha_1)\cdot \lm_2(\alpha_2)\cdots\lm_k(\alpha_k)$$Thus in the above sum there are $q^{k-1}$ terms. Now if $\alpha\neq 0$ then define $\beta_i=\alpha^{-1}\cdot \alpha_i$. Then $\beta_1+\cdots+\beta_k=1$ and the above summations gives us \begin{align*}
+  J_{\alpha}(\lm_1,\dots, \lm_k) & = \sum_{\substack{\beta_1,\dots,\beta_k\in\bbF_q\\ \beta_1+\cdots+\beta_k=1}}\lm_1(\alpha\cdot \beta_1)\cdots\lm_k(\alpha\cdot \beta_2)\\ 
+  & = (\lm_1\cdots\lm_k)(\alpha)\sum_{\substack{\beta_1,\dots,\beta_k\in\bbF_q\\ \beta_1+\cdots+\beta_k=1}}\lm_1(\beta_1)\cdots\lm_k(\beta_2)\\ 
+  & = (\lm_1\cdots\lm_k)(\alpha)\cdot J_1(\lm_1,\dots, \lm_k)
+\end{align*}
+Because of this relation it is enough to consider only the sums $J_0(\lm_1,\dots, \lm_k)$ and $J_1(\lm_1,\dots, \lm_k)$. The second sum is called the \emph{Jacobi sum} and it has more important applications and so we use a slightly simpler notation. 
+\begin{Definition}{Jacobi Sum}{}
+  Let $\lm_1,\dots, \lm_k\in\Mq$ be multiplicative characters of $\bbF_q$. Then the Jacobi sum is defined by $$J(\lm_1,\dots, \lm_k)\sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\ \alpha_1+\cdots+\alpha_k=1}}\lm_1(\alpha_1)\cdots\lm_k(\alpha_k)$$
+\end{Definition} 
+
+Now we want to find the value of $J(\lm_1,\dots, \lm_k)$ and $J_0(\lm_1,\dots, \lm_k)$. If $k=1$ then $J(\lm)=\lm(1)=1$ for any $\lm\in\Mq$ of $\bbF_q$. And $J_0(\lm)=0$ if $\lm$ is non-trivial and its $1$ if $\lm$ is trivial multiplicative character. Therefore, Jacobi sums are only of interest when $k\geq 2$. Now first we have the following observation
+\begin{observation}
+  By the definition of the Jacobi sums $J(\lm_1,\dots, \lm_k)$ and $J_0(\lm_1,\dots, \lm_k)$ are independent of the order in which the characters $\lm_i$ are listed.
+\end{observation} 
+
+Now we can evaluate Jacobi sums in some cases pretty easily. Specially if at least one of the multiplicative characters is trivial. 
+\begin{lemma}{}{lem:jacobi-some-trivial}
+Let $\lm_1,\dots, \lm_k\in\Mq$ are multiplicative characters of $\bbF_q$. Then\begin{enumerate}[label=(\roman*)]
+  \item If $\lm_1=\cdots=\lm_k=\psi_0$ where $\psi_0$ is the trivial multiplicative character then $$J(\lm_1,\dots, \lm_k)=J_0(\lm_1,\dots, \lm_k)=q^{k-1}$$
+  \item If some but not all $\lm_i$'s are trivial then $$J(\lm_1,\dots, \lm_k)=J_0(\lm_1,\dots, \lm_k)=0$$
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+  \begin{enumerate}[label=(\roman*)]
+    \item Since all $\lm_i$'s are trivial for all $\alpha\in\bbF_q$, $\lm(\alpha)=1$. Hence each term of both the Jacobi sums give $1$. Now the sum is over $q^{k-1}$ choices of $(\alpha_1,\dots, \alpha_k)\in\bbF_q^k$. Hence $J(\lm_1,\dots, \lm_k)=J_0(\lm_1,\dots, \lm_k)=q^{k-1}$. 
+    \item WLOG suppose $\lm_1,\dots, \lm_t$ are non-trivial multiplicative characters where $1\leq t<k$ and $\lm_{t+1},\dots, \lm_k$ are all trivial. Then we have \begin{align*}
+      J(\lm_1,\dots, \lm_k)& = \sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\ \alpha_1+\cdots+\alpha_k=1}} \lm_1(\alpha_1)\cdots\lm_k(\alpha_k)\\ 
+      & = \sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\ \alpha_1+\cdots+\alpha_k=1}}\lm_1(\alpha_1)\cdots \lm_t(\alpha_t)
+    \end{align*}
+    Now for any fixed $\alpha_1,\dots, \alpha_t\in\bbF_q$ there are $q^{k-t-1}$ solutions of $(\alpha_{t+1},\dots, \alpha_k)$ such that $\alpha_{t+1}+\cdots+\alpha_k=1-(\alpha_1+\cdots+\alpha_t)$. Therefore we get \begin{align*}
+      J(\lm_1,\dots,\lm_k) & = q^{k-h-1}\sum_{\alpha_1,\dots,\alpha_t\in\bbF_q}\lm_1(\alpha_1)\cdots \lm_t(\alpha_t)\\ 
+      & = q^{k-h-1}\prod_{i=1}^t \lt(\sum_{\alpha_i\in\bbF_q}\lm_i(\alpha_i)\rt)\\ 
+      & = 0 \byt[(i)]{mult-char-props}
+    \end{align*}With a very similar argument for $J_0(\lm_1,\dots,\lm_k)$ we get the identity. 
+  \end{enumerate}
+\end{proof}
+
+Before going to the case where all $\lm_i$'s are non-trivial we will show that a relation between $J_0(\lm_1,\dots,\lm_k)$ and $J(\lm_1,\dots, \lm_k)$. This will show that studying $J(\lm_1,\dots, \lm_k)$ suffices to study all kinds of Jacobi sums. 
+\begin{lemma}{}{lem:jacobi-zero-relation}
+  Let $\lm_1,\dots,\lm_k\in\Mq$ are multiplicative characters of $\bbF_q$ with $\lm_k$ is non-trivial. Then $$J_0(\lm_1,\dots,\lm_k)=\begin{cases}
+    0 &\text{if }\prod_{i=1}^k\lm_i\text{ is non-trivial}\\
+    \lm_k(-1)\cdot (q-1)\cdot J(\lm_1,\dots,\lm_{k-1}) & \text{if }\prod_{i=1}^k\lm_i\text{ is trivial}
+  \end{cases}$$
+\end{lemma}
+\begin{proof}
+  For $k=1$, we already showed $J_0(\lm_1)=\lm_1(0)=0$ as $\lm_1$ is non-trivial by hypothesis. So suppose $k\geq 2$. Then we have 
+  \begin{align*}
+    J_0(\lm_1,\dots,\lm_k) & = \sum_{\alpha\in\bbF_q}J_{-\alpha}(\lm_1,\dots,\lm_{k-1})\cdot \lm_k(\alpha)\\ 
+    & = \sum_{\alpha\in\bbF_q}\lt(\prod_{i=1}^{k-1}\lm_i\rt)(-\alpha)\cdot J(\lm_1,\dots,\lm_{k-1})\cdot \lm_k(\alpha)\\ 
+    & = J(\lm_1,\dots,\lm_{k-1})\sum_{\alpha\in\bbF_q}\lt(\prod_{i=1}^{k-1}\lm_i\rt)(-\alpha)\cdot \lm_k(\alpha)\\
+    & = \lt(\prod_{i=1}^{k-1}\lm_i\rt)(-1)\cdot J(\lm_1,\dots,\lm_{k-1})\sum_{\alpha\in\bbF_q}\lt(\prod_{i=1}^{k}\lm_i\rt)(\alpha)
+  \end{align*}
+  Now by \thmref[(i)]{thm:mult-char-props} if $\prod_{i=1}^{k}\lm_i$ is nontrivial then  the sum $0$, so the first case is shown and if $\prod_{i=1}^{k}\lm_i$ is trivial then the last sum is $q-1$. Now since $\prod_{i=1}^{k}\lm_i$ is trivial $\prod_{i=1}^{k-1}\lm_i=\ov{\lm_k}(-1)=\lm_k(-1)$. So we have $$J_0(\lm_1,\dots,\lm_k)=\lm_k(-1)\cdot (q-1)\cdot J(\lm_1,\dots,\lm_{k-1})$$Hence we have the lemma.
+\end{proof}
+
+Hence the only case for $J_0(\lm_1,\dots,\lm_k)$ for which we still don't know the absolute value is the case when all $\lm_i$'s are non-trivial and $\prod_{i=1}^k\lm_i$ is trivial. Since we understand Gaussian sums very well we will first build an important connection between Jacobi sums and Gaussian sums that will allow us to calculate the absolute value of Jacobi sums. 
+\begin{Theorem}{}{thm:jacobi-gaussian}
+  Let $\lm_1,\dots,\lm_k\in\Mq$ are non-trivial multiplicative characters of $\bbF_q$ and $\chi\in\Xq$ is a non-trivial additive character of $\bbF_q$.
+  \begin{enumerate}[label=(\roman*)]
+    \item If $\prod_{i=1}^k$ is non-trivial then$$J(\lm_1,\dots, \lm_k)=\frac{G(\lm_1,\chi)\cdot G(\lm_2,\chi)\cdots G(\lm_k,\chi)}{G(\lm_1\cdots \lm_k,\chi)}$$
+    \item If $\prod_{i=1}^k$ is trivial then \begin{align*}
+      J(\lm_1,\dots, \lm_k)& = -\lm_k(-1)\cdot J(\lm_1,\dots, \lm_{k-1})\\ 
+      & = -\frac1q \prod_{i=1}^{k}G(\lm_i,\chi)
+    \end{align*}
+  \end{enumerate}
+\end{Theorem}
+\begin{proof}
+  Since each $\lm_i$'s are non-trivial we have $\lm_i(0)=0$. By definition of $$G(\lm_i,\chi)=\sum_{\alpha_i\in\bbF_q^*}\lm_i{\alpha}\cdot \chi(\alpha)=\sum_{\alpha_i\in\bbF_q}\lm_i{\alpha}\cdot \chi(\alpha)$$So now we will try to express the product of Gaussian sums as product of a Jacobi and a Gaussian sum. 
+  \begin{align}
+    G(\lm_1,\chi)\cdots G(\lm_k,\chi) & = \prod_{i=1}^k \lt(\sum_{\alpha_i\in\bbF_q}\lm_i(\alpha_i)\cdot \chi(\alpha_i)\rt) \nonumber\\
+    & = \sum_{\alpha_1,\dots,\alpha_k\in\bbF_q}\lt( \prod_{i=1}^k\lm_i(\alpha_i) \rt) \cdot \chi\lt( \sum_{i=1}^k \alpha_i \rt)\nonumber\\
+    & =\sum_{\alpha\in\bbF_q}\chi(\alpha)\sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\ \alpha_1+\cdots+\alpha_k=\alpha}}\lt( \prod_{i=1}^k\lm_i(\alpha_i) \rt)\nonumber\\
+    & = \sum_{\alpha\in\bbF_q}\chi(\alpha)\cdot J_{\alpha}(\lm_1,\dots,\lm_k)\label{eq:gauss-prod-jacobi-sum}
+  \end{align}
+  Now if $\prod_{i=1}^k \lm_i$ is non-trivial then by \lemref{lem:jacobi-zero-relation} we get $J_0(\lm_1,\dots, \lm_k)=0$. Now since for all $\alpha\in\bbF_q^*$ we have $J_{\alpha}(\lm_1,\dots,\lm_k)=\lt(\prod_{i=1}^k\lm_i\rt)(\alpha)\cdot J(\lm_1,\dots,\lm_k)$. Therefore we have $$\prod_{i=1}^k G(\lm_i,\chi)=J(\lm_1,\dots,\lm_k)\sum_{\alpha\in\bbF_q^*}\lt(\prod_{i=1}^k\lm_i\rt)(\alpha)\cdot \chi(\alpha)= J(\lm_1,\dots,\lm_k)\cdot G\lt(\prod_{i=1}^k\lm_i,\chi\rt)$$Since $\chi$ is non-trivial and $\prod_{i=1}^k\lm_i$ is non-trivial we have $G(\lm_1\cdots\lm_k,\chi)\neq 0$ by \thmref{thm:gaussian-sum}. So we have the first result. 
+
+  Now if $\prod_{i=1}^k\lm_i$ is trivial, then for all $\alpha\in\bbF_q^*$ we have $J_{\alpha}(\lm_1,\dots,\lm_k)=J(\lm_1,\dots, \lm_k)$. Hence rewriting the equation in \eqref{eq:gauss-prod-jacobi-sum} we get \begin{align*}
+    \prod_{i=1}^k G(\lm_i,\chi)& =\sum_{\alpha\in\bbF_q}\chi(\alpha)\cdot J_{\alpha}(\lm_1,\dots,\lm_k)\\ 
+    & = J_0(\lm_1,\dots,\lm_k)+J(\lm_1,\dots,\lm_k)\sum_{\alpha\in\bbF_q}\chi(\alpha)\\ 
+    & = J_0(\lm_1,\dots,\lm_k)+(q-1)J(\lm_1,\dots,\lm_k) \byt[(i)]{add-char-props}\\ 
+    & = \sum_{\alpha\in\bbF_q}J(\lm_1,\dots,\lm_k)\\ 
+    & = \sum_{\alpha_1,\dots,\alpha_k\in\bbF_q}\prod_{i=1}^k\lm_i(\alpha_i)\\ 
+    & = \prod_{i=1}^k \lt(\sum_{\alpha\in\bbF_q}\lm_i(\alpha_i)\rt)=0\byt[(i)]{mult-char-props}
+  \end{align*} Since $\lm_k$ is non-trivial and $\prod_{i=1}^k\lm_i$ is trivial using \lemref{lem:jacobi-zero-relation}  we have  $$\lm_k(-1)\cdot (q-1)\cdot J(\lm_1,\dots,\lm_{k-1})+(q-1)J(\lm_1,\dots, \lm_k)=0\iff J(\lm_1,\dots, \lm_k)=-\lm_k(-1)\cdot J(\lm_1,\dots,\lm_{k-1})$$So we already got the first expression for the second case. Since $\prod_{i=1}^{k-1}\lm_i$ is non-trivial by induction hypothesis we get \begin{align*}
+    \lm_k(-1)\cdot J(\lm_1,\dots,\lm_{k-1})& = \lm_k(-1)\frac{G(\lm_1,\chi)\cdots G(\lm_{k-1},\chi)}{G(\lm_1\cdots\lm_{k-1},\chi)}\\ 
+    & = \lm_k(-1)\frac{G(\lm_1,\chi)\cdots G(\lm_{k},\chi)}{G(\ov{\lm_k},\chi)\cdot G(\lm_k,\chi)}& [\text{Since }\lm_1\cdots\lm_k\text{ trivial, } \lm_1\cdots\lm_{k-1}=\ov{\lm_k}]\\ 
+    & = \lm_k(-1)\frac{G(\lm_1,\chi)\cdots G(\lm_{k},\chi)}{\lm_k(-1)q}\byl[(iv)]{gaussian-sum-identity}\\ 
+    & = \frac1q\cdot G(\lm_1,\chi)\cdots G(\lm_{k},\chi)
+  \end{align*}
+  Hence we obtain the second expression. Therefore we have the theorem. 
+\end{proof}
+
+Now we have all the results to calculate the absolute value of the Jacobi sum for non-trivial multiplicative characters. So we have the following theorem. 
+\begin{Theorem}{}{thm:jacobi-sum}
+  Let $\lm_1,\dots,\lm_k\in\Mq$ be non-trivial multiplicative characters of $\bbF_q$. Then $$|J(\lm_1,\dots,\lm_k)|=\begin{cases}
+    q^{\nicefrac{(k-1)}{2}}& \text{If $\prod_{i=1}^k \lm_i$ is non-trivial}\\ 
+    q^{\nicefrac{(k-2)}{2}}& \text{If $\prod_{i=1}^k \lm_i$ is trivial}
+  \end{cases}$$
+\end{Theorem}
+\begin{proof}
+  Suppose $\prod_{i=1}^k\lm_i$ is non-trivial. Then for any non-trivial additive character $\chi\in\Xq$ of $\bbF_q$ by \thmref{thm:jacobi-gaussian} we get $$J(\lm_1,\dots, \lm_k)=\frac{G(\lm_1,\chi)\cdot G(\lm_2,\chi)\cdots G(\lm_k,\chi)}{G(\lm_1\cdots \lm_k,\chi)}$$Since each $\lm_i$ non-trivial by \thmref{thm:gaussian-sum} we get $|G(\lm_i,\chi)|=q^{\nicefrac12}$ for all $i\in[k]$ and $|G(\lm_1\cdots\lm_k,\chi)|=q^{\nicefrac12}$. Hence we get $$|J(\lm_1,\dots,\lm_k)|=\frac{\prod_{i=1}^k|G(\lm_i,\chi)|}{|G(\lm_1\cdots\lm_k,\chi)|}=q^{\nicefrac{(q-1)}{2}}$$
+  
+  Now suppose $\prod_{i=1}^k\lm_i$ is trivial. Then again by \thmref{thm:jacobi-gaussian} we have $$J(\lm_1,\dots, \lm_k) = -\lm_k(-1)\cdot J(\lm_1,\dots, \lm_{k-1})$$Now since $\prod_{i=1}^k\lm_i$ is trivial and $\lm_k$ is non-trivial we have $\prod_{i=1}^{k-1}\lm_i$ is non-trivial. Hence by using the first case we have $|J(\lm_1,\dots,\lm_{k-1})|=q^{\nicefrac{(k-2)}{2}}$. Hence $J(\lm_1,\dots, \lm_k)|=q^{\nicefrac{(k-2)}{2}}$. Therefore we have the result. 
+\end{proof}
+
+Using the value of $J(\lm_1,\dots,\lm_k)$ we can also get the absolute value of $J_0(\lm_1,\dots,\lm_k)$ when all $\lm_i$'s are non-trivial and $\prod_{i=1}^k\lm_i$ is trivial. 
+\begin{corolary}{}{}
+  Let $\lm_1,\dots,\lm_k\in\Mq$ be non-trivial multiplicative characters of $\bbF_q$ and $\prod_{i=1}^k\lm_i$ is trivial. Then $$|J_0(\lm_1,\dots,\lm_k)|=(q-1)q^{\nicefrac{(k-2)}{2}}$$
+\end{corolary}
+\begin{proof}
+  Using \lemref{lem:jacobi-zero-relation} we have $J_0(\lm_1,\dots,\lm_k)=\lm_k(-1)\cdot (q-1)\cdot J(\lm_1,\dots,\lm_{k-1})$. Now since $\prod_{i=1}^k\lm_i$ is trivial and $\lm_k$ is non-trivial we have $\prod_{i=1}^{k-1}\lm_i$ is non-trivial. Therefore by \thmref{thm:jacobi-sum} we have $|J(\lm_1,\dots,\lm_{k-1})|=q^{\nicefrac{(k-2)}{2}}$. Therefore together we have the corollary. 
+\end{proof}
+
+Combining \lemref{lem:jacobi-some-trivial}, \lemref{lem:jacobi-zero-relation}, \thmref{thm:jacobi-sum}, and the corollary above, we obtain a complete description of the absolute values of Jacobi sums in all cases.
+\begin{Theorem}{}{thm:jacobi-sum-complete}
+  Let $\lm_1,\dots,\lm_k\in\Mq$ be multiplicative characters of $\bbF_q$. Then
+  \begin{enumerate}[label=(\roman*)]
+    \item If $\lm_i$ is trivial for all $i\in[k]$ then $J(\lm_1,\dots,\lm_k)=J_0(\lm_1,\dots,\lm_k)=q^{k-1}$.
+    \item If some but not all $\lm_i$'s are trivial then $J(\lm_1,\dots,\lm_k)=J_0(\lm_1,\dots,\lm_k)=0$.
+    \item If all $\lm_i$'s are non-trivial and $\prod_{i=1}^k\lm_i$ is non-trivial then $|J(\lm_1,\dots,\lm_k)|=q^{\nicefrac{(k-1)}{2}}$ and $J_0(\lm_1,\dots,\lm_k)=0$.
+    \item If all $\lm_i$'s are non-trivial and $\prod_{i=1}^k\lm_i$ is trivial then $|J(\lm_1,\dots,\lm_k)|=q^{\nicefrac{(k-2)}{2}}$ and $|J_0(\lm_1,\dots,\lm_k)|=(q-1)q^{\nicefrac{(k-2)}{2}}$.
+  \end{enumerate}
+\end{Theorem}
