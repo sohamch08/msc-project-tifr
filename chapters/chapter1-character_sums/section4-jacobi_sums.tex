@@ -126,3 +126,60 @@ Combining \lemref{lem:jacobi-some-trivial}, \lemref{lem:jacobi-zero-relation}, \
     \item If all $\lm_i$'s are non-trivial and $\prod_{i=1}^k\lm_i$ is trivial then $|J(\lm_1,\dots,\lm_k)|=q^{\nicefrac{(k-2)}{2}}$ and $|J_0(\lm_1,\dots,\lm_k)|=(q-1)q^{\nicefrac{(k-2)}{2}}$.
   \end{enumerate}
 \end{Theorem}
+
+Now the case $k=2$ often appears in most of the applications of Jacobi sums. Some of those results are of special interest. 
+\begin{lemma}{}{}
+  Let $\lm$ be a multiplicative character of $\bbF_q$ of order $m\geq 2$ and let $\chi$ be a non-trivial additive character of $\bbF_q$. Then $$G(\lm,\chi)^m=\lm(-1)\cdot q\cdot J(\lm,\lm)\cdot J(\lm,\lm^2)\cdots J(\lm,\lm^{m-2})$$ 
+\end{lemma}
+\begin{proof}
+  If $m=2$ then $\ov{\lm}=\lm$ and so $G(\lm,\chi)^2=G(\lm,\chi)\cdot G(\ov{\lm},\chi)$ and the right hand side becomes $\lm(-1)\cdot q$ which we already have from \lemref[(iv)]{lem:gaussian-sum-identity}. So now suppose $m\geq 3$. 
+
+  Then from \thmref{thm:jacobi-gaussian} we have for all $i\in[m-2]$ $$J(\lm,\lm^i)=\frac{G(\lm,\chi)\cdot G(\lm^i,\chi)}{G(\lm^{i+1},\chi)}$$ Therefore taking product of all $J(\lm,\lm^i)$ for all $i\in[m-2]$ we get \begin{align*}
+    \prod_{i=1}^{m-2}J(\lm,\lm^i) & = \prod_{i=1}^{m-2}\frac{G(\lm,\chi)\cdot G(\lm^i,\chi)}{G(\lm^{i+1},\chi)}\\ 
+    & =G(\lm,\chi)^{m-2}\; \frac{G(\lm,\chi)}{G(\lm^{m-1},\chi)}\\ 
+    & = \frac{G^{m-1}(\lm,\chi)}{G(\lm^{m-1},\chi)}
+  \end{align*}
+  Since $\ord(\lm)=m$ we have $\lm^{m-1}=\ov{\lm}$. Therefore we have $$\prod_{i=1}^{m-2}J(\lm,\lm^i)=\frac{G^{m-1}(\lm,\chi)}{G(\lm^{m-1},\chi)}=\frac{G^m(\lm,\chi)}{G(\ov{\lm},\chi)\cdot G(\lm,\chi)}= \frac{G^m(\lm,\chi)}{\lm(-1)\cdot q}$$Therefore we have the lemma. 
+\end{proof}
+
+Now we give another result of relation between Gaussian sums for the $k=2$ case. This gives relation between two Gaussian sums on non-trivial multiplicative characters of different orders using Jacobi sums. We will not prove this theorem as it is far too complicated to be included in here. 
+\begin{Theorem}{Davenport--Hasse Product Formula}{thm:davenport-hasse-product}
+  Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi_b\in\Xq$ be a non-trivial additive character of $\bbF_q$ as defined in \thmref{thm:add-char-define}. Then $$\frac{G(\psi,\chi_b)^m}{G(\psi^m,\chi_{mb})} =\prod_{j=1}^{m-1}J(\psi,\lm^j).$$
+\end{Theorem}
+
+Over the prime field $\bbF_p$ the Davenport--Hasse relation admits a more explicit form, in which the root of unity appearing on the right hand side is written in terms of a primitive root modulo $p$. This form appears as Theorem~3 in the paper of Huard, Spearman and Williams.
+\begin{Theorem}{Davenport--Hasse Relation over $\bbF_p$, \cite[Theorem~3]{HuardSpearmanWilliams_1995_AAA}}{thm:davenport-hasse-relation}
+  Let $m\geq 2$ and $n\geq 1$ be integers, let $p$ be an odd prime with $p\equiv 1\bmod{mn}$, and set $f=(p-1)/mn$. Let $g$ be a primitive root modulo $p$, and for any integer $l\not\equiv 0\bmod p$ let $\ind_g(l)$ denote the least nonnegative integer with $g^{\ind_g(l)}\equiv l\bmod p$. Set $\beta_{mn}=e^{2\pi i/mn}$ and let $\lm\in\Mp$ be the multiplicative character of order $mn$ determined by $\lm(g)=\beta_{mn}$. Let $\chi\in\Xp$ be a non-trivial additive character of $\bbF_p$. Then for every $t=1,\dots,m-1$,
+  $$\frac{G(\lm^{tn},\chi)\cdot \prod_{j=1}^{n-1}G(\lm^{mj},\chi)}{\prod_{j=0}^{n-1}G(\lm^{mj+t},\chi)}=\beta_{mn}^{nt\cdot \ind_g(n)},$$
+  equivalently,
+  $$\prod_{j=1}^{n-1}\frac{J(\lm^{mj},\lm^t)}{J(\lm^{tj},\lm^t)}=\beta_{mn}^{nt\cdot \ind_g(n)}.$$
+\end{Theorem}
+
+As an application of the Davenport--Hasse product formula, together with the evaluation of Jacobi sums in \thmref{thm:jacobi-sum-complete}, we obtain the following closed form for the product of Gaussian sums on the $m$ characters $\psi\cdot \lm^i$ twisting $\psi$ by the powers of $\lm$. The two cases reflect the parity of $m$, with the even case picking up an extra quadratic Gaussian sum $G(\eta,\chi_b)$ where $\eta$ is the quadratic character of $\bbF_q$.
+\begin{corolary}{}{}
+  Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi_b\in\Xq$ be a non-trivial additive character of $\bbF_q$ as defined in \thmref{thm:add-char-define}.
+  $$\prod_{j=0}^m G(\psi\cdot \lm^j,\chi_b) =\begin{cases}
+    q^{\nicefrac{(m-1)}{2}}G(\psi^m,\chi_{mb}) & \text{if $m$ is odd}\\ 
+    (-1)^{\nicefrac{(q-1)(m-2)}{8}}\cdot q^{\nicefrac{(m-2)}{2}}\cdot G(\eta,\chi_b)\cdot G(\psi^m,\chi_{mb})& \text{if $m$ is even}
+  \end{cases}$$
+\end{corolary}
+\begin{proof}
+  Since $\ord(\lm)\geq 2$ and $\psi^m$ is non-trivial we have $\psi\cdot \lm^j$ is non-trivial for all $j\in[m-1]$. By \DHprodthm we have $$\frac{G(\psi,\chi_b)^m}{G(\psi^m,\chi_{mb})}=\prod_{j=1}^{m-1}J(\psi,\lm^j)$$ Now by using \thmref{thm:jacobi-gaussian} on the right hand side of this expression we get $$\frac{G(\psi,\chi_b)^m}{G(\psi^m,\chi_{mb})}=\prod_{j=1}^{m-1}\frac{G(\psi,\chi_b)\cdot G(\lm^j,\chi_b)}{G(\psi\cdot \lm^i,\chi_b)}=G(\psi,\chi_b)^{m-1}\prod_{i=1}^j \frac{G(\lm^j,\chi_b)}{G(\psi\cdot \lm^i,\chi_b)}$$So together we have \begin{equation}\label{eq:hsprod-cor}
+    \prod_{j=0}^{m-1}G(\psi\cdot \lm^j,\chi_b)=G(\psi^m,\chi_{mb})\prod_{j=1}^{m-1}G(\lm^j,\chi_b)
+  \end{equation}
+  Notice we already obtained the left hand side and one term in the right hand side correctly. So now the value at right only depends on the product of $G(\lm^j,\chi_b)$'s.
+
+  Now if $m$ is odd then we have \begin{align*}
+    \prod_{j=1}^{m-1}G(\lm^j,\chi_b) & = \prod_{j=1}^{\nicefrac{(m-1)}{2}}G(\lm^j,\chi_b)G(\lm^{m-j},\chi_b)\\ 
+    & = \prod_{j=1}^{\nicefrac{(m-1)}{2}}G(\lm^j,\chi_b)\cdot G(\ov{\lm^j},\chi_b) &[\text{As $\ord(\lm)=m=$ odd}]\\ 
+    & = \prod_{j=1}^{\nicefrac{(m-1)}{2}} \lm^j(-1)\cdot q \byl[(iv)]{gaussian-sum-identity}\\ 
+    & = q^{\nicefrac{(m-1)}{2}}\prod_{j=1}^{\nicefrac{(m-1)}{2}}\lm^j(-1)
+  \end{align*}Since $m$ is odd by \obsref{obs:char-at--1} we have $\lm(-1)=1$. Therefore $$\prod_{j=1}^{m-1}G(\lm^j,\chi_b)=q^{\nicefrac{(m-1)}{2}}$$ 
+  So we have the first case together with \eqref{eq:hsprod-cor}. Now for the remaining case of $m$ being even we have \begin{align*}
+    \prod_{j=1}^{m-1}G(\lm^j,\chi_b) & = G(\lm^{\nicefrac{m}2},\chi_b)\prod_{j=1}^{\nicefrac{(m-2)}{2}}G(\lm^j,\chi_b)G(\lm^{m-j},\chi_b)\\ 
+    & = G(\eta,\chi_b)\prod_{j=1}^{\nicefrac{(m-2)}{2}}G(\lm^j,\chi_b)\cdot G(\ov{\lm^j},\chi_b) &[\text{As $\ord(\lm)=m=$ even}]\\ 
+    & = G(\eta,\chi_b)\prod_{j=1}^{\nicefrac{(m-2)}{2}} \lm^j(-1)\cdot q \byl[(iv)]{gaussian-sum-identity}\\ 
+    & = q^{\nicefrac{(m-2)}{2}}\cdot G(\eta,\chi_b)\prod_{j=1}^{\nicefrac{(m-2)}{2}}\lm^j(-1)
+  \end{align*}
+  Again by \obsref{obs:char-at--1} since $m$ is even if $\frac{q-1}{m}$ is odd then $\lm(-1)=1$ and if $\frac{q-1}{m}$ is even then $\lm(-1)=1$. Hence we can write $\lm(-1)=(-1)^{\nicefrac{(q-1)}{m}}$. Therefore $$\prod_{j=1}^{m-1}G(\lm^j,\chi_b)=(-1)^{\nicefrac{(q-1)(m-2)}{8}}\cdot q^{\nicefrac{(m-2)}{2}}\cdot G(\eta,\chi_b)$$So together with \eqref{eq:hsprod-cor} we have the result. 
+\end{proof}
