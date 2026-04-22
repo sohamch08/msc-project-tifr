@@ -76,3 +76,16 @@ The proof of the above theorem gives us another important result.
 \begin{lemma}{}{}
   If $p$ is a odd prime and $\zeta_p$ is the $p^{th}$ root of unity. Let $V(\zeta_p,\zeta_p^2,\dots,\zeta_p^{p-1})$ is the $p\times p$ Vandermonde Matrix. Then $$\det\lt(V(\zeta_p,\zeta_p^2,\dots,\zeta_p^{p-1})\rt)=(-1)^{\nicefrac{(p-1)}{2}}\cdot i^{\nicefrac{(p-1)(p-2)}2}\cdot p^{\nicefrac{(p-2)}{2}}$$
 \end{lemma}
+
+We now give another special formula for Gaussian sums which has a lot of application. But this has a restriction on the underlying field. 
+\begin{Theorem}{Stickelberger's Theorem}{thm:stickelberger}
+  Let $q$ be a prime power and $\lm\in\Mq$ be a non-trivial multiplicative character of $\bbF_{q^2}$ of order $m$ such that $m\mid q-1$. Let $\chi_1$ be the canonical additive character of $\bbF_{q^2}$. Then $$G(\lm,\chi_1)=\begin{cases}
+    q & \text{if $m$ is odd or $\frac{q+1}m$ is even}\\
+    -q & \text{if $m$ is even and $\frac{q+1}m$ is odd}
+  \end{cases}$$
+\end{Theorem}
+
+As a striking application of the machinery developed around the quadratic character, we can now give a proof of one of the classical result of  number theory -- \emph{Law of Quadratic Reciprocity}.
+\begin{Theorem}{Law of Quadratic Reciprocity}{thm:quad-reciprocity}
+  For any two distinct odd primes $p,q$ we have $$\Leg{p}{q}\cdot \Leg{q}{p}=(-1)^{\nicefrac{(p-1)(q-1)}{4}}$$
+\end{Theorem}
