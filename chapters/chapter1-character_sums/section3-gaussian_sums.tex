@@ -76,4 +76,30 @@ We can do similar thing for multiplicative characters of $\bbF_q$. By using \thm
 \end{observation}
 
 
-In the next section we will define another hybrid sum called \emph{Jacobi Sums}. Like Gaussian sum this also has many important applications. In the later sections we will use both Gaussian sums and Jacobi Sums to prove many interesting results
+We now a another special formula for Gaussian sums for $2$-degree extension of finite fields and it  has a lot of application. But this has a restriction on the underlying field. 
+\begin{Theorem}{Stickelberger's Theorem}{thm:stickelberger}
+  Let $q$ be a prime power and $\psi\in\Mq$ be a non-trivial multiplicative character of $\bbF_{q^2}$ of order $m$ such that $m\mid q-1$. Let $\chi_1$ be the canonical additive character of $\bbF_{q^2}$. Then $$G(\psi,\chi_1)=\begin{cases}
+    q & \text{if $m$ is odd or $\frac{q+1}m$ is even}\\
+    -q & \text{if $m$ is even and $\frac{q+1}m$ is odd}
+  \end{cases}$$
+\end{Theorem}
+\begin{proof}
+  For brevity of notations we write $E=\bbF_{q^2}$. Let $\gm$ be a primitive element of $E$. So set $g=\gm^{q+1}$. Therefore $g^{q-1}=1$ and so we get $g$ as primitive element of $\bbF_q$. Therefore for all $\alpha\in E^*$ there exists unique $j\in\{0,1,\dots,q-1$ and $k\in\{0,\dots, q+1\}$ such that $\alpha=g^j\cdot \gm^k$. Hence $\psi(g)=\psi^{q+1}(\gm)=1$ as $\ord(\psi)=m\mid q+1$. Therefore we have 
+  \begin{align*}
+    G(\psi,\chi_1) & = \sum_{j=0}^{q-2}\sum_{k=0}^{q}\psi(g^j\cdot \gm^k)\cdot \chi_1(g^j\cdot \gm^k)\\ 
+    & = \sum_{k=0}^q\psi^k(\gm)\sum_{j=0}^{q-2}\chi_1(g^j\cdot \chi^k)\\ 
+    & = \sum_{k=0}^q\psi^k(\gm)\sum_{\alpha\in\bbF_q^*}\chi_1(\alpha\cdot \chi^k)
+  \end{align*} 
+  Let $\tau_1$ is the canonical additive character of $\bbF_q$ then for any $\alpha\in\bbF_q^*$ and $k\in\{0,1,\dots,q\}$ we get $$\chi_1(\alpha\cdot \gm^k)=\tau_1\lt(\tr_{E/\bbF_q}(\alpha\cdot \gm^k)\rt)=\tau_1\lt(\alpha\cdot\tr_{E/\bbF_q}( \gm^k)\rt)$$Hence we get $$\sum_{\alpha\in\bbF_q^*}\chi_1(\alpha\cdot \chi^k)=\sum_{\alpha\in\bbF_q^*}\tau_1\lt(\alpha\cdot\tr_{E/\bbF_q}( \gm^k)\rt)=\begin{cases}
+    -1 & \text{if }\tr_{E/\bbF_q}( \gm^k)\neq 0\\ 
+    q-1 & \text{if }\tr_{E/\bbF_q}( \gm^k)=0
+  \end{cases}$$Now since $[E:\bbF_q]=2$ we have $\tr_{E/\bbF_q}( \gm^k)=\gm^k+\gm^{k\cdot q}$. Therefore $$\tr_{E/\bbF_q}( \gm^k)=0\iff\gm^k=-\gm^{k\cdot q}\iff \gm^{k(q-1)}=-1$$So if $q$ is odd then $\gm^{k(q-1)}=-1\iff k=\frac{q+1}2$ and therefore we have $$\sum_{\alpha\in\bbF_q^*}\chi_1(\alpha\cdot \chi^k)=\begin{cases}
+    -1 & \text{if }k\neq \frac{q+1}2\\
+    q-1 & \text{if }k=\frac{q+1}2  
+  \end{cases}$$And by using \thmref{thm:add-char-props} $$G(\psi,\chi_1) = q\cdot\psi^{\nicefrac{q+1}{2}}(\gm) - \sum_{k=0}^{q}\psi^k(\gm)=q\cdot\psi^{\nicefrac{(q+1)}{2}}$$
+  Recall that $\psi$ has order $m$ and $m\mid q+1$. Therefore $\psi^{\nicefrac{(q+1)}{2}}(\gm)=\pm1$. Now if $\frac{q+1}{m}$ is even then we can rewrite $$\psi^{\nicefrac{(q+1)}{2}}(\gm)=\lt(\psi^m(\gm)\rt)^{\nicefrac{(q+1)}{2m}}=1$$ So suppose $\frac{q+1}{m}$ is odd, say $\frac{q+1}{m}=2\ell+1$ for some $\ell\geq 0$. Since $q$ is odd, $q+1$ is even, and as $(q+1)/m$ is odd the factor of $2$ in $q+1$ must lie entirely in $m$; in particular $m$ is even. Writing $\frac{q+1}{2}=m\ell+\frac{m}{2}$, we get $$\psi^{\nicefrac{(q+1)}{2}}(\gm)=\lt(\psi^m(\gm)\rt)^{\ell}\cdot \psi^{\nicefrac{m}{2}}(\gm)=\psi^{\nicefrac{m}{2}}(\gm).$$ Now $\psi^{\nicefrac{m}{2}}(\gm)$ is a square root of unity since order of $\psi=m$ and $\gm$ is primitive element of $E$ we have $\psi^{\nicefrac{(q+1)}{2}}(\gm)=-1$. Therefore $G(\psi,\chi_1)=(-1)^{\nicefrac{(q+1)}{m}}\cdot q$. So we have the theorem. 
+\end{proof}
+
+We can give a relation between Gaussian sums a multiplicative and additive character and Gaussian sum of lifted characters. To build that relation we need the theory of $L$-functions in \autoref{l-functions}. Later we proved the \DHthm which gives this relation. 
+
+Before going into this in the next section we will define another hybrid sum called \emph{Jacobi Sums}. Like Gaussian sum this also has many important applications. In the later sections we will use both Gaussian sums and Jacobi Sums to prove many interesting results
