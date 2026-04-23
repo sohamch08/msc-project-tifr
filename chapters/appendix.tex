@@ -1,1 +1,10 @@
-\chapter*{Appendix}
+
+
+\section{Fermat's Little Theorem}
+Fermat's Little Theorem is one of the oldest results in elementary number theory, recorded in a 1640 letter from Pierre de Fermat to Fr\'{e}nicle de Bessy. It underlies essentially every computation we perform in the multiplicative group $\bbF_p^*$ -- from the very existence of the canonical additive character of $\bbF_q$ (where $q=p^r$), through the character congruence $\psi(l)\equiv l^f\pmod P$ used in the arithmetic proof of the Davenport--Hasse relation, down to the mod-$q$ reduction of Gauss sums appearing in the proof of the \QRthm. We record it here for completeness.
+\begin{Theorem}{Fermat's Little Theorem}{thm:fermat-little}
+  Let $p$ be a prime. Then for every integer $a$ we have $$a^p\equiv a\pmod p,$$ and in particular, if $p\nmid a$ then $a^{p-1}\equiv 1\pmod p$.
+\end{Theorem}
+\begin{proof}
+  The non-zero residues modulo $p$ form a group $\bbF_p^*=\{1,2,\dots,p-1\}$ under multiplication of order $p-1$. By Lagrange's theorem every element of a finite group satisfies $g^{|G|}=e$, so $a^{p-1}\equiv 1\pmod p$ for every $a\in\bbF_p^*$, i.e.\ every $a$ with $p\nmid a$. Multiplying both sides by $a$ gives $a^p\equiv a\pmod p$ for such $a$; and the congruence $a^p\equiv a\pmod p$ is trivially true when $p\mid a$, so it holds for every integer $a$.
+\end{proof}

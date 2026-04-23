@@ -19,15 +19,16 @@
 \newcommand{\RvMexpFormula}{\hyperref[th:explicit-formula]{Riemann--von~Mangoldt~Explicit~Formula}\xspace}
 \newcommand{\Hardythm}{\hyperref[th:hardy]{Hardy's~Theorem}\xspace}
 \newcommand{\LiCritthm}{\hyperref[th:li-criterion]{Li's~Criterion}\xspace}
+\newcommand{\FLTthm}{\hyperref[th:thm:fermat-little]{Fermat's~Little~Theorem}\xspace}
 
-% --- Unnamed but heavily-used results (descriptive phrase supplied here) ----
-\newcommand{\MultCharPropsthm}{\hyperref[th:thm:mult-char-props]{properties~of~multiplicative~characters}\xspace}
-\newcommand{\JGrelthm}{\hyperref[th:thm:jacobi-gaussian]{Jacobi--Gauss~relation}\xspace}
-\newcommand{\CyclicCharlem}{\hyperref[th:lem:chars-cyclic-group]{characters~of~a~cyclic~group}\xspace}
-\newcommand{\AddCharPropsthm}{\hyperref[th:thm:add-char-props]{properties~of~additive~characters}\xspace}
-\newcommand{\CanAddCharthm}{\hyperref[th:thm:add-char-define]{canonical~additive~character}\xspace}
-\newcommand{\GSidentitieslem}{\hyperref[th:lem:gaussian-sum-identity]{Gaussian~sum~identities}\xspace}
-\newcommand{\JacZeroRellem}{\hyperref[th:lem:jacobi-zero-relation]{Jacobi~zero~relation}\xspace}
-\newcommand{\GSpropthm}{\hyperref[th:thm:gaussian-sum]{basic~properties~of~Gaussian~sums}\xspace}
-\newcommand{\CharSumObs}{\hyperref[obs:char-sum]{character~sum~orthogonality}\xspace}
-\newcommand{\CharAtMinusOneObs}{\hyperref[obs:char-at--1]{value~of~a~multiplicative~character~at~$-1$}\xspace}
+% --- Unnamed but heavily-used results: plain hyperlinks via \thmref / \lemref / \obsref ---
+\newcommand{\MultCharPropsthm}[1][]{\thmref[#1]{thm:mult-char-props}\xspace}
+\newcommand{\JGrelthm}{\thmref{thm:jacobi-gaussian}\xspace}
+\newcommand{\CyclicCharlem}{\lemref{lem:chars-cyclic-group}\xspace}
+\newcommand{\AddCharPropsthm}[1][]{\thmref[#1]{thm:add-char-props}\xspace}
+\newcommand{\CanAddCharthm}{\thmref{thm:add-char-define}\xspace}
+\newcommand{\GSidentitieslem}[1][]{\lemref[#1]{lem:gaussian-sum-identity}\xspace}
+\newcommand{\JacZeroRellem}{\lemref{lem:jacobi-zero-relation}\xspace}
+\newcommand{\GSpropthm}{\thmref{thm:gaussian-sum}\xspace}
+\newcommand{\CharSumObs}{\obsref{obs:char-sum}\xspace}
+\newcommand{\CharAtMinusOneObs}{\obsref{obs:char-at--1}\xspace}

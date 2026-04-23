@@ -82,5 +82,22 @@ As a striking application of the machinery developed around the quadratic charac
   For any two distinct odd primes $p,q$ we have $$\Leg{p}{q}\cdot \Leg{q}{p}=(-1)^{\nicefrac{(p-1)(q-1)}{4}}$$
 \end{Theorem}
 \begin{proof}
-  Let $\chi_1$ be the canonical additive character of $\bbF_p$ and $\eta$ is the quadratic character of $\bbF_p$. Then by \lemref{lem:gaussian-sum-identity} we gave $G^2(\eta,\chi_1)=(-1)^{\nicefrac{(p-1)}2}\cdot p$. So $$G^q(\eta,\chi_1)= G(\eta,\chi_1)\cdot \lt( G^2(\eta,\chi_1)\rt)^{\nicefrac{(q-1)}{2}}=(-1)^{\nicefrac{(p-1)(q-1)}{4}}\cdot p\cdot G(\eta,\chi_1)$$Now we calculate $G^q(\eta,\chi_1)$ in different way. 
+  Let $\chi_1$ be the canonical additive character of $\bbF_p$ and $\eta$ is the quadratic character of $\bbF_p$. Then by \GSidentitieslem[(iv)] we gave $G^2(\eta,\chi_1)=(-1)^{\nicefrac{(p-1)}2}\cdot p$. So \begin{equation}\label{eq:quad-gauss-qpow}
+    G^q(\eta,\chi_1)= G(\eta,\chi_1)\cdot \lt( G^2(\eta,\chi_1)\rt)^{\nicefrac{(q-1)}{2}}=(-1)^{\nicefrac{(p-1)(q-1)}{4}}\cdot p^{\nicefrac{(q-1)}2}\cdot G(\eta,\chi_1)
+  \end{equation}Now we calculate $G^q(\eta,\chi_1)$ in different way. \begin{align*}
+    G^q(\eta,\chi_1) & =\lt(\sum_{\alpha\in\bbF_p^*}\eta(\alpha)\cdot \chi_1(\alpha)\rt)^q\\ 
+    & \equiv \sum_{\alpha\in\bbF_p^*}\eta^q(\alpha)\cdot \chi_q^q(\alpha)\bmod{q}\\ 
+    & \equiv \sum_{\alpha\in\bbF_p^*}\eta(\alpha)\cdot \chi_q(\alpha)\bmod{q}\\ 
+    & \equiv G(\eta,\chi_q)\bmod{q}\\ 
+    & \equiv \eta(q)G(\eta,\chi_1)\bmod{q}\byl[(i)]{gaussian-sum-identity}\numberthis\label{eq:quad-gauss-qpow-modq}
+  \end{align*}
+  Now we already obtained $\Leg{q}{p}$ in the right hand side above and $(-1)^{\nicefrac{(p-1)(q-1)}{4}}$ in \eqref{eq:quad-gauss-qpow}. Since $\eta$ and $\chi_1$ are both non-trivial characters of $\bbF_p$ we have $|G(\eta,\chi_1)|^=p^{\nicefrac12}$  by \GSpropthm and so $G(\eta,\chi_1)\neq 0$. So now comparing \eqref{eq:quad-gauss-qpow-modq} with \eqref{eq:quad-gauss-qpow} we get \begin{align*}
+    (-1)^{\nicefrac{(p-1)(q-1)}{4}}\cdot p^{\nicefrac{(q-1)}2}\cdot G(\eta,\chi_1) \equiv \eta(q)\cdot G(\eta,\chi_1)\bmod q   \iff  (-1)^{\nicefrac{(p-1)(q-1)}{4}}\cdot p^{\nicefrac{(q-1)}2}\equiv \eta(q)\bmod q
+  \end{align*}
+  By \FLTthm we have $p^{q-1}\equiv 1\bmod q$ as $p$ and $q$ are two distinct primes. So we have \begin{align*}
+    & (-1)^{\nicefrac{(p-1)(q-1)}{4}}\cdot p^{\nicefrac{(q-1)}2}\equiv \eta(q)\bmod q\\ 
+    \implies & (-1)^{\nicefrac{(p-1)(q-1)}{4}}\cdot p^{\nicefrac{(q-1)}2}\cdot p^{\nicefrac{(q-1)}2}\equiv \eta(q)\cdot p^{\nicefrac{(q-1)}2}\bmod q\\ 
+    \implies & (-1)^{\nicefrac{(p-1)(q-1)}{4}}\equiv \eta(q)\cdot p^{\nicefrac{(q-1)}2}\bmod q\\ 
+    \implies & (-1)^{\nicefrac{(p-1)(q-1)}{4}}\equiv \Leg{q}{p}\cdot \Leg{p}{q}\bmod q
+  \end{align*}Since both sides are $\pm1$ we can remove the modulo $q$. And therefore we have the theorem. 
 \end{proof}
