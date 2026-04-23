@@ -181,5 +181,13 @@ As an application of the Davenport--Hasse product formula, together with the eva
     & = G(\eta,\chi_b)\prod_{j=1}^{\nicefrac{(m-2)}{2}} \lm^j(-1)\cdot q \byl[(iv)]{gaussian-sum-identity}\\ 
     & = q^{\nicefrac{(m-2)}{2}}\cdot G(\eta,\chi_b)\prod_{j=1}^{\nicefrac{(m-2)}{2}}\lm^j(-1)
   \end{align*}
-  Again by \obsref{obs:char-at--1} since $m$ is even if $\frac{q-1}{m}$ is odd then $\lm(-1)=1$ and if $\frac{q-1}{m}$ is even then $\lm(-1)=1$. Hence we can write $\lm(-1)=(-1)^{\nicefrac{(q-1)}{m}}$. Therefore $$\prod_{j=1}^{m-1}G(\lm^j,\chi_b)=(-1)^{\nicefrac{(q-1)(m-2)}{8}}\cdot q^{\nicefrac{(m-2)}{2}}\cdot G(\eta,\chi_b)$$So together with \eqref{eq:hsprod-cor} we have the result. 
+  Again by \obsref{obs:char-at--1} since $m$ is even if $\frac{q-1}{m}$ is odd then $\lm(-1)=1$ and if $\frac{q-1}{m}$ is even then $\lm(-1)=1$. Hence we can write $\lm(-1)=(-1)^{\nicefrac{(q-1)}{m}}$. Therefore $$\prod_{j=1}^{m-1}G(\lm^j,\chi_b)=(-1)^{\nicefrac{(q-1)(m-2)}{8}}\cdot q^{\nicefrac{(m-2)}{2}}\cdot G(\eta,\chi_b)$$So together with \eqref{eq:hsprod-cor} we have the result.
+\end{proof}
+
+A classical application of the arithmetic of Jacobi sums is a short representation-theoretic proof of a celebrated theorem of Fermat: every prime $p\equiv 1\bmod 4$ is a sum of two integer squares. The key point is that when $\lm$ is a multiplicative character of $\bbF_p$ of order $4$, the Jacobi sum $J(\lm,\eta)$ lies in the ring of Gaussian integers $\bbZ[i]$ and has absolute value exactly $\sqrt p$.
+\begin{Theorem}{Fermat's Two-Square Theorem}{thm:fermat-two-square}
+  Let $p$ be an odd prime with $p\equiv 1\bmod 4$, let $\eta$ denote the quadratic character of $\bbF_p$, and let $\lm\in\Mp$ be a multiplicative character of $\bbF_p$ of order $4$. Then there exist integers $A,B\in\bbZ$ such that $$J(\lm,\eta)=A+iB\qquad\text{and}\qquad p=A^2+B^2.$$
+\end{Theorem}
+\begin{proof}
+  Since $\ord(\lm)=4$, $\lm$ takes values in $\{\pm 1,\pm i\}\subseteq \bbZ[i]$, and since $\eta$ takes values in $\{\pm 1\}\subseteq \bbZ$, the Jacobi sum $$J(\lm,\eta)=\sum_{\alpha\in\bbF_p}\lm(\alpha)\cdot \eta(1-\alpha)\in\bbZ[i].$$Write $J(\lm,\eta)=A+iB$ with $A,B\in\bbZ$. Since $\lm$ and $\eta$ are both non-trivial and $\lm\cdot \eta=\lm^3$ is also non-trivial (as $\ord(\lm)=4$), \thmref{thm:jacobi-sum} gives $|J(\lm,\eta)|=p^{\nicefrac12}$; equivalently $A^2+B^2=p$.
 \end{proof}

@@ -2,4 +2,73 @@
 Building further on the theme of character sums twisted by the quadratic character, we now introduce a classical family of sums first studied by Ernst Jacobsthal in 1907 in connection with the representation of primes $p\equiv 1\bmod 4$ as sums of two squares. Unlike Gaussian and Jacobi sums, which are defined purely multiplicatively, Jacobsthal sums mix an additive shift with the quadratic character $\eta$ of $\bbF_q$, which makes them particularly well suited to problems involving quadratic residues and the arithmetic of $\bbF_q^*$.
 \begin{Definition}{Jacobsthal Sums}{}
   For $\alpha\in\bbF_q^*$ where $q$ is odd and for any $n\in\bbN$ the \emph{Jacobsthal Sum} is defined as $$H_n(\alpha)=\sum_{\gm\in\bbF_q}\eta(\gm^{n+1}+\alpha\cdot \gm)=\sum_{\gm\in\bbF_q}\eta(\gm)\cdot \eta(\gm^n+\alpha)$$
+
+  Another associated sum we define is $$I_n(\alpha)=\sum_{\gm\in\bbF_q}\eta(\gm^n+\alpha)$$ for all $\alpha\in\bbF_q^*$.
 \end{Definition}
+
+Now for $n=1$ we get $H_1(\alpha)=\-1$ by \thmref{thm:eta-quadratic-poly} and by \AddCharPropsthm[(i)], $I_1(\alpha)=0$ for all $\alpha\in\bbF_q^*$ 
+
+The sums $H_n$ and $I_n$ are closely related: in the following theorem we give a recursion relation between $I_n$ and $H_m$ for any $n,m\in\bbN$. 
+\begin{lemma}{}{lem:jacobsthal-Iduplication}
+  For every $n\in\bbN$ and every $\alpha\in\bbF_q^*$, $$I_{2n}(\alpha)=I_n(\alpha)+H_n(\alpha)$$
+\end{lemma}
+\begin{proof}
+  For any $\beta\in\bbF_q$ let $Z(\beta)$ is the number of $\gm\in\bbF_q$ such that $\gm^2=\beta$. Hence $Z(\beta)=1+\eta(\beta)$. Hence we have \begin{align*}
+    I_{2n}(\alpha)& = \sum_{\gm\in\bbF_q}\eta(\gm^{2n}+\alpha) \\ 
+    & = \sum_{\beta\in\bbF_q}\eta(\beta^n+\alpha)\cdot Z(\beta)\\ 
+    & = \sum_{\beta\in\bbF_q}\eta(\beta^n+\alpha)(1+\eta(\beta))\\ 
+    & = \sum_{\beta\in\bbF_q}\eta(\beta^n+\alpha) + \sum_{\beta\in\bbF_q}\eta(\beta)\cdot \eta(\beta^n+\alpha)\\ 
+    & = I_n(\alpha)+H_n(\alpha)
+  \end{align*}Hence we have the theorem. 
+\end{proof}
+
+
+Although $H_n$ and $I_n$ are defined using only the quadratic character, they can be evaluated in terms of Jacobi sums for multiplicative characters of higher order. The key observation is that the count of $n^{\text{th}}$-power roots in $\bbF_q^*$ is a sum of multiplicative characters of order dividing $\gcd(n,q-1)$, and regrouping the definition of $I_n$ accordingly expresses it as a linear combination of Jacobi sums $J(\lm^j,\eta)$.
+\begin{Theorem}{}{thm:jacobsthal-In-jacobi}
+  Let $n\in\bbN$ and $\alpha\in\bbF_q^*$, and set $d=\gcd(n,q-1)$. Let $\lm\in\Mq$ be a multiplicative character of $\bbF_q$ of order $d$. Then $$I_n(\alpha)=\eta(\alpha)\sum_{j=1}^{d-1}\lm^j(-\alpha)\cdot J(\lm^j,\eta).$$
+\end{Theorem}
+\begin{proof}
+  For any $\beta\in\bbF_q$ let $Z(\beta)$ is the number of $\gm\in\bbF_q$ such that $\gm^n=\beta$. Then we have $$I_n(\alpha)=\sum_{\gm\in\bbF_q}\eta(\gm^n+\alpha)=\sum_{\beta\in\bbF_q}\eta(\beta+\alpha)\cdot Z(\beta)$$Suppose $\beta\neq 0$. Then by \MultCharPropsthm[(iii)] we have $$Z(\beta)=\frac1{q-1}\sum_{\gm\in\bbF_q^*}\sum_{\psi\in\Mq}\psi(\gm^n)\ov{\psi}(\beta)=\frac1{q-1}\sum_{\psi\in\Mq}\ov{\psi}(\beta)\sum_{\gm\in\bbF_q^*}\psi^n(\gm)$$Now by \MultCharPropsthm[(i)], $\psi^n$ is trivial then $\sum_{\gm\in\bbF_q^*}\psi^n(\gm)=q-1$ and otherwise its $0$. Now $\psi^n$ is trivial if and only if $\psi=\ov{\lm}^j$ for all $j\in\{0,1,\dots, d-1\}$. Then we have $$Z(\beta)=\sum_{j=0}^{d-1}\ov{\lm}^j(\beta)$$
+
+  Suppose $\beta=0$ then $Z(\beta)=1$ as $0$ is the only solution. Therefore this also holds for $\beta=0$. Hence we have \begin{align*}
+    I_n(\alpha) & = \sum_{\beta\in\bbF_q}\eta(\beta+\alpha)\sum_{j=0}^{d-1}\lm^j(\beta)\\ 
+    & = \sum_{j=0}^{d-1} \sum_{\beta\in\bbF_q}\eta(\beta+\alpha)\lm^j(\beta)\\ 
+    & = \eta(-1)\sum_{j=0}^{d-1}\sum_{\beta\in\bbF_q}\eta(-(\beta+\alpha))\lm^j(\beta)\\ 
+    & = \eta(-1)\sum_{j=0}^{d-1}J_{-\alpha}(\lm^j,\eta)\\ 
+    & = \eta(-1)\sum_{j=0}^{d-1}(\lm^j\cdot \eta)(-\alpha)J(\lm^j,\eta)\\ 
+    & = \eta(\alpha) \sum_{j=0}^{d-1}\lm^j(-\alpha)J(\lm^j,\eta)
+  \end{align*}
+  Hence we have the theorem. 
+\end{proof}
+
+The Jacobsthal sum $H_n$ satisfies a similar Jacobi-sum representation, but now involving a character $\lm$ of order $2d$ rather than $d$, and with the parity of the power of $2$ dividing $q-1$ relative to $n$ playing a decisive role: when all the $2$-power content of $q-1$ already divides $n$, the sum $H_n$ vanishes identically.
+\begin{lemma}{}{thm:jacobsthal-Hn-jacobi}
+  Let $n\in\bbN$ and $\alpha\in\bbF_q^*$, and set $d=\gcd(n,q-1)$. If the largest power of $2$ dividing $q-1$ also divides $n$, then $H_n(\alpha)=0$. Otherwise, let $\lm\in\Mq$ be a multiplicative character of $\bbF_q$ of order $2d$; then $$H_n(\alpha)=\eta(\alpha)\cdot \lm(-1)\sum_{j=0}^{d-1}\lm^{2j+1}(\alpha)\cdot J(\lm^{2j+1},\eta).$$
+\end{lemma}
+\begin{proof}
+  Since the largest power of $2$ dividing $q-1$ also divides $n$ we have $d=\gcd(n,q-1)=\gcd(2n,q-1)$. Therefore by \thmref{thm:jacobsthal-In-jacobi}, $I_n(\alpha)=I_{2n}(\alpha)$. Therefore by \lemref{lem:jacobsthal-Iduplication} we get $H_n(\alpha)=0$. 
+
+  Now suppose that is not the case. Then $\gcd(2n,q-1)=2d$. Then by \thmref{thm:jacobsthal-In-jacobi} we get \begin{equation}
+    I_{2n}(\alpha)=\eta(\alpha)\sum_{j=1}^{2d-1}\lm^j(-\alpha)J(\lm^j,\eta)\label{eq:i2n-jacobi}
+  \end{equation}Since $\ord(\lm^2)=d$ using the same theorem for $I_n(\alpha)$ and $\lm^2$ we get \begin{equation}
+    I_n(\alpha)=\eta(\alpha)\sum_{j=0}^{d-1}\lm^{2j}(-\alpha)J(\lm^{2j},\eta)\label{eq:In-jacobi}
+  \end{equation}Therefore from \lemref{lem:jacobsthal-Iduplication} we have $H_n(\alpha)=I_{2n}(\alpha)-I_n(\alpha)$. So subtracting \eqref{eq:In-jacobi} from \eqref{eq:i2n-jacobi} we get the expression. 
+\end{proof}
+Therefore by \thmref{thm:jacobi-sum-complete} we get for all $\alpha\in\bbF_q^*$, $|I_n(\alpha)|\leq (d-1)q^{\nicefrac12}$. 
+
+
+We close this section with the classical application of Jacobsthal sum. Using $H_2$ one can compute the two integers $A,B$ in the representation $p=A^2+B^2$ (guaranteed by \thmref{thm:fermat-two-square}) directly, and moreover with a canonical sign choice determined by a congruence modulo $4$. Here $p\equiv 1\bmod 4$ is prime, $\eta$ is the quadratic character of $\bbF_p$, and $\lm\in\Mp$ is a multiplicative character of $\bbF_p$ of order $4$, so that $\lm^2=\eta$ and $\lm^3=\ov{\lm}$.
+
+By \thmref{thm:jacobsthal-Hn-jacobi} applied with $n=2$ and hence $d=\gcd(2,p-1)=2$,
+$$H_2(1)=\lm(-1)\sum_{j=0}^{1}\lm^{2j+1}(1)\cdot J(\lm^{2j+1},\eta)=\lm(-1)\lt(J(\lm,\eta)+J(\lm^3,\eta)\rt).$$
+Since $\lm^3=\ov{\lm}$ and $\eta$ is real, $J(\lm^3,\eta)=\ov{J(\lm,\eta)}$, so $H_2(1)=2\lm(-1)\cdot\Re J(\lm,\eta)$. In the notation of \thmref{thm:fermat-two-square}, $J(\lm,\eta)=A+iB$ with $A,B\in\bbZ$ and $p=A^2+B^2$, so
+$$\Re J(\lm,\eta)=A=\tfrac12\lm(-1)\cdot H_2(1).$$
+A similar computation starting from an $\alpha\in\bbF_p$ with $\eta(\alpha)=-1$ uses $\lm(\alpha)=\pm i$ and $\lm^3(\alpha)=-\lm(\alpha)$ to give
+$$H_2(\alpha)=\eta(\alpha)\lm(-1)\lt(\lm(\alpha)J(\lm,\eta)-\lm(\alpha)\ov{J(\lm,\eta)}\rt)=-\lm(-1)\lm(\alpha)\cdot 2i\cdot \Im J(\lm,\eta),$$
+which identifies $\Im J(\lm,\eta)=B$ up to the unit factor $-\lm(-1)\lm(\alpha)\in\{\pm 1,\pm i\}$; absorbing this factor gives $B=\tfrac12 H_2(\alpha)$ (up to sign).
+
+To pin down the sign of $A$, we expand $H_2(1)$ directly. Pairing $\gm$ with $-\gm$ and using $\eta(-1)=1$ (since $p\equiv 1\bmod 4$) gives $$H_2(1)=\sum_{\gm=1}^{p-1}\eta(\gm)\cdot \eta(\gm^2+1)=2\sum_{\gm=1}^{(p-1)/2}\eta(\gm)\cdot \eta(\gm^2+1),$$so $\tfrac12 H_2(1)=\sum_{\gm=1}^{(p-1)/2}\eta(\gm)\eta(\gm^2+1)$. On the other hand \thmref{thm:eta-quadratic-poly} applied to $f(X)=X^2+1$ (discriminant $-4\neq 0$ and $\eta(1)=1$) gives $\sum_{\gm\in\bbF_p}\eta(\gm^2+1)=-1$, so $\sum_{\gm=1}^{(p-1)/2}\eta(\gm^2+1)=-1$ (excluding the zero term). Subtracting and reducing modulo~$4$, using the fact that $(\eta(\gm)-1)(\eta(\gm^2+1)-1)\equiv 0\bmod 4$ whenever $\eta(\gm^2+1)\neq 0$, one obtains after a short computation $$\tfrac12 H_2(1)+1\equiv \tfrac{3-p}{2}-\lm(-1)\bmod 4.$$Since $\lm(-1)=1$ when $p\equiv 1\bmod 8$ and $\lm(-1)=-1$ when $p\equiv 5\bmod 8$, in both cases $\tfrac12 H_2(1)+1\equiv 0\bmod 4$, i.e. $\tfrac12 H_2(1)\equiv -1\bmod 4$.
+
+Hence setting $A=\tfrac12\lm(-1)H_2(1)$ and $B=\tfrac12 H_2(\alpha)$ (for any $\alpha\in\bbF_p$ with $\eta(\alpha)=-1$), we obtain integers with $A^2+B^2=p$, $A$ odd, $B$ even, and the normalization $A\equiv -1\bmod 4$. With this normalization $A$ is uniquely determined: if $p=A^2+B^2=C^2+D^2$ with $A,C$ odd and $A\equiv C\equiv -1\bmod 4$, then choosing $h,k\in\bbZ$ with $A\equiv hB,\ C\equiv kD\bmod p$ gives $h^2+1\equiv k^2+1\equiv 0\bmod p$, hence $C\equiv \pm hD\bmod p$; writing $C_1\equiv hD\bmod p$ and $C=\pm C_1$, we compute $$p^2=(A^2+B^2)(C_1^2+D^2)=(AC_1+BD)^2+(AD-BC_1)^2,$$ and both $AC_1+BD\equiv (h^2+1)BD\equiv 0\bmod p$ and $AD-BC_1\equiv 0\bmod p$. Dividing by $p^2$ gives $1=(\pm 1)^2+0^2$, forcing $AD-BC_1=0$ and $|AC_1+BD|=p$. Since $\gcd(A,B)=\gcd(C_1,D)=1$, it follows that $A=\pm C_1$ and hence $A=\pm C$; the congruence $A\equiv C\equiv -1\bmod 4$ then forces $A=C$.
+
+Thus the Jacobsthal sum $\tfrac12\lm(-1)H_2(1)$ produces the canonical integer $A$ in Fermat's representation $p=A^2+B^2$, and $\tfrac12 H_2(\alpha)$ produces $B$ up to sign.
