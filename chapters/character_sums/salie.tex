@@ -4,10 +4,52 @@ The Kloosterman sums of the previous section are notoriously difficult to evalua
   Let $\bbF_q$ be a finite field with $q$ odd, and let $\chi,\tau\in\Xq$ be non-trivial additive characters of $\bbF_q$. Then the \emph{Sali\'{e} sum} associated to $\chi$ and $\tau$ is defined as $$S(\chi,\tau)=\sum_{\gm\in\bbF_q^*}\eta(\gm)\cdot \chi(\gm)\cdot \tau(\gm^{-1})$$
 \end{Definition}
 
-\begin{Theorem}{}{}
+\begin{Theorem}{}{thm:salie}
   Let $\bbF_q$ be a finite elements with $q$ being odd and $\chi,\tau\in\Xq$ be non-trivial additive character of $\bbF_q$. Let $a\in\bbF_q$ such that for all $\gm\in\bbF_q$, $\tau(\gm)=\chi(a\cdot \gm)$. Then we have $$S(\chi,\tau)=G(\eta,\chi)\sum_{b\colon b^2=4a}\chi(b)$$ and  $$|S(\chi,\tau)|\leq 2\cdot q^{\nicefrac12}$$
 \end{Theorem}
 \begin{proof}
-  Since $a$ is such that for all $\gm\in\bbF_q$, $\tau(\gm)=\chi(a\cdot \gm)$ we have for $\chi(\gm)\cdot \tau(\gm^{-1})=\chi(\gm)\cdot \chi(a\cdot \gm^{-1})=\chi(\gm+a\cdot \gm^{-1})$. 
-  For any $b\in\bbF_q^*$ let $\chi_b\in\Xq$ be an additive character as defined in \AddCharDefthm. Then we have $S(\chi_b,\tau)=\sum_{\gm\in\bbF_q^*}\eta(\chi)\chi(b\cdot \gm+a\cdot \gm^{-1})$. 
+  Since $\tau(\gm)=\chi(a\cdot\gm)$ for all $\gm\in\bbF_q$ we have $\chi(\gm)\cdot\tau(\gm^{-1})=\chi(\gm)\cdot\chi(a\cdot\gm^{-1})=\chi(\gm+a\gm^{-1})$, so $S(\chi,\tau)=\sum_{\gm\in\bbF_q^*}\eta(\gm)\chi(\gm+a\gm^{-1})$.
+
+  \paragraph*{Step 1: Multiplicative Fourier expansion.} For $b\in\bbF_q^*$ let $\chi_b\in\Xq$ denote the additive character $\chi_b(\gm)=\chi(b\gm)$, similar to as given by \AddCharDefthm. Define $\varphi:\bbF_q^*\to\bbC$ by
+  $$\varphi(b)=S(\chi_b,\tau)=\sum_{\gm\in\bbF_q^*}\eta(\gm)\chi(b\gm+a\gm^{-1}).$$
+  By \MultCharPropsthm, the multiplicative characters form an orthonormal basis for functions on $\bbF_q^*$, so we may expand
+  $$\varphi(b)=\sum_{\lm\in\Mq}\hat\varphi(\lm)\lm(b),\quad\text{where}\quad\hat\varphi(\lm)=\frac{1}{q-1}\sum_{b\in\bbF_q^*}\varphi(b)\ov\lm(b).$$
+
+  \paragraph*{Step 2: Computing the Fourier coefficients.} Substituting the definition of $\varphi$ and interchanging the order of summation:
+  \begin{align*}
+    \hat\varphi(\lm)&=\frac{1}{q-1}\sum_{b\in\bbF_q^*}\ov\lm(b)\sum_{\gm\in\bbF_q^*}\eta(\gm)\chi(b\gm+a\gm^{-1})\\
+    &=\frac{1}{q-1}\sum_{\gm\in\bbF_q^*}\eta(\gm)\chi(a\gm^{-1})\sum_{b\in\bbF_q^*}\ov\lm(b)\chi(b\gm).
+  \end{align*}
+  Substituting $b\mapsto b\gm^{-1}$ in the inner sum gives $\sum_{b\in\bbF_q^*}\ov\lm(b)\chi(b\gm)=\lm(\gm)\sum_{b\in\bbF_q^*}\ov\lm(b)\chi(b)=\lm(\gm)\cdot G(\ov\lm,\chi)$. Hence
+  $$\hat\varphi(\lm)=\frac{G(\ov\lm,\chi)}{q-1}\sum_{\gm\in\bbF_q^*}\eta(\gm)\lm(\gm)\chi(a\gm^{-1}).$$
+  Substituting $\gm\mapsto\gm^{-1}$ in the remaining sum:
+  $$\sum_{\gm\in\bbF_q^*}\eta(\gm)\lm(\gm)\chi(a\gm^{-1})=\sum_{\gm\in\bbF_q^*}\ov\eta(\gm)\ov\lm(\gm)\chi(a\gm)=G(\ov\eta\cdot\ov\lm,\chi_a)$$
+  where $\chi_a(\gm)=\chi(a\gm)$. Since $\eta$ is real-valued, $\ov\eta=\eta$. By \GSidentitieslem[(i)], $G(\lm,\chi_a)=\ov\lm(a)G(\lm,\chi)$, so
+  $$G(\ov\eta\cdot\ov\lm,\chi_a)=\eta(a)\lm(a)\cdot G(\ov\eta\cdot\ov\lm,\chi).$$
+  Altogether:
+  \begin{equation}\label{eq:salie-fourier-coeff}
+    \hat\varphi(\lm)=\frac{\eta(a)\lm(a)\cdot G(\ov\lm,\chi)\cdot G(\ov\eta\cdot\ov\lm,\chi)}{q-1}.
+  \end{equation}
+
+  \paragraph*{Step 3: Applying the Hasse-Davenport product formula.} By \DHRelation applied with $m=2$, the quadratic character $\eta$, and $\ov\lm$ in place of $\psi$, we have
+  $$G(\ov\lm,\chi)\cdot G(\ov\lm\eta,\chi)=\lm(4)\cdot G(\ov\lm^2,\chi)\cdot G(\eta,\chi).$$
+  Since $\ov\eta\cdot\ov\lm=\ov\lm\eta$, substituting into \eqref{eq:salie-fourier-coeff}:
+  $$\hat\varphi(\lm)=\frac{\eta(a)G(\eta,\chi)}{q-1}\cdot\lm(a)\cdot\lm(4)\cdot G(\ov\lm^2,\chi)=\frac{\eta(a)G(\eta,\chi)}{q-1}\cdot\lm(4a)\cdot G(\ov\lm^2,\chi).$$
+
+  \paragraph*{Step 4: Final Step.} Since $\lm(1)=1$ for every $\lm\in\Mq$:
+  \begin{align*}
+    S(\chi,\tau)=\varphi(1)=\sum_{\lm\in\Mq}\hat\varphi(\lm)&=\frac{\eta(a)G(\eta,\chi)}{q-1}\sum_{\lm\in\Mq}\lm(4a)\cdot G(\ov\lm^2,\chi)\\
+    &=\frac{\eta(a)G(\eta,\chi)}{q-1}\sum_{\lm\in\Mq}\lm(4a)\sum_{\gm\in\bbF_q^*}\ov\lm^2(\gm)\chi(\gm)\\ 
+    &=\frac{\eta(a)G(\eta,\chi)}{q-1}\sum_{\gm\in\bbF_q^*}\chi(\gm)\sum_{\lm\in\Mq}\lm(4a\gm^{-2})
+  \end{align*}
+  By the orthogonality of multiplicative characters (\MultCharPropsthm[(ii)]):
+  $$\sum_{\lm\in\Mq}\lm(4a\gm^{-2})=\begin{cases}q-1&\text{if }\gm^2=4a,\\0&\text{otherwise.}\end{cases}$$
+  Hence $S(\chi,\tau)=\eta(a)\cdot G(\eta,\chi)\sum_{b:b^2=4a}\chi(b)$. If $\eta(a)=-1$ then $4a$ is a non-square so $b^2=4a$ has no solution and the sum is $0$; if $\eta(a)=1$ the factor is $1$. In both cases:
+  $$S(\chi,\tau)=G(\eta,\chi)\sum_{b\colon b^2=4a}\chi(b).$$Therefore we have the theorem. 
+\end{proof}
+\begin{lemma}{}{}
+  Let $\bbF_q$ be a finite elements with $q$ being odd and $\chi,\tau\in\Xq$ be non-trivial additive character of $\bbF_q$. Let $a\in\bbF_q$ such that for all $\gm\in\bbF_q$, $\tau(\gm)=\chi(a\cdot \gm)$. Then $|S(\chi,\tau)|\leq 2\cdot q^{\nicefrac12}$. 
+\end{lemma}
+\begin{proof}
+  Since $a\neq 0$, the equation $b^2=4a$ has either $0$ or $2$ solutions in $\bbF_q$. From \thmref{thm:salie} if $0$ solutions, $S(\chi,\tau)=0$ and if $\pm b_0$ are the two solutions, $S(\chi,\tau)=G(\eta,\chi)\lt(\chi(b_0)+\chi(-b_0)\rt)$. Each term $G(\eta,\chi)\chi(\pm b_0)$ is a product of the Gauss sum with a root of unity. By \GSpropthm, $|G(\eta,\chi)|=q^{\nicefrac12}$, so $|S(\chi,\tau)|\leq 2q^{\nicefrac12}$.
 \end{proof}

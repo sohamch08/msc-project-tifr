@@ -191,3 +191,19 @@ A classical application of the arithmetic of Jacobi sums is a short representati
 \begin{proof}
   Since $\ord(\lm)=4$, $\lm$ takes values in $\{\pm 1,\pm i\}\subseteq \bbZ[i]$, and since $\eta$ takes values in $\{\pm 1\}\subseteq \bbZ$, the Jacobi sum $$J(\lm,\eta)=\sum_{\alpha\in\bbF_p}\lm(\alpha)\cdot \eta(1-\alpha)\in\bbZ[i].$$Write $J(\lm,\eta)=A+iB$ with $A,B\in\bbZ$. Since $\lm$ and $\eta$ are both non-trivial and $\lm\cdot \eta=\lm^3$ is also non-trivial (as $\ord(\lm)=4$), \thmref{thm:jacobi-sum} gives $|J(\lm,\eta)|=p^{\nicefrac12}$; equivalently $A^2+B^2=p$.
 \end{proof}
+
+\begin{corolary}{}{cor:hs-relation-product}
+   Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi\in\Xq$ be any non-trivial additive character of $\bbF_q$. Then $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=\psi^{-m}(m)\cdot G(\psi^m,\chi)\prod_{j=1}^{m-1}G(\lm^j,\chi)$$where for any $\gm\in\bbF_q$, $\chi_m(\gm)=\chi(m\cdot \gm)$ similar to as defined in \AddCharDefthm.
+\end{corolary}
+\begin{proof}
+  By \DHprodthm we have $$\frac{G(\psi,\chi)^m}{G(\psi^m,\chi)}=\prod_{j=1}^mJ(\psi,\lm^j)$$Now  using \JGrelthm for any $j\in\{m-1\}$ we have $$J(\psi,\lm^j)=\frac{G(\psi,\chi)\cdot G(\lm^j,\chi}{G(\psi\cdot\lm^j,\chi)}$$So replacing $J(\psi,\lm^j)$ we get
+  $$ \frac{G(\psi,\chi)^m}{G(\psi^m,\chi)}  = \prod_{j=1}^{m-1}\frac{G(\psi,\chi)\cdot G(\lm^j,\chi}{G(\psi\cdot\lm^j,\chi)}=G(\psi,\chi)^{m-1}\prod_{j=1}^{m-1}\frac{ G(\lm^j,\chi}{G(\psi\cdot\lm^j,\chi)}$$So we get the final relation \begin{equation}\label{eq:hs-relation-wiki}
+    \prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=G(\psi^m,\chi_m)\prod_{j=1}^{m-1}G(\lm^j,\chi)
+  \end{equation}
+  Now by \GSidentitieslem[(i)] we have $G(\psi^m,\chi_m)=\psi^{-m}(m)G(\psi^m,\chi)$. So replacing $G(\psi^m,\chi_m)$ we get the theorem. 
+\end{proof}
+
+Since for the trivial multiplicative character $\psi_0\in\Mq$ we have $\lm^0=\psi_0$. Therefore $\prod_{j=0}^{m-1}G(\lm^j,\chi)=G(\psi_0,\chi)\prod_{j=1}^{m-1}G(\lm^j,\chi)=-\prod_{j=1}^{m-1}G(\lm^j,\chi)$ by \GSpropthm. Therefore from \eqref{eq:hs-relation-wiki} we have $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=-G(\psi^m,\chi_m)\prod_{j=0}^{m-1}G(\lm^j,\chi)$$ So we get the following observation:
+\begin{observation}
+  Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi\in\Xq$ be any non-trivial additive character of $\bbF_q$. Then $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=-\psi^{-m}(m)\cdot G(\psi^m,\chi)\prod_{j=0}^{m-1}G(\lm^j,\chi)$$
+\end{observation}
