@@ -10,6 +10,7 @@ So now let $\lm_1,\lm_2,\dots, \lm_k\in\Mq$ be $k$ multiplicative characters of 
 \end{align*}
 Because of this relation it is enough to consider only the sums $J_0(\lm_1,\dots, \lm_k)$ and $J_1(\lm_1,\dots, \lm_k)$. The second sum is called the \emph{Jacobi sum} and it has more important applications and so we use a slightly simpler notation. 
 \begin{Definition}{Jacobi Sum}{}
+  \index{Jacobi sum}%
   Let $\lm_1,\dots, \lm_k\in\Mq$ be multiplicative characters of $\bbF_q$. Then the Jacobi sum is defined by $$J(\lm_1,\dots, \lm_k)\sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\ \alpha_1+\cdots+\alpha_k=1}}\lm_1(\alpha_1)\cdots\lm_k(\alpha_k)$$
 \end{Definition} 
 
@@ -18,7 +19,9 @@ Now we want to find the value of $J(\lm_1,\dots, \lm_k)$ and $J_0(\lm_1,\dots, \
   By the definition of the Jacobi sums $J(\lm_1,\dots, \lm_k)$ and $J_0(\lm_1,\dots, \lm_k)$ are independent of the order in which the characters $\lm_i$ are listed.
 \end{observation} 
 
-Now we can evaluate Jacobi sums in some cases pretty easily. Specially if at least one of the multiplicative characters is trivial. 
+\subsection{Evaluating Jacobi Sums}
+
+We begin with the degenerate cases where at least one character is trivial, then build up to the general absolute-value formula via the key connection to Gaussian sums.
 \begin{lemma}{}{lem:jacobi-some-trivial}
 Let $\lm_1,\dots, \lm_k\in\Mq$ are multiplicative characters of $\bbF_q$. Then\begin{enumerate}[label=(\roman*)]
   \item If $\lm_1=\cdots=\lm_k=\psi_0$ where $\psi_0$ is the trivial multiplicative character then $$J(\lm_1,\dots, \lm_k)=J_0(\lm_1,\dots, \lm_k)=q^{k-1}$$
@@ -127,7 +130,9 @@ Combining \lemref{lem:jacobi-some-trivial}, \lemref{lem:jacobi-zero-relation}, \
   \end{enumerate}
 \end{Theorem}
 
-Now the case $k=2$ often appears in most of the applications of Jacobi sums. Some of those results are of special interest. 
+\subsection{The Davenport--Hasse Relations}
+
+The case $k=2$ is the one that appears in most arithmetic applications. The central result here is the Davenport--Hasse product formula, which expresses a high power of a Gaussian sum as a product of Jacobi sums. We first establish a useful preliminary identity.
 \begin{lemma}{}{}
   Let $\lm$ be a multiplicative character of $\bbF_q$ of order $m\geq 2$ and let $\chi$ be a non-trivial additive character of $\bbF_q$. Then $$G(\lm,\chi)^m=\lm(-1)\cdot q\cdot J(\lm,\lm)\cdot J(\lm,\lm^2)\cdots J(\lm,\lm^{m-2})$$ 
 \end{lemma}
@@ -143,12 +148,14 @@ Now the case $k=2$ often appears in most of the applications of Jacobi sums. Som
 \end{proof}
 
 Now we give another result of relation between Gaussian sums for the $k=2$ case. This gives relation between two Gaussian sums on non-trivial multiplicative characters of different orders using Jacobi sums. We will not prove this theorem as it is far too complicated to be included in here. 
-\begin{Theorem}{Davenport--Hasse Product Formula}{thm:davenport-hasse-product}
+\begin{Theorem}{Davenport--Hasse Product Formula}{thm:davenport-hasse-product}%
+  \index{Davenport-Hasse theorem!product formula}
   Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi_b\in\Xq$ be a non-trivial additive character of $\bbF_q$ as defined in \thmref{thm:add-char-define}. Then $$\frac{G(\psi,\chi_b)^m}{G(\psi^m,\chi_{mb})} =\prod_{j=1}^{m-1}J(\psi,\lm^j).$$
 \end{Theorem}
 
 Over the prime field $\bbF_p$ the Davenport--Hasse relation admits a more explicit form, in which the root of unity appearing on the right hand side is written in terms of a primitive root modulo $p$. This form appears as Theorem~3 in the paper of Huard, Spearman and Williams.
-\begin{Theorem}{Davenport--Hasse Relation over $\bbF_p$, \cite[Theorem~3]{HuardSpearmanWilliams_1995_AAA}}{thm:davenport-hasse-relation}
+\begin{Theorem}{Davenport--Hasse Relation over $\bbF_p$, \cite[Theorem~3]{HuardSpearmanWilliams_1995_AAA}}{thm:davenport-hasse-relation}%
+  \index{Davenport-Hasse theorem!relation over $\mathbb{F}_p$}
   Let $m\geq 2$ and $n\geq 1$ be integers, let $p$ be an odd prime with $p\equiv 1\bmod{mn}$, and set $f=(p-1)/mn$. Let $g$ be a primitive root modulo $p$, and for any integer $l\not\equiv 0\bmod p$ let $\ind_g(l)$ denote the least nonnegative integer with $g^{\ind_g(l)}\equiv l\bmod p$. Set $\beta_{mn}=e^{2\pi i/mn}$ and let $\lm\in\Mp$ be the multiplicative character of order $mn$ determined by $\lm(g)=\beta_{mn}$. Let $\chi\in\Xp$ be a non-trivial additive character of $\bbF_p$. Then for every $t=1,\dots,m-1$,
   $$\frac{G(\lm^{tn},\chi)\cdot \prod_{j=1}^{n-1}G(\lm^{mj},\chi)}{\prod_{j=0}^{n-1}G(\lm^{mj+t},\chi)}=\beta_{mn}^{nt\cdot \ind_g(n)},$$
   equivalently,
@@ -184,14 +191,6 @@ As an application of the Davenport--Hasse product formula, together with the eva
   Again by \obsref{obs:char-at--1} since $m$ is even if $\frac{q-1}{m}$ is odd then $\lm(-1)=1$ and if $\frac{q-1}{m}$ is even then $\lm(-1)=1$. Hence we can write $\lm(-1)=(-1)^{\nicefrac{(q-1)}{m}}$. Therefore $$\prod_{j=1}^{m-1}G(\lm^j,\chi_b)=(-1)^{\nicefrac{(q-1)(m-2)}{8}}\cdot q^{\nicefrac{(m-2)}{2}}\cdot G(\eta,\chi_b)$$So together with \eqref{eq:hsprod-cor} we have the result.
 \end{proof}
 
-A classical application of the arithmetic of Jacobi sums is a short representation-theoretic proof of a celebrated theorem of Fermat: every prime $p\equiv 1\bmod 4$ is a sum of two integer squares. The key point is that when $\lm$ is a multiplicative character of $\bbF_p$ of order $4$, the Jacobi sum $J(\lm,\eta)$ lies in the ring of Gaussian integers $\bbZ[i]$ and has absolute value exactly $\sqrt p$.
-\begin{Theorem}{Fermat's Two-Square Theorem}{thm:fermat-two-square}
-  Let $p$ be an odd prime with $p\equiv 1\bmod 4$, let $\eta$ denote the quadratic character of $\bbF_p$, and let $\lm\in\Mp$ be a multiplicative character of $\bbF_p$ of order $4$. Then there exist integers $A,B\in\bbZ$ such that $$J(\lm,\eta)=A+iB\qquad\text{and}\qquad p=A^2+B^2.$$
-\end{Theorem}
-\begin{proof}
-  Since $\ord(\lm)=4$, $\lm$ takes values in $\{\pm 1,\pm i\}\subseteq \bbZ[i]$, and since $\eta$ takes values in $\{\pm 1\}\subseteq \bbZ$, the Jacobi sum $$J(\lm,\eta)=\sum_{\alpha\in\bbF_p}\lm(\alpha)\cdot \eta(1-\alpha)\in\bbZ[i].$$Write $J(\lm,\eta)=A+iB$ with $A,B\in\bbZ$. Since $\lm$ and $\eta$ are both non-trivial and $\lm\cdot \eta=\lm^3$ is also non-trivial (as $\ord(\lm)=4$), \thmref{thm:jacobi-sum} gives $|J(\lm,\eta)|=p^{\nicefrac12}$; equivalently $A^2+B^2=p$.
-\end{proof}
-
 \begin{corolary}{}{cor:hs-relation-product}
    Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi\in\Xq$ be any non-trivial additive character of $\bbF_q$. Then $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=\psi^{-m}(m)\cdot G(\psi^m,\chi)\prod_{j=1}^{m-1}G(\lm^j,\chi)$$where for any $\gm\in\bbF_q$, $\chi_m(\gm)=\chi(m\cdot \gm)$ similar to as defined in \AddCharDefthm.
 \end{corolary}
@@ -203,7 +202,20 @@ A classical application of the arithmetic of Jacobi sums is a short representati
   Now by \GSidentitieslem[(i)] we have $G(\psi^m,\chi_m)=\psi^{-m}(m)G(\psi^m,\chi)$. So replacing $G(\psi^m,\chi_m)$ we get the theorem. 
 \end{proof}
 
-Since for the trivial multiplicative character $\psi_0\in\Mq$ we have $\lm^0=\psi_0$. Therefore $\prod_{j=0}^{m-1}G(\lm^j,\chi)=G(\psi_0,\chi)\prod_{j=1}^{m-1}G(\lm^j,\chi)=-\prod_{j=1}^{m-1}G(\lm^j,\chi)$ by \GSpropthm. Therefore from \eqref{eq:hs-relation-wiki} we have $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=-G(\psi^m,\chi_m)\prod_{j=0}^{m-1}G(\lm^j,\chi)$$ So we get the following observation:
+Since for the trivial multiplicative character $\psi_0\in\Mq$ we have $\lm^0=\psi_0$. Therefore $\prod_{j=0}^{m-1}G(\lm^j,\chi)=-\prod_{j=1}^{m-1}G(\lm^j,\chi)$ by \GSpropthm. Therefore from \eqref{eq:hs-relation-wiki} we have $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=-G(\psi^m,\chi_m)\prod_{j=0}^{m-1}G(\lm^j,\chi)$$ So we get the following observation:
 \begin{observation}
   Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi\in\Xq$ be any non-trivial additive character of $\bbF_q$. Then $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=-\psi^{-m}(m)\cdot G(\psi^m,\chi)\prod_{j=0}^{m-1}G(\lm^j,\chi)$$
 \end{observation}
+
+\subsection{Application: Fermat's Two-Square Theorem}
+
+A classical application of the arithmetic of Jacobi sums is a short representation-theoretic proof of a celebrated theorem of Fermat: every prime $p\equiv 1\bmod 4$ is a sum of two integer squares. The key point is that when $\lm$ is a multiplicative character of $\bbF_p$ of order $4$, the Jacobi sum $J(\lm,\eta)$ lies in the ring of Gaussian integers $\bbZ[i]$ and has absolute value exactly $\sqrt p$.
+\begin{Theorem}{Fermat's Two-Square Theorem}{thm:fermat-two-square}%
+  \index{Fermat's two-square theorem}
+  Let $p$ be an odd prime with $p\equiv 1\bmod 4$. Then there exist integers $A,B\in\bbZ$ such that $p=A^2+B^2$.
+\end{Theorem}
+\begin{proof}
+  Let $\lm,\eta\in\Mq$ are multiplicative characters such that $\ord(\lm)=4$ and $\eta$ is the quadratic character. Since $\ord(\lm)=4$, $\lm$ takes values in $\{\pm 1,\pm i\}\subseteq \bbZ[i]$, and since $\eta$ takes values in $\{\pm 1\}\subseteq \bbZ$, the Jacobi sum $$J(\lm,\eta)=\sum_{\alpha\in\bbF_p}\lm(\alpha)\cdot \eta(1-\alpha)\in\bbZ[i].$$Write $J(\lm,\eta)=A+iB$ with $A,B\in\bbZ$. Since $\lm$ and $\eta$ are both non-trivial and $\lm\cdot \eta=\lm^3$ is also non-trivial (as $\ord(\lm)=4$), \thmref{thm:jacobi-sum} gives $|J(\lm,\eta)|=p^{\nicefrac12}$; equivalently $A^2+B^2=p$.
+\end{proof}
+
+We give another proof of this theorem in \autoref{sec:fermat-2-square-another} during the discussion of Jacobsthal Sums in \autoref{sec:jacobsthal}. 

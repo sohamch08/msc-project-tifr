@@ -1,6 +1,7 @@
 \section{Gaussian Sums}
 Having studied additive and multiplicative characters of $\bbF_q$ separately, we now turn to hybrid sums that interleave both types. The first and most fundamental such object is the \emph{Gaussian sum}. A Gaussian sum is formed by taking the product of a multiplicative character and an additive character and summing over all nonzero elements of $\bbF_q$. The interplay between the two kinds of characters gives remarkable algebraic and analytic properties, and they will serve as the key tool throughout this chapter. We define them as follows.
 \begin{Definition}{Gaussian Sum}{def:gaussian-sum}
+  \index{Gaussian sum}%
   Let $\psi $ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then the \emph{Gaussian Sum} associated to $\psi$ and $\chi$ is defined as $$G(\psi,\chi)=\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\cdot \chi(\alpha)$$
 \end{Definition}
 Hence the absolute value of the Gaussian sum is at most $q-1$. But later we will see that the Gaussian sum in most cases is much smaller, $\sqrt{q}$ to be precise.
@@ -65,7 +66,7 @@ Now by \thmref[(iii)]{thm:add-char-props} for any $\alpha\in\bbF_q^*$ we have \b
                & =\frac1q\sum_{c\in\bbF_q}\chi_c(\alpha)\sum_{\beta\in\bbF_q^*}\psi(\beta)\cdot \ov{\chi}_c(\beta) \\
                & =\frac1q\sum_{c\in\bbF_q}\chi_c(\alpha)\cdot G(\psi,\ov{\chi}_c)                                  \\
                & =\frac1q\sum_{\chi\in\Xq}G(\psi,\ov{\chi})\chi(\alpha)
-\end{align*}This may be thought of as the Fourier expansion of $\psi$ in terms of the additive characters of $\bbF_q$, with Gaussian sums appearing as Fourier coefficients. 
+\end{align*}This may be thought of as the \emph{Fourier expansion}\index{Fourier expansion!of characters via Gaussian sums} of $\psi$ in terms of the additive characters of $\bbF_q$, with Gaussian sums appearing as Fourier coefficients. 
 
 We can do similar thing for multiplicative characters of $\bbF_q$. By using \thmref[(iii)]{thm:mult-char-props} we get $$\chi(\alpha)=\frac1{q-1}\sum_{\psi\in\Mq}G(\ov{\psi},\chi)\chi(\alpha)$$ This can be interpreted as the Fourier expansion of the multiplicative characters of $\bbF_q$ with the Gaussian sums as Fourier coefficients. Hence we have the observations:
 \begin{observation}
@@ -77,7 +78,8 @@ We can do similar thing for multiplicative characters of $\bbF_q$. By using \thm
 
 
 We now a another special formula for Gaussian sums for $2$-degree extension of finite fields and it  has a lot of application. But this has a restriction on the underlying field. 
-\begin{Theorem}{Stickelberger's Theorem}{thm:stickelberger}
+\begin{Theorem}{Stickelberger's Theorem}{thm:stickelberger}%
+  \index{Stickelberger's theorem}
   Let $q$ be a prime power and $\psi\in\Mq$ be a non-trivial multiplicative character of $\bbF_{q^2}$ of order $m$ such that $m\mid q-1$. Let $\chi_1$ be the canonical additive character of $\bbF_{q^2}$. Then $$G(\psi,\chi_1)=\begin{cases}
     q & \text{if $m$ is odd or $\frac{q+1}m$ is even}\\
     -q & \text{if $m$ is even and $\frac{q+1}m$ is odd}

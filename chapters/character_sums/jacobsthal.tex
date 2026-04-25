@@ -1,4 +1,4 @@
-\section{Jacobsthal Sums}
+\section{Jacobsthal Sums}\label{sec:jacobsthal}
 Building further on the theme of character sums twisted by the quadratic character, we now introduce a classical family of sums first studied by Ernst Jacobsthal in 1907 in connection with the representation of primes $p\equiv 1\bmod 4$ as sums of two squares. Unlike Gaussian and Jacobi sums, which are defined purely multiplicatively, Jacobsthal sums mix an additive shift with the quadratic character $\eta$ of $\bbF_q$, which makes them particularly well suited to problems involving quadratic residues and the arithmetic of $\bbF_q^*$.
 \begin{Definition}{Jacobsthal Sums}{}
   For $\alpha\in\bbF_q^*$ where $q$ is odd and for any $n\in\bbN$ the \emph{Jacobsthal Sum} is defined as $$H_n(\alpha)=\sum_{\gm\in\bbF_q}\eta(\gm^{n+1}+\alpha\cdot \gm)=\sum_{\gm\in\bbF_q}\eta(\gm)\cdot \eta(\gm^n+\alpha)$$
@@ -56,7 +56,7 @@ The Jacobsthal sum $H_n$ satisfies a similar Jacobi-sum representation, but now 
 \end{proof}
 Therefore by \thmref{thm:jacobi-sum-complete} we get for all $\alpha\in\bbF_q^*$, $|I_n(\alpha)|\leq (d-1)q^{\nicefrac12}$. 
 
-\subsection{Yet Another Proof of Fermat's Two Square Theorem}
+\subsection{Yet Another Proof of Fermat's Two Square Theorem}\label{sec:fermat-2-square-another}
 We close this section with the classical application of Jacobsthal sum. Using $H_2$ one can compute the two integers $A,B$ in the representation $p=A^2+B^2$ (guaranteed by \thmref{thm:fermat-two-square}) directly, and moreover with a canonical sign choice determined by a congruence modulo $4$. Here $p\equiv 1\bmod 4$ is prime, $\eta$ is the quadratic character of $\bbF_p$, and $\lm\in\Mp$ is a multiplicative character of $\bbF_p$ of order $4$, so that $\lm^2=\eta$ and $\lm^3=\ov{\lm}$.
 
 By \thmref{thm:jacobsthal-Hn-jacobi} applied with $n=2$ and hence $d=\gcd(2,p-1)=2$,

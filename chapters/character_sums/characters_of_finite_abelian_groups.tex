@@ -1,16 +1,18 @@
 \section{Characters of Finite Abelian Groups}
 Let $G$ be a finite abelian group with the identity element $1_G$. Let $S^1$ be the set of complex numbers with absolute value $1$. Then consider the multiplicative group $S^1$ with the operation of multiplication.
 \begin{Definition}{Character $\chi$ of $G$}{}
+  \index{character}%
   A \emph{character} $\chi$ of $G$ is a group homomorphism $\chi:G\to S^1$ to the multiplicative group $S^1$ i.e. for all $g_1,g_2\in G$ $$\chi(g_1\cdot g_2)=\chi(g_1)\cdot \chi(g_2)$$
 \end{Definition}
 
 So if $\chi$ is any character of $G$ then $\chi(1_G)=1$. Since by definition for all $g\in G$, $$\chi(g)^{|G|}=\chi(g^{|G|})=\chi(1_G)=1$$ the values of $\chi$ are $|G|^{th}$ roots of unity. Also we have for any $g\in G$, $$\chi(g)\chi(g^{-1})=\chi(g\cdot g^{-1})=\chi(1_G)=1$$ so $\chi(g^{-1})=\chi(g)^{-1}=\overline{\chi(g)}$.
 
-There are some special characters of $G$ which have specific name. The character $\chi_0$ defined by $\chi_0(g)=1$ for all $g\in G$ is called the \emph{trivial character}. For any character $\chi$ of $G$, the character $\overline{\chi}$ defined by $\overline{\chi}(g)=\overline{\chi(g)}$ for all $g\in G$ is called the \emph{conjugate character} of $\chi$.
+There are some special characters of $G$ which have specific name. The character $\chi_0$ defined by $\chi_0(g)=1$ for all $g\in G$ is called the \emph{trivial character}\index{character!trivial}. For any character $\chi$ of $G$, the character $\overline{\chi}$ defined by $\overline{\chi}(g)=\overline{\chi(g)}$ for all $g\in G$ is called the \emph{conjugate character}\index{character!conjugate} of $\chi$.
 
 Given any finitely many characters of $G$, $\chi_1,\dots, \chi_n$ we can define the product character $\chi=\chi_1\cdot \chi_2\cdots \chi_n$ such that for all $g\in G$, $$\chi(g)=\chi_1(g)\cdot \chi_2(g)\cdots \chi_n(g)$$
 Hence for all $g\in G$, $$\chi(g)\cdot \overline{\chi}(g)=|\chi(g)|^2=1$$Hence the $\overline{\chi}$ is also the inverse character of $\chi$. Hence the set of all characters of $G$ forms a group, $\Hom(G,S^1)$ under multiplication whose identity element is the trivial character $\chi_0$.
 \begin{Definition}{Dual Group to $G$}{}
+  \index{dual group}%
   For a finite abelian group $G$, the group of all characters of $G$ with the identity element $\chi_0$ is called the \emph{dual group} to $G$ and is denoted by $\widehat{G}$ i.e. $\hG\coloneqq \Hom(G,S^1)$.
 \end{Definition}
 
@@ -28,7 +30,7 @@ Since the values of characters of $G$ can only be $|G|^{th}$ roots of unity, the
   The characters defined in above lemma forms a cyclic group with $\chi_1$ being the generator of $\hG$.
 \end{observation}
 \begin{remark}
-  When $G=(\bbZ/n\bbZ)^*$, the characters of $G$ described by $\chi_j(\alpha)=e^{2\pi i\frac{\alpha\cdot j}{n}}$ like in \lemref{lem:chars-cyclic-group} are precisely the classical \emph{Dirichlet characters} modulo $n$, which are of fundamental importance in analytic number theory.
+  When $G=(\bbZ/n\bbZ)^*$, the characters of $G$ described by $\chi_j(\alpha)=e^{2\pi i\frac{\alpha\cdot j}{n}}$ like in \lemref{lem:chars-cyclic-group} are precisely the classical \emph{Dirichlet characters}\index{Dirichlet character} modulo $n$, which are of fundamental importance in analytic number theory.
 \end{remark}
 \begin{corolary}{}{}
   If $G$ is a finite cyclic group of order $n$ with $g$ being the generator then $G\cong \hG$ by the isomorphism $\varphi:g^j\mapsto \chi_j$ for all $j\in\{0,1,\dots, n-1\}$.
@@ -57,6 +59,7 @@ Now consider any character $\chi$ of $G$. If $g\in G$ such that $\chi(g)=1$ then
 Similarly suppose $H$ is a subgroup of $G$. Then if $\chi\in\hG$ is a character of $G$ such that $\chi(h)=1$ for all $h\in H$ then $\ov{\chi}(h)=1$ for all $h\in H$. Hence the set of all characters $\chi\in \hG$ such that $\chi(h)=1$ for all $h\in H$ forms a group. This group is called the \emph{annihilator} of $H$ and is denoted by $\Ann(H)$. Since in both cases the notation $\Ann$ is used usually the context will make it clear whether we are talking about the annihilator of a character or the annihilator of a subgroup.
 
 \begin{Definition}{Annihilator}{}
+  \index{annihilator!of a character}\index{annihilator!of a subgroup}%
   Let $G$ be a finite abelian group. For any character $\chi\in \hG$, the \emph{annihilator} of $\chi$, $\Ann(\chi)=\{g\in G\colon \chi(g)=1\}$ which is a subgroup of $G$. \setlength{\parindent}{15pt}
 
   For any subgroup $H$ of $G$, the \emph{annihilator} of $H$, $\Ann(H)=\{\chi\in \hG\colon \chi(h)=1 \text{ for all } h\in H\}$ which is a subgroup of $\hG$.
@@ -101,7 +104,7 @@ So now by counting in two ways for the sum $\sum_{\chi\in \hG}\sum_{g\in G}\chi(
   From \obsref[(ii)]{obs:char-sum} we have $$|G|=\sum_{\chi\in \hG}\sum_{g\in G}\chi(g)=\sum_{g\in G}\sum_{\chi\in \hG}\chi(g)=|\hG|$$Hence we have the result.
 \end{proof}
 
-From above theorem and \obsref[(i)]{obs:char-sum} we get the \emph{orthogonality relations for characters}.
+From above theorem and \obsref[(i)]{obs:char-sum} we get the \emph{orthogonality relations for characters}.\index{orthogonality relations!for characters}
 \begin{observation}\label{obs:orthogonal-relation}
   Let $G$ be a finite abelian group.
   \begin{enumerate}[label=(\roman*)]
