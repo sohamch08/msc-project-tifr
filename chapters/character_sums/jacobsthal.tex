@@ -22,7 +22,7 @@ The sums $H_n$ and $I_n$ are closely related: in the following theorem we give a
   \end{align*}Hence we have the theorem. 
 \end{proof}
 
-
+\subsection{Relations between Jacobsthal and Jacobi Sum}
 Although $H_n$ and $I_n$ are defined using only the quadratic character, they can be evaluated in terms of Jacobi sums for multiplicative characters of higher order. The key observation is that the count of $n^{\text{th}}$-power roots in $\bbF_q^*$ is a sum of multiplicative characters of order dividing $\gcd(n,q-1)$, and regrouping the definition of $I_n$ accordingly expresses it as a linear combination of Jacobi sums $J(\lm^j,\eta)$.
 \begin{Theorem}{}{thm:jacobsthal-In-jacobi}
   Let $n\in\bbN$ and $\alpha\in\bbF_q^*$, and set $d=\gcd(n,q-1)$. Let $\lm\in\Mq$ be a multiplicative character of $\bbF_q$ of order $d$. Then $$I_n(\alpha)=\eta(\alpha)\sum_{j=1}^{d-1}\lm^j(-\alpha)\cdot J(\lm^j,\eta).$$
@@ -56,7 +56,7 @@ The Jacobsthal sum $H_n$ satisfies a similar Jacobi-sum representation, but now 
 \end{proof}
 Therefore by \thmref{thm:jacobi-sum-complete} we get for all $\alpha\in\bbF_q^*$, $|I_n(\alpha)|\leq (d-1)q^{\nicefrac12}$. 
 
-
+\subsection{Yet Another Proof of Fermat's Two Square Theorem}
 We close this section with the classical application of Jacobsthal sum. Using $H_2$ one can compute the two integers $A,B$ in the representation $p=A^2+B^2$ (guaranteed by \thmref{thm:fermat-two-square}) directly, and moreover with a canonical sign choice determined by a congruence modulo $4$. Here $p\equiv 1\bmod 4$ is prime, $\eta$ is the quadratic character of $\bbF_p$, and $\lm\in\Mp$ is a multiplicative character of $\bbF_p$ of order $4$, so that $\lm^2=\eta$ and $\lm^3=\ov{\lm}$.
 
 By \thmref{thm:jacobsthal-Hn-jacobi} applied with $n=2$ and hence $d=\gcd(2,p-1)=2$,
