@@ -1,4 +1,4 @@
-\section{Character Sums via the Quadratic Character}
+\section{Character Sums via the Quadratic Character}\label{sec:quadratic-char}
 For certain special characters, the associated Gaussian sums can be evaluated explicitly. A very special multiplicative character to study is the quadratic character, $\eta$. We get a very celebrated formula for the Gaussian sum of $\eta$ and the canonical additive character. 
 \begin{Theorem}{}{}
   Let $\bbF_q$ be a finite field with $q=p^r$ where $p$ is an odd prime and $r\in\bbN$. Let $\eta$ be the quadratic character of $\bbF_q$ and let $\chi_1$ be the canonical additive character of $\bbF_q$. Then $$G(\eta,\chi_1)=\begin{cases}
@@ -106,3 +106,4 @@ We close the section with an elementary but remarkably clean evaluation of the q
 \begin{Theorem}{}{thm:eta-quadratic-poly}
   Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ odd and $a_2\neq 0$, let $\Dl=a_1^2-4a_0a_2$ denote the discriminant of $f$, and let $\eta$ be the quadratic character of $\bbF_q$ (extended by $\eta(0)=0$). Then $$\sum_{\alpha\in\bbF_q}\eta(f(\alpha))=\begin{cases}-\eta(a_2) & \text{if }\Dl\neq 0,\\ (q-1)\cdot \eta(a_2) & \text{if }\Dl=0.\end{cases}$$
 \end{Theorem}
+We will not prove this theorem now. We will discuss this again in \autoref{sec:character-sum-poly}. 

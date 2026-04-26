@@ -1,1 +1,90 @@
-\section{Character Sums with Polynomials}
+\section{Character Sums with Polynomials}\label{sec:character-sum-poly}
+Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\bbF_q[X]$ be a non-constant polynomial. In this section we will look sums of the form $$\sum_{\alpha\in\bbF_q}\chi(f(\alpha))$$Such sums are called \emph{Weil Sums.}
+\begin{Definition}{Weil Sum}{}
+  \index{Weil sum}%
+  Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\bbF_q[X]$ be a non-constant polynomial. The \emph{Weil sum} associated to $\chi$ and $f$ is
+  $$W(\chi,f)\coloneqq\sum_{\alpha\in\bbF_q}\chi(f(\alpha)).$$
+  More generally, for a multiplicative character $\psi\in\Mq$ and a rational function $f\in\bbF_q(X)$, the \emph{Weil sum} is
+  $$W(\psi,\chi,f)\coloneqq\sum_{\substack{\alpha\in\bbF_q\\ \alpha\text{ not a pole of }f}}\psi(\alpha)\,\chi(f(\alpha)).$$
+\end{Definition}
+
+\subsection{Additive Character Sums}
+
+The first family of Weil sums we evaluate exactly are those of the form $\chi(ac^n+b)$, where the polynomial is a shifted monomial. The key is to factor the sum over $c$ using multiplicative characters of order $d=\gcd(n,q-1)$.
+
+\begin{Theorem}{Weil Sum of a Shifted Monomial}{thm:weil-shifted-monomial}
+  Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$, $n\in\bbN$, and let $\lm\in\Mq$ be a multiplicative character of order $d=\gcd(n,q-1)$. Then for any $a,b\in\bbF_q$ with $a\neq 0$,
+  $$\sum_{c\in\bbF_q}\chi(ac^n+b)=\chi(b)\sum_{j=1}^{d-1}\ov{\lm}^j(a)\,G(\lm^j,\chi).$$
+\end{Theorem}
+
+\begin{corolary}{}{}
+  Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and $n\in\bbN$. If $\gcd(n,q-1)=1$ then for any $a,b\in\bbF_q$ with $a\neq 0$,
+  $$\sum_{c\in\bbF_q}\chi(ac^n+b)=0.$$
+\end{corolary}
+
+As an immediate consequence we get the following bound on the absolute value of such sums.
+
+\begin{Theorem}{Bound on Weil Sum of a Shifted Monomial}{thm:weil-shifted-monomial-bound}
+  Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$, $n\in\bbN$, and $d=\gcd(n,q-1)$. Then for any $a,b\in\bbF_q$ with $a\neq 0$,
+  $$\lt|\sum_{c\in\bbF_q}\chi(ac^n+b)\rt|\leq (d-1)\sqrt{q}.$$
+\end{Theorem}
+
+For quadratic polynomials in odd characteristic the Weil sum can be evaluated exactly in terms of a Gaussian sum and the quadratic character.
+
+\begin{Theorem}{Weil Sum of a Quadratic Polynomial}{thm:weil-quadratic-odd}
+  Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ with $q$ odd, and let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $a_2\neq 0$. Then
+  $$\sum_{c\in\bbF_q}\chi(f(c))=\chi\!\lt(a_0-a_1^2(4a_2)^{-1}\rt)\,\eta(a_2)\,G(\eta,\chi),$$
+  where $\eta\in\Mq$ is the quadratic character of $\bbF_q$.
+\end{Theorem}
+
+For polynomials whose monomials are all powers of $p = \Char(\bbF_q)$ (affine $p$-polynomials), the sum collapses to either $0$ or a full power of $q$ depending on a linear condition on the parameter $b$.
+
+\begin{Theorem}{Weil Sum of an Affine $p$-Polynomial}{thm:weil-p-polynomial}
+  Let $p=\Char(\bbF_q)$ and let
+  $$f(X)=a_rX^{p^r}+a_{r-1}X^{p^{r-1}}+\cdots+a_1X^p+a_0X+a\in\bbF_q[X]$$
+  be an affine $p$-polynomial over $\bbF_q$. Let $\chi_b\in\Xq$, $b\in\bbF_q^*$, be a non-trivial additive character as defined in \AddCharDefthm. Then
+  $$\sum_{c\in\bbF_q}\chi_b(f(c))=\begin{cases}
+    \chi_b(a)\cdot q & \text{if }ba_r+b^{\,p}a_{r-1}+\cdots+b^{p^{r-1}}a_1^{p^{r-1}}+b^{p^r}a_0^{p^r}=0,\\
+    0 & \text{otherwise.}
+  \end{cases}$$
+\end{Theorem}
+
+\begin{corolary}{}{}
+  Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ even, and let $\chi_b\in\Xq$, $b\in\bbF_q^*$, be as in \thmref{thm:weil-p-polynomial}. Then
+  $$\sum_{c\in\bbF_q}\chi_b(f(c))=\begin{cases}
+    \chi_b(a_0)\cdot q & \text{if }a_2=ba_1^2,\\
+    0 & \text{otherwise.}
+  \end{cases}$$
+\end{corolary}
+
+\subsection{Quadratic Character Sums}
+
+When the character is the quadratic character $\eta$, the sums $\sum_c\eta(f(c))$ can be evaluated by completing the square (for quadratic $f$) or by the continued fraction algorithm (for polynomials with no roots in $\bbF_q$).
+\begin{Theorem}{}{thm:eta-quadratic-poly}
+  Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ odd and $a_2\neq 0$, let $\Dl=a_1^2-4a_0a_2$ denote the discriminant of $f$, and let $\eta$ be the quadratic character of $\bbF_q$ (extended by $\eta(0)=0$). Then $$\sum_{\alpha\in\bbF_q}\eta(f(\alpha))=\begin{cases}-\eta(a_2) & \text{if }\Dl\neq 0,\\ (q-1)\cdot \eta(a_2) & \text{if }\Dl=0.\end{cases}$$
+\end{Theorem}
+
+\subsection{Weil Sums of Continued Fractions}
+
+There is a remarkable connection between Weil sums for the quadratic character $\eta$ and the \emph{continued fraction algorithm} for rational functions over $\bbF_q$. We collect the necessary algebraic facts about continued fractions of rational functions in Appendix~\ref{sec:cont-frac-fq}; here we set up the specific expansion needed for the application to character sums and state the main results.
+
+For $q$ odd, put $G(X)=X^q-X$, let $f\in\bbF_q[X]$ be a polynomial of positive degree with no roots in $\bbF_q$, and set $F(X)=f(X)^{(q-1)/2}$. Consider the continued fraction expansions
+$$\frac{F(X)-1}{G(X)}=[A_0,A_1,\dots,A_s]\qquad\text{and}\qquad\frac{F(X)+1}{G(X)}=[a_0,a_1,\dots,a_t]$$
+with $P_i,Q_i$ and $p_i,q_i$ the corresponding numerator/denominator sequences from Appendix~\ref{sec:cont-frac-fq}. It is clear that $A_0=a_0$. Define $n_f$ to be the largest integer $m$ such that $A_i=a_i$ for $i=0,1,\dots,m$.
+
+\begin{lemma}{}{lem:cf-nf-cases}
+  Under the conditions above, we have either $n_f=s=t-1$ or $n_f=t=s-1$.
+\end{lemma}
+\begin{proof}
+  The two continued fractions cannot be identical since $(F(X)-1)/G(X)\neq (F(X)+1)/G(X)$, so $n_f<\min(s,t)$. Using the properties of the $P_i,Q_i$ sequences from \hyperref[sec:cont-frac-fq]{Appendix~\ref{sec:cont-frac-fq}}, in particular the determinant identity \lemref{lem:cf-determinant} and the coprimality result, one shows that $\min(s,t)=n_f+1$ and $|s-t|=1$, giving exactly the two cases stated.
+\end{proof}
+
+\begin{Theorem}{Weil Sum via Continued Fractions}{thm:weil-cf}
+  Let $\eta\in\Mq$ be the quadratic character of $\bbF_q$, $q$ odd, and let $f\in\bbF_q[X]$ be a polynomial of positive degree with no roots in $\bbF_q$. Then
+  $$\sum_{c\in\bbF_q}\eta(f(c))=\begin{cases}
+    \deg(a_s) & \text{if }n_f=s,\\
+    -\deg(A_s) & \text{if }n_f=t,
+  \end{cases}$$
+  where $A_s$ and $a_s$ are obtained from the continued fraction expansions above.
+\end{Theorem}
+
