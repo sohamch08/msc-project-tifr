@@ -10,8 +10,10 @@ Now we can also analyze the number of solutions of $f$ using matrix methods. Fro
 \begin{proof}
   Since $\deg(f)\leq q-2$ we have $\ov{Z}(f)\leq q-2$. $\ov{Z}(f)=q-1$ rises only when $f$ is a zero polynomial i.e. $M_f$ is a zero matrix and in that case $\Rank(M_f)=0$ which satisfies the theorem. Let $\gm$ be the primitive element of $\bbF_q$. Then consider the \emph{Vandermonde Matrix}, $V(\gm,\gm^2,\dots, \gm^{q-1})$: $$V=\mat{1&1&\cdots&1\\ \gm & \gm^2 &\cdots & \gm^{q-1}\\ \vdots & \vdots & \ddots & \vdots\\ \gm^{q-2} & \gm^{2 (q-2)} & \cdots &\gm^{(q-1)(q-2)}}$$Then using $\gm^{i\cdot (q-1)}=1$ for all $i\in[q-1]$ we obtain $$M_f\cdot V=\mat{f(\gm) & f(\gm^2) & \cdots & f(\gm^{q-1})\\ \gm^{-1}f(\gm) & \gm^{-2} f(\gm^2) & \cdots & \gm^{-(q-1)}f(\gm^{q-1})\\ \vdots & \vdots & \ddots & \vdots \\ \gm^{-(q-2)}f(\gm) & \gm^{-2(q-2)}f(\gm^2) & \cdots & \gm^{-(q-1)(q-2)}f(\gm^{q-1})}$$Now for any $i\in[q-1]$ we have $f(\gm^i)=0$ if and only if  the $i^{th}$ row becomes zero. Therefore the $\Rank(M_f\cdot V)=q-1-\ov{Z}(f)$. Since $V$ is the Vandermonde matrix $V$ and $M_f\cdot V$ have the same rank. So the theorem follows. 
 \end{proof}
-\subsection{Multivariate Polynomials}
-We will now look into multivariate polynomials. 
+
+In the next subsections we will give simple upper and lower bounds for solutions multivariate polynomial equations or system of polynomial equations. 
+\subsection{Chevalley--Warning Theorem}
+We begin with two elementary lemmas about power sums that will serve as the key tools.
 \begin{lemma}{}{lem:power-sum}
   Let $k$ be a non-negative integer. Suppose for $k=0$, $0^0=1$. Then $$\sum_{\alpha\in\bbF_q}\alpha^k=\begin{cases}
     0 & \text{if $k=0$ or $q-1\nmid k$}\\ 
@@ -56,6 +58,8 @@ Now we can extend the \CWthm to a system of polynomial equations $f_1=0,\dots,f_
   Again we construct a polynomial. Consider the polynomial $F\in\bbF_q[X_1,\dots, X_n]$ such that $F=(1-f_1^{q_1})\cdots (1-f_k^{q-1})$. Therefore for any $\alpha_1,\dots,\alpha_n\in\bbF_q$ we have $F(\alpha_1,\dots,\alpha_n)=1$ if and only if $f_i(\alpha_1,\dots, \alpha_n)=0$ for all $i\in[k]$. Now $\deg(F)\leq \deg(f_1)+\cdots+\deg(f_k)<n(q-1)$. Now by applying \CWthm for $F$ we get the theorem. 
 \end{proof}
 
+\subsection{Lower Bounds on the Number of Solutions}
+
 In the next theorem we will show if we have a system of polynomial equations $f_1=0,\dots,f_k=0$ with $f_1,\dots,f_k\in\bbF_q[X_1,\dots,X_n]$ then for any affine subspace $W$ all its parallel shifts have same number of solutions modulo the characteristic of $\bbF_q$. If $W_1$ and $W_2$ are two affine subspaces of $\bbF_q^n$ of same dimension then we call they are parallel affine subspaces if they are obtained by translation from the same linear subspace. 
 \begin{lemma}{}{lem:solutions-affine-subspace-parallel-shift}
   Let $f_1,\dots, f_k\in\bbF_q[X_1,\dots, X_n]$.  If $W_1$ and $W_2$ are two parallel affine subspaces of $\bbF_q^n$ of dimension $d$ where $d=\deg(f_1)+\cdots+\deg(f_k)$ then $$|W_1\cap \mcV(f_1,\dots,f_k)|\equiv |W_2\cap \mcV(f_1,\dots, f_k)|\bmod p$$where $p=\Char(\bbF_q)$. 
@@ -82,5 +86,94 @@ The \AffSubspaceShiftlem above can be used to obtain a lower bound on $Z(f_1,\do
 \end{Theorem}
 \begin{proof}
   We will prove this by analyzing two cases. 
-  \paragraph*{Case I:} Let there exists an affine subspace $W_1$ of $\bbF_q^n$ with dimension $d$ such that $|W_1\cap \mcV(f_1,\dots, f_k)|\not\equiv 0\bmod p$. 
+  \paragraph*{Case I:} Let there exists an affine subspace $W_1$ of $\bbF_q^n$ with dimension $d$ such that $|W_1\cap \mcV(f_1,\dots, f_k)|\not\equiv 0\bmod p$. Then by \AffSubspaceShiftlem for all parallel affine spaces $W_2$ of $W_1$ we have $|W_2\cap \mcV(f_1,\dots,f_k)|\not\equiv 0\bmod p$. In particular $|W_2\cap \mcV(f_1,\dots, f_k)|\geq 1$. Since $W_1$ is of dimension $d$ there are $q^{n-d}$ distinct affine subspaces parallel to $W_1$. Therefore 
+  $$\mcV(f_1,\dots, f_k)=\bigsqcup_{\substack{W\colon\text{affine subspace}\\ \text{parallel to $W_1$}}}\Big(W\cap \mcV(f_1,\dots,f_k)\Big)$$
+  For each such $W$ we have $|W\cap\mcV(f_1,\dots,f_k)|\geq 1$. Therefore 
+  $$Z(f_1,\dots, f_k)=\sum_{\substack{W\colon\text{affine subspace}\\ \text{parallel to $W_1$}}}|W\cap\mcV(f_1,\dots,f_k)|\geq q^{n-d}$$
+  Therefore we have the theorem in this case. 
+  \paragraph*{Case II:} We have $|W\cap\mcV(f_1,\dots,f_k)|\equiv 0\bmod p$. for all affine subspaces $W$ of $\bbF_q^n$ of dimension $d$. Since $Z(f_1,\dots,f_k)\geq 1$ there exists $ k\in[d]$ such that for any affine subspace $W'$ of dimension $k$, $|W'\cap \mcV(f_1,\dots,f_k)|\equiv 0\bmod p$ but there is an affine subspace $W''$ of dimension $(k-1)$ such that $|W''\cap \mcV(f_1,\dots, f_k)|\not\equiv 0\bmod p$. Now consider all affine subspaces $W'$ of dimension $k$ containing $W''$. There are exactly $\frac{q^{n-(k-1)}-1}{q-1}$ many such affine subspaces. For each such affine subspace $W'$ we have $$|(W'\setminus W'')\cap \mcV(f_1,\dots,f_k)|=|W'\cap \mcV(f_1,\dots,f_k)|-|W''\cap \mcV(f_1,\dots,f_k)|\not\equiv0\bmod p$$So $|(W'\setminus W'')\cap \mcV(f_1,\dots,f_k)|\geq 1$. Therefore we have $$\mcV(f_1,\dots, f_k)=\Big(W''\cap \mcV(f_1,\dots,f_k)\Big)\sqcup\bigsqcup_{\substack{W'\colon \text{affine subspace}\\ \text{of dimension $k$}\\ \text{contains $W''$}}}\Big((W'\setminus W'')\cap \mcV(f_1,\dots,f_k)\Big)$$Hence we have $$Z(f_1,\dots, f_k)=|W''\cap \mcV(f_1,\dots,f_k)|+\sum_{\substack{W'\colon \text{affine subspace}\\ \text{of dimension $k$}\\ \text{contains $W''$}}}|(W'\setminus W'')\cap \mcV(f_1,\dots,f_k)|\geq 1+\frac{q^{n-(k-1)}-1}{q-1}>q^{n-d}$$So we have the theorem. 
 \end{proof}
+
+The lower bound on the number of solutions above is best possible even for $k=1$ i.e. for any positive integers $d$ and $n$ with $d<n$ there is a polynomial $f\in\bbF_q[X_1,\dots, X_n]$ of degree $d$ such that $f(X_1,\dots, X_n)=0$ has exactly $q^{n-d}$ solutions in $\bbF_q^n$. Consider the polynomial defined in the support \CWthm, $\prod_{i=0}^{n-1}\sum_{j=1}^n\alpha_j^{q^i}X_j$ where $\{\alpha_j\colon j\in[n]\}$ was a basis of $\bbF_{q^n}$ over $\bbF_q$. But in this example we take the same polynomial but on $d$ variables but the solution space is over $\bbF_{q^n}$. Hence our polynomial in this case is $f(X_1,\dots,X_n)=g(X_1,\dots,X_d)=\prod_{i=0}^{n-1}\sum_{j=1}^d\alpha_j^{q^i}X_j$. Since $f$ had only one solution, $g$ has a solution at $(\gm_1,\dots,\gm_n)$ if $\gm_i=0$ for all $i\in[d]$. Therefore $g$ has exactly $q^{n-d}$ solutions in $\bbF_q^n$. 
+
+\subsection{Upper Bounds on the Number of Solutions}
+
+We now give upper bounds on the number of solutions of a polynomial equation. The first is the celebrated Schwartz--Zippel lemma, which bounds the probability of a random point being a root in terms of total degree.
+\begin{lemma}{Schwartz-Zippel Lemma}{lem:schwartz-zippel}
+  Let $f\in\bbF_q[X_1,\dots, X_n]$ with $\deg(f)=d$ be a non-zero polynomial. If $S\subseteq \bbF_q$ be any subset then $$\Pr[\alpha_1,\dots,\alpha_n\in S] [f(\alpha_1,\dots,\alpha_n)=0]\leq \frac{d}{|S|}$$
+\end{lemma}
+This lemma immediately gives an upper bound of $d\cdot q^{n-1}$ solutions for the equations $f(X_1,\dots, X_n)=0$ in $\bbF_q^n$. Hence 
+\begin{corolary}{}{}
+  Let $f\in\bbF_q[X_1,\dots, X_n]$ with $\deg(f)=d$ be a non-zero polynomial. Then the equation $f(X_1,\dots, X_n)=0$ has at most $d\cdot q^{n-1}$ solutions in $\bbF_q^n$. 
+\end{corolary}
+
+We can give another probabilistic upper bound when we control the degree of $f$ in each variable separately rather than just the total degree.
+\begin{Theorem}{Individual Degree Bound}{thm:individual-degree-bound}
+  Let $f\in\bbF_q[X_1,\dots,X_n]$ be a non-zero polynomial with $\deg_{X_i}(f)\leq d$ for all $i\in[n]$. Then for $(\alpha_1,\dots,\alpha_n)$ chosen uniformly at random from $\bbF_q^n$,
+  $$\Pr[\alpha_1,\dots,\alpha_n\in\bbF_q][f(\alpha_1,\dots,\alpha_n)=0]\leq 1-\lt(1-\frac{d}{q}\rt)^{n}$$
+\end{Theorem}
+\begin{proof}
+  We proceed by induction on $n$. For the base case $n=1$, since $f\in\bbF_q[X_1]$ is non-zero with $\deg_{X_1}(f)\leq d$, it has at most $d$ roots in $\bbF_q$. Hence $\Pr[x_1\in\bbF_q][f(x_1)=0]\leq d/q=1-(1-d/q)^1$. 
+  
+  Assume the bound holds for $n-1$ variables. Let $t=\deg_{X_n}(f)$. Then write $f$ as a polynomial in $X_n$ with coefficients in $\bbF_q[X_1,\dots,X_{n-1}]$:
+  $$f(X_1,\dots,X_n)=\sum_{i=0}^{t}f_i(X_1,\dots,X_{n-1})\cdot X_n^k.$$
+  Since $\deg_{X_j}(f)\leq d$ for each $j\in[n-1]$, every $f_i$ satisfies $\deg_{X_j}(f_i)\leq d$.
+
+  Let $\alpha_1,\dots,\alpha_{n-1}$ be uniformly random points on $\bbF_q$ and $\alpha_n$ be uniform on $\bbF_q$, independently. Then by induction hypothesis $$\Pr[\alpha_1,\dots,\alpha_{n-1}\in\bbF_q] [f_t(\alpha_1,\dots,\alpha_{n-1})=0]\leq 1-\lt(1-\frac{d}{q}\rt)^{n-1}$$Now we have \begin{align*}
+    \underset{\alpha_1,\dots,\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots,\alpha_n)=0] &\leq \underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP} [f_t(\alpha_1,\dots,\alpha_{n-1})=0]+ \underset{\alpha_1,\dots,\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots, \alpha_{n-1},\alpha_n)=0\wedge f_t(\alpha_1,\dots,\alpha_{n-1})\neq 0]\\ 
+    & \leq \underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP} [f_t(\alpha_1,\dots,\alpha_{n-1})=0]\;+ \\ 
+    &\qquad\qquad \underset{\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots, \alpha_{n-1},\alpha_n)=0\mid f_t(\alpha_1,\dots,\alpha_{n-1})\neq 0]\underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP}[f_t(\alpha_1,\dots,\alpha_{n-1})\neq 0]
+  \end{align*}
+  Let $p\coloneqq \underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP} [f_t(\alpha_1,\dots,\alpha_{n-1})=0]$. For the second term after fixing $\alpha_1,\dots,\alpha_{n-1}$ we have $\underset{\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots, \alpha_{n-1},\alpha_n)=0\mid f_t(\alpha_1,\dots,\alpha_{n-1})\neq 0]\leq\frac{d}q$. Now $$\underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP}[f_t(\alpha_1,\dots,\alpha_{n-1})\neq 0]=1-\underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP}[f_t(\alpha_1,\dots,\alpha_{n-1})= 0]$$ Therefore together we get $$\underset{\alpha_1,\dots,\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots,\alpha_n)=0]\leq p+(1-p)\frac{d}{q}=\frac{d}{q}+\lt(1-\frac{d}{q}\rt)p$$By induction hypothesis $p\leq 1-\lt(1-\frac{d}q\rt)^{n-1}$. Therefore we have $$\underset{\alpha_1,\dots,\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots,\alpha_n)=0]\leq \frac{d}{q}+\lt(1-\frac{d}{q}\rt)\lt[1-\lt(1-\frac{d}{q}\rt)^{n-1}\rt]=1-\lt(1-\frac{d}{q}\rt)^{n}$$So we have the lemma. 
+\end{proof}
+
+We can give another upper bound based on individual degrees of each variables. If degree of each variable is at most $d$ then there can be at most $d(q^{n-1}-1)$ many non-trivial solutions. For this we consider $f$ to be \emph{homogeneous} i.e. total degree of each monomial is same. 
+\begin{Theorem}{}{}
+  Let $f\in\bbF_q[X_1,\dots, X_n]$ be a homogeneous with $\deg(f)=d\geq 1$. Then the equation $f(X_1,\dots,X_n)=0$ has at most $d(q^{n-1}-1)$ non-trivial solutions. 
+\end{Theorem}
+\begin{proof}
+  We use double induction on $n$ and $d$. For the base case $n=1$ then $f=aX_1^d$ for some $a\neq 0$, so the only root is $X_1=0$, giving $\ov{Z}(f)=0\leq d(q^0-1)=0$. If $d=1$ then $f=a_1X_1+\cdots+a_nX_n$ is a non-zero linear form whose zero set is an $(n-1)$-dimensional hyperplane, so $\ov{Z}(f)=q^{n-1}-1=d(q^{n-1}-1)$.
+
+  Suppose $n>1$, $d>1$, and the bound holds for non-constant homogeneous polynomials in at most $n$ variables of degree less than $d$ and for those in fewer than $n$ variables of degree at most $d$. We consider two cases.
+
+  \paragraph*{Case 1: $X_1\mid f$.} Write $f=X_1\cdot g$ where $g\in\bbF_q[X_1,\dots,X_n]$ is homogeneous of degree $d-1$. Every nontrivial solution $(\alpha_1,\dots,\alpha_n)\in\ovZ(f)$ with $\alpha_i\in\bbF_q$ for all $i\in[n]$, satisfies $\alpha_1=0$ or $g(\alpha_1,\dots,\alpha_n)=0$. Solutions with $\alpha_1=0$: any $(0,\alpha_2,\dots,\alpha_n)\neq 0$ works, giving $q^{n-1}-1$ solutions. Solutions with $\alpha_1\neq 0$: these are nontrivial zeros of $g$, and by the induction hypothesis on $d$ there are at most $(d-1)(q^{n-1}-1)$. Hence $$\ov{Z}(f)\leq (q^{n-1}-1)+(d-1)(q^{n-1}-1)=d(q^{n-1}-1).$$
+
+  \paragraph*{Case 2: $X_1\nmid f$.} Write $f=\sum_{k=0}^{d}f_k(X_2,\dots,X_n)\cdot X_1^k$ with $f_k$ homogeneous of degree $d-k$. Since $X_1\nmid f$ we have $f_0\neq 0$, so for every $\alpha\in\bbF_q$ such that $f(\alpha,X_2,\dots,X_n)$ is a non-zero polynomial of degree $d$ in $n-1$ variables we have by \SZlem it has at most $d\cdot q^{n-2}$ zeros in $\bbF_q^{n-1}$. Now summing over $\alpha\in\bbF_q^*$ gives at most $(q-1)\cdot d\cdot q^{n-2}$ nontrivial solutions with $\alpha_1\neq 0$. For solutions with $\alpha_1=0$: $f(0,X_2,\dots,X_n)=f_0(X_2,\dots,X_n)$ is a nonzero homogeneous polynomial in $n-1$ variables of degree $d$, so by the induction hypothesis on $n$ it has at most $d(q^{n-2}-1)$ nontrivial zeros. Altogether, $\ov{Z}(f)\leq (q-1)d\cdot q^{n-2}+d(q^{n-2}-1)=d\lt(q^{n-1}-q^{n-2}+q^{n-2}-1\rt)=d(q^{n-1}-1)$.
+\end{proof}
+\subsection{Average Number of Solutions}
+We now investigate the \emph{average number of solutions} of a polynomial equations. Let $d\in\bbN$. Then define $\Om_d\coloneqq \bbF_q^{\leq d}[X_1,\dots, X_n]$ and $\om(d)$ be the set of $n-$tuples $(i_1,\dots,i_n)\in\bbZ_0$ such that $i_1+\cdots +i_n\leq d$. Then 
+\begin{observation}\label{obs:Omd-omd}
+  With the definitions of $\Om_d$ and $\om(d)$ as above we have $|\Om_d|=q^{|\om(d)|}$. 
+\end{observation}
+\begin{lemma}{}{lem:average-solutions}
+  With the notations of $\Om_d$ and $\om(d)$ as defined above we have $$\frac1{|\Om_d|}\sum_{f\in\Om_d}Z(f)=q^{n-1}$$
+\end{lemma}
+\begin{proof}
+  We have $$\sum_{f\in\Om_d}Z(f)=\sum_{f\in\Om_d}\sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ f(\alpha_1,\dots,\alpha_n)=0}}1=\sum_{\alpha_1,\dots,\alpha_n\in\bbF_q}\sum_{\substack{f\in\Om_d\\ f(\alpha_1,\dots,\alpha_n)=0}}1$$Let for any $f\in\Om_d$ $$f(X_1,\dots,X_n)=\sum_{(i_1,\dots,i_n)\in\om(d)}f_{i_1,\dots,i_n}X_1^{i_1}\cdots X_n^{i_n}\quad f_{i_1,\dots,i_n}\in\bbF_q,\ \forall\ (i_1,\dots, i_n)\in\om(d)$$Then for a fixed $\alpha_1,\dots, \alpha_n\in\bbF_q$ we get to choose the coefficients $f_{i_1,\dots, i_n}$ for all $(i_1,\dots,i_n)\in\om(d)\setminus\{(0,\dots, 0)\}$ arbitrarily and then determining the constant term $f_{0,\dots, o}$ to make $f(\alpha_1,\dots,\alpha_n)=0$. Thus the number of $f\in\om_d$ with $f(\alpha_1,\dots, \alpha_n)=0$ is equal to $q^{|\om(d)|-1}$. Therefore $\sum_{f\in\Om_d}Z(f)=q^n\cdot q^{|\om(d)|-1}=|\Om_d|\cdot q^{n-1}$. So we have the lemma. 
+\end{proof}
+The proof of the above lemma gives us the following observation:
+\begin{observation}\label{obs:num-poly-zero-at-point}
+  For any $\alpha_1,\dots,\alpha_n\in\bbF_q$, the number of polynomials $f\in\Om_d$ such that $f(\alpha_1,\dots,\alpha_n)=0$ is $q^{|\om(d)|-1}$. 
+\end{observation}
+
+The above lemma implies that a polynomial equation in $n$ variables has on average $q^{n-1}$ solutions in $\bbF_q^n$. So we now consider average deviation from the average number of solutions, $q^{n-1}$. 
+\begin{Theorem}{}{}
+  With the notations of $\Om_d$ and $\om(d)$ as defined above we have
+  $$\frac1{|\Om_d|}\sum_{f\in\Om_d}\Big(Z(f)-q^{n-1}\Big)^2=q^{n-1}-q^{n-2}$$
+\end{Theorem}
+\begin{proof}
+  Let $\alpha=(\alpha_1,\dots,\alpha_n),\beta=(\beta_1,\dots,\beta_n)\in\bbF_q^n$ be any two points. Then we get
+  $$\sum_{f\in\Om_d}Z(f)^2  = \sum_{f\in\Om_d}\lt( \sum_{\substack{\alpha\in\bbF_q^n\\ f(\alpha)=0}} 1 \rt)^2= \sum_{f\in\Om_d}\sum_{\substack{\alpha\in\bbF_q^n\\ f(\alpha)=0}}\sum_{\substack{\beta\in\bbF_q^n\\ f(\beta)=0}}1=\sum_{\alpha,\beta\in\bbF_q^n}\sum_{\substack{f\in\Om_d\\  f(\alpha)=f(\beta)=0}}1$$
+  Now if $\alpha=\beta$ then by \obsref{obs:num-poly-zero-at-point} we have $\sum_{f\in\Om_d,\   f(\alpha)=0}1=q^{|\om(d)|-1}$. Now suppose $\alpha\neq\beta$. This gives two linear equations for the coefficients of $f$. Therefore there are $q^{|\om(d)|-2}$ polynomials $f\in\Om_d$ such that $f(\alpha)=f(\beta)=0$. Hence we obtain \begin{align*}
+    \sum_{f\in\Om_d}Z(f)^2  =  & = \sum_{\alpha\in\bbF_q^n}|\Om_d|\cdot q^{-1}+\sum_{\alpha,\beta\in\bbF_q^n,\alpha\neq \beta}|\Om_d|\cdot q^{-2} \byo{obs:Omd-omd}\\ 
+    & = q^n\cdot |\Om_d|\cdot q^{-1}+q^n(q^n-1)|\Om_d|\cdot q^{-2}\\ 
+    & = |\Om_d|\Big( q^{n-1}+q^{2n-2}-q^{n-2} \Big)
+  \end{align*}
+  So now we get \begin{align*}
+    \sum_{f\in\Om_d}(Z(f)-q^{n-1})^2 & = \sum_{f\in\Om_d}Z(f)^2 + 2\cdot q^{n-1}\sum_{f\in\Om_d}Z(f)+q^{2n-2}\sum_{f\in\Om_d}1\\ 
+    & = |\Om_d|\Big(q^{2n-2}+q^{n-1}-q^{n-2}\Big)-2\cdot q^{n-1}\cdot |\Om_d|\cdot q^{n-1}+q^{2n-2}\cdot |\Om_d|\\ 
+    & = |\Om_d|(q^{n-1}-q^{n-2})
+  \end{align*}
+  So we have the result. 
+\end{proof}
+From this result we can expect that $|Z(f)-q^{n-1}|$ is often $O\lt(q^{\nicefrac{(q-1)}{2}}\rt)$. Later we will see instances of such expected behavior for various polynomial equations. In the next sections we will talk about character sums over polynomial evaluations. 
