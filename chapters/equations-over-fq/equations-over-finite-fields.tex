@@ -1,5 +1,9 @@
 \chapter{Equations over Finite Fields}
+In this chapter we consider polynomial equations of the form $f_1(X_1,\dots,X_n)=f_2(X_1,\dots,X_n)$ with $f_1,f_2\in\bbF_q[X_1,\dots,X_n]$. We study the number of solutions of such equations in $\bbF_q$. This equation is equivalent to equations of the form $f(X_1,\dots, X_n)=0$ where $f=f_1-f_2$. From now on we use the notation $\mcV(f)$ to denote the set of solutions of $f(X_1,\dots, X_n)=0$ and $Z(f)$ denotes the number of solutions. Hence $Z(f)=|\mcV(f)|$. Similarly we define $\ov{Z}(f)$ and $\ov{\mcV}(F)$ to denote set of non-trivial solutions and number of non-trivial solutions of $f(X_1,\dots, X_n)=0$ respectively. For a system of polynomial equations $f_1=0,\dots,f_k=0$ with $f_1,\dots,f_k\in\bbF_q[X_1,\dots,X_n]$ we write $\mcV(f_1,\dots,f_k)=\mcV(f_1)\cap\cdots\cap\mcV(f_k)$ for the set of common solutions and $Z(f_1,\dots,f_k)=|\mcV(f_1,\dots,f_k)|$ for their count. And similarly we define $\ov{Z}(f_1,\dots, f_k)$ and $\ov{\mcV}(f_1,\dots, f_k)$. This notion is coming the notation used in the discussion of affine varieties in algebraic geometry. 
 
+In some cases we can give exact formula for the number of solutions and in general case we can give bounds on the number of solutions. To find bounds on numbers we use multiplicative or additive characters applied on polynomial evaluations to get. So we look into character sums of polynomials too. The problem of evaluating such character sums explicitly is very difficult. That's where we try to get bounds. 
+\input{chapters/equations-over-fq/elementary-results}
+\input{chapters/equations-over-fq/character-sum-of-poly}
 \section{Special $L$-functions}
 
 We write alternate proof of Davenport-Hasse Theroem from Schmidt 2.{6,7,8,9,10}

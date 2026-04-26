@@ -130,7 +130,7 @@
 	borderline west = {2pt}{0pt}{mytheoremfr},
 	sharp corners,
 	detach title,
-	before upper = \tcbtitle\par\smallskip\itshape,
+	before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em},
 	coltitle = mytheoremfr,
 	fonttitle = \bfseries\sffamily,
 	description font = \mdseries,
@@ -150,7 +150,7 @@
 	borderline west = {2pt}{0pt}{mytheoremfr},
 	sharp corners,
 	detach title,
-	before upper = \tcbtitle\par\smallskip\itshape,
+	before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em},
 	coltitle = mytheoremfr,
 	fonttitle = \bfseries\sffamily,
 	description font = \mdseries,
@@ -190,7 +190,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip\itshape
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -209,7 +209,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip\itshape
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -233,7 +233,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip\itshape
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -253,7 +253,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip\itshape
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -277,7 +277,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip\itshape
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -297,7 +297,7 @@
 	,borderline west = {2pt}{0pt}{mytheoremfr}
 	,sharp corners
 	,detach title
-	,before upper = \tcbtitle\par\smallskip\itshape
+	,before upper = \tcbtitle\par\smallskip\noindent\itshape\setlength{\parindent}{1.5em}
 	,coltitle = mytheoremfr
 	,fonttitle = \bfseries\sffamily
 	,description font = \mdseries
@@ -367,6 +367,7 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	before upper=\noindent\setlength{\parindent}{1.5em},
 	fontupper=\itshape,
 	title={#2},#1}{def}
 \newtcbtheorem[number within=chapter]{definition}{Definition}{enhanced,
@@ -388,6 +389,7 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	before upper=\noindent\setlength{\parindent}{1.5em},
 	fontupper=\itshape,
 	title={#2},#1}{def}
 
@@ -415,6 +417,7 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	before upper=\noindent\setlength{\parindent}{1.5em},
 	fontupper=\itshape,
 	title={#2},#1}{def}
 \newtcbtheorem[number within=chapter]{Open}{Open Question}{enhanced,
@@ -436,6 +439,7 @@
 		},interior engine=empty,
 	},
 	fonttitle=\bfseries,
+	before upper=\noindent\setlength{\parindent}{1.5em},
 	fontupper=\itshape,
 	title={#2},#1}{def}
 
@@ -666,6 +670,7 @@
 \newenvironment{proof-of-corollary}[1][]{\noindent{\textbf{\textit{Proof of \corrref{#1}:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{proof-attempt}{\noindent{\textbf{\textit{Proof Attempt:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{alternate-proof}[1][]{\noindent{\textit{\textbf{Alternate Proof #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
+\newenvironment{anotherproof}{\noindent{\textit{\textbf{Another Proof:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{proofof}[1]{\noindent{\textbf{\textit{Proof:
 	of #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{remark}{\noindent\textbf{Remark:}\hspace*{1em}}{\bigskip\\}
