@@ -22,7 +22,7 @@ Now we want to find the value of $J(\lm_1,\dots, \lm_k)$ and $J_0(\lm_1,\dots, \
 \subsection{Evaluating Jacobi Sums}
 
 We begin with the degenerate cases where at least one character is trivial, then build up to the general absolute-value formula via the key connection to Gaussian sums.
-\begin{lemma}{}{lem:jacobi-some-trivial}
+\begin{lemma}{Jacobi Sums with Trivial Characters}{lem:jacobi-some-trivial}
 Let $\lm_1,\dots, \lm_k\in\Mq$ are multiplicative characters of $\bbF_q$. Then\begin{enumerate}[label=(\roman*)]
   \item If $\lm_1=\cdots=\lm_k=\psi_0$ where $\psi_0$ is the trivial multiplicative character then $$J(\lm_1,\dots, \lm_k)=J_0(\lm_1,\dots, \lm_k)=q^{k-1}$$
   \item If some but not all $\lm_i$'s are trivial then $$J(\lm_1,\dots, \lm_k)=J_0(\lm_1,\dots, \lm_k)=0$$
@@ -44,7 +44,7 @@ Let $\lm_1,\dots, \lm_k\in\Mq$ are multiplicative characters of $\bbF_q$. Then\b
 \end{proof}
 
 Before going to the case where all $\lm_i$'s are non-trivial we will show that a relation between $J_0(\lm_1,\dots,\lm_k)$ and $J(\lm_1,\dots, \lm_k)$. This will show that studying $J(\lm_1,\dots, \lm_k)$ suffices to study all kinds of Jacobi sums. 
-\begin{lemma}{}{lem:jacobi-zero-relation}
+\begin{lemma}{Relation between $J_0$ and $J$}{lem:jacobi-zero-relation}
   Let $\lm_1,\dots,\lm_k\in\Mq$ are multiplicative characters of $\bbF_q$ with $\lm_k$ is non-trivial. Then $$J_0(\lm_1,\dots,\lm_k)=\begin{cases}
     0 &\text{if }\prod_{i=1}^k\lm_i\text{ is non-trivial}\\
     \lm_k(-1)\cdot (q-1)\cdot J(\lm_1,\dots,\lm_{k-1}) & \text{if }\prod_{i=1}^k\lm_i\text{ is trivial}
@@ -62,7 +62,7 @@ Before going to the case where all $\lm_i$'s are non-trivial we will show that a
 \end{proof}
 
 Hence the only case for $J_0(\lm_1,\dots,\lm_k)$ for which we still don't know the absolute value is the case when all $\lm_i$'s are non-trivial and $\prod_{i=1}^k\lm_i$ is trivial. Since we understand Gaussian sums very well we will first build an important connection between Jacobi sums and Gaussian sums that will allow us to calculate the absolute value of Jacobi sums. 
-\begin{Theorem}{}{thm:jacobi-gaussian}
+\begin{Theorem}{Jacobi--Gaussian Sum Relation}{thm:jacobi-gaussian}
   Let $\lm_1,\dots,\lm_k\in\Mq$ are non-trivial multiplicative characters of $\bbF_q$ and $\chi\in\Xq$ is a non-trivial additive character of $\bbF_q$.
   \begin{enumerate}[label=(\roman*)]
     \item If $\prod_{i=1}^k$ is non-trivial then$$J(\lm_1,\dots, \lm_k)=\frac{G(\lm_1,\chi)\cdot G(\lm_2,\chi)\cdots G(\lm_k,\chi)}{G(\lm_1\cdots \lm_k,\chi)}$$
@@ -99,7 +99,7 @@ Hence the only case for $J_0(\lm_1,\dots,\lm_k)$ for which we still don't know t
 \end{proof}
 
 Now we have all the results to calculate the absolute value of the Jacobi sum for non-trivial multiplicative characters. So we have the following theorem. 
-\begin{Theorem}{}{thm:jacobi-sum}
+\begin{Theorem}{Absolute Value of Non-trivial Jacobi Sums}{thm:jacobi-sum}
   Let $\lm_1,\dots,\lm_k\in\Mq$ be non-trivial multiplicative characters of $\bbF_q$. Then $$|J(\lm_1,\dots,\lm_k)|=\begin{cases}
     q^{\nicefrac{(k-1)}{2}}& \text{If $\prod_{i=1}^k \lm_i$ is non-trivial}\\ 
     q^{\nicefrac{(k-2)}{2}}& \text{If $\prod_{i=1}^k \lm_i$ is trivial}
@@ -112,7 +112,7 @@ Now we have all the results to calculate the absolute value of the Jacobi sum fo
 \end{proof}
 
 Using the value of $J(\lm_1,\dots,\lm_k)$ we can also get the absolute value of $J_0(\lm_1,\dots,\lm_k)$ when all $\lm_i$'s are non-trivial and $\prod_{i=1}^k\lm_i$ is trivial. 
-\begin{corolary}{}{}
+\begin{corolary}{Absolute Value of $J_0$ for Non-trivial Characters}{}
   Let $\lm_1,\dots,\lm_k\in\Mq$ be non-trivial multiplicative characters of $\bbF_q$ and $\prod_{i=1}^k\lm_i$ is trivial. Then $$|J_0(\lm_1,\dots,\lm_k)|=(q-1)q^{\nicefrac{(k-2)}{2}}$$
 \end{corolary}
 \begin{proof}
@@ -120,7 +120,7 @@ Using the value of $J(\lm_1,\dots,\lm_k)$ we can also get the absolute value of 
 \end{proof}
 
 Combining \lemref{lem:jacobi-some-trivial}, \lemref{lem:jacobi-zero-relation}, \thmref{thm:jacobi-sum}, and the corollary above, we obtain a complete description of the absolute values of Jacobi sums in all cases.
-\begin{Theorem}{}{thm:jacobi-sum-complete}
+\begin{Theorem}{Complete Evaluation of Jacobi Sums}{thm:jacobi-sum-complete}
   Let $\lm_1,\dots,\lm_k\in\Mq$ be multiplicative characters of $\bbF_q$. Then
   \begin{enumerate}[label=(\roman*)]
     \item If $\lm_i$ is trivial for all $i\in[k]$ then $J(\lm_1,\dots,\lm_k)=J_0(\lm_1,\dots,\lm_k)=q^{k-1}$.
@@ -133,7 +133,7 @@ Combining \lemref{lem:jacobi-some-trivial}, \lemref{lem:jacobi-zero-relation}, \
 \subsection{The Davenport--Hasse Relations}
 
 The case $k=2$ is the one that appears in most arithmetic applications. The central result here is the Davenport--Hasse product formula, which expresses a high power of a Gaussian sum as a product of Jacobi sums. We first establish a useful preliminary identity.
-\begin{lemma}{}{}
+\begin{lemma}{Gaussian Sum Power via Jacobi Products}{}
   Let $\lm$ be a multiplicative character of $\bbF_q$ of order $m\geq 2$ and let $\chi$ be a non-trivial additive character of $\bbF_q$. Then $$G(\lm,\chi)^m=\lm(-1)\cdot q\cdot J(\lm,\lm)\cdot J(\lm,\lm^2)\cdots J(\lm,\lm^{m-2})$$ 
 \end{lemma}
 \begin{proof}

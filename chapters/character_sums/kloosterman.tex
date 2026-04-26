@@ -38,7 +38,7 @@ When the ground field has odd characteristic there is a useful alternative expre
 \end{proof}
 
 One of the central structural result for Kloosterman sums asserts that the sequence of lifted sums $K(\chi^{(s)};a,b)$, viewed as a function of $s$, is controlled by just two complex numbers $\omega_1,\omega_2$ -- exactly the reciprocal roots of the associated $L$-function. This is the Kloosterman analogue of the \DHthm. We will use again the \emph{Dirichlet $L$-functions} in \autoref{sec:l-functions} to prove the following theorem
-\begin{Theorem}{}{thm:kloosterman-lift}
+\begin{Theorem}{Lifting of Kloosterman Sum}{thm:kloosterman-lift}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $a,b\in\bbF_q$ with $ab\neq 0$. Suppose $\chi$ is lifted to character $\chi^{(r)}$ of the finite extension field $E$ of $\bbF_q$ with $[E\colon \bbF_q]=r$. Then there exist complex numbers $w_1,w_2$ (depending only on $\chi,a,b$), which are either complex conjugates of each other or both real, such that for every positive integer $r$
   $$K(\chi^{(r)};a,b)=\sum_{\gm\in\bbF_{q^r}^*}\chi^{(r)}(a\gm+b\gm^{-1})=-w_1^r-w_2^r,$$
 \end{Theorem}
@@ -65,7 +65,7 @@ One of the central structural result for Kloosterman sums asserts that the seque
 \end{proof}
 
 Assuming $w_1,w_2$ as above, every lifted Kloosterman sum is a symmetric function of $w_1,w_2$, which by Waring's identities can be rewritten purely in terms of $K=K(\chi;a,b)$ and $q$. This gives the following closed-form reduction of $K(\chi^{(s)};a,b)$ to the ground-field sum.
-\begin{lemma}{}{thm:kloosterman-reduction}
+\begin{lemma}{Reduction of Lifted Kloosterman Sums}{thm:kloosterman-reduction}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $a,b\in\bbF_q$ with $ab\neq 0$. Then for every positive integer $s$,
   $$K\lt(\chi^{(s)};a,b\rt)=\sum_{j=0}^{\lfloor s/2\rfloor}(-1)^{s-j-1}\cdot \frac{s}{s-j}\cdot \binom{s-j}{j}\cdot q^j\cdot K(\chi;a,b)^{s-2j}.$$
 \end{lemma}
@@ -78,6 +78,6 @@ Assuming $w_1,w_2$ as above, every lifted Kloosterman sum is a symmetric functio
   Now we take $X_1=w_1$ and $X_2=w_2$ obtained from \thmref{thm:kloosterman-lift} we get $w_1^k+w_2^k=-K(\chi^{(k)};a,b)$ for any $k\in\bbN$ and $w_1\cdot w_2=q$. So by this replacing in the equation we get the result. 
 \end{proof}
 This lemma gives a relation between powers of Kloosterman sum and lifted Kloosterman sums. We can obtain a recursive relation between different lifts of Kloosterman sums very easily using this identiy$$w_1^r+w_2^r=(w_1^{r-1}+w_2^{r-1})(w_1+w_2)-(w_1^{r-2}+w_2^{r-2})w_1w_2$$ which gives us $$K(\chi^{(r)};a,b)=-K(\chi^{(r-1)};a,b)\cdot K(\chi;a,b)-q\cdot K(\chi^{(r-2)};a,b)$$ and so we have the corollary. 
-\begin{corolary}{}{cor:kloosterman-recursion}
+\begin{corolary}{Kloosterman Sum Recurrence Relation}{cor:kloosterman-recursion}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $a,b\in\bbF_q$ with $ab\neq 0$. Then for every positive integer $s$, the lifted Kloosterman sums satisfy the recurrence $$K\lt(\chi^{(s)};a,b\rt)=-K\lt(\chi^{(s-1)};a,b\rt)\cdot K(\chi;a,b)-K\lt(\chi^{(s-2)};a,b\rt)\cdot q\qquad \text{for all }s\geq 2,$$ with the convention $K(\chi^{(0)};a,b)\coloneqq -2$ (and noting $K\lt(\chi^{(1)};a,b\rt)=K(\chi;a,b)$).
 \end{corolary}

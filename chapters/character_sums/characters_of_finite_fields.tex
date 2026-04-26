@@ -5,7 +5,7 @@ In a finite field $\bbF_q$ there are two inherent group structures--namely, the 
 We first turn to the additive group of $\bbF_q$. Characters of the additive group $\bbF_q$ are called \emph{additive characters}\index{character!additive} of $\bbF_q$. We denote the set of all additive characters of $\bbF_q$ by $\bm{\mcX}_q$. 
 
 Suppose $p$ be the characteristic of $\bbF_q$.  Then the prime field contained in $\bbF_q$ is $\bbF_p$. Let $\tr:\bbF_q\to\bbF_p$ be the absolute \emph{trace function}\index{trace function} from $\bbF_q$ to $\bbF_p$. Then define the function $\chi_1$ by $$\chi_1(\alpha)=e^{2\pi i\frac{\tr(\alpha)}{p}}\quad \forall\ \alpha\in \bbF_q$$Then $\chi_1$ is an additive character of $\bbF_q$ since for all $\alpha_1,\alpha_2\in\bbF_q$, $\tr(\alpha_1+\alpha_2)=\tr(\alpha_1)+\tr(\alpha_2)$ and hence $\chi_1(\alpha_1+\alpha_2)=\chi_1(\alpha_1)\cdot \chi_1(\alpha_2)$. This character $\chi_1$ is called the \emph{canonical additive character}\index{character!canonical additive} of $\bbF_q$.
-\begin{Theorem}{}{thm:add-char-define}
+\begin{Theorem}{Structure of Additive Characters}{thm:add-char-define}
   For $\beta\in\bbF_q$, define the function $\chi_{\beta}$ with $\chi_{\beta}(\alpha)=\chi_1(\beta\cdot \alpha)$ for all $\alpha\in\bbF_q$. Then $\chi_{\beta}$ is an additive character of $\bbF_q$ and every additive character of $\bbF_q$ is obtained this way i.e. for all $\chi\in\Xq$, there exists $\beta\in\bbF_q$ such that for all $\alpha\in\bbF_q$ we have $\chi(\alpha)=\chi_{\beta}(\alpha)$. 
 \end{Theorem}
 \begin{proof}
@@ -18,7 +18,7 @@ Suppose $p$ be the characteristic of $\bbF_q$.  Then the prime field contained i
  
 
 The orthogonality relations in \obsref{obs:orthogonal-relation} when applied to additive characters and along with \thmref{thm:add-char-define} gives the following result.
-\begin{Theorem}{}{thm:add-char-props}
+\begin{Theorem}{Orthogonality of Additive Characters}{thm:add-char-props}
   \begin{enumerate}[label=(\roman*)]
     \item For any $a\in\bbF_q$, the corresponding additive character is $\chi_a$. Then $$\sum_{\gm\in\bbF_q}\chi_a(\gm)=\begin{cases}
               0 & \text{if $a\neq 0$} \\
@@ -37,7 +37,7 @@ The orthogonality relations in \obsref{obs:orthogonal-relation} when applied to 
 
 \subsection{Multiplicative Characters of \texorpdfstring{$\bbF_q$}{Fq}}\label{sec:mult-char}
 Characters of the multiplicate group $\bbF_q^*$ are called \emph{multiplicative characters}\index{character!multiplicative} of $\bbF_q$. We denote the set of all multiplicative characters of $\bbF_q$ by $\bm{\mcM}_q$. Since $\bbF_q^*$ is a cyclic group of order $q-1$ by \lemref{lem:chars-cyclic-group} we have the following:
-\begin{lemma}{}{lem:mult-char-define}
+\begin{lemma}{Structure of Multiplicative Characters}{lem:mult-char-define}
   The group of multiplicative characters of $\bbF_q$ is a cycic group of order $q-1$ and are given by $\{\psi_j\colon 0\leq j\leq q-2\}$ where if $g$ is the generator of $\bbF_q^*$ then for all $k\in\{0,1,\dots, q-2\}$ we have $\psi_j(g^k)=e^{2\pi i\frac{jk}{q-1}}$ where $\psi_0$ is the identity element of the group and the trivial character.
 \end{lemma}
 
@@ -59,7 +59,7 @@ For any multiplicative character $\psi$ of $\bbF_q$, the value of $\psi(-1)$ is 
 
 Suppose $d\mid q-1$. Then for every multiplicative character $\psi$ of exponent $d$ and for every $\alpha\in \bbF_q^*$, we have $\psi(\alpha^d)=\psi^d(\alpha)=1$. Hence $\psi(\alpha)=1$ if $\alpha\in (\bbF_q^*)^{(d)}$. Conversely if $\psi(\alpha)=1$ for every $\alpha\in (\bbF_q^*)^{(d)}$ then $\psi^d=\psi_0$. Hence $\psi$ is a character of exponent $d$ then $\psi(\alpha)$ depends only on the cosets of $\quot{\bbF_q^*}{(\bbF_q^*)^{(d)}}$. Therefore there are precisely $d$ such characters of exponent $d$.
 
-\begin{Theorem}{}{}
+\begin{Theorem}{Character Sum over $d$th-Power Characters}{}
   Suppose $d\mid q-1$. Then $$\sum_{\psi\in\Mq^{(d)}}\chi(\alpha)=\begin{cases}
       d & \text{if }\alpha\in (\bbF_q^*)^{(d)} \\
       0 & \text{otherwise}
@@ -70,7 +70,7 @@ Suppose $d\mid q-1$. Then for every multiplicative character $\psi$ of exponent 
 \end{proof}
 
 Again, the orthogonality relations in \obsref{obs:orthogonal-relation} when applied to multiplicative characters gives the following result.
-\begin{Theorem}{}{thm:mult-char-props}
+\begin{Theorem}{Orthogonality of Multiplicative Characters}{thm:mult-char-props}
   \begin{enumerate}[label=(\roman*)]
     \item For any multiplicative character $\psi$ of $\bbF_q$ $$\sum_{\alpha\in\bbF^*_q}\psi(\alpha)=\begin{cases}
               0   & \text{if $\psi\neq \psi_0$} \\

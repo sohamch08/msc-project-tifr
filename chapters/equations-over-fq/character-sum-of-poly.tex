@@ -6,7 +6,7 @@ Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\b
   $$W(\chi,f)\coloneqq\sum_{\alpha\in\bbF_q}\chi(f(\alpha)).$$
   More generally, for a multiplicative character $\psi\in\Mq$ and a rational function $f\in\bbF_q(X)$, the \emph{Weil sum} is
   $$W(\psi,\chi,f)\coloneqq\sum_{\substack{\alpha\in\bbF_q\\ \alpha\text{ not a pole of }f}}\psi(\alpha)\,\chi(f(\alpha)).$$
-\end{Definition}
+\end{Definition}Weil sums are extremely difficult to evaluate. One usually has to be satisfied with estimates for the absolute value of the sum. In certain cases it is easier to find the character sums exactly. 
 
 \subsection{Additive Character Sums}
 
@@ -17,7 +17,7 @@ The first family of Weil sums we evaluate exactly are those of the form $\chi(ac
   $$\sum_{c\in\bbF_q}\chi(ac^n+b)=\chi(b)\sum_{j=1}^{d-1}\ov{\lm}^j(a)\,G(\lm^j,\chi).$$
 \end{Theorem}
 
-\begin{corolary}{}{}
+\begin{corolary}{Vanishing for Coprime Exponent}{}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and $n\in\bbN$. If $\gcd(n,q-1)=1$ then for any $a,b\in\bbF_q$ with $a\neq 0$,
   $$\sum_{c\in\bbF_q}\chi(ac^n+b)=0.$$
 \end{corolary}
@@ -49,7 +49,7 @@ For polynomials whose monomials are all powers of $p = \Char(\bbF_q)$ (affine $p
   \end{cases}$$
 \end{Theorem}
 
-\begin{corolary}{}{}
+\begin{corolary}{Weil Sum of Quadratic Polynomial in Even Characteristic}{}
   Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ even, and let $\chi_b\in\Xq$, $b\in\bbF_q^*$, be as in \thmref{thm:weil-p-polynomial}. Then
   $$\sum_{c\in\bbF_q}\chi_b(f(c))=\begin{cases}
     \chi_b(a_0)\cdot q & \text{if }a_2=ba_1^2,\\
@@ -60,7 +60,7 @@ For polynomials whose monomials are all powers of $p = \Char(\bbF_q)$ (affine $p
 \subsection{Quadratic Character Sums}
 
 When the character is the quadratic character $\eta$, the sums $\sum_c\eta(f(c))$ can be evaluated by completing the square (for quadratic $f$) or by the continued fraction algorithm (for polynomials with no roots in $\bbF_q$).
-\begin{Theorem}{}{thm:eta-quadratic-poly}
+\begin{Theorem}{Quadratic Character Sum of a Quadratic Polynomial}{thm:eta-quadratic-poly}
   Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ odd and $a_2\neq 0$, let $\Dl=a_1^2-4a_0a_2$ denote the discriminant of $f$, and let $\eta$ be the quadratic character of $\bbF_q$ (extended by $\eta(0)=0$). Then $$\sum_{\alpha\in\bbF_q}\eta(f(\alpha))=\begin{cases}-\eta(a_2) & \text{if }\Dl\neq 0,\\ (q-1)\cdot \eta(a_2) & \text{if }\Dl=0.\end{cases}$$
 \end{Theorem}
 

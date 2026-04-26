@@ -5,7 +5,7 @@ Having studied additive and multiplicative characters of $\bbF_q$ separately, we
   Let $\psi $ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then the \emph{Gaussian Sum} associated to $\psi$ and $\chi$ is defined as $$G(\psi,\chi)=\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\cdot \chi(\alpha)$$
 \end{Definition}
 Hence the absolute value of the Gaussian sum is at most $q-1$. But later we will see that the Gaussian sum in most cases is much smaller, $\sqrt{q}$ to be precise.
-\begin{Theorem}{}{thm:gaussian-sum}
+\begin{Theorem}{Evaluation of Gaussian Sums}{thm:gaussian-sum}
   Let $\psi$ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then \begin{equation}
     G(\psi,\chi)=\begin{cases}
       q-1 & \text{if $\psi=\psi_0$, $\chi=\chi_0$}     \\
@@ -40,7 +40,7 @@ Hence the absolute value of the Gaussian sum is at most $q-1$. But later we will
 \end{proof}
 Now under various transformations of the additive or multiplicative characters Gaussian sums gives some useful identities. We will see some of these below.
 
-\begin{lemma}{}{lem:gaussian-sum-identity}
+\begin{lemma}{Gaussian Sum Identities}{lem:gaussian-sum-identity}
   Gaussian sums for the finite field $\bbF_q$ satisfy the following identities. For any $a\in \bbF_q$ let $\chi_a$ be the additive character defined as in \thmref{thm:add-char-define}. Let $\psi\in\Mq$ be any multiplicative character and $\chi\in\Xq$ be any additive character of $\bbF_q$.  Then we have the following identities\begin{enumerate}[label=(\roman*)]
     \item $G(\psi,\chi_{ab})=\ov{\psi(a)}\cdot G(\psi,\chi_b)$ for any $a\in \bbF_q^*$ and $b\in \bbF_q$.
     \item $G(\psi,\ov{\chi})=\psi(-1)\cdot G(\psi,\chi)$.

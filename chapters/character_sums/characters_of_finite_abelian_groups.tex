@@ -20,7 +20,7 @@ Hence for all $g\in G$, $$\chi(g)\cdot \overline{\chi}(g)=|\chi(g)|^2=1$$Hence t
   The dual group $\widehat{G}$ is a finite abelian group. So we can talk about characters of $\hG$ too.
 \end{observation}
 Since the values of characters of $G$ can only be $|G|^{th}$ roots of unity, the dual group $\widehat{G}$ is a finite abelian group.
-\begin{lemma}{}{lem:chars-cyclic-group}
+\begin{lemma}{Charaters of Cyclic Group}{lem:chars-cyclic-group}
   If $G$ is a finite cyclic group of order $n$ and let $g$ be the generator of $G$, then for all $j\in\{0,1,\dots, n-1\}$ define the function $$\chi_j(g^k)=e^{2\pi i\frac{j\cdot k}{n}} \quad \forall\ k\in \{0,1,\dots, n-1\}$$Then $\hG=\{\chi_j\colon j\in\{0,1,\dots, n-1\}$.
 \end{lemma}
 \begin{proof}
@@ -32,12 +32,12 @@ Since the values of characters of $G$ can only be $|G|^{th}$ roots of unity, the
 \begin{remark}
   When $G=(\bbZ/n\bbZ)^*$, the characters of $G$ described by $\chi_j(\alpha)=e^{2\pi i\frac{\alpha\cdot j}{n}}$ like in \lemref{lem:chars-cyclic-group} are precisely the classical \emph{Dirichlet characters}\index{Dirichlet character} modulo $n$, which are of fundamental importance in analytic number theory.
 \end{remark}
-\begin{corolary}{}{}
+\begin{corolary}{Isomorphism of a Cyclic Group with its Dual}{}
   If $G$ is a finite cyclic group of order $n$ with $g$ being the generator then $G\cong \hG$ by the isomorphism $\varphi:g^j\mapsto \chi_j$ for all $j\in\{0,1,\dots, n-1\}$.
 \end{corolary}
 
 Now we will show that we can extend a character of any subgroup to a character of the group.
-\begin{Theorem}{}{thm:subgroup-char-extend}
+\begin{Theorem}{Extending Characters from Subgroup to Group}{thm:subgroup-char-extend}
   Let $H$ be a subgroup of the finite abelian group $G$ and let $\chi_H$ be a character of $H$. Then $\chi_H$ can be extended to a character of $G$ that is there exists a character $\chi\in\hG$ with $\chi(h)=\chi_H(h)$ for all $h\in H$.
 \end{Theorem}
 \begin{proof}
@@ -122,7 +122,7 @@ From above theorem and \obsref[(i)]{obs:char-sum} we get the \emph{orthogonality
 Since we already showed that for every element $g\in G$, $\ev_g$ is a character of $\hG$. \thmref{thm:group-char-equal} gives us the possibility that $G$ and $\hG$ are isomorphic. In \lemref{lem:chars-cyclic-group} we already showed that for cyclic groups $G$ and $\hG$ are isomorphic. In the next few results we will show that this is the case for all finite abelian groups.
 
 By Fundamental Theory of Finite Abelian Groups every finite abelian group $G$ can be written as a direct product of finitely many cyclic groups. Hence it is enough to show that if $G_1$ and $G_2$ are two finite abelian groups and $G=G_1\times G_2$ then $\hG$ is isomorphic to the direct product of $\hG_1$ and $\hG_2$.
-\begin{Theorem}{}{thm:group-product-char}
+\begin{Theorem}{Isomorphism of Product of Dual Groups with Dual of Their Product}{thm:group-product-char}
   Let $G_1$ and $G_2$ be two finite abelian groups and let $G=G_1\times G_2$. Then $\hG\cong \hG_1\times \hG_2$.
 \end{Theorem}
 \begin{proof}
@@ -131,7 +131,7 @@ By Fundamental Theory of Finite Abelian Groups every finite abelian group $G$ ca
   Let $\chi\in \hG$. Then define $\chi_1(g_1)\coloneqq\chi(g_1,1)$ for all $g_1\in G_1$ and similarly define $\chi_2(g_2)\coloneqq\chi(1,g_2)$ for all $g_2\in G_2$. Then $\chi_1$ is a character of $G_1$ and $\chi_2$ is a character of $G_2$. And also for any $(g_1,g_2)\in G$ we have $$\chi_1(g_1)\cdot \chi_2(g_2)=\chi(g_1,1)\cdot \chi(1,g_2)=\chi(g_1,g_2)$$ Hence $\varphi(\chi_1,\chi_2)=\chi$. Hence $\varphi$ is an isomorphism. Therefore $\hG\cong \hG_1\times \hG_2$.
 \end{proof}
 
-\begin{Theorem}{}{thm:group-char-isomorphism}
+\begin{Theorem}{Isomorphism of Group with its Dual}{thm:group-char-isomorphism}
   For any finite abelian group $G$, $G$ is isomorphic to $\hG$.
 \end{Theorem}
 \begin{proof}

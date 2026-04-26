@@ -49,7 +49,7 @@ The two lemmas above are the principal tools behind the Chevalley--Warning theor
 Now the bound of $\deg(f)<n$ in \CWthm is the best possible bound for the theorem to work. We can construct a polynomial in $\bbF_q[X_1,\dots, X_n]$ of degree $n$ for which the theorem doesn't hold. Let $\{\alpha_1,\dots, \alpha_n\}$ is the basis of $E=\bbF_{q^n}$ over $\bbF_q$. Consider the following polynomial $$f(X_1,\dots, X_n)=\prod_{j=0}^{n-1}\lt(\alpha_1^{q^i}X_1+\cdots +\alpha_n^{q^i}X_n\rt)=\prod_{j=0}^{n-1}\sum_{j=1}^n \alpha_j^{q^i}X_i$$Since for all $i\in\{0,1,\dots, n-1\}$, $\alpha_j^{q^i}$ are conjugates of $\alpha_j$ for all $j\in[n]$ with respect to $\bbF_q$, $f$ is a polynomial over $\bbF_q$. Suppose for any $(\gm_1,\dots, \gm_n)\in\bbF_q^n$ consider the element $\alpha_1\cdot \gm_1+\cdots+\alpha_n\cdot \gm_n\in E$. Then we evaluate $f$ on $(\gm_1,\dots, \gm_n)$ and we get $$f(\gm_1,\dots,\gm_n)=\prod_{i=0}^{n-1}\sum_{j=1}^n \alpha_j^{q^i}\cdot \gm_j=\prod_{i=0}^{n-1}\lt(\sum_{j=1}^n \alpha_j\cdot \gm_j\rt)^{q^i}=N_{E/\bbF_q}(\alpha_1\cdot \gm_1+\cdots+\alpha_n\cdot \gm_n)$$Hence $f(\gm_1,\dots,\gm)=0$ if and only if $N_{E/\bbF_q}(\alpha_1\cdot \gm_1+\cdots+\alpha_n\cdot \gm_n)=0$ which holds only for $\alpha_1\cdot \gm_1+\cdots+\alpha_n\cdot \gm_n=0$. Since  $\{\alpha_1,\dots, \alpha_n\}$ forms a basis of $E$ over $\bbF_q$ we have $f(\gm_1,\dots,\gm)=0$ if and only if $\gm_j=0$ for all $j\in[n]$. Hence $Z(f)=1$. The \CWthm clearly doesn't hold in this case. 
 
 Now we can extend the \CWthm to a system of polynomial equations $f_1=0,\dots,f_k=0$ with $f_1,\dots,f_k\in\bbF_q[X_1,\dots,X_n]$. In this case we are interested in the number of common solutions. 
-\begin{Theorem}{}{}
+\begin{Theorem}{Chevalley--Warning Theorem for Systems of Equations}{thm:cw-systems}
   Let $f_1,\dots, f_k\in\bbF_q[X_1,\dots, X_n]$ with $\deg(f_1\cdots f_k)=\deg(f_1)+\cdots+\deg(f_k)<n$. Then $p\mid Z(f_1,\dots, f_k)$ where $p=\Char(\bbF_q)$. 
 
   Moreover, if $(0,\dots, 0)\in \mcV(f_1,\dots, f_k)$ then $\ov{\mcV}(f_1,\dots, f_k)\neq\emptyset$ i.e. $\ovZ(f_1,\dots, f_k)\geq 1$. 
@@ -61,7 +61,7 @@ Now we can extend the \CWthm to a system of polynomial equations $f_1=0,\dots,f_
 \subsection{Lower Bounds on the Number of Solutions}
 
 In the next theorem we will show if we have a system of polynomial equations $f_1=0,\dots,f_k=0$ with $f_1,\dots,f_k\in\bbF_q[X_1,\dots,X_n]$ then for any affine subspace $W$ all its parallel shifts have same number of solutions modulo the characteristic of $\bbF_q$. If $W_1$ and $W_2$ are two affine subspaces of $\bbF_q^n$ of same dimension then we call they are parallel affine subspaces if they are obtained by translation from the same linear subspace. 
-\begin{lemma}{}{lem:solutions-affine-subspace-parallel-shift}
+\begin{lemma}{Parallel Shift Invariance of Solution Counts}{lem:solutions-affine-subspace-parallel-shift}
   Let $f_1,\dots, f_k\in\bbF_q[X_1,\dots, X_n]$.  If $W_1$ and $W_2$ are two parallel affine subspaces of $\bbF_q^n$ of dimension $d$ where $d=\deg(f_1)+\cdots+\deg(f_k)$ then $$|W_1\cap \mcV(f_1,\dots,f_k)|\equiv |W_2\cap \mcV(f_1,\dots, f_k)|\bmod p$$where $p=\Char(\bbF_q)$. 
 \end{lemma}
 \begin{proof}
@@ -81,7 +81,7 @@ In the next theorem we will show if we have a system of polynomial equations $f_
 \end{proof}
 
 The \AffSubspaceShiftlem above can be used to obtain a lower bound on $Z(f_1,\dots,f_k)$: the \CWthm guarantees that $p\mid Z(f_1,\dots,f_k)$ whenever $d<n$, but by counting how many parallel affine hyperplanes each must contain a solution we can say much more.
-\begin{Theorem}{}{}
+\begin{Theorem}{Lower Bound via Parallel Shifts}{thm:lower-bound-parallel-shifts}
   Let $f_1,\dots, f_k\in\bbF_q[X_1,\dots, X_n]$ with $d=\deg(f_1)+\cdots+\deg(f_k)<n$. If $Z(f_1,\dots, f_k)\geq 1$ then $Z(f_1,\dots, f_k)\geq q^{n-d}$
 \end{Theorem}
 \begin{proof}
@@ -103,7 +103,7 @@ We now give upper bounds on the number of solutions of a polynomial equation. Th
   Let $f\in\bbF_q[X_1,\dots, X_n]$ with $\deg(f)=d$ be a non-zero polynomial. If $S\subseteq \bbF_q$ be any subset then $$\Pr[\alpha_1,\dots,\alpha_n\in S] [f(\alpha_1,\dots,\alpha_n)=0]\leq \frac{d}{|S|}$$
 \end{lemma}
 This lemma immediately gives an upper bound of $d\cdot q^{n-1}$ solutions for the equations $f(X_1,\dots, X_n)=0$ in $\bbF_q^n$. Hence 
-\begin{corolary}{}{}
+\begin{corolary}{Total Degree Solution Bound}{}
   Let $f\in\bbF_q[X_1,\dots, X_n]$ with $\deg(f)=d$ be a non-zero polynomial. Then the equation $f(X_1,\dots, X_n)=0$ has at most $d\cdot q^{n-1}$ solutions in $\bbF_q^n$. 
 \end{corolary}
 
@@ -128,7 +128,7 @@ We can give another probabilistic upper bound when we control the degree of $f$ 
 \end{proof}
 
 We can give another upper bound based on individual degrees of each variables. If degree of each variable is at most $d$ then there can be at most $d(q^{n-1}-1)$ many non-trivial solutions. For this we consider $f$ to be \emph{homogeneous} i.e. total degree of each monomial is same. 
-\begin{Theorem}{}{}
+\begin{Theorem}{Nontrivial Solution Bound for Homogeneous Polynomials}{thm:homogeneous-bound}
   Let $f\in\bbF_q[X_1,\dots, X_n]$ be a homogeneous with $\deg(f)=d\geq 1$. Then the equation $f(X_1,\dots,X_n)=0$ has at most $d(q^{n-1}-1)$ non-trivial solutions. 
 \end{Theorem}
 \begin{proof}
@@ -145,7 +145,7 @@ We now investigate the \emph{average number of solutions} of a polynomial equati
 \begin{observation}\label{obs:Omd-omd}
   With the definitions of $\Om_d$ and $\om(d)$ as above we have $|\Om_d|=q^{|\om(d)|}$. 
 \end{observation}
-\begin{lemma}{}{lem:average-solutions}
+\begin{lemma}{Average of Solution Count}{lem:average-solutions}
   With the notations of $\Om_d$ and $\om(d)$ as defined above we have $$\frac1{|\Om_d|}\sum_{f\in\Om_d}Z(f)=q^{n-1}$$
 \end{lemma}
 \begin{proof}
@@ -157,7 +157,7 @@ The proof of the above lemma gives us the following observation:
 \end{observation}
 
 The above lemma implies that a polynomial equation in $n$ variables has on average $q^{n-1}$ solutions in $\bbF_q^n$. So we now consider average deviation from the average number of solutions, $q^{n-1}$. 
-\begin{Theorem}{}{}
+\begin{Theorem}{Variance of Solution Count}{}
   With the notations of $\Om_d$ and $\om(d)$ as defined above we have
   $$\frac1{|\Om_d|}\sum_{f\in\Om_d}\Big(Z(f)-q^{n-1}\Big)^2=q^{n-1}-q^{n-2}$$
 \end{Theorem}

@@ -9,7 +9,7 @@ Building further on the theme of character sums twisted by the quadratic charact
 Now for $n=1$ we get $H_1(\alpha)=\-1$ by \thmref{thm:eta-quadratic-poly} and by \AddCharPropsthm[(i)], $I_1(\alpha)=0$ for all $\alpha\in\bbF_q^*$ 
 
 The sums $H_n$ and $I_n$ are closely related: in the following theorem we give a recursion relation between $I_n$ and $H_m$ for any $n,m\in\bbN$. 
-\begin{lemma}{}{lem:jacobsthal-Iduplication}
+\begin{lemma}{Relation between $H_n$ and $I_m$}{lem:jacobsthal-Iduplication}
   For every $n\in\bbN$ and every $\alpha\in\bbF_q^*$, $$I_{2n}(\alpha)=I_n(\alpha)+H_n(\alpha)$$
 \end{lemma}
 \begin{proof}
@@ -24,7 +24,7 @@ The sums $H_n$ and $I_n$ are closely related: in the following theorem we give a
 
 \subsection{Relations between Jacobsthal and Jacobi Sum}
 Although $H_n$ and $I_n$ are defined using only the quadratic character, they can be evaluated in terms of Jacobi sums for multiplicative characters of higher order. The key observation is that the count of $n^{\text{th}}$-power roots in $\bbF_q^*$ is a sum of multiplicative characters of order dividing $\gcd(n,q-1)$, and regrouping the definition of $I_n$ accordingly expresses it as a linear combination of Jacobi sums $J(\lm^j,\eta)$.
-\begin{Theorem}{}{thm:jacobsthal-In-jacobi}
+\begin{Theorem}{Jacobi Sum Representation of $I_n$}{thm:jacobsthal-In-jacobi}
   Let $n\in\bbN$ and $\alpha\in\bbF_q^*$, and set $d=\gcd(n,q-1)$. Let $\lm\in\Mq$ be a multiplicative character of $\bbF_q$ of order $d$. Then $$I_n(\alpha)=\eta(\alpha)\sum_{j=1}^{d-1}\lm^j(-\alpha)\cdot J(\lm^j,\eta).$$
 \end{Theorem}
 \begin{proof}
@@ -42,7 +42,7 @@ Although $H_n$ and $I_n$ are defined using only the quadratic character, they ca
 \end{proof}
 
 The Jacobsthal sum $H_n$ satisfies a similar Jacobi-sum representation, but now involving a character $\lm$ of order $2d$ rather than $d$, and with the parity of the power of $2$ dividing $q-1$ relative to $n$ playing a decisive role: when all the $2$-power content of $q-1$ already divides $n$, the sum $H_n$ vanishes identically.
-\begin{lemma}{}{thm:jacobsthal-Hn-jacobi}
+\begin{lemma}{Jacobi Sum Representation of $H_n$}{thm:jacobsthal-Hn-jacobi}
   Let $n\in\bbN$ and $\alpha\in\bbF_q^*$, and set $d=\gcd(n,q-1)$. If the largest power of $2$ dividing $q-1$ also divides $n$, then $H_n(\alpha)=0$. Otherwise, let $\lm\in\Mq$ be a multiplicative character of $\bbF_q$ of order $2d$; then $$H_n(\alpha)=\eta(\alpha)\cdot \lm(-1)\sum_{j=0}^{d-1}\lm^{2j+1}(\alpha)\cdot J(\lm^{2j+1},\eta).$$
 \end{lemma}
 \begin{proof}

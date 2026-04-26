@@ -4,7 +4,7 @@ The Kloosterman sums of the previous section are notoriously difficult to evalua
   Let $\bbF_q$ be a finite field with $q$ odd, and let $\chi,\tau\in\Xq$ be non-trivial additive characters of $\bbF_q$. Then the \emph{Sali\'{e} sum} associated to $\chi$ and $\tau$ is defined as $$S(\chi,\tau)=\sum_{\gm\in\bbF_q^*}\eta(\gm)\cdot \chi(\gm)\cdot \tau(\gm^{-1})$$
 \end{Definition}
 
-\begin{Theorem}{}{thm:salie}
+\begin{Theorem}{Evaluation of Sali\'{e} Sums}{thm:salie}
   Let $\bbF_q$ be a finite elements with $q$ being odd and $\chi,\tau\in\Xq$ be non-trivial additive character of $\bbF_q$. Let $a\in\bbF_q$ such that for all $\gm\in\bbF_q$, $\tau(\gm)=\chi(a\cdot \gm)$. Then we have $$S(\chi,\tau)=G(\eta,\chi)\sum_{b\colon b^2=4a}\chi(b)$$ and  $$|S(\chi,\tau)|\leq 2\cdot q^{\nicefrac12}$$
 \end{Theorem}
 \begin{proof}
@@ -47,7 +47,7 @@ The Kloosterman sums of the previous section are notoriously difficult to evalua
   Hence $S(\chi,\tau)=\eta(a)\cdot G(\eta,\chi)\sum_{b:b^2=4a}\chi(b)$. If $\eta(a)=-1$ then $4a$ is a non-square so $b^2=4a$ has no solution and the sum is $0$; if $\eta(a)=1$ the factor is $1$. In both cases:
   $$S(\chi,\tau)=G(\eta,\chi)\sum_{b\colon b^2=4a}\chi(b).$$Therefore we have the theorem. 
 \end{proof}
-\begin{lemma}{}{}
+\begin{lemma}{Bound on Sali\'{e} Sums}{}
   Let $\bbF_q$ be a finite elements with $q$ being odd and $\chi,\tau\in\Xq$ be non-trivial additive character of $\bbF_q$. Let $a\in\bbF_q$ such that for all $\gm\in\bbF_q$, $\tau(\gm)=\chi(a\cdot \gm)$. Then $|S(\chi,\tau)|\leq 2\cdot q^{\nicefrac12}$. 
 \end{lemma}
 \begin{proof}
