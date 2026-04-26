@@ -69,7 +69,7 @@ Now by \thmref[(iii)]{thm:add-char-props} for any $\alpha\in\bbF_q^*$ we have \b
 \end{align*}This may be thought of as the \emph{Fourier expansion}\index{Fourier expansion!of characters via Gaussian sums} of $\psi$ in terms of the additive characters of $\bbF_q$, with Gaussian sums appearing as Fourier coefficients. 
 
 We can do similar thing for multiplicative characters of $\bbF_q$. By using \thmref[(iii)]{thm:mult-char-props} we get $$\chi(\alpha)=\frac1{q-1}\sum_{\psi\in\Mq}G(\ov{\psi},\chi)\chi(\alpha)$$ This can be interpreted as the Fourier expansion of the multiplicative characters of $\bbF_q$ with the Gaussian sums as Fourier coefficients. Hence we have the observations:
-\begin{observation}
+\begin{observation}\label{obs:fourier-coeff-gaussian-sum}
   For any multiplicative character $\psi$ and additive character $\chi$ of $\bbF_q$ and any  $\alpha\in\bbF_q^*$ we have \begin{enumerate}[label=(\roman*)]
     \item $\psi(\alpha)=\frac1q\sum\limits_{\chi\in \Xq}G(\psi,\ov{\chi})\chi(\alpha)$ 
     \item $\chi(\alpha)=\frac1{q-1}\sum\limits_{\psi\in\Mq}G(\ov{\psi},\chi)\psi(\alpha)$

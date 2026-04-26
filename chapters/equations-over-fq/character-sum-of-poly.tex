@@ -14,43 +14,60 @@ The first family of Weil sums we evaluate exactly are those of the form $\chi(ac
 
 \begin{Theorem}{Weil Sum of a Shifted Monomial}{thm:weil-shifted-monomial}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$, $n\in\bbN$, and let $\lm\in\Mq$ be a multiplicative character of order $d=\gcd(n,q-1)$. Then for any $a,b\in\bbF_q$ with $a\neq 0$,
-  $$\sum_{c\in\bbF_q}\chi(ac^n+b)=\chi(b)\sum_{j=1}^{d-1}\ov{\lm}^j(a)\,G(\lm^j,\chi).$$
+  $$\sum_{\gm\in\bbF_q}\chi(a\cdot\gm^n+b)=\chi(b)\sum_{j=1}^{d-1}\ov{\lm}^j(a)\,G(\lm^j,\chi).$$
 \end{Theorem}
-
-\begin{corolary}{Vanishing for Coprime Exponent}{}
+\begin{proof}
+  Let $\tau\in\Xq$ be a non-trivial additive character of $\bbF_q$ defined by $\tau(\gm)=\chi(a\cdot \gm)$ for all $\gm\in\bbF_q$. Then we get $$\sum_{\gm\in\bbF_q}\chi(a\cdot \gm^n+b)=\chi(b)\sum_{\gm\in\bbF_q}\chi(a\cdot \gm^n)=\chi(b)\sum_{\gm\in\bbF_q}\tau(\gm^n)$$
+  Now by \obsref[(ii)]{obs:fourier-coeff-gaussian-sum} we get $\tau(\gm^n)=\frac1{q-1}\sum_{\psi\in\Mq}G(\ov{\psi},\tau)\cdot \psi(\gm^n)$ for all $\gm\in\bbF_q$. Therefore we get \begin{align*}
+    \sum_{\gm\in\bbF_q}\tau(\gm^n) & = \tau(0)+\sum_{\gm\in\bbF_q^*}\frac1{q-1}\sum_{\psi\in\Mq}G(\ov{\psi},\tau)\cdot \psi(\gm^n)\\ 
+    & = \tau(0)+\frac1{q-1}\sum_{\psi\in\Mq}G(\ov{\psi},\tau)\sum_{\gm\in\bbF_q^*}\psi^n(\gm)
+  \end{align*}
+  Now if $\psi^n$ is trivial then $\sum_{\gm\in\bbF_q^*}\psi^n(\gm)=q-1$ and if $\psi^n$ is non-trivial then $\sum_{\psi\in\Mq}\psi^n(\gm)=0$ by \MultCharPropsthm[(i)]. Now $\psi^n$ is trivial if and only if $\ord(\psi)\mid d$. Since $\ord(\ov{lm})=d$, the characters $\psi$ with order dividing $d$ are exactly $\lm^j$ for all $0\leq j\leq d-1$. Therefore $$\sum_{\gm\in\bbF_q}\tau(\gm^n)=1+\sum_{j=0}^{d-1}G(\lm^j,\tau) = \sum_{j=1}^{d-1}G(\lm^j,\tau)=\sum_{j=1}^{d-1}\ov{\lm}^j(a)\cdot G(\lm^j,\chi)$$Hence we have the theorem. 
+\end{proof}
+So if $\gcd(n,q-1)=1$ then the sum at right hand side is over no elements. So the sum evaluates to be zero. So we have the following corollary:
+\begin{corolary}{}{}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and $n\in\bbN$. If $\gcd(n,q-1)=1$ then for any $a,b\in\bbF_q$ with $a\neq 0$,
   $$\sum_{c\in\bbF_q}\chi(ac^n+b)=0.$$
 \end{corolary}
 
-As an immediate consequence we get the following bound on the absolute value of such sums.
+From \GSpropthm we have the absolute value of $G(\psi,\chi)$ to be $q^{\nicefrac12}$ if $\chi,\psi$ are non-trivial additive and multiplicative characters respectively. Therefore as an immediate consequence we get the following bound on the absolute value of such sums.
 
 \begin{Theorem}{Bound on Weil Sum of a Shifted Monomial}{thm:weil-shifted-monomial-bound}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$, $n\in\bbN$, and $d=\gcd(n,q-1)$. Then for any $a,b\in\bbF_q$ with $a\neq 0$,
   $$\lt|\sum_{c\in\bbF_q}\chi(ac^n+b)\rt|\leq (d-1)\sqrt{q}.$$
 \end{Theorem}
 
-For quadratic polynomials in odd characteristic the Weil sum can be evaluated exactly in terms of a Gaussian sum and the quadratic character.
+For quadratic polynomials in odd characteristic the Weil sum can be evaluated exactly in terms of a Gaussian sum and the quadratic character. 
 
 \begin{Theorem}{Weil Sum of a Quadratic Polynomial}{thm:weil-quadratic-odd}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ with $q$ odd, and let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $a_2\neq 0$. Then
-  $$\sum_{c\in\bbF_q}\chi(f(c))=\chi\!\lt(a_0-a_1^2(4a_2)^{-1}\rt)\,\eta(a_2)\,G(\eta,\chi),$$
+  $$\sum_{\gm\in\bbF_q}\chi(f(\gm))=\chi\lt(a_0-a_1^2(4a_2)^{-1}\rt)\,\eta(a_2)\,G(\eta,\chi),$$
   where $\eta\in\Mq$ is the quadratic character of $\bbF_q$.
 \end{Theorem}
-
-For polynomials whose monomials are all powers of $p = \Char(\bbF_q)$ (affine $p$-polynomials), the sum collapses to either $0$ or a full power of $q$ depending on a linear condition on the parameter $b$.
+\begin{proof}
+  Since $f$ is a quadratic polynomial we can express $f$ as in the form of \thmref{thm:weil-shifted-monomial} for degree $2$. $$f(X)=a_2X^2+a_1X+a_0=a_2\lt(X+a_1\cdot (2a_2)^{-1}\rt)^2+\lt(a_0-a_1^2(4a_2)^{-1}\rt)$$Let $\ov{\gm}=\gm+a_1(2a_2)^{-1}$ and $\beta=a_0-a_1^2(4a_2)^{-1}$. Then we have $$\sum_{\gm\in\bbF_q}\chi(f(\gm))=\sum_{\ov{\gm}\in\bbF_q}\chi(a_2\cdot \ov{\gm}^2+\beta)$$So by \thmref{thm:weil-shifted-monomial}$$\sum_{\gm\in\bbF_q}\chi(f(\gm))=\chi(\beta)\cdot \eta(a_2)\cdot G(\eta,\chi)$$Hence we have the result. 
+\end{proof}
+For polynomials whose monomials are all \emph{affine $p$-polynomials} i.e. powers of $p = \Char(\bbF_q)$, the sum collapses to either $0$ or a full power of $q$ depending on a linear condition on the parameter $b$.
 
 \begin{Theorem}{Weil Sum of an Affine $p$-Polynomial}{thm:weil-p-polynomial}
   Let $p=\Char(\bbF_q)$ and let
   $$f(X)=a_rX^{p^r}+a_{r-1}X^{p^{r-1}}+\cdots+a_1X^p+a_0X+a\in\bbF_q[X]$$
   be an affine $p$-polynomial over $\bbF_q$. Let $\chi_b\in\Xq$, $b\in\bbF_q^*$, be a non-trivial additive character as defined in \AddCharDefthm. Then
-  $$\sum_{c\in\bbF_q}\chi_b(f(c))=\begin{cases}
+  $$\sum_{\gm\in\bbF_q}\chi_b(f(\gm))=\begin{cases}
     \chi_b(a)\cdot q & \text{if }ba_r+b^{\,p}a_{r-1}+\cdots+b^{p^{r-1}}a_1^{p^{r-1}}+b^{p^r}a_0^{p^r}=0,\\
-    0 & \text{otherwise.}
+    0 & \text{otherwise}
   \end{cases}$$
 \end{Theorem}
+\begin{proof}
+  We can bring out the $\chi_b(a)$ factor from $\chi_b(f(\gm))$ as $a$ is the constant term. Consider the following polynomial $F(X)=b\cdot f(X)$. So we have $$\sum_{\gm\in\bbF_q}\chi_b(f(\gm))=\chi_b(a)\sum_{\gm\in\bbF_q}\chi_1(F(\gm))$$where $\chi_1$ is the canonical additive character of $\bbF_q$. Let $\tau$ be the additive character defined as $\tau(\gm)=\chi_1(F(\gm))$ for all $\gm\in\bbF_q$. Then by \AddCharPropsthm[(i)] we have $$\sum_{\gm}\tau(\gm)=\begin{cases}
+    q & \text{if $\tau$ is trivial}\\ 0 & \text{otherwise}
+  \end{cases}$$So now it suffices to characterize those affine $p$-polynomials $F(X)$ for which $\tau$ is trivial. Let $q=p^s$ and let $\tr$ is the absolute trace function from $\bbF_q$ to $\bbF_p$. Then $\tau$ is trivial if and only if $\tr(F(\gm))=0$ for all $\gm\in\bbF_q$. Therefore we get $$\tau\text{ is trivial}\iff \sum_{j=0}^{s-1}F^{p^j}(X)\equiv 0\bmod{\lt\la X^q-X\rt\ra}$$ Now we have $$\sum_{j=0}^{s-1}F^{p^j}(X)=\sum_{j=0}^{s-1}\lt(\sum_{i=0}^{r}b\cdot a_i\cdot X^{p^i}\rt)^{p^j}=\sum_{j=0}^{s-1}\sum_{i=0}^{r}b^{p^j}\cdot a_i^{p^j}\cdot X^{p^{i+j}}\equiv \sum_{k=0}^{s-1}\lt(\sum_{i=0}^rb^{p^{k-i}}a_i^{p^{k-i}}\rt)X^{p^k}\bmod{\lt\la X^q-X\rt\ra}$$Therefore we get $$\sum_{j=0}^{s-1}F^{p^j}(X)\equiv 0\bmod{\lt\la X^q-X\rt\ra}\iff \sum_{i=0}^rb^{p^{k-i}}a_i^{p^{k-i}}=0,\ \forall\ 0\leq k\leq s-1$$
 
+  Now for all $j\in\{0,\dots, s-1\}$ we have $$\sum_{i=0}^rb^{p^{k-i}}a_i^{p^{k-i}}=0\iff \lt(\sum_{i=0}^rb^{p^{k-i}}a_i^{p^{k-i}}\rt)^{p^{r-k}}=0\iff \sum_{i=0}^rb^{p^{r-i}}a_i^{p^{r-i}}=0$$So we get the Theorem. 
+\end{proof}
+In the above theorem the case when $q$ is even is also studies while in \thmref{thm:weil-quadratic-odd} its not been studied. Now for the above theorem if $f$ is a quadratic polynomial we can extend \thmref{thm:weil-quadratic-odd} for $q$ is even case and we get the following corollary: 
 \begin{corolary}{Weil Sum of Quadratic Polynomial in Even Characteristic}{}
-  Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ even, and let $\chi_b\in\Xq$, $b\in\bbF_q^*$, be as in \thmref{thm:weil-p-polynomial}. Then
+  Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ even, and let $\chi_b\in\Xq$, $b\in\bbF_q^*$, be as defined in \thmref{thm:weil-p-polynomial}. Then
   $$\sum_{c\in\bbF_q}\chi_b(f(c))=\begin{cases}
     \chi_b(a_0)\cdot q & \text{if }a_2=ba_1^2,\\
     0 & \text{otherwise.}
@@ -61,8 +78,13 @@ For polynomials whose monomials are all powers of $p = \Char(\bbF_q)$ (affine $p
 
 When the character is the quadratic character $\eta$, the sums $\sum_c\eta(f(c))$ can be evaluated by completing the square (for quadratic $f$) or by the continued fraction algorithm (for polynomials with no roots in $\bbF_q$).
 \begin{Theorem}{Quadratic Character Sum of a Quadratic Polynomial}{thm:eta-quadratic-poly}
-  Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ odd and $a_2\neq 0$, let $\Dl=a_1^2-4a_0a_2$ denote the discriminant of $f$, and let $\eta$ be the quadratic character of $\bbF_q$ (extended by $\eta(0)=0$). Then $$\sum_{\alpha\in\bbF_q}\eta(f(\alpha))=\begin{cases}-\eta(a_2) & \text{if }\Dl\neq 0,\\ (q-1)\cdot \eta(a_2) & \text{if }\Dl=0.\end{cases}$$
+  Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ odd and $a_2\neq 0$, let $\Dl=a_1^2-4a_0a_2$ denote the discriminant of $f$, and let $\eta$ be the quadratic character of $\bbF_q$ (extended by $\eta(0)=0$). Then $$\sum_{\gm\in\bbF_q}\eta(f(\gm))=\begin{cases}-\eta(a_2) & \text{if }\Dl\neq 0,\\ (q-1)\cdot \eta(a_2) & \text{if }\Dl=0.\end{cases}$$
 \end{Theorem}
+\begin{proof}
+  Since $4a_2^2=(2a_2)^2$ we have $\eta(4a_2)=1$. So we multiply the sum by $\eta(4a_2)^2$ and the sum stays the same. So we get for any $\gm\in\bbF_q$ $$\eta(f(\gm))\eta(4a_2^2\cdot f(\gm))= \eta(a_2)\cdot \eta(4a_2^2\cdot \gm^2+4a_1a_2\cdot \gm+4a_2a_1)=\eta(a_2)\cdot \eta\lt( (2a_2\cdot \gm+a_1)^2-\Dl \rt)$$This gives $\sum_{\gm\in\bbF_q}\eta(f(\gm))=\eta(a_2)\sum_{\ov{\gm}\in\bbF_q}\eta(\ov{\gm}^2-\Dl)$ where for any $\gm\in\bbF_q$ define $\ov{\gm}=2a_2\cdot \gm+a_1$. Now if $\Dl=0$ then $\eta(\ov{\gm}^2)=1$ and hence $\sum_{\gm\in\bbF_q}\eta(f(\gm))=-\eta(a_2)$. 
+  
+  So suppose $\Dl\neq 0$. Let for any $\beta\in\bbF_q$, $Z(\beta)$ is the number of solutions of $\ov{\gm}\in\bbF_q$ such that $\ov{\gm}^2=\beta^2-\Dl$. Then $\sum_{\beta\in\bbF_q}Z(\beta)$ is the total number of ordered pairs $(\ov{\gm},\beta)\in\bbF_q^2$ such that $\ov{\gm}^2-\beta^2=\Dl$. Now $$\ov{\gm}^2-\beta^2=\Dl\iff (\ov{\gm}+\beta)(\ov{\gm}-\beta)=\Dl$$Since $\Dl\neq 0$, both $\ov{\gm}+\beta$ and $\ov{\gm}-\beta$ are nonzero. Take $u=\ov{\gm}+\beta$ and $v=\ov{\gm}-\beta$. Then there is a one-one correspondence for each $(\ov{\gm},\beta)\in\bbF_q^2$ such that $\ov{\gm}^2-\beta^2=\Dl$ and each $(u,v)\in\bbF_q^2$ such that $u\cdot v=\Dl$. For any $u\in\bbF_q^*$, we automatically get the value $v$ hence number of such $(u,v)\in\bbF_q^2$ such that $u\cdot v=\Dl$ is $q-1$. Therefore $\sum_{\beta\in\bbF_q}Z(\beta)=q-1$. So we have the result. 
+\end{proof}
 
 \subsection{Weil Sums of Continued Fractions}
 
