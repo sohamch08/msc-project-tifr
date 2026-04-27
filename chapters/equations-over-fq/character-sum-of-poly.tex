@@ -24,18 +24,19 @@ The first family of Weil sums we evaluate exactly are those of the form $\chi(ac
   \end{align*}
   Now if $\psi^n$ is trivial then $\sum_{\gm\in\bbF_q^*}\psi^n(\gm)=q-1$ and if $\psi^n$ is non-trivial then $\sum_{\psi\in\Mq}\psi^n(\gm)=0$ by \MultCharPropsthm[(i)]. Now $\psi^n$ is trivial if and only if $\ord(\psi)\mid d$. Since $\ord(\ov{lm})=d$, the characters $\psi$ with order dividing $d$ are exactly $\lm^j$ for all $0\leq j\leq d-1$. Therefore $$\sum_{\gm\in\bbF_q}\tau(\gm^n)=1+\sum_{j=0}^{d-1}G(\lm^j,\tau) = \sum_{j=1}^{d-1}G(\lm^j,\tau)=\sum_{j=1}^{d-1}\ov{\lm}^j(a)\cdot G(\lm^j,\chi)$$Hence we have the theorem. 
 \end{proof}
-So if $\gcd(n,q-1)=1$ then the sum at right hand side is over no elements. So the sum evaluates to be zero. So we have the following corollary:
-\begin{corolary}{}{}
-  Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and $n\in\bbN$. If $\gcd(n,q-1)=1$ then for any $a,b\in\bbF_q$ with $a\neq 0$,
-  $$\sum_{c\in\bbF_q}\chi(ac^n+b)=0.$$
-\end{corolary}
 
-From \GSpropthm we have the absolute value of $G(\psi,\chi)$ to be $q^{\nicefrac12}$ if $\chi,\psi$ are non-trivial additive and multiplicative characters respectively. Therefore as an immediate consequence we get the following bound on the absolute value of such sums.
+From \GSpropthm we have the absolute value of $G(\psi,\chi)$ to be $q^{\nicefrac12}$ if $\chi,\psi$ are non-trivial additive and multiplicative characters respectively. So we get the absolute value of the above character sum to be at most $(d-1)q^{\nicefrac12}$. Therefore as an immediate consequence we get the following bound on the absolute value of such sums.
 
 \begin{Theorem}{Bound on Weil Sum of a Shifted Monomial}{thm:weil-shifted-monomial-bound}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$, $n\in\bbN$, and $d=\gcd(n,q-1)$. Then for any $a,b\in\bbF_q$ with $a\neq 0$,
   $$\lt|\sum_{c\in\bbF_q}\chi(ac^n+b)\rt|\leq (d-1)\sqrt{q}.$$
 \end{Theorem}
+
+So if $\gcd(n,q-1)=1$ then the sum at right hand side is over no elements. So the sum evaluates to be zero. So we have the following corollary:
+\begin{corolary}{}{}
+  Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and $n\in\bbN$. If $\gcd(n,q-1)=1$ then for any $a,b\in\bbF_q$ with $a\neq 0$,
+  $$\sum_{c\in\bbF_q}\chi(ac^n+b)=0.$$
+\end{corolary}
 
 For quadratic polynomials in odd characteristic the Weil sum can be evaluated exactly in terms of a Gaussian sum and the quadratic character. 
 

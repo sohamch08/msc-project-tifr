@@ -23,6 +23,7 @@ We begin with two elementary lemmas about power sums that will serve as the key 
 \begin{proof}
   For $k=0$ the sum becomes $q\equiv 0 \bmod q$. So suppose $k>0$. Let $\gm$ is the primitive element of $\bbF_q$. Then we have $$\sum_{\alpha\in\bbF_q}\alpha^k=\sum_{\alpha\in\bbF_q^*}\alpha^k=\sum_{j=0}^{q-2}\gm^{j\cdot k}=\sum_{j=0}^{q-2}(\gm^k)^j$$Now if $q-1\mid k$ then $\gm^k=1$ so the sum evaluates to be $-1$. If $q-1\nmid k$ then $\sum_{j=0}^{q-2}(\gm^k)^j=\frac{\gm^{k(q-1)}-1}{\gm^k-1}=0$. Hence we have the lemma. 
 \end{proof}
+
 So using this lemma we can prove if we take the sum over all evaluations of a polynomial then the sum evaluates to be zero.
 \begin{lemma}{}{lem:poly-evaluate-allsum}
   Let $f\in\bbF_q[X_1,\dots,X_n]$ with $\deg(f)<n(q-1)$. Then $$\sum_{\alpha_1,\dots,\alpha_n\in\bbF_q}f(\alpha_1,\dots, \alpha_k)=0$$
