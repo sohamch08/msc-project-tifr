@@ -33,7 +33,7 @@ From \GSpropthm we have the absolute value of $G(\psi,\chi)$ to be $q^{\nicefrac
 \end{Theorem}
 
 So if $\gcd(n,q-1)=1$ then the sum at right hand side is over no elements. So the sum evaluates to be zero. So we have the following corollary:
-\begin{corolary}{}{}
+\begin{corolary}{Vanishing for Coprime Exponent}{cor:weil-vanishing-coprime}
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and $n\in\bbN$. If $\gcd(n,q-1)=1$ then for any $a,b\in\bbF_q$ with $a\neq 0$,
   $$\sum_{c\in\bbF_q}\chi(ac^n+b)=0.$$
 \end{corolary}
@@ -67,7 +67,7 @@ For polynomials whose monomials are all \emph{affine $p$-polynomials} i.e. power
   Now for all $j\in\{0,\dots, s-1\}$ we have $$\sum_{i=0}^rb^{p^{k-i}}a_i^{p^{k-i}}=0\iff \lt(\sum_{i=0}^rb^{p^{k-i}}a_i^{p^{k-i}}\rt)^{p^{r-k}}=0\iff \sum_{i=0}^rb^{p^{r-i}}a_i^{p^{r-i}}=0$$So we get the Theorem. 
 \end{proof}
 In the above theorem the case when $q$ is even is also studies while in \thmref{thm:weil-quadratic-odd} its not been studied. Now for the above theorem if $f$ is a quadratic polynomial we can extend \thmref{thm:weil-quadratic-odd} for $q$ is even case and we get the following corollary: 
-\begin{corolary}{Weil Sum of Quadratic Polynomial in Even Characteristic}{}
+\begin{corolary}{Weil Sum of Quadratic Polynomial in Even Characteristic}{cor:weil-quadratic-even}
   Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ even, and let $\chi_b\in\Xq$, $b\in\bbF_q^*$, be as defined in \thmref{thm:weil-p-polynomial}. Then
   $$\sum_{c\in\bbF_q}\chi_b(f(c))=\begin{cases}
     \chi_b(a_0)\cdot q & \text{if }a_2=ba_1^2,\\

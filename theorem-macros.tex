@@ -25,17 +25,57 @@
 
 % --- Unnamed but heavily-used results: plain hyperlinks via \thmref / \lemref / \obsref ---
 \newcommand{\MultCharPropsthm}[1][]{\thmref[#1]{thm:mult-char-props}\xspace}
-\newcommand{\JGrelthm}{\thmref{thm:jacobi-gaussian}\xspace}
+\newcommand{\JGrelthm}[1][]{\thmref[#1]{thm:jacobi-gaussian}\xspace}
 \newcommand{\CyclicCharlem}{\lemref{lem:chars-cyclic-group}\xspace}
 \newcommand{\AddCharPropsthm}[1][]{\thmref[#1]{thm:add-char-props}\xspace}
 \newcommand{\AddCharDefthm}{\thmref{thm:add-char-define}\xspace}
 \newcommand{\GSidentitieslem}[1][]{\lemref[#1]{lem:gaussian-sum-identity}\xspace}
-\newcommand{\JacZeroRellem}{\lemref{lem:jacobi-zero-relation}\xspace}
+\newcommand{\JacZeroRellem}[1][]{\lemref[#1]{lem:jacobi-zero-relation}\xspace}
 \newcommand{\GSpropthm}{\thmref{thm:gaussian-sum}\xspace}
 \newcommand{\CharSumObs}{\obsref{obs:char-sum}\xspace}
 \newcommand{\CharAtMinusOneObs}{\obsref{obs:char-at--1}\xspace}
 \newcommand{\LrootFactthm}{\thmref{thm:l-function-root-factorisation}\xspace}
 \newcommand{\DHRelation}{\corref{cor:hs-relation-product}\xspace}
 \newcommand{\PolyEvallem}{\lemref{lem:poly-evaluate-allsum}\xspace}
+
+% --- Gaussian Sums ---
+\newcommand{\GSFourierObs}{\obsref{obs:fourier-coeff-gaussian-sum}\xspace}
+
+% --- Jacobi Sums ---
+\newcommand{\JacobiSymmObs}{\obsref{obs:jacobi-sum-symmetric}\xspace}
+\newcommand{\JacobiTriviallem}{\lemref{lem:jacobi-some-trivial}\xspace}
+\newcommand{\JacobiAbsthm}{\thmref{thm:jacobi-sum}\xspace}
+\newcommand{\JacobiZeroAbscor}{\corref{cor:jacobi-J0-abs}\xspace}
+\newcommand{\JacobiCompletethm}[1][]{\thmref[#1]{thm:jacobi-sum-complete}\xspace}
+\newcommand{\GaussPowerJacobi}{\lemref{lem:gauss-power-jacobi}\xspace}
+\newcommand{\GaussProdTwistedcor}{\corref{cor:gauss-product-twisted}\xspace}
+\newcommand{\GaussProdSignObs}{\obsref{obs:gauss-product-sign}\xspace}
+\newcommand{\FermatTwoSquarethm}{\thmref{thm:fermat-two-square}\xspace}
+
+% --- Quadratic Forms ---
+\newcommand{\QFConvProplem}{\lemref{lem:theta-convolution}\xspace}
+\newcommand{\QFRedlem}{\lemref{lem:qf-reduction-by-rep}\xspace}
+\newcommand{\QFDiagthm}{\thmref{thm:qf-diagonal-odd}\xspace}
+\newcommand{\QFTwoVarlem}{\lemref{lem:qf-two-var-count}\xspace}
+\newcommand{\QFCountOddthm}{\thmref{thm:qf-count-even-n-odd-q}\xspace}
+\newcommand{\QFRedEvenlem}{\lemref{lem:qf-reduction-even-char}\xspace}
+\newcommand{\QFCanonEventhm}{\thmref{thm:qf-canonical-even-char}\xspace}
+\newcommand{\QFTwoVarEvenlem}{\lemref{lem:qf-two-var-count-even}\xspace}
+\newcommand{\QFCountEventhm}{\thmref{thm:qf-count-even-char}\xspace}
+\newcommand{\QFCoeffSymmObs}{\obsref{obs:coeff-matrix-symmetric}\xspace}
+\newcommand{\QFEquivCoeffObs}{\obsref{obs:coeff-matrix-equivalent}\xspace}
+\newcommand{\QFSolCorrespObs}{\obsref{obs:solution-correspondence-equivalent}\xspace}
+\newcommand{\QFDiagRankDetObs}{\obsref{obs:diagonal-rank-det}\xspace}
+\newcommand{\QFEquivDetObs}{\obsref{obs:equivalent-det-value}\xspace}
+% --- Character Sums with Polynomials (Weil Sums) ---
+\newcommand{\WeilShiftedMonthm}{\thmref{thm:weil-shifted-monomial}\xspace}
+\newcommand{\WeilShiftedMonBoundthm}{\thmref{thm:weil-shifted-monomial-bound}\xspace}
+\newcommand{\WeilVanishingCoprimecor}{\corref{cor:weil-vanishing-coprime}\xspace}
+\newcommand{\WeilQuadOddthm}{\thmref{thm:weil-quadratic-odd}\xspace}
+\newcommand{\WeilPPolythm}{\thmref{thm:weil-p-polynomial}\xspace}
+\newcommand{\WeilQuadEvencor}{\corref{cor:weil-quadratic-even}\xspace}
+\newcommand{\EtaQuadPolythm}{\thmref{thm:eta-quadratic-poly}\xspace}
+\newcommand{\CFnfCaseslem}{\lemref{lem:cf-nf-cases}\xspace}
+\newcommand{\WeilCFthm}{\thmref{thm:weil-cf}\xspace}
 \newcommand{\AffSubspaceShiftlem}{\lemref{lem:solutions-affine-subspace-parallel-shift}\xspace}
 \newcommand{\SZlem}{\hyperref[th:lem:schwartz-zippel]{Schwartz--Zippel~Lemma}\xspace}

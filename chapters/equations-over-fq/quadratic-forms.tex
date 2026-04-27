@@ -5,7 +5,7 @@ In this section we will study about quadratic forms and its equivalent forms whi
 \end{Definition}
 If $f\in\bbF_q[X_1,\dots,X_n]$ is a quadratic form. Now if $q$ is odd then for any $i,j\in[n]$ we write $a_{i,j}X_iX_j=\frac12a_{i,j}X_iX_j+\frac12a_{ij}X_jX_i$ which leads to the representation $$f(X_1,\dots, X_n)= \sum_{i,j\in[n]}a_{i,j}X_iX_j\quad\text{for all }a_{i,j}\in\bbF_q\text{ with }a_{i,j}=a_{j,i}.$$
 From this formulation we can represent $f$ by a matrix denoted by $C_f$ where $(i,j)^{th}$ entry of $C_f$ is $a_{i,j}$. This matrix is called the \emph{coefficient matrix}.
-\begin{observation}
+\begin{observation}\label{obs:coeff-matrix-symmetric}
   Since $a_{i,j}=a_{j,i}$ we have $C_f^\top=C_f$.
 \end{observation}
 So if $X$ denotes the column vector of all variables then $f=X^\top C_fX$. With this representation now we can talk about equivalence of two quadratic forms.
@@ -13,13 +13,17 @@ So if $X$ denotes the column vector of all variables then $f=X^\top C_fX$. With 
   Let $f,g\in\bbF_q[X_1,\dots, X_n]$ be two quadratic forms over $\bbF_q$. Then $f$ and $g$ are said to be \emph{equivalent} if $f$ can be transformed into $g$ by a non-singular linear transformation of the variables.
 \end{Definition}
 
-So let $f,g\in\bbF_q[X_1,\dots, X_n]$ are two equivalent quadratic forms. Let $X$ be the variable vector for $f$ and $\tdX$ be the variable vector for $g$. Then $f=X^\top C_fX$ and $g=\tdX^\top C_g\tdX$. Suppose $M$ is the non-singular linear transformation of variables i.e.\ $\tdX=MX$. For odd $q$ we have $$\tdX^\top C_g\tdX=g=(MX)^\top C_f(MX)= X^\top (M^\top C_f M)X,$$so $C_g=M^\top C_fM$.
-\begin{observation}
-  If $f,g\in\bbF_q[X_1,\dots, X_n]$ ($q$ odd) are two quadratic forms then $f$ and $g$ are equivalent if and only if there exists an invertible matrix $M\in\bbF_q^{n\times n}$ such that $C_g=M^\top C_fM$.
+So let $f,g\in\bbF_q[X_1,\dots, X_n]$ are two equivalent quadratic forms. Then Let $X$ be the variable vector for $f$ and $\tdX$ be the variable vector for $g$. Then $f=X^\top C_fX$ and $g=\tdX^\top C_g\tdX$. Suppose $M$ is the non-singular linear transformation of variables i.e.\ $\tdX=MX$. For odd $q$ we have $$\tdX^\top C_g\tdX=g=(MX)^\top C_f(MX)= X^\top (M^\top C_f M)X,$$so $C_g=M^\top C_fM$.
+\begin{observation}\label{obs:coeff-matrix-equivalent}
+  If $f,g\in\bbF_q[X_1,\dots, X_n]$ ($q$ odd) are two quadratic forms then $f$ and $g$ are equivalent if and only if there exists an invertible matrix $M\in\bbF_q^{n\times n}$ such that $C_g=M^\top C_fM$ where $M$ is the non-singular linear transformation. 
+\end{observation}
+Since $\tdX=MX$. So $M$ gives the one-one correspondence between $\mcV(f(X_1,\dots,X_n)=\alpha)$ and $\mcV(g(X_1,\dots,X_n)=\alpha)$ for any $\alpha\in\bbF_q$. 
+\begin{observation}\label{obs:solution-correspondence-equivalent}
+  If $f,g\in\bbF_q[X_1,\dots, X_n]$ ($q$ odd) are two quadratic forms then $f$ and $g$ are equivalent by the non-singular linear transformation $M\in\bbF_q^{n\times n}$. Then $\gm\mapsto M\gm$ where $\gm\in\bbF_q^n$ gives an one-one correspondence between $\mcV(f(X_1,\dots,X_n)=\alpha)$ and $\mcV(g(X_1,\dots,X_n)=\alpha)$ for any $\alpha\in\bbF_q$. 
 \end{observation}
 We will use another terminology to make our life easier. If $f\in\bbF_q[X_1,\dots, X_n]$ is a quadratic form then for any $\alpha\in\bbF_q$ we will say $f$ \emph{represents} $\alpha$ if $f(X_1,\dots, X_n)=\alpha$ has a solution.
 
-To calculate and understand the number of solutions of quadratic forms we define the integer-valued function $\vth:\bbF_q\to\bbZ$ by $\vth(\alpha)=-1$ for all $\alpha\in\bbF_q^*$ and $\vth(0)=q-1$. Then we have the following properties of $\vth$ function. 
+To calculate and understand the of solutions of quadratic forms we define the integer-valued function $\vth:\bbF_q\to\bbZ$ by $\vth(\alpha)=-1$ for all $\alpha\in\bbF_q^*$ and $\vth(0)=q-1$. Then we have the following properties of $\vth$ function. 
 \begin{lemma}{}{lem:theta-convolution}
   For any finite field $\bbF_q$ we have $$\sum_{\alpha\in\bbF_q}\vth(\alpha)=0,$$and for any $\alpha\in\bbF_q$ and integers $1\leq k\leq m$,
   $$\sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\vth(\alpha_1)\cdots \vth(\alpha_k)=\begin{cases}
@@ -27,53 +31,200 @@ To calculate and understand the number of solutions of quadratic forms we define
     \vth(\alpha)\cdot q^{m-1} & \text{if $k=m$.}
   \end{cases}$$
 \end{lemma}
-\subsection{Odd Characteristic Quadratic Forms}
+\begin{proof}
+  Since for all $\alpha\in\bbF_q^*$, $\vth(\alpha)=-1$ we have $\sum_{\alpha\in\bbF_q^*}\vth(\alpha)=-(q-1)$. Therefore $\vth(0)+\sum_{\alpha\in\bbF_q^*}\vth(\alpha)=0$. So we have the first result. 
 
-\begin{lemma}{Reduction by Representation}{lem:qf-reduction-by-rep}
+  Now suppose $k<m$. Then we have \begin{align*}
+    \sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\prod_{j=1}^k\vth(\alpha_j) & = \sum_{\alpha_1,\dots,\alpha_k\in\bbF_q}\lt(\prod_{j=1}^k\vth(\alpha_j)\rt)\sum_{\substack{\alpha_{k+1},\dots,\alpha_m\in\bbF_q\\ \alpha_{k+1}+\cdots+\alpha_m=\alpha-\alpha_1-\cdots-\alpha_k}}1\\ 
+    & = q^{m-k-1}\sum_{\alpha_1,\dots,\alpha_k\in\bbF_q}\prod_{j=1}^k\vth(\alpha_j)\\ 
+    & = q^{m-k-q}\prod_{j=1}^k\sum_{\alpha_j\in\bbF_q}\vth(\alpha_j) =0
+  \end{align*}
+  Now assume $k=m$. Here we will use induction. The case $m=1$ holds trivially. Suppose the formula is shown for $m\geq 1$. Then \begin{align*}
+    \sum_{\substack{\alpha_1,\dots,\alpha_{m+1}\in\bbF_q\\ \alpha_1+\cdots+\alpha_{m+1}=\alpha}}\prod_{j=1}^{m+1}\vth(\alpha_j) & = \sum_{\substack{\alpha_1,\dots,\alpha_{m+1}\in\bbF_q\\ \alpha_1+\cdots+\alpha_{m+1}=\alpha}}\prod_{j=1}^{m+1}\vth(\alpha_j)+\sum_{\substack{\alpha_1,\dots,\alpha_{m+1}\in\bbF_q\\ \alpha_1+\cdots+\alpha_{m+1}=\alpha}}\prod_{j=1}^m\vth(\alpha_j)\\ 
+    & = \sum_{\substack{\alpha_1,\dots,\alpha_{m+1}\in\bbF_q\\ \alpha_1+\cdots+\alpha_{m+1}=\alpha}}\lt[\prod_{j=1}^m\vth(\alpha_j)\rt]\cdot [\vth(\alpha_{m+1})+1]\\ 
+    & = \sum_{\alpha_1,\dots,\alpha_{m}\in\bbF_q}\lt[\prod_{j=1}^m\vth(\alpha_j)\rt]\cdot \lt[\vth\lt(\alpha-\sum_{j=1}^m\alpha_j\rt)+1\rt]\\ 
+    & = q\sum_{\substack{\alpha_1,\dots,\alpha_{m}\in\bbF_q\\ \alpha_1+\cdots+\alpha_{m}=\alpha}}\prod_{j=1}^m\vth(\alpha_j)& [\text{If $\alpha_1+\cdots+\alpha_m\neq \alpha$ then the term is $0$}]\\ 
+    & = q\cdot q^{m-2}\cdot \vth(\alpha) & [\text{By Induction Hypothesis}]\\ 
+    & = q^{m-1}\cdot \vth(\alpha)
+  \end{align*}
+  so now we have the second result too. So we have the lemma. 
+\end{proof}
+\subsection{Odd Characteristic Quadratic Forms}
+We now resume the study of quadratic forms $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd. We will first show that every quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd is equivalent to a \emph{diagonal quadratic form} i.e. a quadratic form of type $a_1X_q^2+\cdots+a_nX_n^2$ where $a_i\in\bbF_q$ for all $i\in[n]$. 
+\begin{lemma}{Reduction by Separating a Variable}{lem:qf-reduction-by-rep}
   Let $q$ be odd and $f\in\bbF_q[X_1,\dots,X_n]$ be a quadratic form with $n\geq 2$. If $f$ represents $\alpha\in\bbF_q^*$ then $f$ is equivalent to $\alpha\cdot X_1^2+g(X_2,\dots, X_n)$ where $g$ is a quadratic form in $n-1$ variables.
 \end{lemma}
+\begin{proof}
+  Since $f$ represents $\alpha$, $\exs\ (\gm_1,\dots,\gm_n)\in\bbF_q^n$ such that $f(\gm_1,\dots, \gm_n)=\alpha$. Since $\alpha\neq 0$ not all $\gm_i$ are zero. So we can find an invertible matrix $M\in\bbF_q^{n\times n}$ such that in the first column of $M$ the entries are $\gm_1,\dots,\gm_n$. Therefore if we apply the non-singular linear transformation by $M$ to $f$, we obtain a quadratic form in $Y_1,\dots, Y_n$ for which the coefficient of $Y_1^2$ is $f(\gm_1,\dots, \gm_n)=\alpha$. Thus $f$ is equivalent to a quadratic form of the type $$\alpha Y_1^2+2b_2Y_1Y_2+\cdots +2bY_1Y_n+h(Y_2,\dots, Y_n)=\alpha(Y_1+b_2\cdot \alpha^{-1}\cdot Y_2+\cdots b_n\cdot \alpha^{-1}\cdot Y_n)^2+g(Y_2,\dots, Y_n)$$ for some $b_2,\dots, b_n\in\bbF_q$ where $g,h\in\bbF_q[X_1,\dots,X_n]$ are two quadratic forms. So now take the non-singular linear transformation \begin{align*}
+    Z_1 & = Y_1+b_2\cdot \alpha^{-1}\cdot Y_2+\cdots +b_n\cdot \alpha^{-1}\cdot Y_n&&\\ 
+    Z_i & = Y_i\ \forall\ i\in\{2,\dots, n\}&&
+  \end{align*}Then we get a quadratic form of the desired type and this is equivalent to $f$. 
+\end{proof}
+
+Now it is easy to deduce that from any general quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ we can separate all the variables one by one and get an equivalent diagonal quadratic form. But there are some tricky cases to remain since we also have to satisfy that $f$ or its equivalent form represents a non-zero element of $\bbF_q$. 
 
 \begin{Theorem}{Diagonal Form of Quadratic Forms over $\bbF_q$}{thm:qf-diagonal-odd}
-  Every quadratic form over $\bbF_q$, $q$ odd, is equivalent to a diagonal form.
+  For any quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd, there exists $a_1,\dots, a_n\in\bbF_q$ such that $f$ is equivalent to the diagonal quadratic form $a_1 X_1^2+\cdots +a_nX_n^2$.
 \end{Theorem}
+\begin{proof}
+  We will prove this using induction on the number of variables. If $n=1$ then $f(X_1)=a_{1,1}X_1^2$. Then its already diagonal. So suppose $n\geq 2$ and the result holds for quadratic forms in $(n-1)$ variables. 
+  
+  Let $f\in\bbF_q[X_1,\dots,X_n]$ be a quadratic form in $n$ variables. Now the theorem is trivial if $f$ is a zero polynomial. So suppose $f$ is a non-zero polynomial. If there exists $i\in[n]$, $a_{i,i}\neq 0$ then $f$ represents $a_{i,i}$ since at the point $X_i=1$ and $X_j=0$ for all $j\in[n]\setminus\{i\}$, $f$ evaluates to be $a_{i,i}$. If for all $i\in[n]$, $a_{i,i}=0$ then $\exs\ i,j\in[n]$, $i\neq j$ such that $a_{i,j}=a_{j,i}\neq 0$. Then $f$ represents $2a_{i,j}$ since at the point $X_i=X_j=1$ and $X_t=0$ for all $t\in[n]\setminus\{i,j\}$, $f$ evaluates to be $2a_{i,j}$. 
+  
+  So $f$ represents some element $a_1\in\bbF_q^*$ and hence by \QFRedlem we have $f$ is equivalent to a quadratic form $a_1 X_1^2+g(X_2,\dots, X_n)$ where $g$ is a quadratic form in $(n-1)$ variables. Now by induction hypothesis $g$ is equivalent to a diagonal quadratic form $a_2X_2^2+\cdots a_nX_n^2$. Therefore $f$ is equivalent to the diagonal quadratic form $a_1 X_1^2+\cdots +a_nX_n^2$. 
+\end{proof}
 
+So now we can only talk about the solutions of diagonal quadratic forms since all general quadratic forms in $\bbF_q[X_1,\dots,X_n]$ are equivalent to a diagonal quadratic form. Now let $f\in\bbF_q[X_1,\dots,X_n]$ is equivalent to $a_1X_1^2+\cdots+a_nX_n^2$. Then some $a_i$'s may be zero. Since non-singular linear transformation preserves ranks, equivalent quadratic forms have coefficient matrices with same rank. Therefore non-singular linear transformation also preserves the non-zero ness of determinant of the coefficient matrix. 
+\begin{observation}\label{obs:diagonal-rank-det}
+  Let $f\in\bbF_q[X_1,\dots,X_n]$ is a quadratic form is equivalent to $a_1X_1^2+\cdots+a_nX_n^2$. Then $\Rank(C_f)=n-|\{i\in[n]\colon a_i=0\}|$. Similarly, $\det(C_f)=0$ if and only if $\prod_{j=1}^na_i=0$. 
+\end{observation}
+\begin{observation}\label{obs:equivalent-det-value}
+  Let $f,g\in\bbF_q[X_1,\dots,X_n]$ are two equivalent quadratic forms by the non-singular linear transformation $M\in\bbF_q^{n\times n}$. Since by \QFEquivCoeffObs we have $C_g=M^\top C_f M$ and therefore $\det(g)=\det(f)\cdot \det(M)^2$. 
+\end{observation}
+If the coefficient matrix $C_f$ for any quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ has rank $n$ then we call $f$ to be \emph{non-degenerate}. We also define \emph{determinant of $f$}, $\det(f)$ to be the determinant of the coefficient matrix $C_f$. 
+
+Now we will study number of solutions of $2$-variable quadratic diagonal forms which we will later use in \QFDiagthm to calculate the number of solutions of general diagonal forms. 
 
 \begin{lemma}{Solutions of a Two-Variable Diagonal Quadratic Form}{lem:qf-two-var-count}
-  For odd $q$, let $\alpha\in\bbF_q$, $a_1,a_2\in\bbF_q^*$, and let $\eta\in\Mq$ be the quadratic character of $\bbF_q$. Then $$Z\lt(a_1X_1^2+a_2X_2^2=\alpha\rt)=q+\vth(\alpha)\eta(-a_1a_2).$$
+  For odd $q$, let $\alpha\in\bbF_q$, $a_1,a_2\in\bbF_q^*$, and let $\eta\in\Mq$ be the quadratic character of $\bbF_q$. Then $$Z\lt(a_1X_1^2+a_2X_2^2=\alpha\rt)=q+\vth(\alpha)\cdot \eta(-a_1a_2).$$
 \end{lemma}
+\begin{proof}
+  Now we can break $Z(a_1X_1^2+a_2X_2^2=\alpha)$ into sum over all $\alpha_1,\alpha_2\in\bbF_q$ product of $Z(a_1X_1^2=\alpha_1)$ and $Z(a_2X_2^2=\alpha_2$. So we have 
+  \begin{align*}
+    Z(a_1X_1^2+a_2X_2^2=\alpha) & = \sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}Z(a_1X_1^2=\alpha_1)\cdot Z(a_2X_2^2=\alpha_2)\\ 
+    & = \sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}} (1+\eta(a_1^{-1}\alpha_1))\cdot (1+\eta(a_2^{-1}\alpha_2))\\ 
+    & = \sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}} \lt(1+\eta(a_1^{-1}\alpha_1)+\eta(a_2^{-1}\alpha_2)+\eta(a_1^{-1}a_2^{-1}\alpha_1\alpha_2)\rt)\\ 
+    & = q+ \eta(a_1)\sum_{\alpha_1\in\bbF_q}\eta(\alpha_1)+\eta(a_2)\sum_{\alpha_2\in\bbF_q}\eta(\alpha_2)+\eta(a_1a_2)\sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}\eta(\alpha_1\alpha_2)\\ 
+    & = q+\eta(a_1a_2)\sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}\eta(\alpha_1\alpha_2) \by{\MultCharPropsthm[(i)]}\\ 
+    & = q+\eta(a_1a_2)\sum_{\gm\in\bbF_q}\eta(\gm(\alpha-\gm))
+  \end{align*}
+  Now consider the polynomial $g(X)=\alpha X-X^2$. Then by \EtaQuadPolythm using the function $\vth$ we have $\sum_{\gm\in\bbF_q}\eta(g(\gm))=\vth(\alpha)\eta(-1)$. Therefore we have the lemma. 
+\end{proof}
 \begin{Theorem}{Solution Count for Non-degenerate Diagonal Quadratic Forms}{thm:qf-count-even-n-odd-q}
   Let $f$ be a non-degenerate quadratic form in $\bbF_q[X_1,\dots,X_n]$ with $n$ even and $q$ odd. Then for any $\alpha\in\bbF_q$,
   \begin{enumerate}[label=(\roman*)]
     \item If $n$ is even $Z\lt(f(X_1,\dots,X_n)=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n}{2}}\cdot \det(f)\rt).$
-    \item if $n$ is odd $Z\lt(f(X_1,\dots, X_n)=\alpha\rt)=q^{n-1}+q^{\nicefrac{(n-1)}{2}}\cdot \eta\lt((-1)^{\nicefrac{(n-1)}{2}}\cdot \det(f)\rt).$
+    \item if $n$ is odd $Z\lt(f(X_1,\dots, X_n)=\alpha\rt)=q^{n-1}+q^{\nicefrac{(n-1)}{2}}\cdot \eta\lt((-1)^{\nicefrac{(n-1)}{2}}\cdot \alpha\cdot \det(f)\rt).$
   \end{enumerate}
 \end{Theorem}
+\begin{proof}
+  By \QFDiagthm $f$ is equivalent to a diagonal quadratic form $g(X_1,\dots, X_n)=a_1X_1^2+\cdots a_nX_n^2$ by the non-singular linear transformation $M\in\bbF_q^{n\times n}$. By \QFEquivDetObs, we have $\eta(\det(f))=\eta(\det(g))$. Hence it suffices to prove the theorem for $g(X_1,\dots, X_n)=\alpha$. Since $f$ is non-degenerate by \QFDiagRankDetObs, $a_i\neq 0$ for all $i\in[n]$. 
+  \begin{enumerate}[label=(\roman*)]
+    \item Let $n$ is even. So take $m=\nicefrac{n}2$. Then 
+  \begin{align*}
+    Z(g(X_1,\dots, X_n)=\alpha) & = \sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\prod_{j=1}^mZ\lt(a_{2j-1}X_{2j-1}^2+a_{2j}X_{2j}^2=\alpha_j\rt)\\ 
+    & = \sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}} \prod_{j=1}^m \lt(q+\vth(\alpha_j)\cdot\eta(-a_{2j-1}a_{2j})\rt)\by{\QFTwoVarlem}\\ 
+    & = \sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}} q^m+ \sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\prod_{j=1}^m \vth(\alpha_j)\cdot\eta(-a_{2j-1}a_{2j})\\ 
+    & = q^{m-1}\cdot q^m+ \eta\lt((-1)^m\det(g)\rt)\sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\prod_{j=1}^m\vth(\alpha_j)\\ 
+    & = q^{2m-1}+\eta\lt((-1)^m\det(g)\rt)\cdot \vth(\alpha)\cdot q^{m-1}\by{\QFConvProplem}\\ 
+    & = q^{n-1}+\eta\lt((-1)^{\nicefrac{n}2}\det(f)\rt)\cdot \vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}
+  \end{align*}
+  \item Now suppose $n$ is odd. We will use induction on $n$. Now this formula is valid for $n=1$. So suppose $n\geq 3$. Then 
+  \begin{align*}
+    Z(g(X_1,\dots, X_n)=\alpha) & = \sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}Z(a_1X_1^2=\alpha_1)\cdot Z(a_2X_2^2+\cdots +a_nX_n^2=\alpha_2)\\ 
+    & = \sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}} \lt(1+\eta(a_1^{-1}\alpha_1)\rt)\cdot \lt(q^{n-2}+\eta\lt((-1)^{\nicefrac{n-1}2}a_2\cdots a_n\rt)\cdot \vth(\alpha)\cdot q^{\nicefrac{(n-3)}{2}}\rt)\by{first part}\\ 
+    & = \sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}q^{n-1}+q^{n-2}\cdot \eta(a_1)\sum_{\alpha_1\in\bbF_q}\eta(\alpha_1)\\ 
+    & \qquad\qquad\qquad\qquad\qquad\qquad+q^{\nicefrac{(q-3)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n-1}2}a_2\cdots a_n\rt)\sum_{\alpha_2\in\bbF_q}\vth(\alpha_2)\\ 
+    &\qquad\qquad\qquad\quad\ \; + q^{\nicefrac{(q-3)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n-1}2}a_2\cdots a_n\rt)\sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}\vth(\alpha_2)\eta(a_1^{-1}\alpha_1)\\ 
+    & = q^{n-1}+ q^{\nicefrac{(q-3)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n-1}2}a_1\cdots a_n\rt)\sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}\vth(\alpha_2)\eta(\alpha_1)\by{\QFConvProplem}\\ 
+    & = q^{n-1}+ q^{\nicefrac{(q-3)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n-1}2}\cdot \det(f)\rt)\sum_{\gm\in\bbF_q}\eta(\gm)\cdot \vth(\alpha-\gm)
+  \end{align*}So now we only have to calculate $\sum_{\gm\in\bbF_q}\eta(\gm)\cdot \vth(\alpha-\gm)$. Now $$\sum_{\gm\in\bbF_q}\eta(\gm)\cdot \vth(\alpha-\gm)=\sum_{\gm\in\bbF_q}\eta(\gm)\cdot [\vth(\alpha-\gm)+1]=q\cdot \eta(\alpha)$$
+  \end{enumerate}
+  So we have the results for both cases. 
+\end{proof}
+
+We will now present alternate proof of this theorem using Jacobi sums. This will help us how to use the machinery built in previous chapter properly to get values for number of solutions. 
+
+\begin{alternate-proof}
+  Again it suffices to prove this theorem for the diagonal quadratic form $g(X_1,\dots, X_n)=a_1X_1^2+\cdots a_nX_n^2$ where $a_i\in\bbF_q^*$ for all $i\in[n]$. Here we will work with the extended definition of $\eta$. Let $\lm_0$ is the trivial multiplicative character and $\lm_1=\eta$. Then 
+    \begin{align*}
+      Z(g(X_1,\dots, X_n)=\alpha) & = \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots+\alpha_n=\alpha}}\prod_{j=1}^nZ\lt(a_jX_j^2=\alpha_j\rt)\\ 
+      & = \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots+\alpha_n=\alpha}}\lt(\lm_1(a_j\alpha_j)+\lm_0(a_j\alpha_j)\rt)\\ 
+      & = \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots+\alpha_n=\alpha}}\sum_{i_1,\dots,i_n=0}^1\lm_{i_1}(a_1\alpha_1)\cdots \lm_{i_n}(a_n\alpha_n)\\ 
+      & = \sum_{i_1,\dots,i_n=0}^1 \lt(\prod_{j=1}^n\lm_{i_j}(a_j)\rt) \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots+\alpha_n=\alpha}}\prod_{j=1}^n\lm_{i_j}(\alpha_j)\\ 
+      & = \sum_{i_1,\dots,i_n=0}^1 \lt(\prod_{j=1}^n\lm_{i_j}(a_j)\rt) \cdot J_{\alpha}\lt(\lm_{i_1},\dots, \lm_{i_n}\rt)
+    \end{align*}
+    Now if not all but some $\lm_{i_j}$'s are trivial then $J_{\alpha}\lt(\lm_{i_1},\dots, \lm_{i_n}\rt)=0$ by \JacobiCompletethm[(ii)]. So this remains the cases when all are $\lm_{i,j}$'s are trivial or non-trivial. Now if $i_j=0$ for all $j\in[n]$ then by \JacobiCompletethm[(i)], $J_{\alpha}\lt(\lm_{i_1},\dots, \lm_{i_n}\rt)=q^{n-1}$. Therefore by \begin{equation}\label{eq:quad-jacobi-etas}
+      Z(g(X_1,\dots, X_n)=\alpha) =q^{n-1}+\eta(\det(f))\cdot J_{\alpha}\underbrace{(\eta,\dots, \eta)}_{n-\text{times}}
+    \end{equation}If $\alpha\neq 0$ then above expression gives us \begin{equation}\label{eq:quad-jacobi-nonzero}
+      Z(g(X_1,\dots, X_n)=\alpha) =q^{n-1}+\eta(\det(f))\cdot \eta^n(\alpha)\cdot J(\eta,\dots, \eta)
+    \end{equation}
+    \begin{enumerate}[label=(\roman*)]
+      \item Now suppose $n$ is even. Let $\alpha\neq 0$. Since $n$ is even $\eta^n$ is trivial character. So from the equation  \eqref{eq:quad-jacobi-nonzero} we have $$Z(g(X_1,\dots, X_n)=\alpha) =q^{n-1}+\eta(\det(f))\cdot J(\eta,\dots, \eta)$$ Let $\chi\in\Xq$ is a non-trivial additive character of $\bbF_q$. Then by \JGrelthm[(ii)] we have $$J(\eta,\dots, \eta) = -\frac1qG(\eta,\chi)^n = -\frac1q\lt(G^2(\eta,\chi)\rt)^{\nicefrac{n}{2}} = -\frac1q(\eta(-1)q)^{\nicefrac{n}2} = -q^{\nicefrac{(n-2)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n}2}\rt)$$Hence if $\alpha\neq 0$ then we have $$Z(g(X_1,\dots, X_n)=\alpha)=q^{n-1}+\eta(\det(f))\cdot \lt(-q^{\nicefrac{(n-2)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n}2}\rt)\rt)=q^{n-1}-q^{\nicefrac{(q-2)}{2}}\eta\lt((-1)^{\nicefrac{q}{2}}\cdot \det(f)\rt)$$
+      Now suppose $\alpha= 0$. Then \eqref{eq:quad-jacobi-etas} gives $$Z(g(X_1,\dots, X_n)=\alpha) =q^{n-1}+\eta(\det(f))\cdot J_{0}(\eta,\dots, \eta)$$Since $n$ is even $\eta^n$ is trivial. Therefore by \JacZeroRellem[(ii)] we have $$J_0\underbrace{(\eta,\dots, \eta)}_{n-\text{times}}=\eta(-1)\cdot (q-1)\cdot J\underbrace{(\eta,\dots\eta)}_{(n-1)-\text{times}}$$So by \JGrelthm[(i)] we have $$J\underbrace{(\eta,\dots\eta)}_{(n-1)-\text{times}}=\frac{G(\eta,\chi)^{n-1}}{G(\eta^{n-1},\chi)}=G^{n-2}(\eta,\chi)=\lt(G^2(\eta,\chi)\rt)^{\nicefrac{(n-2)}{2}}= q^{\nicefrac{(n-2)}{2}}\cdot \eta\lt((-1)^{\nicefrac{(n-2)}{2}}\rt)$$Therefore from \eqref{eq:quad-jacobi-etas} we get $$Z(g(X_1,\dots, X_n)=\alpha)=q^{n-1}+(q-1)\cdot q^{\nicefrac{(n-2)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n}{2}}\cdot \det(f)\rt)$$
+      So combining the result of $\alpha\neq 0$ and $\alpha=0$ we get the theorem. 
+      \item Now suppose $n$ is odd. Then $\eta^n=\eta$ which is non-trivial. If $\alpha=0$ then by \JacZeroRellem[(i)] we have $J_0(\eta,\dots,\eta)=0$. So assume $\alpha\neq 0$. Then in the equation \eqref{eq:quad-jacobi-nonzero} by using \JGrelthm[(i)] we have
+      $$J(\eta,\dots,\eta)=\frac{G(\eta,\chi)^{n}}{G(\eta^{n},\chi)}=G^{n-1}(\eta,\chi)=\lt(G^2(\eta,\chi)\rt)^{\nicefrac{(n-1)}{2}}= q^{\nicefrac{(n-1)}{2}}\cdot \eta\lt((-1)^{\nicefrac{(n-1)}{2}}\rt)$$So in both cases $$Z(g(X_1,\dots, X_n)=\alpha) =q^{n-1}+ q^{\nicefrac{(n-1)}{2}}\cdot \eta\lt((-1)^{\nicefrac{(n-1)}{2}}\cdot \alpha\cdot \det(f)\rt)$$This expression works for $\alpha=0$ because then the second term becomes zero. 
+    \end{enumerate}
+    Hence we have theorem. 
+\end{alternate-proof}
+
+\begin{note}
+  For any general degree-$2$ polynomial $f\in\bbF_q[X_1,\dots,X_n]$ there exists $g,h\in\bbF_q[X_1,\dots,X_n]$ where $g$ is a quadratic form and $\deg(h)\leq 1$. Then by some non-singular linear transformation we can transform $f$ into an equivalent diagonal quadratic form. Then we obtain an equation of following form:
+  $$\tdf(X_1,\dots, X_n)=a_1X_1^2+\cdots a_kX_k^2+b_1X_1+\cdots b_nX_n$$ where $a_i\in\bbF_q^*$ for all $i\in[k]$, $k\leq n$ and $b_j\in\bbF_q$ for all $j\in[n]$. Hence for any $\alpha\in\bbF_q$, the number of solutions of $f(X_1,\dots, X_n)=\alpha$ is same as number of solutions of $\tdf(X_1,\dots, X_n)=\alpha$. 
+
+  If $k<n$ then without loss of generality we can assume $b_n\neq 0$. Then the number of solutions is $q^{n-1}$ as we can arbitrarily substitute elements for $X_1,\dots, X_{n-1}$ and then value of $X_n$ is uniquely determined. 
+  
+  If $k=n$ then takes the non-singular linear transformation $X_i=Y_i-b_i(2a_i)^{-1}$ for all $i\in[n]$ gives an equivalent diagonal quadratic form $a_1Y_1^2+\cdots +a_nY_n^2=c$ for some $c\in\bbF_q$. Now we can use \QFCountOddthm to find the number of solutions. 
+\end{note}
 
 \subsection{Even Characteristic Quadratic Forms}
+We will now study quadratic forms and its number of solutions over finite fields $\bbF_q$ with $\Char(\bbF_q)=2$ i.e. $q$ is even. Again like in the case of odd characteristic we will first reduce any general quadratic form to canonical forms and then we will try to find the number of solutions of such canonical forms. 
 
+For even characteristic fields we define \emph{non-degenerate} quadratic forms differently. Let $f\in\bbF_q[X_1,\dots,X_n]$ is a quadratic form in $n$-variables. Then $f$ is called non-degenerate if $f$ is not equivalent to a quadratic form in fewer than $n$ variables. Notice this definition is also valid for the definition of \emph{non-degenerate} in odd characteristic case. Since there if $f$ is equivalent to a quadratic form with fewer than $n$ variables then that quadratic form is equivalent to a diagonal quadratic form with fewer than $n$ variables which means by \QFDiagRankDetObs that $f$ is not non-degenerate. So it suffices to discuss when $f$ is non-degenerate otherwise we continue to go to the equivalent quadratic form with fewer variables till that form becomes a non-degenerate quadratic form.  
 \begin{lemma}{Reduction for Quadratic Forms in even characteristic}{lem:qf-reduction-even-char}
   A non-degenerate quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ with $q$ even and $n\geq 3$ is equivalent to $X_1X_2+g(X_3,\dots, X_n)$ where $g$ is a quadratic form in $n-2$ variables.
 \end{lemma}
-
+\begin{proof}
+  First we will show that $f$ is equivalent to a quadratic form where coefficient of $X_1^2$ is $0$. So let $$f(X_1,\dots, X_n)=\sum_{i,j\in[n]}a_{i,j}X_iX_j$$ where $a_{i,j}=a_{j,i}\in\bbF_q$. If there exists $i\in[n]$ such that $a_{i,i}=0$ then we can permute the variables so that $X_i$ goes to $X1$ and thus $a_{1,1}=0$. So assume $a_{i,i}\neq 0$ for all $i\in[n]$. Now if $a_{i,j}=0$ for all $i\neq j$ then $$f(X_1,\dots, X_n)=a_{1,1}X_1^2+\cdots +a_{n,n}X_n^2=\lt(a_{1,1}^{\nicefrac{q}2}X_1+\cdots +a_{n,n}^{\nicefrac{q}2}X_n\rt)^2$$then $f$ is equivalent to $Y_1^2$ by the non-singular linear transformation\begin{align*}
+    Y_1&=a_{1,1}^{\nicefrac{q}2}X_1+\cdots +a_{n,n}^{\nicefrac{q}2}X_n&&\\
+    Y_i&=X_i\ \forall\ i\in\{2,\dots, n\}&&
+  \end{align*}This contradicts the non-degenerate property of $f$ \ctr So there exists $i,j\in[n]$, $i\neq j$ such that $a_{i,j}\neq 0$. Without loss of generality suppose $a_{2,3}\neq 0$. Now $$f(X_1,\dots, X_n)=a_{2,2}X_2+X_2(a_{1,2}X_1+a_{2,3}X_3+\cdots +a_{2,n}X_n)+g_1(X_1,X_3\dots, X_n)$$Then take the non-singular linear transformation
+  \begin{align*}
+    Y_3&=a_{2,3}^{-1}(a_{1,2}X_1+a_{2,3}X_3+\cdots +a_{2,n}X_n)&&\\
+    Y_i&=X_i\ \forall\ i\in[n]\setminus\{3\}&&
+  \end{align*}This gives an equivalent quadratic form $a_{22}Y_2^2+Y_2Y_3+g_2(Y_1,Y_3,\dots, Y_n)$. Let $b$ is the coefficient of $X_1^2$ in $g_2$. So now take the non-singular linear transformation
+  \begin{align*}
+    Z_2&=\lt(a_{2,2}^{-1}b\rt)^{\nicefrac{q}2}Y_1+Y_2&&\\
+    Z_i&=Y_i\ \forall\ i\in[n]\setminus\{2\}&&
+  \end{align*}This transformation makes the coefficient of $Z_1^2$ to be $0$. Now we'll use $f$ to denote this final quadratic form with variables $X_1,\dots, X_n$. Since $f$ is non-degenerate not all $a_{i,j}$'s are $0$ where $i\neq j$. Without loss of generality suppose $a_{1,2}\neq 0$. Then take the non-singular linear transformation
+    \begin{align*}
+    Y_2&=a_{1,2}^{-1}(Y_2+a_{1,3}Y_3+\cdots +a_{1,n}Y_n)&&\\
+    Y_i&=X_i\ \forall\ i\in[n]\setminus\{2\}&&
+  \end{align*}Then we get a quadratic form of the type $$Y_1Y_2+\sum_{2\leq i,j\leq n}c_{i,j}Y_iY_j$$ where $c_{i,j}\in\bbF_q$ for all $2\leq i,j\leq n$. So take the non-singular linear transformation   \begin{align*}
+    Z_1& = Y_1+c_{2,2}Y_2+\cdots +c_{2,n}Y_n&&\\
+    Z_i&=Y_i\ \forall\ i\in[n]\setminus\{1\}&&
+  \end{align*}
+  This transformation gives a quadratic form of the type $Z_1Z_2+g_3(Z_3,\dots, Z_n)$. So we have the lemma. 
+\end{proof}
+So now we will use this theorem to find proper canonical forms for any general quadratic forms. 
 \begin{Theorem}{Canonical Forms for even characteristic}{thm:qf-canonical-even-char}
   Let $f\in\bbF_q[X_1,\dots,X_n]$ be a non-degenerate quadratic form with $q$ even.
   \begin{enumerate}[label=(\roman*)]
     \item If $n$ is odd then $f$ is equivalent to $X_1X_2+X_3X_4+\cdots +X_{n-2}X_{n-1}+X_n^2$.
-    \item If $n$ is even then $f$ is either equivalent to $X_1X_2+\cdots+X_{n-1}X_n$, or to $X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2$ where $a\in\bbF_q$ satisfies $\tr(a)=1$.
+    \item If $n$ is even then $f$ is \begin{enumerate}
+      \item either equivalent to $X_1X_2+\cdots+X_{n-1}X_n$, 
+      \item or to $X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2$ where $a\in\bbF_q$ satisfies $\tr(a)=1$.
+    \end{enumerate}
   \end{enumerate}
 \end{Theorem}
-
+\begin{proof}
+  
+\end{proof}
 \begin{lemma}{Solutions of a Two-Variable Quadratic Form in even characteristic}{lem:qf-two-var-count-even}
   For even $q$, let $a,\alpha\in\bbF_q$ with $\tr(a)=1$. Then $$Z\lt(X_1^2+X_1X_2+aX_2^2=\alpha\rt)=q-\vth(\alpha).$$
 \end{lemma}
 \begin{Theorem}{Solution Counts for Canonical Quadratic Forms in even characteristic}{thm:qf-count-even-char}
   Let $\bbF_q$ be a finite field with $q$ even. Then for any $\alpha\in\bbF_q$:
   \begin{enumerate}[label=(\roman*)]
-    \item If $n$ is odd, $$Z\lt(X_1X_2+\cdots + X_{n-2}X_{n-1}+X_n^2=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-1)}{2}}.$$
-    \item If $n$ is even then:
+    \item If $n$ is odd, $Z\lt(X_1X_2+\cdots + X_{n-2}X_{n-1}+X_n^2=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-1)}{2}}.$
+    \item If $n$ is even:
     \begin{enumerate}[label=(\alph*)]
       \item $Z\lt(X_1X_2+\cdots +X_{n-1}X_n=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}$;
-      \item for $a\in\bbF_q$ with $\tr(a)=1$, $Z\lt(X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2=\alpha\rt)=q^{n-1}-\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}$.
+      \item for $a\in\bbF_q$ with $\tr(a)=1$, then $Z\lt(X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2=\alpha\rt)=q^{n-1}-\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}$.
     \end{enumerate}
   \end{enumerate}
 \end{Theorem}
+\begin{proof}
+  
+\end{proof}

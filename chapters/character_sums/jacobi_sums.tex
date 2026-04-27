@@ -15,7 +15,7 @@ Because of this relation it is enough to consider only the sums $J_0(\lm_1,\dots
 \end{Definition} 
 
 Now we want to find the value of $J(\lm_1,\dots, \lm_k)$ and $J_0(\lm_1,\dots, \lm_k)$. If $k=1$ then $J(\lm)=\lm(1)=1$ for any $\lm\in\Mq$ of $\bbF_q$. And $J_0(\lm)=0$ if $\lm$ is non-trivial and its $1$ if $\lm$ is trivial multiplicative character. Therefore, Jacobi sums are only of interest when $k\geq 2$. Now first we have the following observation
-\begin{observation}
+\begin{observation}\label{obs:jacobi-sum-symmetric}
   By the definition of the Jacobi sums $J(\lm_1,\dots, \lm_k)$ and $J_0(\lm_1,\dots, \lm_k)$ are independent of the order in which the characters $\lm_i$ are listed.
 \end{observation} 
 
@@ -112,7 +112,7 @@ Now we have all the results to calculate the absolute value of the Jacobi sum fo
 \end{proof}
 
 Using the value of $J(\lm_1,\dots,\lm_k)$ we can also get the absolute value of $J_0(\lm_1,\dots,\lm_k)$ when all $\lm_i$'s are non-trivial and $\prod_{i=1}^k\lm_i$ is trivial. 
-\begin{corolary}{Absolute Value of $J_0$ for Non-trivial Characters}{}
+\begin{corolary}{Absolute Value of $J_0$ for Non-trivial Characters}{cor:jacobi-J0-abs}
   Let $\lm_1,\dots,\lm_k\in\Mq$ be non-trivial multiplicative characters of $\bbF_q$ and $\prod_{i=1}^k\lm_i$ is trivial. Then $$|J_0(\lm_1,\dots,\lm_k)|=(q-1)q^{\nicefrac{(k-2)}{2}}$$
 \end{corolary}
 \begin{proof}
@@ -133,7 +133,7 @@ Combining \lemref{lem:jacobi-some-trivial}, \lemref{lem:jacobi-zero-relation}, \
 \subsection{The Davenport--Hasse Relations}
 
 The case $k=2$ is the one that appears in most arithmetic applications. The central result here is the Davenport--Hasse product formula, which expresses a high power of a Gaussian sum as a product of Jacobi sums. We first establish a useful preliminary identity.
-\begin{lemma}{Gaussian Sum Power via Jacobi Products}{}
+\begin{lemma}{Gaussian Sum Power via Jacobi Products}{lem:gauss-power-jacobi}
   Let $\lm$ be a multiplicative character of $\bbF_q$ of order $m\geq 2$ and let $\chi$ be a non-trivial additive character of $\bbF_q$. Then $$G(\lm,\chi)^m=\lm(-1)\cdot q\cdot J(\lm,\lm)\cdot J(\lm,\lm^2)\cdots J(\lm,\lm^{m-2})$$ 
 \end{lemma}
 \begin{proof}
@@ -163,7 +163,7 @@ Over the prime field $\bbF_p$ the Davenport--Hasse relation admits a more explic
 \end{Theorem}
 
 As an application of the Davenport--Hasse product formula, together with the evaluation of Jacobi sums in \thmref{thm:jacobi-sum-complete}, we obtain the following closed form for the product of Gaussian sums on the $m$ characters $\psi\cdot \lm^i$ twisting $\psi$ by the powers of $\lm$. The two cases reflect the parity of $m$, with the even case picking up an extra quadratic Gaussian sum $G(\eta,\chi_b)$ where $\eta$ is the quadratic character of $\bbF_q$.
-\begin{corolary}{}{}
+\begin{corolary}{Product of Twisted Gaussian Sums}{cor:gauss-product-twisted}
   Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi_b\in\Xq$ be a non-trivial additive character of $\bbF_q$ as defined in \thmref{thm:add-char-define}.
   $$\prod_{j=0}^m G(\psi\cdot \lm^j,\chi_b) =\begin{cases}
     q^{\nicefrac{(m-1)}{2}}G(\psi^m,\chi_{mb}) & \text{if $m$ is odd}\\ 
@@ -203,7 +203,7 @@ As an application of the Davenport--Hasse product formula, together with the eva
 \end{proof}
 
 Since for the trivial multiplicative character $\psi_0\in\Mq$ we have $\lm^0=\psi_0$. Therefore $\prod_{j=0}^{m-1}G(\lm^j,\chi)=-\prod_{j=1}^{m-1}G(\lm^j,\chi)$ by \GSpropthm. Therefore from \eqref{eq:hs-relation-wiki} we have $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=-G(\psi^m,\chi_m)\prod_{j=0}^{m-1}G(\lm^j,\chi)$$ So we get the following observation:
-\begin{observation}
+\begin{observation}\label{obs:gauss-product-sign}
   Let $\psi,\lm\in\Mq$ be multiplicative characters of $\bbF_q$ such that $\ord(\lm)=m\geq 2$ and $\psi^m$ is non-trivial. Let $\chi\in\Xq$ be any non-trivial additive character of $\bbF_q$. Then $$\prod_{j=0}^{m-1}G(\psi\cdot \lm^j)=-\psi^{-m}(m)\cdot G(\psi^m,\chi)\prod_{j=0}^{m-1}G(\lm^j,\chi)$$
 \end{observation}
 \subsection{Application: Fermat's Two-Square Theorem}
