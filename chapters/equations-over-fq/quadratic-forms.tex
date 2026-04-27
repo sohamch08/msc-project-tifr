@@ -1,1 +1,79 @@
 \section{Quadratic Forms}
+In this section we will study about quadratic forms and its equivalent forms which are easier to study than a general quadratic form. We will give bounds on the deviation of number of solutions from average number of solutions. Before all of that let's see what is a quadratic form.
+\begin{Definition}{Quadratic Forms}{}
+  A quadratic form over $\bbF_q$ is a degree-$2$ \emph{homogeneous} polynomial or the zero polynomial.
+\end{Definition}
+If $f\in\bbF_q[X_1,\dots,X_n]$ is a quadratic form. Now if $q$ is odd then for any $i,j\in[n]$ we write $a_{i,j}X_iX_j=\frac12a_{i,j}X_iX_j+\frac12a_{ij}X_jX_i$ which leads to the representation $$f(X_1,\dots, X_n)= \sum_{i,j\in[n]}a_{i,j}X_iX_j\quad\text{for all }a_{i,j}\in\bbF_q\text{ with }a_{i,j}=a_{j,i}.$$
+From this formulation we can represent $f$ by a matrix denoted by $C_f$ where $(i,j)^{th}$ entry of $C_f$ is $a_{i,j}$. This matrix is called the \emph{coefficient matrix}.
+\begin{observation}
+  Since $a_{i,j}=a_{j,i}$ we have $C_f^\top=C_f$.
+\end{observation}
+So if $X$ denotes the column vector of all variables then $f=X^\top C_fX$. With this representation now we can talk about equivalence of two quadratic forms.
+\begin{Definition}{Equivalent Quadratic Forms}{}
+  Let $f,g\in\bbF_q[X_1,\dots, X_n]$ be two quadratic forms over $\bbF_q$. Then $f$ and $g$ are said to be \emph{equivalent} if $f$ can be transformed into $g$ by a non-singular linear transformation of the variables.
+\end{Definition}
+
+So let $f,g\in\bbF_q[X_1,\dots, X_n]$ are two equivalent quadratic forms. Let $X$ be the variable vector for $f$ and $\tdX$ be the variable vector for $g$. Then $f=X^\top C_fX$ and $g=\tdX^\top C_g\tdX$. Suppose $M$ is the non-singular linear transformation of variables i.e.\ $\tdX=MX$. For odd $q$ we have $$\tdX^\top C_g\tdX=g=(MX)^\top C_f(MX)= X^\top (M^\top C_f M)X,$$so $C_g=M^\top C_fM$.
+\begin{observation}
+  If $f,g\in\bbF_q[X_1,\dots, X_n]$ ($q$ odd) are two quadratic forms then $f$ and $g$ are equivalent if and only if there exists an invertible matrix $M\in\bbF_q^{n\times n}$ such that $C_g=M^\top C_fM$.
+\end{observation}
+We will use another terminology to make our life easier. If $f\in\bbF_q[X_1,\dots, X_n]$ is a quadratic form then for any $\alpha\in\bbF_q$ we will say $f$ \emph{represents} $\alpha$ if $f(X_1,\dots, X_n)=\alpha$ has a solution.
+
+To calculate and understand the number of solutions of quadratic forms we define the integer-valued function $\vth:\bbF_q\to\bbZ$ by $\vth(\alpha)=-1$ for all $\alpha\in\bbF_q^*$ and $\vth(0)=q-1$. Then we have the following properties of $\vth$ function. 
+\begin{lemma}{}{lem:theta-convolution}
+  For any finite field $\bbF_q$ we have $$\sum_{\alpha\in\bbF_q}\vth(\alpha)=0,$$and for any $\alpha\in\bbF_q$ and integers $1\leq k\leq m$,
+  $$\sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\vth(\alpha_1)\cdots \vth(\alpha_k)=\begin{cases}
+    0 & \text{if $1\leq k<m$}\\
+    \vth(\alpha)\cdot q^{m-1} & \text{if $k=m$.}
+  \end{cases}$$
+\end{lemma}
+\subsection{Odd Characteristic Quadratic Forms}
+
+\begin{lemma}{Reduction by Representation}{lem:qf-reduction-by-rep}
+  Let $q$ be odd and $f\in\bbF_q[X_1,\dots,X_n]$ be a quadratic form with $n\geq 2$. If $f$ represents $\alpha\in\bbF_q^*$ then $f$ is equivalent to $\alpha\cdot X_1^2+g(X_2,\dots, X_n)$ where $g$ is a quadratic form in $n-1$ variables.
+\end{lemma}
+
+\begin{Theorem}{Diagonal Form of Quadratic Forms over $\bbF_q$}{thm:qf-diagonal-odd}
+  Every quadratic form over $\bbF_q$, $q$ odd, is equivalent to a diagonal form.
+\end{Theorem}
+
+
+\begin{lemma}{Solutions of a Two-Variable Diagonal Quadratic Form}{lem:qf-two-var-count}
+  For odd $q$, let $\alpha\in\bbF_q$, $a_1,a_2\in\bbF_q^*$, and let $\eta\in\Mq$ be the quadratic character of $\bbF_q$. Then $$Z\lt(a_1X_1^2+a_2X_2^2=\alpha\rt)=q+\vth(\alpha)\eta(-a_1a_2).$$
+\end{lemma}
+\begin{Theorem}{Solution Count for Non-degenerate Diagonal Quadratic Forms}{thm:qf-count-even-n-odd-q}
+  Let $f$ be a non-degenerate quadratic form in $\bbF_q[X_1,\dots,X_n]$ with $n$ even and $q$ odd. Then for any $\alpha\in\bbF_q$,
+  \begin{enumerate}[label=(\roman*)]
+    \item If $n$ is even $Z\lt(f(X_1,\dots,X_n)=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n}{2}}\cdot \det(f)\rt).$
+    \item if $n$ is odd $Z\lt(f(X_1,\dots, X_n)=\alpha\rt)=q^{n-1}+q^{\nicefrac{(n-1)}{2}}\cdot \eta\lt((-1)^{\nicefrac{(n-1)}{2}}\cdot \det(f)\rt).$
+  \end{enumerate}
+\end{Theorem}
+
+\subsection{Even Characteristic Quadratic Forms}
+
+\begin{lemma}{Reduction for Quadratic Forms in even characteristic}{lem:qf-reduction-even-char}
+  A non-degenerate quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ with $q$ even and $n\geq 3$ is equivalent to $X_1X_2+g(X_3,\dots, X_n)$ where $g$ is a quadratic form in $n-2$ variables.
+\end{lemma}
+
+\begin{Theorem}{Canonical Forms for even characteristic}{thm:qf-canonical-even-char}
+  Let $f\in\bbF_q[X_1,\dots,X_n]$ be a non-degenerate quadratic form with $q$ even.
+  \begin{enumerate}[label=(\roman*)]
+    \item If $n$ is odd then $f$ is equivalent to $X_1X_2+X_3X_4+\cdots +X_{n-2}X_{n-1}+X_n^2$.
+    \item If $n$ is even then $f$ is either equivalent to $X_1X_2+\cdots+X_{n-1}X_n$, or to $X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2$ where $a\in\bbF_q$ satisfies $\tr(a)=1$.
+  \end{enumerate}
+\end{Theorem}
+
+\begin{lemma}{Solutions of a Two-Variable Quadratic Form in even characteristic}{lem:qf-two-var-count-even}
+  For even $q$, let $a,\alpha\in\bbF_q$ with $\tr(a)=1$. Then $$Z\lt(X_1^2+X_1X_2+aX_2^2=\alpha\rt)=q-\vth(\alpha).$$
+\end{lemma}
+\begin{Theorem}{Solution Counts for Canonical Quadratic Forms in even characteristic}{thm:qf-count-even-char}
+  Let $\bbF_q$ be a finite field with $q$ even. Then for any $\alpha\in\bbF_q$:
+  \begin{enumerate}[label=(\roman*)]
+    \item If $n$ is odd, $$Z\lt(X_1X_2+\cdots + X_{n-2}X_{n-1}+X_n^2=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-1)}{2}}.$$
+    \item If $n$ is even then:
+    \begin{enumerate}[label=(\alph*)]
+      \item $Z\lt(X_1X_2+\cdots +X_{n-1}X_n=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}$;
+      \item for $a\in\bbF_q$ with $\tr(a)=1$, $Z\lt(X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2=\alpha\rt)=q^{n-1}-\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}$.
+    \end{enumerate}
+  \end{enumerate}
+\end{Theorem}
