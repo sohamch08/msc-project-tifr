@@ -95,18 +95,55 @@ $$\frac{F(X)-1}{G(X)}=[A_0,A_1,\dots,A_s]\qquad\text{and}\qquad\frac{F(X)+1}{G(X
 with $P_i,Q_i$ and $p_i,q_i$ the corresponding numerator/denominator sequences from Appendix~\ref{sec:cont-frac-fq}. It is clear that $A_0=a_0$. Define $n_f$ to be the largest integer $m$ such that $A_i=a_i$ for $i=0,1,\dots,m$.
 
 \begin{lemma}{}{lem:cf-nf-cases}
-  Under the conditions above, we have either $n_f=s=t-1$ or $n_f=t=s-1$.
+  For $q$ odd, put $G(X)=X^q-X$, let $f\in\bbF_q[X]$ be a polynomial of positive degree with no roots in $\bbF_q$, and set $F(X)=f(X)^{(q-1)/2}$. Let $$\frac{F(X)-1}{G(X)}=[A_0,A_1,\dots,A_s]\qquad\text{and}\qquad\frac{F(X)+1}{G(X)}=[a_0,a_1,\dots,a_t]$$Then either $n_f=s=t-1$ or $n_f=t=s-1$.
 \end{lemma}
 \begin{proof}
-  The two continued fractions cannot be identical since $(F(X)-1)/G(X)\neq (F(X)+1)/G(X)$, so $n_f<\min(s,t)$. Using the properties of the $P_i,Q_i$ sequences from \hyperref[sec:cont-frac-fq]{Appendix~\ref{sec:cont-frac-fq}}, in particular the determinant identity \lemref{lem:cf-determinant} and the coprimality result, one shows that $\min(s,t)=n_f+1$ and $|s-t|=1$, giving exactly the two cases stated.
+  Let $P_i,Q_i$ are defined as above from $[A_0,\dots, A_s]$ and $p_i,q_i$ are defined from $[a_0,\dots,a_t]$. Then using \corref{cor:piqi-is-expression} and \corref{cor:piqi-coprime} we have $$\frac{P_s}{Q_s}=\frac{F(X)-1}{G(X)}\qquad\text{and}\qquad\frac{p_t}{q_t}=\frac{F(X)+1}{G(X)}$$So we get 
+  \begin{equation}\label{eq:Qs-gx-qt}
+    Q_s(X)=\frac{\alpha_1\cdot G(X)}{\gcd(F(X)-1,G(X))},\quad q_t(X)=\frac{\alpha_2\cdot G(X)}{\gcd(F(X)+1,G(X))}\quad\text{for some }\alpha_1,\alpha_2\in\bbF_q^*
+  \end{equation}
+  Since $f$ has no roots in $\bbF_q$, for all $\alpha\in\bbF_q$, $f^{q-1}(\alpha)=1$. So $G(X)\mid f^{q-1}(X)-1$ i.e. $G(X)\mid (F(X)-1)(F(X)+1)$. So $$\gcd(G(X),F(X)-1)\cdot\gcd(G(X),F(X)+1)=G(X)$$Therefore $Q_s(X)\cdot q_t(X)=\alpha \cdot G(X)$ with $\alpha\in\bbF_q^*$. Let $n=n_f<s$ and $n<t$. Therefore by \lemref{lem:cf-r0r1-rep} we get $$\frac{F(X)-1}{G(X)}=\frac{P_{n+1}+\beta_{n+1}\cdot P_n}{Q_{n+1}+\beta_{n+1}\cdot Q_n},\quad\text{ and }\quad\frac{F(X)+1}{G(X)}=\frac{p_{n+1}+\gm_{n+1}\cdot p_n}{q_{n+1}+\gm_{n+1}\cdot q_n}$$with $\beta_{n+1},\gm_{n+1}$ being rational functions with negative degree. Therefore 
+  \begin{equation}\label{eq:gx-hx}
+    \frac{2}{G(X)}=\frac{F(X)+1}{G(X)}-\frac{F(X)-1}{G(X)}=\frac{H(X)}{(Q_{n+1}+\beta_{n+1}\cdot Q_n)(q_{n+1}+\gm_{n+1}\cdot q_n)}
+  \end{equation}
+  where \begin{multline}\label{eq:cont-frac-2GX}
+    H  = \underbrace{p_{n+1}\cdot Q_{n+1}-P_{n+1}\cdot q_{n+1}}_{H_0}\;+\;\beta_{n+1}(\underbrace{p_{n+1}\cdot Q_n-P_n\cdot q_{n+1}}_{H_1})  
+    \;+\; \gm_{n+1}(\underbrace{p_n\cdot Q_{n+1}-P_{n+1}\cdot q_n}_{H_2})\\ 
+    \;+\;\beta_{n+1}\cdot \gm_{n+1}(\underbrace{p_n\cdot Q_n-P_n\cdot q_n}_{H_3}) 
+  \end{multline}
+  Now by definition of $n$ we have $P_i=p_i$ and $Q_i=q_i$ for all $-1\leq i\leq n$. By \lemref{lem:cf-determinant} we have $H_1=(-1)^n$ and $H_2=(-1)^{n+1}$ and $H_3=0$. So now we have to calculate $H_0$. 
+  \begin{align*}
+    H_0 & = p_{n+1}\cdot Q_{n+1}-P_{n+1}\cdot q_{n+1}\\ 
+    & = (A_{n+1}\cdot p_n+p_{n-1})(A_{n+1}\cdot Q_n+Q_{n-1})-(A_{n+1}\cdot P_n+P_{n-1})(a_{n+1}\cdot q_n+q_{n-1})\\ 
+    & = a_{n+1}(p_n\cdot Q_{n-1}-P_n\cdot q_{n-1}) +A_{n+1}(p_{n-1}\cdot Q_n-q_{n-1}\cdot P_n)\\ 
+    &= (-1)^{n-1}a_n-(-1)^{n-1}A_{n+1}\\ 
+    & = (-1)^n(A_{n+1}-a_{n+1})
+  \end{align*}
+  Therefore $H=(-1)^n(A_{n+1}-a_{n+1}+\beta_{n+1}-\gm_{n+1})$. Now by definition of $n$, $A_{n+1}\neq a_{n+1}$. So $\deg(H)\geq 0$. Therefore from the equation \eqref{eq:gx-hx} we get $G(X)\cdot H(X)=2(Q_{n+1}+\beta_{n+1}\cdot Q_n)(q_{n+1}+\gm_{n+1}\cdot q_n)$. By the definition of $G$ we have $\deg(G)+\deg(H)\geq q$. On the other hand, $\deg(G)+\deg(H)=\deg(Q_{n+1})+\deg(q_{n+1})\leq \deg(Q_s)+\deg(q_t)\leq q$. Therefore we have $\deg(H)=0$. So $\deg(A_{n+1})=\deg(a_{n+1})$. And hence $\deg(Q_{n+1})=\deg(q_{n+1})=\nicefrac{q}2$. But we have $q$ to be odd. Hence contradiction \ctr So we have either $n=s$ or $n=t$. Suppose $n=s$. Then $t>s$ and therefore we can write $$\frac{F(X)+1}{G(X)}=\frac{p_{s+1}+\gm_{s+1}\cdot p_s}{q_{s+1}+\gm_{s+1}\cdot q_s}$$Therefore we get new equality for \eqref{eq:gx-hx} 
+  \begin{align*}
+    \frac{2}{G(X)} & = \frac{F(X)+1}{G(X)}-\frac{F(X)-1}{G(X)}\\ 
+    & = \frac{p_{s+1}+\gm_{s+1}\cdot p_s}{q_{s+1}+\gm_{s+1}\cdot q_s}-\frac{P_s}{Q_s}\\ 
+    & = \frac{Q_s\cdot p_{s+1}-P_s\cdot q_{s+1}+\gm_{s+1}(Q_s\cdot p_s-P_s\cdot q_s)}{Q_s(q_{s+1}+\gm_{s+1}\cdot q_s)}\\ 
+    & = \frac{(-1)^s}{Q_s(q_{s+1}+\gm_{s+1}\cdot q_s)}\byl{cf-determinant}
+  \end{align*}
+  So we have $(-1)^s\cdot G=2\cdot Q_s(q_{s+1}+\gm_{s+1}\cdot q_s)$. Again we will compare the degrees. And since $\deg(G)=q$ we have $\deg(Q_s)+\deg_{q_{s+1}}=q$. On the other hand we have $\deg(Q_s)+\deg_{q_{s+1}}\leq \deg(Q_s)+\deg(q_t)=q$. Therefore $\deg(q_{s+1})=\deg(q_t)$. Since degrees of $q_i$ increases strictly we have $t=s+1$. Similarly, if $n=t$ then we get $t+1=s$.
 \end{proof}
+So now we can derive the Weil sum of quadratic character for any polynomial $f$ which has no rooots in $\bbF_q$ where $q$ is odd.
 
 \begin{Theorem}{Weil Sum via Continued Fractions}{thm:weil-cf}
   Let $\eta\in\Mq$ be the quadratic character of $\bbF_q$, $q$ odd, and let $f\in\bbF_q[X]$ be a polynomial of positive degree with no roots in $\bbF_q$. Then
-  $$\sum_{c\in\bbF_q}\eta(f(c))=\begin{cases}
+  $$\sum_{\gm\in\bbF_q}\eta(f(\gm))=\begin{cases}
     \deg(a_s) & \text{if }n_f=s,\\
     -\deg(A_s) & \text{if }n_f=t,
   \end{cases}$$
-  where $A_s$ and $a_s$ are obtained from the continued fraction expansions above.
+  where $A_s$ and $a_s$ are obtained from the continued fraction expansions above. 
 \end{Theorem}
 
+\begin{proof}
+  We define the following two sets $Z_1\coloneqq|\{\gm\in\bbF_q\colon \eta(f(\gm))=1\}|$ and $Z_{-1}\coloneqq |\{\gm\in\bbF_q\colon \eta(f(\gm))=-1\}|$. Then basically we have $\sum_{\gm\in\bbF_q}\eta(f(\gm))=Z_1-Z_{-1}$.  Since $\eta(f(\gm))=1$ if and only if $F(\gm)=f^{\nicefrac{(q-1)}{2}}(\gm)=1$ we have $Z_1=\deg\lt(\gcd(F(X)-1,X^q-X)\rt)$ and hence by \eqref{eq:Qs-gx-qt} we have  $Z_1=q-\deg(Q_s)$. 
+  
+  Similarly $\eta(f(\gm))=-1$ if and only if $F(\gm)=-1$. Hence $Z_{-1}=\deg\lt(\gcd(F(X)+1,X^q-X)\rt)=q-\deg(q_t)$. So if $n_f=t=s-1$ then $q_t=Q_{s-1}$. And therefore $q_t=Q_{s-1}$. So $Z_1-Z_{-1}=-\deg(Q_s)+\deg(Q_{s-1})=\deg(A_s)$. In case of $n_f=s=t-1$ we get $Z_1-Z_{-1}=\deg(q_t)-\deg(q_{t-1})=\deg(a_t)$. So the result follows.  
+\end{proof}
+This result breaks down if $f$ has roots in $\bbF_q$. Suppose $f(X)=x$. Then the character sum has the value $0$ by \MultCharPropsthm[(i)]. But $\frac{F(X)-1}{X^q-X}=[0,X^{\nicefrac{(q+1)}{2}}+X]$ and $\frac{F(X)+1}{X^q-X}=[0,X^{\nicefrac{(q+1)}{2}}-X]$. So $s=t=1$ and $\deg(A_s)=\deg(a_t)=\nicefrac{q+1}{2}$. 
+
+In the next section we turn to a statistical perspective and study the average number of solutions of polynomial equations over $\bbF_q$. We will show that the average value of $Z(f)$ over all polynomials $f$ of bounded degree is exactly $q^{n-1}$, and then compute the variance of the solution count around this mean. 
