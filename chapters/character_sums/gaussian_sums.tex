@@ -4,7 +4,9 @@ Having studied additive and multiplicative characters of $\bbF_q$ separately, we
   \index{Gaussian sum}%
   Let $\psi $ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then the \emph{Gaussian Sum} associated to $\psi$ and $\chi$ is defined as $$G(\psi,\chi)=\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\cdot \chi(\alpha)$$
 \end{Definition}
-Hence the absolute value of the Gaussian sum is at most $q-1$. But later we will see that the Gaussian sum in most cases is much smaller, $\sqrt{q}$ to be precise.
+
+The absolute value of the Gaussian sum is at most $q-1$ by the triangle inequality. However, we will see below that when both $\psi$ and $\chi$ are non-trivial, $|G(\psi,\chi)|=\sqrt{q}$ --- far smaller than this naive bound.
+
 \begin{Theorem}{Evaluation of Gaussian Sums}{thm:gaussian-sum}
   Let $\psi$ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then \begin{equation}
     G(\psi,\chi)=\begin{cases}

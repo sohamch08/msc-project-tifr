@@ -54,7 +54,9 @@ The Jacobsthal sum $H_n$ satisfies a similar Jacobi-sum representation, but now 
     I_n(\alpha)=\eta(\alpha)\sum_{j=0}^{d-1}\lm^{2j}(-\alpha)J(\lm^{2j},\eta)\label{eq:In-jacobi}
   \end{equation}Therefore from \lemref{lem:jacobsthal-Iduplication} we have $H_n(\alpha)=I_{2n}(\alpha)-I_n(\alpha)$. So subtracting \eqref{eq:In-jacobi} from \eqref{eq:i2n-jacobi} we get the expression. 
 \end{proof}
-Therefore by \thmref{thm:jacobi-sum-complete} we get for all $\alpha\in\bbF_q^*$, $|I_n(\alpha)|\leq (d-1)q^{\nicefrac12}$. 
+\begin{note}
+  By \JacobiCompletethm, $|J(\lm^j,\eta)|=q^{1/2}$ for each $j\in\{1,\dots,d-1\}$ since $\lm^j$ and $\eta$ are non-trivial and $\lm^j\eta$ is non-trivial for $j\neq d/2$. Summing the $d-1$ terms in \thmref{thm:jacobsthal-In-jacobi} therefore gives $|I_n(\alpha)|\leq (d-1)q^{\nicefrac12}$ for all $\alpha\in\bbF_q^*$.
+\end{note} 
 
 \subsection{Yet Another Proof of Fermat's Two Square Theorem}\label{sec:fermat-2-square-another}
 We close this section with the classical application of Jacobsthal sum. Using $H_2$ one can compute the two integers $A,B$ in the representation $p=A^2+B^2$ (guaranteed by \thmref{thm:fermat-two-square}) directly, and moreover with a canonical sign choice determined by a congruence modulo $4$. Here $p\equiv 1\bmod 4$ is prime, $\eta$ is the quadratic character of $\bbF_p$, and $\lm\in\Mp$ is a multiplicative character of $\bbF_p$ of order $4$, so that $\lm^2=\eta$ and $\lm^3=\ov{\lm}$.

@@ -61,7 +61,8 @@ We now resume the study of quadratic forms $f\in\bbF_q[X_1,\dots,X_n]$ where $q$
   \end{align*}Then we get a quadratic form of the desired type and this is equivalent to $f$. 
 \end{proof}
 
-Now it is easy to deduce that from any general quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ we can separate all the variables one by one and get an equivalent diagonal quadratic form. But there are some tricky cases to remain since we also have to satisfy that $f$ or its equivalent form represents a non-zero element of $\bbF_q$. 
+Applying \QFRedlem repeatedly separates variables one by one, eventually reaching a diagonal form. The only subtlety is ensuring at each step that the remaining form represents a non-zero element of $\bbF_q$; this is handled in the proof of \QFDiagthm below.
+
 
 \begin{Theorem}{Diagonal Form of Quadratic Forms over $\bbF_q$}{thm:qf-diagonal-odd}
   For any quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd, there exists $a_1,\dots, a_n\in\bbF_q$ such that $f$ is equivalent to the diagonal quadratic form $a_1 X_1^2+\cdots +a_nX_n^2$.
@@ -83,7 +84,7 @@ So now we can only talk about the solutions of diagonal quadratic forms since al
 \end{observation}
 If the coefficient matrix $C_f$ for any quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ has rank $n$ then we call $f$ to be \emph{non-degenerate}. We also define \emph{determinant of $f$}, $\det(f)$ to be the determinant of the coefficient matrix $C_f$. 
 
-Now we will study number of solutions of $2$-variable quadratic diagonal forms which we will later use in \QFDiagthm to calculate the number of solutions of general diagonal forms. 
+The two-variable lemma below is the base case for the induction used in \QFCountOddthm. Once we know $Z(a_1X_1^2+a_2X_2^2=\alpha)$ exactly, the convolution property \QFConvProplem allows us to build up the solution count for $n$ variables.
 
 \begin{lemma}{Solutions of a Two-Variable Diagonal Quadratic Form}{lem:qf-two-var-count}
   For odd $q$, let $\alpha\in\bbF_q$, $a_1,a_2\in\bbF_q^*$, and let $\eta\in\Mq$ be the quadratic character of $\bbF_q$. Then $$Z\lt(a_1X_1^2+a_2X_2^2=\alpha\rt)=q+\vth(\alpha)\cdot \eta(-a_1a_2).$$
@@ -133,7 +134,8 @@ Now we will study number of solutions of $2$-variable quadratic diagonal forms w
   So we have the results for both cases. 
 \end{proof}
 
-We will now present alternate proof of this theorem using Jacobi sums. This will help us how to use the machinery built in previous chapter properly to get values for number of solutions. 
+The following alternate proof uses Jacobi sums directly and illustrates how the machinery of the previous chapter applies to count solutions of polynomial equations.
+
 
 \begin{alternate-proof}
   Again it suffices to prove this theorem for the diagonal quadratic form $g(X_1,\dots, X_n)=a_1X_1^2+\cdots a_nX_n^2$ where $a_i\in\bbF_q^*$ for all $i\in[n]$. Here we will work with the extended definition of $\eta$. Let $\lm_0$ is the trivial multiplicative character and $\lm_1=\eta$. Then 
@@ -171,7 +173,10 @@ We will now present alternate proof of this theorem using Jacobi sums. This will
 \subsection{Even Characteristic Quadratic Forms}
 We will now study quadratic forms and its number of solutions over finite fields $\bbF_q$ with $\Char(\bbF_q)=2$ i.e. $q$ is even. Again like in the case of odd characteristic we will first reduce any general quadratic form to canonical forms and then we will try to find the number of solutions of such canonical forms. 
 
-For even characteristic fields we define \emph{non-degenerate} quadratic forms differently. Let $f\in\bbF_q[X_1,\dots,X_n]$ is a quadratic form in $n$-variables. Then $f$ is called non-degenerate if $f$ is not equivalent to a quadratic form in fewer than $n$ variables. Notice this definition is also valid for the definition of \emph{non-degenerate} in odd characteristic case. Since there if $f$ is equivalent to a quadratic form with fewer than $n$ variables then that quadratic form is equivalent to a diagonal quadratic form with fewer than $n$ variables which means by \QFDiagRankDetObs that $f$ is not non-degenerate. So it suffices to discuss when $f$ is non-degenerate otherwise we continue to go to the equivalent quadratic form with fewer variables till that form becomes a non-degenerate quadratic form.  
+For even characteristic fields we define \emph{non-degenerate} quadratic forms differently. Let $f\in\bbF_q[X_1,\dots,X_n]$ is a quadratic form in $n$-variables. Then $f$ is called non-degenerate if $f$ is not equivalent to a quadratic form in fewer than $n$ variables.
+\begin{note}
+  This definition is consistent with the odd-characteristic case: there, if $f$ is equivalent to a form in fewer than $n$ variables, \QFDiagthm and \QFDiagRankDetObs show that $\Rank(C_f)<n$, i.e.\ $\det(f)=0$, which is the standard criterion for degeneracy. So in both characteristics one can reduce to the non-degenerate case by passing to the equivalent form in fewer variables.
+\end{note}  
 \begin{lemma}{Reduction for Quadratic Forms in even characteristic}{lem:qf-reduction-even-char}
   A non-degenerate quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ with $q$ even and $n\geq 3$ is equivalent to $X_1X_2+g(X_3,\dots, X_n)$ where $g$ is a quadratic form in $n-2$ variables.
 \end{lemma}
@@ -197,23 +202,68 @@ For even characteristic fields we define \emph{non-degenerate} quadratic forms d
   \end{align*}
   This transformation gives a quadratic form of the type $Z_1Z_2+g_3(Z_3,\dots, Z_n)$. So we have the lemma. 
 \end{proof}
-So now we will use this theorem to find proper canonical forms for any general quadratic forms. 
+
+So now we will use this theorem to find proper canonical forms for any general quadratic forms. But we have to treat the cases of odd and even number of variables separately. 
 \begin{Theorem}{Canonical Forms for even characteristic}{thm:qf-canonical-even-char}
   Let $f\in\bbF_q[X_1,\dots,X_n]$ be a non-degenerate quadratic form with $q$ even.
   \begin{enumerate}[label=(\roman*)]
     \item If $n$ is odd then $f$ is equivalent to $X_1X_2+X_3X_4+\cdots +X_{n-2}X_{n-1}+X_n^2$.
     \item If $n$ is even then $f$ is \begin{enumerate}
       \item either equivalent to $X_1X_2+\cdots+X_{n-1}X_n$, 
-      \item or to $X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2$ where $a\in\bbF_q$ satisfies $\tr(a)=1$.
+      \item or to $X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2$ where $a\in\bbF_q$ satisfies $\tr(a)=1$ where $\tr$ is the absolute trace function from $\bbF_q$ to $\bbF_2$. 
     \end{enumerate}
   \end{enumerate}
 \end{Theorem}
 \begin{proof}
-  
+  \begin{enumerate}[label=(\roman*)]
+    \item Suppose $n$ is odd. By applying \QFRedEvenlem again and again on $f$ we get an equivalent quadratic form of the type $X_1X_2+X_3X_4+\cdots +X_{n-2}X_{n-1}+aX_n^2$ for some $a\in\bbF_q^*$. Then take the non-singular linear transformation
+    \begin{align*}
+      Y_n& = a^{-\nicefrac{q}{2}}X_n&&\\ 
+      Y_i& = X_i\ \forall\ i\in[n-1]&&
+    \end{align*}
+    Then we get the desired quadratic form. 
+    \item So now assume $n$ is even. Again by applying \QFRedEvenlem again and again on $f$ we get an equivalent quadratic form of the type $$X_1X_2+\cdots+X_{n-3}X_{n-2}+bX_{n-1}^2+cX_{n-1}X_n+dX_n^2$$with $b,c,d\in\bbF_q$. If $c=0$ then take the non-singular linear transformation
+    \begin{align*}
+      Y_{n-1}& = b^{\nicefrac{q}2}X_{n-1}+d^{\nicefrac{q}2}X_n&&\\ 
+      Y_i& = X_i\ \forall\ i\in[n]\setminus\{n-1\}&&
+    \end{align*}Then we get a quadratic form with $(n-1)$-variables. But $f$ is non-degenerate. Hence contradiction \ctr Therefore $c\in\bbF_q^*$. 
+    
+    If $b=0$ then take the non-singular linear transformation 
+      \begin{align*}
+      Y_{n-1}& = cX_{n-1}+dX_n&&\\ 
+      Y_i& = X_i\ \forall\ i\in[n]\setminus\{n-1\}&&
+    \end{align*}With this transformation we get the first form. 
+    
+    
+    If $b\neq 0$ then take the non-singular linear transformation
+    \begin{align*}
+      Y_{n-1}& = b^{-\nicefrac{q}2}X_{n-1}&&\\
+      Y_n & = b^{\nicefrac{q}2}c^{-1}X_n && \\ 
+      Y_i& = X_i\ \forall\ i\in[n-2]&&
+    \end{align*}Then we get a quadratic form of the type $$Y_1Y_2+\cdots+Y_{n-3}Y_{n-2}+Y_{n-1}^2+Y_{n-1}Y_n+aY_n^2$$for some $a\in\bbF_q$. If $X^2+X+a$ is reducible in $\bbF_q$ then there exists $c_1,c_2\in\bbF_q$ such that $$X^2+X+a=(X+c_1)(X+c_2)\implies Y_{n-1}^2+Y_{n-1}Y_n+aY_n^2=(Y_{n-1}+c_1Y_n)(Y_{n-1}+c_2Y_n)$$Therefore if we take the non-singular linear transformation 
+    \begin{align*}
+      Z_{n-1}& = Y_{n-1}+c_1Y_n&&\\
+      Z_n & = Y_{n-1}+c_2Y_n && \\ 
+      Z_i& = Y_i\ \forall\ i\in[n-2]&&
+    \end{align*}then we get a quadratic form of the first form. Now $X^2+X+a$ is irreducible in $\bbF_q[X]$ if  $\tr(a)=1$. Then we have the second form. 
+  \end{enumerate}
+  Therefore we have the canonical forms for all cases. 
 \end{proof}
+Now by the above theorem it suffices to only find the number of solutions for canonical non-degenerate quadratic forms. We will first show two results on two variable version then we will use it to show the general version. 
 \begin{lemma}{Solutions of a Two-Variable Quadratic Form in even characteristic}{lem:qf-two-var-count-even}
-  For even $q$, let $a,\alpha\in\bbF_q$ with $\tr(a)=1$. Then $$Z\lt(X_1^2+X_1X_2+aX_2^2=\alpha\rt)=q-\vth(\alpha).$$
+  For even $q$, let $a,\alpha\in\bbF_q$ with $\tr(a)=1$. Then $$Z\lt(X_1^2+X_1X_2+aX_2^2=\alpha\rt)=q-\vth(\alpha).$$where $\tr$ is the absolute trace function from $\bbF_q$ to $\bbF_2$. 
 \end{lemma}
+\begin{proof}
+  Since $\tr(a)=1$ the polynomial $X^2+X+a$ is irrducible in $\bbF_q[X]$. So there exists $\gm\in\bbF_{q^2}\setminus\bbF_q$ such that $X^2+X+a=(X+\gm)(X+\gm^q)$. So $$f(X_1,X_2)=X_1^2+X_1X_2+aX_2^2=(X_1+\gm X_2)(X_1+\gm^q X_2)$$Therefore for any $(\beta_1,\beta_2)\in\bbF_q^2$ we have $$f(\beta_1,\beta_2)=(\beta_1+\gm\beta_2)(\beta_1+\gm^q\beta_2)=(\beta_1+\gm\beta_2)(\beta_1+\gm\beta_2)^q=(\beta_1+\gm\beta_2)^{q+1}$$So we get $$Z(f(X_1,X_2)=\alpha)=|\{\gm\in\bbF_{q^2}\colon \gm^{q+1}=\alpha\}|$$Hence if $\alpha=0$ then $Z\lt(X_1^2+X_1X_2+aX_2^2=0\rt)=1=q-\vth(0)$. If $\alpha\neq 0$ since $\bbF_{q^2}^*$ is cyclic we have $\alpha^{\nicefrac{(q^2-1)}{q+1}}=\alpha^{q-1}=1$ and hence there are $q+1$ elements in $\bbF_{q^2}$ such that $\gm^{q+1}=\alpha$. Hence $Z\lt(X_1^2+X_1X_2+aX_2^2=\alpha\rt)=q+1=q+\vth(\alpha)$.
+\end{proof}
+\begin{lemma}{}{lem:x1x2-quad-form}
+  For even $q$, let $\alpha\in\bbF_q$. Then $Z(X_1X_2=\alpha)=q+\vth(\alpha)$. 
+\end{lemma}
+\begin{proof}
+  If $\alpha\neq 0$ then both $X_1$ and $X_2$ has to be assigned with non-zero values. After assigning $X_1$ arbitrarily from $\bbF_q^*$ the value of $X_2$ gets uniquely determined. Therefore $Z(X_1X_2=\alpha)=q-1=q+\vth(\alpha)$. 
+
+  Suppose $\alpha=0$. Then at least one of $X_1$ or $X_2$ gets assigned $0$. Then the other variable can take any value from $\bbF_q^*$. Therefore there are $2q-1$ such solutions. Hence $Z(X_1X_2=\alpha)=2q-1=q+\vth(\alpha)$. So we have the lemma. 
+\end{proof}
 \begin{Theorem}{Solution Counts for Canonical Quadratic Forms in even characteristic}{thm:qf-count-even-char}
   Let $\bbF_q$ be a finite field with $q$ even. Then for any $\alpha\in\bbF_q$:
   \begin{enumerate}[label=(\roman*)]
@@ -221,10 +271,29 @@ So now we will use this theorem to find proper canonical forms for any general q
     \item If $n$ is even:
     \begin{enumerate}[label=(\alph*)]
       \item $Z\lt(X_1X_2+\cdots +X_{n-1}X_n=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}$;
-      \item for $a\in\bbF_q$ with $\tr(a)=1$, then $Z\lt(X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2=\alpha\rt)=q^{n-1}-\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}$.
+      \item for $a\in\bbF_q$ with $\tr(a)=1$, then $Z\lt(X_1X_2+\cdots+X_{n-1}X_{n}+X_{n-1}^2+a\cdot X_n^2=\alpha\rt)=q^{n-1}-\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}$, where $\tr$ is the absolute trace function from $\bbF_q$ to $\bbF_2$.
     \end{enumerate}
   \end{enumerate}
 \end{Theorem}
 \begin{proof}
-  
+  \begin{enumerate}[label=(\roman*)]
+    \item Suppose $n$ is odd. Since $q$ is even the equation $X^2=\alpha$ for any $\alpha\in\bbF_q$ has an unique solution in $\bbF_q$. Therefore $Z\lt(X_1X_2+\cdots + X_{n-2}X_{n-1}+X_n^2=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-1)}{2}}$ because after assigning the variables $X_1,\dots, X_{n-1}$ arbitrarily the value of $X_n$ is uniquely determined. 
+    \item So let $n$ is even. Let $m=\nicefrac{n}2$. Then we have \begin{align*}
+        Z\lt(X_1X_2+\cdots +X_{n-1}X_n=\alpha\rt)& = \sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\prod_{j=1}^n Z(X_{2j-1}X_{2j}=\alpha_j)\\ 
+        & = \sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}} \prod_{j=1}^m (q+\vth(\alpha_j)) \byl{x1x2-quad-form}\\ 
+        & = q^{2m-1}+\sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\prod_{j=1}^m\vth(\alpha_j)\\ 
+        & = q^{2m-1}+\vth(\alpha)\cdot q^{m-1}=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}\by{\QFConvProplem}
+      \end{align*}
+      So we have the first part. Now for the second part we already showed the $n=2$ case in \QFTwoVarEvenlem. So assume $n\geq 4$.  
+      \begin{align*}
+        & Z\lt(X_1X_2+\cdots+X_{n-3}X_{n-2}+X_{n-1}^2+a\cdot X_n^2=\alpha\rt)\\ 
+        = \;&\;\sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}Z\lt(X_1X_2+\cdots+X_{n-3}X_{n-2}=\alpha_1\rt)\cdot Z(X_{n-1}X_{n}+X_{n-1}^2+a\cdot X_n^2=\alpha_2)\\ 
+        = \;&\; \sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}} \lt(q^{n-3}+\vth(\alpha_1)\cdot q^{\nicefrac{(n-4)}{2}}\rt)(q-\vth(\alpha_2))\by{first part and \QFTwoVarEvenlem}\\ 
+        = \;&\; q^{n-1}-q^{\nicefrac{(n-4)}{2}}\sum_{\substack{\alpha_1,\alpha_2\in\bbF_q\\ \alpha_1+\alpha_2=\alpha}}\vth(\alpha_1)\cdot\vth(\alpha_2) \by{\QFConvProplem}\\ 
+        = \;&\; q^{n-1}-q^{\nicefrac{(n-4)}{2}}\cdot q\cdot \vth(\alpha)\\ 
+        = \;&\; q^{n-1}-\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}
+      \end{align*}
+      So now we have the result for second part
+  \end{enumerate}
+  Therefore we get the values of number of solutions of quadratic forms in even characteristic finite fields. 
 \end{proof}

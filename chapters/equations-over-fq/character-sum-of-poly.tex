@@ -145,6 +145,8 @@ So now we can derive the Weil sum of quadratic character for any polynomial $f$ 
   
   Similarly $\eta(f(\gm))=-1$ if and only if $F(\gm)=-1$. Hence $Z_{-1}=\deg\lt(\gcd(F(X)+1,X^q-X)\rt)=q-\deg(q_t)$. So if $n_f=t=s-1$ then $q_t=Q_{s-1}$. And therefore $q_t=Q_{s-1}$. So $Z_1-Z_{-1}=-\deg(Q_s)+\deg(Q_{s-1})=\deg(A_s)$. In case of $n_f=s=t-1$ we get $Z_1-Z_{-1}=\deg(q_t)-\deg(q_{t-1})=\deg(a_t)$. So the result follows.  
 \end{proof}
-This result breaks down if $f$ has roots in $\bbF_q$. Suppose $f(X)=x$. Then the character sum has the value $0$ by \MultCharPropsthm[(i)]. But $\frac{F(X)-1}{X^q-X}=[0,X^{\nicefrac{(q+1)}{2}}+X]$ and $\frac{F(X)+1}{X^q-X}=[0,X^{\nicefrac{(q+1)}{2}}-X]$. So $s=t=1$ and $\deg(A_s)=\deg(a_t)=\nicefrac{q+1}{2}$. 
+\begin{note}
+  The hypothesis that $f$ has no roots in $\bbF_q$ is essential. For example, take $f(X)=X$: then $\sum_{\gm\in\bbF_q}\eta(f(\gm))=0$ by \MultCharPropsthm[(i)], yet $\frac{F(X)-1}{X^q-X}=[0,X^{\nicefrac{(q+1)}{2}}+X]$ and $\frac{F(X)+1}{X^q-X}=[0,X^{\nicefrac{(q+1)}{2}}-X]$, giving $s=t=1$ and $\deg(A_s)=\deg(a_t)=\nicefrac{q+1}{2}\neq 0$. The continued fraction formula does not reproduce the correct value in this case.
+\end{note} 
 
 In the next section we turn to a statistical perspective and study the average number of solutions of polynomial equations over $\bbF_q$. We will show that the average value of $Z(f)$ over all polynomials $f$ of bounded degree is exactly $q^{n-1}$, and then compute the variance of the solution count around this mean. 
