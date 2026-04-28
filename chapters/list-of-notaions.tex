@@ -13,67 +13,111 @@
 \bottomrule\endlastfoot
 
 \multicolumn{2}{@{}l}{\textit{General}}\\[2pt]
-$\bbN$ & Set of all natural numbers i.e. positive integers\\ 
+$\bbN$ & Set of all natural numbers i.e.\ positive integers\\
 $\bbZ$ & Set of all integers\\
+$\bbZ_{\geq 0}$ & Set of all non-negative integers\\
 $\bbR$ & Set of real numbers\\
-$\bbC$ & Set of complex numbers \\
-$S^1$ & $\{z\in\bbC:|z|=1\}$. The multiplicative group of complex numbers of absolute value $1$ \\
-$\zeta_m$ & A primitive $m$-th root of unity \\[6pt]
+$\bbC$ & Set of complex numbers\\
+$[n]$ & The set $\{1,2,\dots,n\}$ for $n\in\bbN$\\
+$i$ & Imaginary unit: $i^2=-1$\\
+$S^1$ & $\{z\in\bbC:|z|=1\}$, the multiplicative group of unit complex numbers\\
+$\zeta_m$ & A primitive $m$-th root of unity\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Finite Fields}}\\[2pt]
-$\bbF_q$ & Finite field with $q$ elements \\
-$\bbF_q^*$ & Multiplicative group of nonzero elements of $\bbF_q$ \\
-$\bbF_p$ & Prime field with $p$ elements \\
-$(\bbF_q^*)^{(d)}$ & Subgroup of $d$-th powers in $\bbF_q^*$ \\
-$[E:\bbF_q]$ & Degree of the extension $E/\bbF_q$ \\
-$E,F,L,K$ & Generic notation for finite fields or finite extensions of finite fields \\[6pt]
+$\bbF_q$ & Finite field with $q$ elements\\
+$\bbF_q^*$ & Multiplicative group of nonzero elements of $\bbF_q$\\
+$\bbF_p$ & Prime field with $p$ elements, $p=\Char(\bbF_q)$\\
+$(\bbF_q^*)^{(d)}$ & Subgroup of $d$-th powers in $\bbF_q^*$\\
+$[E:\bbF_q]$ & Degree of the extension $E/\bbF_q$\\
+$E,F,L,K$ & Generic notation for finite fields or finite extensions of $\bbF_q$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Characters of Finite Abelian Groups}}\\[2pt]
-$G$ & A finite abelian group with identity element $1_G$ \\
-$Z_k$ & Cyclic multiplicative group of order $k$ \\
-$\chi_0$ & Trivial character of $G$: $\chi_0(g)=1$ for all $g\in G$ \\
-$\ov{\chi}$ & Conjugate (and inverse) character of $\chi$: $\ov{\chi}(g)=\overline{\chi(g)}$ \\
-$\Hom(A,B)$ & Set of all group homomorphisms from $A$ to $B$ \\
-$\hG=\Hom(G,S^1)$ & Dual group of $G$; the group of all characters of $G$ \\
-$\Ann(\chi)$ & Annihilator of character $\chi$: $\{g\in G:\chi(g)=1\}$, a subgroup of $G$ \\
-$\Ann(H)$ & Annihilator of subgroup $H\leq G$: $\{\chi\in\hG:\chi(h)=1\ \forall h\in H\}$, a subgroup of $\hG$ \\
-$\ev_g$ & Evaluation character of $\hG$ defined by $\ev_g(\chi)=\chi(g)$ \\[6pt]
+$G$ & A finite abelian group with identity element $1_G$\\
+$Z_k$ & Cyclic multiplicative group of order $k$\\
+$\chi_0$ & Trivial character of $G$: $\chi_0(g)=1$ for all $g\in G$\\
+$\ov{\chi}$ & Conjugate (and inverse) character of $\chi$: $\ov{\chi}(g)=\overline{\chi(g)}$\\
+$\Hom(A,B)$ & Set of all group homomorphisms from $A$ to $B$\\
+$\hG=\Hom(G,S^1)$ & Dual group of $G$; the group of all characters of $G$\\
+$\Ann(\chi)$ & Annihilator of character $\chi$: $\{g\in G:\chi(g)=1\}$, a subgroup of $G$\\
+$\Ann(H)$ & Annihilator of subgroup $H\leq G$: $\{\chi\in\hG:\chi(h)=1\ \forall h\in H\}$\\
+$\ev_g$ & Evaluation character of $\hG$ defined by $\ev_g(\chi)=\chi(g)$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Maps on Finite Fields}}\\[2pt]
-$\tr:\bbF_q\to\bbF_p$ & Absolute trace function \\
-$\tr_{E/\bbF_q}$ & Trace function from $E$ to $\bbF_q$ \\
-$\norm_{E/\bbF_q}$ & Norm function from $E$ to $\bbF_q$ \\
-$\sg:\bbF_q\to\bbF_q$ & Frobenius automorphism: $\sg(\alpha)=\alpha^p$ \\[6pt]
+$\tr:\bbF_q\to\bbF_p$ & Absolute trace function\\
+$\tr_{E/\bbF_q}$ & Trace function from $E$ to $\bbF_q$\\
+$\norm_{E/\bbF_q}$ & Norm function from $E$ to $\bbF_q$\\
+$\sg:\bbF_q\to\bbF_q$ & Frobenius automorphism: $\sg(\alpha)=\alpha^p$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Additive Characters of $\bbF_q$}}\\[2pt]
-$\chi,\tau$ & Generic notation for additive characters \\
-$\chi_1$ & Canonical additive character of $\bbF_q$: $\chi_1(\alpha)=e^{2\pi i\,\tr(\alpha)/p}$ \\
-$\chi_\beta$ & Additive character defined by $\chi_\beta(\alpha)=\chi_1(\beta\alpha)$, for $\beta\in\bbF_q$ \\
-$\Xq$ & Set of all additive characters of $\bbF_q$ \\
-$\chi^{(r)}$ & Additive character of $\bbF_q$ lifted to $E$ by  $\chi^{(r)}=\chi\circ\tr_{E/\bbF_q}$ with $[E:\bbF_q]=r$ \\[6pt]
+$\chi,\tau$ & Generic notation for additive characters\\
+$\chi_1$ & Canonical additive character of $\bbF_q$: $\chi_1(\alpha)=e^{2\pi i\,\tr(\alpha)/p}$\\
+$\chi_\beta$ & Additive character defined by $\chi_\beta(\alpha)=\chi_1(\beta\alpha)$, for $\beta\in\bbF_q$\\
+$\Xq$ & Set of all additive characters of $\bbF_q$\\
+$\chi^{(r)}$ & Additive character of $\bbF_q$ lifted to $E$ via $\chi^{(r)}=\chi\circ\tr_{E/\bbF_q}$, $[E:\bbF_q]=r$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Multiplicative Characters of $\bbF_q$}}\\[2pt]
-$\psi,\lm$ & Generic notation for multiplicative characters \\
-$\psi_0$ & Trivial multiplicative character of $\bbF_q$ \\
-$\psi_j$ & Multiplicative character defined by $\psi_j(g^k)=e^{2\pi ijk/(q-1)}$, for $0\leq j\leq q-2$ \\
-$\eta$ & Quadratic character of $\bbF_q$ (for odd $q$): $\eta(\alpha)=1$ if $\alpha$ is a square in $\bbF_q^*$, and $-1$ otherwise \\
-$\Mq$ & Set of all multiplicative characters of $\bbF_q^*$ \\
-$\Mq^{(e)}$ & Set of multiplicative characters of $\bbF_q$ of exponent $e$ \\
-$\ord(\psi)$ & Order of $\psi$: smallest positive integer $d$ with $\psi^d=\psi_0$ \\
-$\Leg{\alpha}{q}$ & Legendre symbol; equals $\eta(\alpha)$ for $\alpha\in\bbF_q$ \\
-$\psi^{(r)}$ & Multiplicative character of $\bbF_q$ lifted to $E$ by $\psi^{(r)}=\psi\circ\norm_{E/\bbF_q}$ with $[E:\bbF_q]=r$ \\[6pt]
+$\psi,\lm$ & Generic notation for multiplicative characters\\
+$\psi_0$ & Trivial multiplicative character of $\bbF_q$\\
+$\psi_j$ & Multiplicative character defined by $\psi_j(g^k)=e^{2\pi ijk/(q-1)}$, for $0\leq j\leq q-2$\\
+$\eta$ & Quadratic character of $\bbF_q$ (for odd $q$): $\eta(\alpha)=\pm 1$ according as $\alpha$ is a square\\
+$\Mq$ & Set of all multiplicative characters of $\bbF_q^*$\\
+$\Mq^{(e)}$ & Set of multiplicative characters of $\bbF_q$ of exponent $e$\\
+$\ord(\psi)$ & Order of $\psi$: smallest positive integer $d$ with $\psi^d=\psi_0$\\
+$\Leg{\alpha}{q}$ & Legendre symbol; equals $\eta(\alpha)$ for $\alpha\in\bbF_q$\\
+$\psi^{(r)}$ & Multiplicative character of $\bbF_q$ lifted to $E$ via $\psi^{(r)}=\psi\circ\norm_{E/\bbF_q}$\\[6pt]
 
-\multicolumn{2}{@{}l}{\textit{Exponential Sums}}\\[2pt]
-$G(\psi,\chi)$ & Gaussian sum: $\displaystyle\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\,\chi(\alpha)$, for $\psi\in\Mq$, $\chi\in\Xq$ \\[12pt]
-$J_\alpha(\lm_1,\dots,\lm_k)$ & Generalized Jacobi sum: $\displaystyle\sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\\alpha_1+\cdots+\alpha_k=\alpha}}\lm_1(\alpha_1)\cdots\lm_k(\alpha_k)$, for $\lm_i\in\Mq$ \\[16pt]
-$J(\lm_1,\dots,\lm_k)$ & Jacobi sum; the special case $\alpha=1$ of $J_\alpha$ \\
-$J_0(\lm_1,\dots,\lm_k)$ & Jacobi sum at $0$; the special case $\alpha=0$ of $J_\alpha$ \\[6pt]
+\multicolumn{2}{@{}l}{\textit{Gaussian and Jacobi Sums}}\\[2pt]
+$G(\psi,\chi)$ & Gaussian sum: $\displaystyle\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\,\chi(\alpha)$, for $\psi\in\Mq$, $\chi\in\Xq$\\[12pt]
+$J_\alpha(\lm_1,\dots,\lm_k)$ & Generalized Jacobi sum: $\displaystyle\sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\\alpha_1+\cdots+\alpha_k=\alpha}}\lm_1(\alpha_1)\cdots\lm_k(\alpha_k)$\\[16pt]
+$J(\lm_1,\dots,\lm_k)$ & Jacobi sum; special case $\alpha=1$ of $J_\alpha$\\
+$J_0(\lm_1,\dots,\lm_k)$ & Jacobi sum at zero; special case $\alpha=0$ of $J_\alpha$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Kloosterman Sums}}\\[2pt]
+$K(\chi;a,b)$ & Kloosterman sum: $\displaystyle\sum_{\gm\in\bbF_q^*}\chi(a\gm+b\gm^{-1})$, for $\chi\in\Xq$, $a,b\in\bbF_q$\\[10pt]
+$K(\chi^{(r)};a,b)$ & Kloosterman sum lifted to the degree-$r$ extension of $\bbF_q$\\
+$w_1,w_2$ & Reciprocal roots of the $L$-function associated to a Kloosterman sum\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Sali\'{e} and Jacobsthal Sums}}\\[2pt]
+$S(\chi,\tau)$ & Sali\'{e} sum: $\displaystyle\sum_{\gm\in\bbF_q^*}\eta(\gm)\,\chi(\gm)\,\tau(\gm^{-1})$, for $\chi,\tau\in\Xq$, $q$ odd\\[10pt]
+$H_n(\alpha)$ & Jacobsthal sum: $\displaystyle\sum_{\gm\in\bbF_q}\eta(\gm^{n+1}+\alpha\gm)$, for $\alpha\in\bbF_q^*$\\[10pt]
+$I_n(\alpha)$ & Associated Jacobsthal sum: $\displaystyle\sum_{\gm\in\bbF_q}\eta(\gm^n+\alpha)$, for $\alpha\in\bbF_q^*$\\[10pt]
 
 \multicolumn{2}{@{}l}{\textit{Dirichlet $L$-functions over $\bbF_q[X]$}}\\[2pt]
-$\zeta(s)$ & Riemann-Zeta function for $s\in\bbC$\\
-$L(s,\chi)$ & Dirichlet $L$-function: $\sum_{h\in\Phi}\chi(h)\,\mfn(h)^{-s}$, for a multiplicative character $\chi$ \\[10pt]
-$\ovL(z,\chi)$ & Power series associated to $L(s,\chi)=\sum_{h\in\Phi}\chi(h)\,z^{\deg(h)}$, satisfying $\ovL(q^{-s},\chi)=L(s,\chi)$ \\
-$\Phi$ & Set of all monic polynomials in $\bbF_q[X]$\\ 
-$\irr(\Phi)$ & Set of irreducible monic polynomials in $\Phi$ \\
-$L_k$ & $k$-th coefficient of $z\,\tfrac{d}{dz}\log\ovL(z,\chi)=\sum_{h\in\irr(\Phi),\; \deg(h)\mid k}\deg(h)\,\chi(h)^{\nicefrac{k}{\deg(h)}}$ \\
+$\Phi$ & Set of all monic polynomials in $\bbF_q[X]$\\
+$\Phi_d$ & Monic polynomials in $\bbF_q[X]$ of degree exactly $d$\\
+$\irr(\Phi)$ & Set of irreducible monic polynomials in $\Phi$\\
+$\mfn(f)=q^{\deg(f)}$ & Norm of the polynomial $f\in\bbF_q[X]$\\
+$G,\ovG$ & Group of monic rational functions and its subgroup with nonzero constant term\\
+$L(s,\chi)$ & Dirichlet $L$-function: $\displaystyle\sum_{h\in\Phi}\chi(h)\,\mfn(h)^{-s}$, for a multiplicative character $\chi$\\[10pt]
+$\ovL(z,\chi)$ & Power series satisfying $\ovL(z,\chi)=\displaystyle\sum_{h\in\Phi}\chi(h)\,z^{\deg(h)}$ and $\ovL(q^{-s},\chi)=L(s,\chi)$\\[10pt]
+$L_k$ & $k$-th log-derivative coefficient: $\displaystyle\sum_{\substack{h\in\irr(\Phi)\\\deg(h)\mid k}}\deg(h)\,\chi(h)^{k/\deg(h)}$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Classical Riemann Zeta Function}}\\[2pt]
+$\zeta(s)$ & Riemann zeta function: $\displaystyle\sum_{n=1}^\infty n^{-s}$, for $\Re(s)>1$\\[10pt]
+$\xi(s)$ & Completed zeta function: $\tfrac12s(s-1)\,\Gm(s/2)\,\pi^{-s/2}\,\zeta(s)$\\
+$\Gm(s)$ & Gamma function: $\displaystyle\int_0^\infty e^{-t}t^{s-1}\,dt$\\[10pt]
+$\Lambda(n)$ & Von Mangoldt function: $\log p$ if $n=p^k$, else $0$\\
+$\rho$ & Non-trivial zero of $\zeta(s)$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Character Sums with Polynomials (Weil Sums)}}\\[2pt]
+$W(\chi,f)$ & Weil sum: $\displaystyle\sum_{\alpha\in\bbF_q}\chi(f(\alpha))$, for $\chi\in\Xq$, $f\in\bbF_q[X]$\\[10pt]
+$W(\psi,\chi,f)$ & Mixed Weil sum: $\displaystyle\sum_\alpha\psi(\alpha)\,\chi(f(\alpha))$ over $\alpha$ not a pole of $f$\\[10pt]
+$F(X)$ & $f(X)^{(q-1)/2}$, used in the continued fraction approach to $\sum_c\eta(f(c))$\\
+$n_f$ & Largest $m$ such that the two continued fraction expansions of $(F\pm1)/G$ agree\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Equations over $\bbF_q$ --- Solution Sets}}\\[2pt]
+$\mcV(f)$ & Solution set of $f(X_1,\dots,X_n)=0$ in $\bbF_q^n$\\
+$Z(f)$ & Number of solutions: $|\mcV(f)|$\\
+$\ov{\mcV}(f)$ & Set of \emph{non-trivial} solutions (excluding $(0,\dots,0)$) of $f=0$\\
+$\ov{Z}(f)$ & Number of non-trivial solutions: $|\ov{\mcV}(f)|$\\
+$\mcV(f_1,\dots,f_k)$ & Common solution set: $\mcV(f_1)\cap\cdots\cap\mcV(f_k)$\\
+$Z(f_1,\dots,f_k)$ & Count of common solutions: $|\mcV(f_1,\dots,f_k)|$\\
+$\Om_d$ & Space $\bbF_q^{\leq d}[X_1,\dots,X_n]$ of polynomials of total degree at most $d$\\
+$\om(d)$ & Set of $n$-tuples $(i_1,\dots,i_n)\in\bbZ_{\geq 0}^n$ with $i_1+\cdots+i_n\leq d$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Quadratic Forms}}\\[2pt]
+$C_f$ & Coefficient matrix of a quadratic form $f$: $(C_f)_{ij}=a_{ij}$ where $f=X^\top C_f X$\\
+$\det(f)$ & Determinant of the coefficient matrix $C_f$\\
+$\vth:\bbF_q\to\bbZ$ & Auxiliary function: $\vth(0)=q-1$ and $\vth(\alpha)=-1$ for $\alpha\neq 0$\\[6pt]
+
 \end{longtable}

@@ -1,1 +1,90 @@
 \section{Diagonal Equations}
+In the previous section we talked about equations involving diagonal quadratic forms. These are a special case of much general family of equations called \emph{diagonal equations}
+\begin{Definition}{Diagonall Equations}{}
+  A diagonal equation over $\bbF_q$ is an equation of the type $$a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha$$ for some positive integers $k_1,\dots,k_n\in\bbN$ with coefficients $a_1,\dots,a_n\in\bbF_q^*$ and $\alpha\in\bbF_q$. 
+\end{Definition}
+
+
+\subsection{Counting Solutions using Jacobi Sums}
+Now we express the number of solutions $Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha\rt)$ in terms of Jacobi sums. 
+$$Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha\rt) = \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots +\alpha_n=\alpha}}\prod_{j=1}^n Z\lt( a_jX_j^{k_j}=\alpha_j\rt)=\sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots +\alpha_n=\alpha}}\prod_{j=1}^n Z\lt(X_j^{k_j}=a_j^{-1}\alpha_j\rt)$$ Let $\lm$ is a multiplicative character of $\bbF_q$ with $\ord(\lm)=d=\gcd(k,q-1)$. Then for any $k\in\bbN$ and $\gm\in\bbF_q$ we have $Z(X^k=\gm)=\sum_{j=0}^{d-1}\lm^j$. So here let for $j\in[n]$ let $d_i=\gcd(k_i,q-1)$ and $\lm_i$ is the multiplicative character of $\bbF_q$ of order $d_i$. Then we have 
+\begin{align*}
+  Z\lt( a_jX_j^{k_j}=\alpha_j\rt) & = \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots +\alpha_n=\alpha}}\prod_{j=1}^n Z\lt(X_j^{k_j}=a_j^{-1}\alpha_j\rt)\\ 
+  & = \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots +\alpha_n=\alpha}} \lt(\sum_{t_1=0}^{d_1-1}\lm_1^{t_1}(a_1^{-1}\alpha_1)\rt)\cdots\lt(\sum_{t_n=0}^{d_n-1}\lm_n^{t_n}(a_n^{-1}\alpha_n)\rt)\\
+  & = \sum_{t_1=0}^{d_1-1}\cdots \sum_{t_n=0}^{d_n-1}\lm_1^{t_1}(a_1^{-1})\cdots\lm_n^{t_n}(a_n^{-1}) \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots +\alpha_n=\alpha}}\lm_1^{t_1}(\alpha_1)\cdots\lm_n^{t_n}(\alpha_n)\\
+  & = \sum_{t_1=0}^{d_1-1}\cdots \sum_{t_n=0}^{d_n-1}\ov{\lm}_1^{t_1}(a_1)\cdots\ov{\lm}_n^{t_n}(a_n) \cdot J_{\alpha}\lt(\lm_1^{t_1},\dots, \lm_n^{t_n}\rt)
+\end{align*}
+If $(t_1,\dots, t_n)=(0,\dots, o)$ then by \JacobiCompletethm[(i)] we have $J_{\alpha}(\lm_1^{t_1},\dots,\lm_n^{t_n})=q^{n-1}$. Also by \JacobiCompletethm[(ii)] if at least one of $t_j$ is zero then $J_{\alpha}(\lm_1^{t_1},\dots,\lm_n^{t_n})=0$. So we have $$Z\lt( a_jX_j^{k_j}=\alpha_j\rt)=q^{n-1}+\sum_{t_1=1}^{d_1-1}\cdots \sum_{t_n=1}^{d_n-1}\ov{\lm}_1^{t_1}(a_1)\cdots\ov{\lm}_n^{t_n}(a_n) \cdot J_{\alpha}\lt(\lm_1^{t_1},\dots, \lm_n^{t_n}\rt)$$So we have the following observation:
+\begin{observation}\label{obs:diagonal-jacobi-formula}
+  For any $\alpha\in\bbF_q$ let $a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha$ is a diagonal equation with $k_1,\dots,k_n\in\bbN$ and $a_1,\dots,a_n\in\bbF_q^*$. Suppose for all $i\in[n]$, $d_i=\gcd(k_i,q-1)$ and $\lm_i\in\Mq$ be a multiplicative character of $\bbF_q$ of order $d_i$, then \begin{equation}\label{eq:diagonal-solutions}
+    Z\lt( a_jX_j^{k_j}=\alpha_j\rt)=q^{n-1}+\sum_{t_1=1}^{d_1-1}\cdots \sum_{t_n=1}^{d_n-1}\ov{\lm}_1^{t_1}(a_1)\cdots\ov{\lm}_n^{t_n}(a_n) \cdot J_{\alpha}\lt(\lm_1^{t_1},\dots, \lm_n^{t_n}\rt)
+  \end{equation}
+\end{observation}
+
+Now we distinguish the cases when $\alpha=0$ and when $\alpha\neq 0$. If $\alpha=0$ then by \JacZeroRellem[(i)] for any $(t_1,\dots, t_n)$ if $\lm_1^{t_1}\cdots \lm_n^{t_n}$ is non-trivial then $J_0\lt(\lm_1^{t_1},\dots ,\lm_n^{t_n}\rt)=0$. So let $T$ denote the set of all tuples $(t_1,\dots, t_n)\in \bigtimes_{i=1}^n [d_i-1]$ such that $\lm_1^{t_1}\cdots \lm_n^{t_n}$ is trivial. Then we have the following result
+\begin{Theorem}{Solution Count for Diagonal Equations at Zero}{thm:diagonal-count-zero}
+  For any diagonal equation $a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=0$ with $k_1,\dots,k_n\in\bbN$ and $a_1,\dots,a_n\in\bbF_q^*$, the number of solutions is $$Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=0\rt)=q^{n-1}+\sum_{(t_1,\dots, t_n)\in T}\ov{\lm}_1^{t_1}(a_1)\cdots\ov{\lm}_n^{t_n}(a_n) \cdot J_0\lt(\lm_1^{t_1},\dots, \lm_n^{t_n}\rt),$$where $d_i=\gcd(k_i,q-1)$, $\lm_i$ has order $d_i$, and $T$ is the set of tuples $(t_1,\dots,t_n)$ with each $t_i\geq 1$ such that $\lm_1^{t_1}\cdots\lm_n^{t_n}$ is trivial.
+\end{Theorem}
+Now we can a trivial upper bound on the set $T$. Since $T\subseteq \bigtimes_{i=1}^n [d_i-1]$ we have $|T|\leq \prod_{i=1}^n (d_i-1)$. So we get the following upper bound from the above theorem.
+\begin{corolary}{Bound on Solutions of Diagonal Equation at Zero}{cor:diagonal-bound-zero}
+  For any diagonal equation $a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=0$ with $k_1,\dots,k_n\in\bbN$ and $a_1,\dots,a_n\in\bbF_q^*$, $$\lt|Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=0\rt)-q^{n-1}\rt|\leq (q-1)\cdot q^{\nicefrac{n}{2}-1}\prod_{i=1}^n(d_i-1),$$where $d_i=\gcd(k_i,q-1)$ for all $i\in[n]$.
+\end{corolary}
+\begin{proof}
+  For all $(t_1,\dots, t_n)\in T$ we have $\lm_1^{t_1}\cdots \lm_n^{t_n}$ is trivial. Therefore $|J_0(\lm_1^{t_1},\dots, \lm_n^{t_n})|=(q-1)\cdot q^{\nicefrac{(n-2)}{2}}$ by \JacobiCompletethm[(iv)] Therefore using the trivial bound of $T$ and absolute value of $|J_0(\lm_1^{t_1},\dots, \lm_n^{t_n})|$ we get the above result. 
+\end{proof}
+
+Let $\lm$ is the generator of $\Mq$. Then for all $i\in[n]$, $\lm_i=\lm^{\nicefrac{(q-1)}{d_i}}$. Hence $$\lm_1^{t_1}\cdots \lm_n^{t_n}=\lm^{t_1\frac{q-1}{d_1}+\cdots+ t_n\frac{q-1}{d_n}}=\lm^{(q-1)\lt(\frac{t_1}{d_1}\cdots+\frac{t_n}{d_n}\rt)}$$ Therefore $\lm_1^{t_1}\cdots \lm_n^{t_n}$ is trivial if and only if $\sum_{i=1}^n \frac{t_i}{d_i}\in\bbZ$. So let $M(d_1,\dots, d_n)$ is the number of all tuples $(t_1,\dots,t_n)\in\bigtimes_{i=1}^n [d_i-1]$ such that $\sum_{i=1}^n \frac{t_i}{d_i}\in\bbZ$. Therefore $|T|=M(d_1,\dots, d_n)$. So we have the following theorem. 
+\begin{corolary}{Bound on Solutions of Diagonal Equation at Zero (via $M$)}{cor:diagonal-bound-zero-M}
+  For any diagonal equation $a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=0$ with $k_1,\dots,k_n\in\bbN$ and $a_1,\dots,a_n\in\bbF_q^*$,
+  $$\lt|Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=0\rt)-q^{n-1}\rt|\leq (q-1)\cdot q^{\nicefrac{(n-2)}{2}}\cdot M(d_1,\dots, d_n),$$where $d_i=\gcd(k_i,q-1)$ for all $i\in[n]$.
+\end{corolary}
+
+So now assume $\alpha\neq 0$ then we have $J_{\alpha}(\lm_1^{t_1},\dots, \lm_n^{t_n})=\lt(\lm_1^{t_1}\cdots\lm_n^{t_n}\rt)(\alpha)J(\lm_1^{t_1},\dots, \lm_n^{t_n})$. So we get the following formulation of number of solutions for $\alpha\neq 0$. 
+\begin{Theorem}{Solution Count for Diagonal Equations at Nonzero Values}{thm:diagonal-count-nonzero}
+  Let $\alpha\in\bbF_q^*$. For any diagonal equation $a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha$ with $k_1,\dots,k_n\in\bbN$ and $a_1,\dots,a_n\in\bbF_q^*$,
+  $$Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha\rt)=q^{n-1}+\sum_{t_1=1}^{d_1-1}\cdots \sum_{t_n=1}^{d_n-1}\lm_1^{t_1}(a_1^{-1}\alpha)\cdots\lm_n^{t_n}(a_n^{-1}\alpha) \cdot J\lt(\lm_1^{t_1},\dots, \lm_n^{t_n}\rt),$$where $d_i=\gcd(k_i,q-1)$ and $\lm_i\in\Mq$ has order $d_i$ for all $i\in[n]$.
+\end{Theorem}
+
+Now we will show another way to find the number of solutions for $\alpha\neq 0$ using the notation $M(d_1,\dots, d_n)$ we used in the case of $\alpha=0$. 
+\begin{Theorem}{Bound on Solutions of Diagonal Equation at Nonzero Values}{thm:diagonal-bound-nonzero}
+  Let $\alpha\in\bbF_q^*$. For any diagonal equation $a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha$ with $k_1,\dots,k_n\in\bbN$ and $a_1,\dots,a_n\in\bbF_q^*$,
+  $$\lt|Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha\rt)-q^{n-1}\rt| \leq \lt[\prod_{i=1}^n(d_i-1) - \lt(1-q^{-\nicefrac12}\rt)\cdot M(d_1,\dots, d_n)\rt]q^{\nicefrac{(n-2)}{2}}.$$
+\end{Theorem}
+\begin{proof}
+  By \JacobiCompletethm[(iii-iv)] if $\alpha\neq 0$ then $|J_{\alpha}(\lm_1^{t_1},\dots, \lm_n^{t_n})|=q^{\nicefrac{(n-1)}{2}}$. So we have $$\lt|Z\lt(a_1X_1^{k_1}+\cdots a_nX_n^{k_n}=\alpha\rt)-q^{n-1}\rt|\leq \lt[\prod_{i=1}^n(d_i-1)-|T|\rt]q^{\nicefrac{(n-1)}{2}}+|T|\cdot q^{\nicefrac{(q-2)}{2}}=\lt[\prod_{i=1}^n (d_i-1)-\lt(1-q^{-\nicefrac12}\rt)|T|\rt]q^{\nicefrac{(n-1)}{2}}$$Since $|T|=M(d_1,\dots, d_n)$ we have the theorem. 
+\end{proof}
+
+\subsection{A General Formula of \texorpdfstring{$M(d_1,\dots, d_n)$}{M(d1,...,dn)}}
+We follow the notation from the previous subsection. Now suppose one of the $d_i$ is relatively prime to all other $d_j$'s where $j\neq i$ i.e. $\gcd(d_i,d_j)=1$ for all $j\in[n]$, $j\neq i$. If for some $(t_1,\dots, t_n)\in\bigtimes_{i=1}^n[d_i-1]$ we have $\sum_{i=1}^n \frac{t_i}{d_i}=m\in\bbZ$ then we have $$t_1\cdot (d_2\cdots d_n)+k\cdot d_1=m\cdot (d_1,c\dots d_n)$$Thus $t_1\cdot (d_2\cdots d_n)\equiv 0\bmod{d_1}$. Since $d_1$ is relatively prime with all other $d_j$ for all $j\in\{2,\dots, n\}$ we have $d_1\mid t_1$. Hence contradiction \ctr Hence such tuple $(t_1,\dots,t_n)$ does not exist. Therefore $M(d_1,\dots, d_n)=0$. 
+
+Now we already have a trivial upper bound on $M(d_1,\dots, d_n)\leq \prod_{i=1}^n (d_i-1)$. We will give a general formula for $M(d_1,\dots, d_n)$. Suppose $D=\lcm(d_1,\dots, d_n)$. Then for any tuple $(t_1,\dots, t_n)\in \bigtimes_{i=1}^n[d_i-1]$ observe that  \begin{equation}\label{eq:integrality-exponential-sum}
+  \frac1D\sum_{h=0}^{D-1}\exp\lt[2\pi ih\lt(\frac{t_1}{d_1}+\cdots+\frac{t_n}{d_n}\rt)\rt]=\begin{cases}
+    1 & \text{if $\frac{t_1}{d_1}+\cdots+\frac{t_n}{d_n}\in\bbZ$}\\ 
+    0 & \text{otherwise}
+  \end{cases}
+\end{equation}
+Then using this expression we have \begin{align*}
+  M(d_1,\dots, d_n) & = \sum_{t_1=1}^{d_1-1}\cdots \sum_{t_n=1}^{d_n-1}\frac1D\sum_{h=0}^{D-1}\exp\lt[2\pi ih\sum_{i=1}^n\frac{t_i}{d_i}\rt]\\ 
+    & = \frac1D\sum_{h=0}^{D-1} \lt(\;\sum_{t_1=1}^{d_1-1}\exp\lt[t_1\cdot \frac{h}{d_1}\rt]\;\rt)\cdots \lt(\;\sum_{t_n=1}^{d_n-1}\exp\lt[t_n\cdot \frac{h}{d_n}\rt]\;\rt)\\ 
+    & = \frac1D\sum_{h=0}^{D-1}\prod_{i=1}^n \lt(\;\sum_{t_i=1}^{d_i-1}\exp\lt[t_i\cdot \frac{h}{d_i}\rt]\;\rt)\\ 
+    & = \frac1D\sum_{h=0}^{D-1}\prod_{i=1}^n \lt(\;\sum_{t_i=0}^{d_i-1}\exp\lt[t_i\cdot \frac{h}{d_i}\rt]-1\;\rt)\\ 
+    & = \frac1D\sum_{h=0}^{D-1}\lt[ (-1)^n+\sum_{k=1}^n(-1)^{n-k}\sum_{1\leq i_1<\cdots <i_k\leq n}\lt( \sum_{t_{i_1}=0}^{d_{i_1}-1}\exp\lt[ t_{i_1}\frac{h}{d_{i_1}} \rt] \rt)\cdots   \lt( \sum_{t_{i_n}=0}^{d_{i_n}-1}\exp\lt[ t_{i_n}\frac{h}{d_{i_n}} \rt] \rt) \rt]\\ 
+    & = (-1)^n+\frac1D\sum_{h=0}^{D-1} \sum_{k=1}^n(-1)^{n-k}\sum_{1\leq i_1<\cdots <i_k\leq n}\prod_{j=1}^k\lt(\; \sum_{t_{i_j}=0}^{d_{i_j}-1}\exp\lt[ t_{i_j}\frac{h}{d_{i_j}} \rt]\; \rt)
+\end{align*}
+Now for any $d\in\bbN$ we have $$\sum_{j=0}^d\exp\lt[j\frac{h}d\rt]=\begin{cases}
+  d & \text{if $h\equiv 0\bmod d$}\\ 
+  0 & \text{otherwise}
+\end{cases}$$So in the product term at the end of the last expression survives if $d_{i_j}\mid h$ for all $j\in[k]$ i.e. $\lcm(d_{i_1},\cdots, d_{i_k})\mid h$. So in the product at the end of last expression we obtain 
+$$\prod_{j=1}^k\lt(\; \sum_{t_{i_j}=0}^{d_{i_j}-1}\exp\lt[ t_{i_j}\frac{h}{d_{i_j}} \rt]\rt)=\begin{cases}
+  d_{i_1}\cdots d_{i_k}& \text{if $d_{i_j}\mid h$ for all $j\in[k]$}\\ 
+  0 & \text{otherwise}
+\end{cases}$$Hence we have \begin{align*}
+  M(d_1,\dots, d_n) & = (-1)^n+\frac1D\sum_{h=0}^{D-1} \sum_{k=1}^n(-1)^{n-k}\sum_{\substack{1\leq i_1<\cdots <i_k\leq n\\[1pt] \lcm\lt(d_{i_1},\dots,d_{i_k}\rt)\mid h}}\lt(d_{i_1}\cdots d_{i_k}\rt)\\ 
+  & = (-1)^n+\sum_{h=0}^{D-1} \sum_{k=1}^n(-1)^{n-k}\sum_{1\leq i_1<\cdots <i_k\leq n}\lt(d_{i_1}\cdots d_{i_k}\rt)\frac1D\sum_{\substack{h=0\\[1pt] \lcm\lt(d_{i_1},\dots, d_{i_n}\rt)\mid h}}^{D-1}1\\ 
+  & = (-1)^n+\sum_{h=0}^{D-1} \sum_{k=1}^n(-1)^{n-k}\sum_{1\leq i_1<\cdots <i_k\leq n}\frac{d_{i_1}\cdots d_{i_k}}{\lcm\lt(d_{i_1},\dots, d_{i_n}\rt)}
+\end{align*}
+So we have the following theorem summarizing the formula.
+\begin{Theorem}{Closed Form for $M(d_1,\dots,d_n)$}{thm:M-formula}
+  Let $d_1,\dots,d_n\in\bbN$ such that $d_i\mid q-1$ for all $i\in[n]$ and set $D=\lcm(d_1,\dots,d_n)$. Then
+  $$M(d_1,\dots,d_n)=(-1)^n+\sum_{k=1}^n(-1)^{n-k}\sum_{1\leq i_1<\cdots<i_k\leq n}\frac{d_{i_1}\cdots d_{i_k}}{\lcm\lt(d_{i_1},\dots,d_{i_k}\rt)}.$$
+\end{Theorem}
