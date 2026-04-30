@@ -99,7 +99,7 @@ As a striking application of the machinery developed around the quadratic charac
 \end{proof}
 
 We close the section with an elementary but remarkably clean evaluation of the quadratic character summed against a quadratic polynomial. Its value depends only on the leading coefficient and the discriminant, and it will play a basic role in many later arguments -- most notably in extracting the quadratic character of the discriminant when counting solutions of quadratic equations over $\bbF_q$, and in the reformulation of Kloosterman sums in \autoref{sec:kloosterman}.
-\begin{Theorem}{}{thm:eta-quadratic-poly}
+\begin{Theorem}{Quadratic Character Sum via Discriminant}{thm:eta-quadratic-discriminant}
   Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ odd and $a_2\neq 0$, let $\Dl=a_1^2-4a_0a_2$ denote the discriminant of $f$, and let $\eta$ be the quadratic character of $\bbF_q$ (extended by $\eta(0)=0$). Then $$\sum_{\alpha\in\bbF_q}\eta(f(\alpha))=\begin{cases}-\eta(a_2) & \text{if }\Dl\neq 0,\\ (q-1)\cdot \eta(a_2) & \text{if }\Dl=0.\end{cases}$$
 \end{Theorem}
 We will not prove this theorem now. We will discuss this again in \autoref{sec:character-sum-poly}. 
