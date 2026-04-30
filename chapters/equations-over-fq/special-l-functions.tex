@@ -57,7 +57,7 @@ Let $\ovH=H\cap \tdH$. Then from \lemref{lem:mult-char-rational-func-identity} a
   Suppose $t\in\bbZ_0$. Then every coset of $\ovH$ in $\ovG$ in the group $\quotient{\ovG}{\ovH}$ contains precisely $q^t$ polynomials of degree $n+m+t$. 
 \end{lemma}
 \begin{proof}
-  Suppose $r(X)=\nicefrac{h_1}{h_2}\in \ovG$. Then it suffices to show that there are precisely $q^t$ polynomials $h(X)=X^{n+m+t}+\sum_{i=1}^{n+m+t}(-1)^i\cdot b_i\cdot X^{n+m+t-i}$ with $\nicefrac{h}{r}\in\ovH$. By \lemref{lem:coeff-same-poly-by-rat} this means there are $q^t$ polynomails $h(X)\in\Phi$ with $\deg(h)=n+m+t$ such that \begin{align}
+  Suppose $r(X)=\nicefrac{h_1}{h_2}\in \ovG$. Then it suffices to show that there are precisely $q^t$ polynomials $h(X)=X^{n+m+t}+\sum_{i=1}^{n+m+t}(-1)^i\cdot b_i\cdot X^{n+m+t-i}$ with $\nicefrac{h}{r}\in\ovH$. By \lemref{lem:coeff-same-poly-by-rat} this means there are $q^t$ polynomials $h(X)\in\Phi$ with $\deg(h)=n+m+t$ such that \begin{align}
     &\hh \equiv \hr\bmod{\la X\ra^{n+1}} \label{eq:H-cond-poly-rat}&\\
     &k(\gm_i) = r(\gm_i) \quad \forall i\in[m] \label{eq:tdH-cond-poly-rat}&
   \end{align}  Now the coefficients $b_1,\dots, b_n$ are already determined by the condition \eqref{eq:H-cond-poly-rat}. Now the equations in \eqref{eq:tdH-cond-poly-rat} gives $m$ linear equations. The matrix of this equation is a $m\times m$ Vandermonde matrix over $\gm_i^j$ for all $i\in[m]$ and $j\in\{0,1,\dots, m-1\}$. Hence by the system of linear equations $m$ coefficients $\{b_{n+t+1},\dots, b_{n+t+m}\}$ gets uniquely determined. Hence we can pick $b_{n+1},\dots, b_{n+t}$ arbitrarily. Therefore there are $q^t$ many choices for $h(X)$. 
