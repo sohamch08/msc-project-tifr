@@ -49,6 +49,22 @@ It is clear that $\deg(P_{i-1})<\deg(P_i)$ and $\deg(Q_{i-1})<\deg(Q_i)$ for $i=
   If $d_i=\gcd(P_i,Q_i)$ then \lemref{lem:cf-determinant} shows $d_i$ divides $(-1)^{i-1}$, so $d_i=1$. \qed
 \end{proof}
 
+\section{A Product Identity for Roots of Unity}
+
+The following identity, used in the factorisation of lifted $L$-functions, expresses a product of linear factors twisted by roots of unity as a perfect power.
+
+\begin{lemma}{Roots-of-Unity Product Identity}{lem:roots-unity-product}
+  Let $n,m\in\bbN$ and set $d=\gcd(m,n)$. Then
+  $$\prod_{t=1}^{n}\lt(1-e^{2\pi i\nicefrac{mt}{n}}\,X\rt)=\lt(1-X^{\nicefrac{n}{d}}\rt)^{d}.$$
+\end{lemma}
+\begin{proof}
+  Let $\omega=e^{2\pi i/n}$ be a primitive $n$-th root of unity, so the factors are $1-\omega^{mt}X$ for $t=1,\dots,n$. Since $t=n$ gives $\omega^{mn}=1=\omega^0$, the product is the same as $\prod_{t=0}^{n-1}(1-\omega^{mt}X)$.
+
+  Because $d=\gcd(m,n)$, the element $\omega^m$ is a primitive $(n/d)$-th root of unity. As $t$ ranges over $\{0,1,\dots,n-1\}$, the values $\omega^{mt}$ cycle through the $(n/d)$-th roots of unity exactly $d$ times each. Hence
+  $$\prod_{t=0}^{n-1}\lt(1-\omega^{mt}X\rt)=\lt(\prod_{k=0}^{n/d-1}\lt(1-(\omega^m)^k X\rt)\rt)^d.$$
+  Since $\omega^m$ is a primitive $(n/d)$-th root of unity, the inner product equals $1-X^{n/d}$ by the standard factorisation of $1-Y^N = \prod_{k=0}^{N-1}(1-\zeta^k Y)$. Therefore the whole product equals $(1-X^{n/d})^d$. \qed
+\end{proof}
+
 \section{Waring's Formula}
 Waring's Formula expresses each power-sum symmetric polynomial $s_k=x_1^k+x_2^k+\cdots+x_n^k$ as an explicit polynomial in the elementary symmetric polynomials $\sigma_1,\dots,\sigma_n$. It is the source of the closed-form reduction of lifted Kloosterman sums $K(\chi^{(s)};a,b)$ to the ground-field sum $K(\chi;a,b)$ in \thmref{thm:kloosterman-reduction}: applying Waring's formula to $\omega_1^s+\omega_2^s$ with $\sigma_1=\omega_1+\omega_2=-K(\chi;a,b)$ and $\sigma_2=\omega_1\omega_2=q$ produces the binomial-coefficient expansion. We state the general identity here for reference.
 \begin{Theorem}{Waring's Formula}{thm:waring}%
