@@ -1,0 +1,60 @@
+\section{Characters sums of \texorpdfstring{$\psi(f(X))\chi(g(X))$}{Ψ(f(X))χ(g(X))}}
+In this section we will use the multiplicative function $\xi:G\to \bbC$ in the previous section and prove bounds on character sums like $\sum_{\alpha\in\bbF_{q^k}}\psi^{(k)}(f(X))\chi^{(k)}(g(X))$ where $\chi\in\Xq$ and $\psi\in\Mq$ and they are lifted to $\chi^{(k)}$ and $\psi^{(k)}$ for the field $\bbF_{q^k}$. 
+
+So suppose we have a additive character $\chi\in\Xq$ and a multiplicative character $\psi\in\Mq$ of $\bbF_q$. Let $f(X)\in\bbF_q[X]$ be a monic polynomial in $\bbF_q[X]$. Let $f(X)$ factors into $$f(X)=(X-\gm_1)^{a_1}\cdots (X-\gm_m)^{a_m}$$ in the field $\ov{\bbF}_q[X]$ i.e. $f$ has $m$ distinct roots. And let $g\in\bbF_q[X]$ be any fixed polynomial of degree $n$ and constant term is $0$. Define the $G, \ovG, \tdH, H$ and $\ovH$ like previous section. Then we define the maps $\vsg:G\to \bbF_q$ and $\vrh:G\to\bbF_q$ and the corresponding multiplicative map $\xi:G\to\bbC$. Then we have the following theorem.
+\begin{Theorem}{}{thm:xi-nontrivial}
+  Suppose either $\psi\in\Mq$ is a nontrivial multiplicative character of exponent $d$ and $Y^d-f(X)$ is absolutely irreducible. Or, $\chi\in\Xq$ is a non-trivial additive character and 
+  \begin{enumerate}[label=(\roman*)]
+    \item either, $\gcd(n,q)=1$ 
+    \item or, more generally $Y^q-Y-g(X)$ is absolutely irreducible.
+  \end{enumerate}
+  Then the map $\xi$ is non-trivial i.e. $\exs\ r\in \ovG$ such that $\chi(r)\neq 1$. 
+\end{Theorem}
+\begin{proof}
+  Suppose $\xi(r)=1$ for all $r\in\ovG$. Then $(\psi\circ\vsg)(r)\cdot (\chi\circ \vrh)(r)=1$. Since $\psi\circ\vsg(r)$ is a $d^{th}$ root of unity and $\chi\circ \vrh(r)$ is a $p^{th}$ roots of unity with $\gcd(d,p)=1$ we have $$\psi\circ\vsg(r)=\chi\circ\vrh(r)=1$$
+  Therefore it suffices to find a $k\in \ovG$ such that $\psi\circ\vsg(k)\neq 1$ in the first case and in the second case it will suffice to find a $k\in\ovG$ such that $\chi\circ\vrh(k)\neq 1$. 
+
+  \paragraph*{$\psi$ is non-trivial:} Suppose $\ord(\psi)=e$ where $e\mid d$. Since $Y^d-f(X)$ is absolutely irreducible not all $a_i$ are multiplies of $e$ by \thmref{thm:yd-fx-irr}. Without loss of generality suppose $e\nmid a_1$. For any $c_2,\dots, c_m\in\bbF_q^*$ we can pick $c_1\in\bbF_q^*$ such that $c_1^{a_1}\cdots c_m^{a_m}\notin \lt(\bbF_q^*\rt)^{(e)}$ and hence $\psi\lt(c_1^{a_1}\cdots c_m^{a_m}\rt)\neq 1$. Now by the arguments of \lemref{lem:ql-poly-every-coset} there exists a polynomial $k(X)\in\ovG$ such that $k(\gm_i)=c_i$ for all $i\in[m]$. Therefore $\vsg(k)=c_1^{a_1}\cdots c_m^{a_m}$ and hence $\psi\circ \vsg(k)\neq 1$.
+  \paragraph*{$\chi$ is non-trivial:} \begin{enumerate}[label=(\roman*)]
+    \item Suppose first that $\gcd(n,q)=1$. Then suppose $g(X)=aX^n+g_1(X)$ where $\deg(g_1)<n$ and $g_1(0)=0$. If $k(X)=X^n+\alpha=\prod_{j=1}^n(X-\alpha_j)$ where $\alpha_j\in\ov{\bbF_q}$. Then $g_1(\alpha_1)+\cdots g_n(\alpha_n)=0$ since $g_1$ is a polynomial with constant term $0$ and it is a polynomial in the first $n-1$ elementary symmetric polynomials in $\alpha_1,\dots, \alpha_n$. Therefore $$\sum_{j=1}^ng(\alpha_j)=a\sum_{j=1}^n\alpha_j^n=a\cdot n\cdot (-1)^{n+1}\cdot \alpha$$Therefore $\vrh(k)=a\cdot n\cdot (-1)^{n+1}\cdot \alpha$ and thus $\chi\circ\vrh(k)=\chi\lt(a\cdot n\cdot (-1)^{n+1}\cdot \alpha\rt)$. So for a proper choice of $\alpha$ we get $\chi\circ\vrh(k)\neq 1$ since $n$ is not divisible by the $\Char(\bbF_q)$.
+    \item Suppose $Y^q-Y-f(X)$ is absolutely irreducible. Now for any $\alpha\in\bbF_q^*$ we have $$\alpha\cdot Y^q-\alpha\cdot Y-g(X)=(\alpha\cdot Y)^q-(\alpha\cdot Y)-f(X)$$ therefore $\alpha\cdot Y^q-\alpha\cdot Y-g(X)$ is absolutely irreducible. Hence $Y^p-Y-\alpha\cdot g(X)$ is also absolutely irreducible where $p=\Char(\bbF_q)$. Let $a$ is such that $\chi(\gm)=\chi_a(\gm)$ for all $\gm\in\bbF_q$ as defined in \AddCharDefthm. Let $Z_r(Y^q-Y-a\cdot g(X))$ is the number of solutions of $Y^q-Y-a\cdot g(X)$ over $\bbF_{q^r}$. Now by \thmref{thm:bombieri} we have $Z_r(Y^q-Y=g(X))=q^r+O(q^{\nicefrac{r}2})$. Hence if $r$ is large $Z_r(Y^q-Y=g(X))<p\cdot q^r$. Let $E$ denote the field $\bbF_{q^r}$. Now suppose $c\in \bbF_{q^r}$. If $\tr_{E}(a\cdot g(c))=0$ then there are $p$ values of $b\in $ such that $b^q-b-a\cdot g(c)=0$. If $\tr_E(a\cdot g(c))\neq 0$ there are no such $b\in\bbF_{q^r}$. Since $Z_r(Y^q-Y=g(X))<p\cdot q^r$ there is a $b\in\bbF_{q^r}$ with $\tr_E(a\cdot g(c))\neq 0$. So take $k(X)=\prod_{i=0}^{r-1}(X-c^{q^i})$. Then $$\vrh(k)=g(c)+g(c^q)+\cdots g(c^{q^{r-1}})=\tr_E(g(c))$$So $\chi\circ \vrh(k)\neq 1$. 
+  \end{enumerate} 
+  Therefore we have the theorem. 
+\end{proof}
+We eventually want to construct the $L$-function using the multiplicative function $\xi$. The above theorem helps us to invoke \LFactthm. 
+\begin{lemma}{}{}
+  Suppose either $\psi\in\Mq$ is a nontrivial multiplicative character of exponent $d$ and $Y^d-f(X)$ is absolutely irreducible. Or, $\chi\in\Xq$ is a non-trivial additive character and 
+  \begin{enumerate}[label=(\roman*)]
+    \item either, $\gcd(n,q)=1$ 
+    \item or, more generally $Y^q-Y-g(X)$ is absolutely irreducible.
+  \end{enumerate}
+  Suppose $t\geq 0$. Then $$\sum_{\substack{h\in \Phi\\ \deg(h)=n+m+t}}\xi(g)=0$$
+\end{lemma}
+\begin{proof}
+  By \corref{cor:xi-trivial-subgroup} and \thmref{thm:xi-nontrivial}, $\xi$ induces a non-trivial character on the finite group $\quotient{\ovG}{H}$. As $h$ runs through all polynomials of $\ovG$ of degree $n+m+t$ then by \lemref{lem:ql-poly-every-coset} it will lie precisely land $q^l$ times in every coset of $\quotient{\ovG}{H}$. So by \AddCharPropsthm[(i)] and \MultCharPropsthm[(i)] we have the lemma. 
+\end{proof}
+
+As we mentioned in the previous section. We can extend $\xi$ to $G$ by setting $\xi(h)=0$ if $h$ is a polynomial not in $\ovG$. So now we form the $L$-functions, $L(s,\xi)$ and $\ovL(Z,\xi)$ on $\xi$. And using the above lemma we have the following theorem:
+\begin{Theorem}{}{}
+  Suppose either $\psi\in\Mq$ is a nontrivial multiplicative character of exponent $d$ and $Y^d-f(X)$ is absolutely irreducible. Or, $\chi\in\Xq$ is a non-trivial additive character and 
+  \begin{enumerate}[label=(\roman*)]
+    \item either, $\gcd(n,q)=1$ 
+    \item or, more generally $Y^q-Y-g(X)$ is absolutely irreducible.
+  \end{enumerate}
+  Then $$\ovL(s,\xi)=1+c_1z+\cdots c_{n+m-1}z^{n+m-1},\quad L(s,\xi)=1+c_1u+\cdots c_{n+m-1}u^{n+m-1}$$where $u=q^{-s}$.
+\end{Theorem}
+
+So we can use \LFactthm and factorize $\ovL(z,\xi)$ and get complex numbers $w_1,\dots, w_{n+m-1}$ such that $$\ovL(z,\xi)=\prod_{j=1}^{n+m-1}(1-w_iz).$$ We can say a lot about the coefficients, specifically $c_1$. 
+\begin{Theorem}{}{}
+  If $\psi$ is nontrivial or if $\psi$ is trivial and $f(X)=1$ then $$c_1=\sum_{\gm\in\bbF_q}\psi(f(\gm))\chi(g(\gm))$$
+\end{Theorem}
+\begin{proof}
+  We have \begin{align*}
+    c_1& = \sum_{\substack{h\in\Phi+1\\ \deg(g)=t}}\\ 
+    & = \sum_{\substack{\alpha\in\bbF_q\\ \alpha\neq \gm_i\ \forall i\in[m]}}\xi(X-\alpha)\\ 
+    & = \sum_{\substack{\alpha\in\bbF_q\\ \alpha\neq \gm_i\ \forall i\in[m]}}\psi\circ\vsg(X-\alpha)\cdot \chi\circ\vrh(X-\alpha)\\ 
+    & = \sum_{\substack{\alpha\in\bbF_q\\ f(\alpha)\neq 0}}\psi(f(\alpha))\cdot \chi(g(\alpha))\\ 
+    & = \sum_{\alpha\in\bbF_q}\psi(f(\alpha))\cdot \chi(g(\alpha))
+  \end{align*}
+  So we have the theorem. 
+\end{proof}

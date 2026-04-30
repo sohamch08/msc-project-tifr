@@ -1,7 +1,9 @@
 \section{Special \texorpdfstring{$L$}{L}-functions}
 In this section we will construct special $L$-functions which will help us study polynomials like $Y^d-f(X)$ or $Y^q-Y-f(X)$ where they are absolutely irreducible and character sums related to such polynomials. Remember the notions we introduced in \autoref{sec:l-functions}.
 
-Let $G$ be the group of all rational functions $r(X)\in\bbF_q(X)$ such that for any $r(X)=\nicefrac{h_1(X)}{h_2(X)}$ where $h_1,h_2\in\Phi$. Let $f(X)\in\bbF_q[X]$ be a monic polynomial in $\bbF_q[X]$. Let $f(X)$ factors into $$f(X)=(X-\gm_1)^{a_1}\cdots (X-\gm_m)^{a_m}$$ in the field $\ov{\bbF}_q[X]$ i.e. $f$ has $m$ distinct roots. Then define the subgroup $\ov{G}$ such that $r=\nicefrac{h_1}{h_2}\in\ovG$ then $$h_1(\gm_i)\cdot h_2(\gm_i)\neq 0\quad\forall\ i\in[m]$$Then $\ovG$ has the property that if $r_1\cdot r_2\in\ovG$ then $r_1,r_2\in \ovG$. 
+Let $G$ be the group of all rational functions $r(X)\in\bbF_q(X)$ such that for any $r(X)=\nicefrac{h_1(X)}{h_2(X)}$ where $h_1,h_2\in\Phi$. 
+
+Let $f(X)\in\bbF_q[X]$ be a monic polynomial in $\bbF_q[X]$. Let $f(X)$ factors into $$f(X)=(X-\gm_1)^{a_1}\cdots (X-\gm_m)^{a_m}$$ in the field $\ov{\bbF}_q[X]$ i.e. $f$ has $m$ distinct roots. Then define the subgroup $\ov{G}$ such that $r=\nicefrac{h_1}{h_2}\in\ovG$ then $$h_1(\gm_i)\cdot h_2(\gm_i)\neq 0\quad\forall\ i\in[m]$$Then $\ovG$ has the property that if $r_1\cdot r_2\in\ovG$ then $r_1,r_2\in \ovG$. 
 
 Now we define a multiplicative function $\vsg:\ovG\to \bbF_q$. Let $r=\nicefrac{h_1}{h_2}\in\ovG$ factors into $$r(X)=\prod_{i=1}^{d_1}(X-\alpha_i)\cdot \prod_{j=1}^{d_2}(X-\beta_j)^{-1}$$ in $\ov{\bbF_q}(X)$. Then define $$\vsg(r)=\prod_{i=1}^{d_1}f(\alpha_i)\cdot \prod_{j=1}^{d_2}f(\beta_j)^{-1}=\prod_{t=1}^mr(\gm_t)^{a_t}$$Take $\vsg(r)=1$ if $f(X)\equiv 1$. Then $\vsg(r)\in\bbF_q$. Then we have the following observation
 \begin{observation}
@@ -50,10 +52,10 @@ Suppose $\nicefrac{h}{r}\in H$. Then
 So now we define the multiplicative function $\xi:G\to\bbC$ where $$\xi(r)=\lt(\psi\circ\vsg\rt)(r)\cdot \lt(\chi\circ\vrh\rt)(r)$$
 \nt{Recall the proof of \DHthm. We defined similar multiplicative function in the proof. There the corresponding $f$ and $g$ was $f(X)=g(X)=X$. }
 Let $\ovH=H\cap \tdH$. Then from \lemref{lem:mult-char-rational-func-identity} and \lemref{lem:add-char-rational-func-identity} we have the following:
-\begin{corolary}{}{}
+\begin{corolary}{}{cor:xi-trivial-subgroup}
   For all $r\in \ovH$ we have $\xi(r)=1$. 
 \end{corolary}
-\begin{lemma}{}{}
+\begin{lemma}{}{lem:ql-poly-every-coset}
   Suppose $t\in\bbZ_0$. Then every coset of $\ovH$ in $\ovG$ in the group $\quotient{\ovG}{\ovH}$ contains precisely $q^t$ polynomials of degree $n+m+t$. 
 \end{lemma}
 \begin{proof}

@@ -1,1 +1,13 @@
-\section{Stepanov Method: \texorpdfstring{$Y^d-f(X)$}{Y^d-f(X)}}
+\section{Stepanov Method: \texorpdfstring{$Y^d-f(X)$}{Yd-f(X)}}
+\begin{Theorem}{}{thm:stepanov}
+  Suppose that $Y^d-f(X)\in\bbF_q[X,Y]$ is an absolutely irreducible polynomial where $\deg(f)=m$. Suppose $q>100dm^2$. Then $$|Z(Y^d=f(X))-q|\leq 4d^{\nicefrac32}q^{\nicefrac12}$$
+\end{Theorem}
+
+\begin{Theorem}{}{thm:yd-fx-irr}
+  Suppose $Y^d-f(X)\in\bbF_q[X,Y]$. Then the following are equivalent:
+  \begin{enumerate}[label=(\roman*)]
+    \item $Y^d-f(X)$ is absolutely irreducible. 
+    \item $Y^d-c\cdot f(X)$ is absolutely irreducible for any $c\in\bbF_q^*$. 
+    \item If $f$ factors into $f(X)=a\prod_{i=1}^m(X-\alpha_i)^{k_i}$ over $\ov{\bbF_q}$ where $\alpha_i\in\ov{\bbF_q}$ for some positive integers $k_1,\dots, k_m$. Then $\gcd(d,k_1,\dots, k_n)=1$. 
+  \end{enumerate}
+\end{Theorem}
