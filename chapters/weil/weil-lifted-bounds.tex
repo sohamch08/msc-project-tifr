@@ -1,0 +1,62 @@
+\section{Weil Bounds via the Lifting Method}
+
+The key tool is to count solutions of certain equations over $\bbF_{q^k}$ in two different ways — once geometrically and once using character sums — and compare. We organise the argument by the type of character involved.
+
+\subsection{Bound for Multiplicative Character Sums}
+
+\begin{lemma}{Counting $d$-th Powers via Multiplicative Characters}{lem:dth-power-count-mult}
+  For a given $\alpha\in\bbF_{q^k}$ the number of $\beta\in\bbF_{q^k}$ with $\beta^d=\alpha$ equals $$\sum_{\psi\in\Mq^{(d)}}\psi^{(k)}(\alpha)=\sum_{\psi\in\Mq^{(d)}}\psi(N_{K/\bbF_q}(\alpha)).$$
+\end{lemma}
+\begin{lemma}{Solutions of $Y^d=f(X)$ via Character Sums}{lem:ydminusfx-charsum}
+  Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots and $Y^d-f(X)$ is absolutely irreducible. Then $$Z\lt(Y^d-f(X)\rt)=\sum_{\psi\in\Mq^{(d)}}\sum_{\alpha\in\bbF_q}\psi^{(k)}(f(\alpha))=\sum_{\psi\in\Mq^{(d)}}S_{\psi}^{(k)}.$$
+\end{lemma}
+Combining the two lemmas above we obtain the Weil bound for multiplicative character sums.
+\begin{Theorem}{Weil Bound for Multiplicative Character Sums}{thm:weil-bound-psi}
+   Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots. Suppose
+   \begin{enumerate}[label=(\roman*)]
+     \item either $Y^d-f(X)$ is absolutely irreducible,
+     \item or $f(X)$ is not a $d$-th power.
+   \end{enumerate}
+   Then $$\lt|\sum_{\alpha\in\bbF_q}\psi\lt(f(\alpha)\rt)\rt|\leq (m-1)q^{\nicefrac12}.$$
+\end{Theorem}
+
+\subsection{Bound for Additive Character Sums}
+
+\begin{lemma}{Counting Solutions of $\beta^q-\beta=\alpha$ via Additive Characters}{lem:frobenius-count-add}
+  For a given $\alpha\in\bbF_{q^k}$ the number of $\beta\in\bbF_{q^k}$ with $\beta^q-\beta=\alpha$ equals
+  $$\sum_{\chi\in\Xq}\chi^{(k)}(\alpha)=\sum_{\chi\in\Xq}\chi\!\lt(\tr_{K/\bbF_q}(\alpha)\rt).$$
+\end{lemma}
+\begin{lemma}{Solutions of $\beta^q-\beta=g(\alpha)$ via Character Sums}{lem:frobenius-charsum}
+  Let $\chi\in\Xq$ be a non-trivial additive character and $g(X)\in\bbF_q[X]$ of degree $n$. Suppose that
+  \begin{enumerate}[label=(\roman*)]
+    \item either $n<q$ and $\gcd(n,q)=1$,
+    \item or $Y^q-Y-g(X)$ is absolutely irreducible.
+  \end{enumerate}
+  The number of $(\alpha,\beta)\in\bbF_{q^k}^2$ with $\beta^q-\beta=g(\alpha)$ equals $$\sum_{\chi\in\Xq}\sum_{\alpha\in\bbF_q}\chi^{(k)}(g(\alpha))=\sum_{\chi\in\Xq}S_{\chi}^{(k)}.$$
+\end{lemma}
+
+\begin{Theorem}{Weil Bound for Additive Character Sums}{thm:weil-bound-chi}
+  Let $\chi\in\Xq$ be a non-trivial additive character and $g(X)\in\bbF_q[X]$ of degree $n$. Suppose that
+  \begin{enumerate}[label=(\roman*)]
+    \item either $n<q$ and $\gcd(n,q)=1$,
+    \item or $Y^q-Y-g(X)$ is absolutely irreducible.
+  \end{enumerate}
+  Then $$\lt|\sum_{\alpha\in\bbF_q}\chi(g(\alpha))\rt|\leq (n-1)q^{\nicefrac12}.$$
+\end{Theorem}
+
+\subsection{Bound for Mixed Character Sums}
+
+\begin{lemma}{Joint Counting via Multiplicative and Additive Characters}{lem:joint-count-mult-add}
+  For $\alpha_1,\alpha_2\in\bbF_{q^k}$ the number of $(\beta_1,\beta_2)\in\bbF_{q^k}^2$ with $\beta_1^d=\alpha_1$ and $\beta_2^q-\beta_2=\alpha_2$ equals $$\sum_{\psi\in\Mq^{(d)}}\sum_{\chi\in\Xq}\psi^{(k)}(\alpha_1)\,\chi^{(k)}(\alpha_2).$$
+\end{lemma}
+\begin{lemma}{Solutions of $\beta^d=f(\alpha)$, $\gamma^q-\gamma=g(\alpha)$ via Character Sums}{lem:joint-solutions-charsum}
+  The number of $(\alpha,\beta,\gm)\in\bbF_{q^k}^3$ with $\beta^d=f(\alpha)$ and $\gm^q-\gm=g(\alpha)$ is $$\sum_{\psi\in\Mq^{(d)}}\sum_{\chi\in\Xq}S_{\psi,\chi}^{(k)}.$$
+\end{lemma}
+\begin{Theorem}{Weil Bound for Mixed Character Sums}{thm:weil-bound-mixed}
+  Let $\psi\in\Mq$ and $\chi\in\Xq$ be non-trivial multiplicative and additive characters with $\ord(\psi)=d$, $d\mid q-1$. Let $f(X)\in\bbF_q[X]$ have precisely $m$ distinct roots and $g(X)\in\bbF_q[X]$ with $\deg(g)=n$. Suppose that
+  \begin{enumerate}[label=(\roman*)]
+    \item either $\gcd(d,\deg(f))=\gcd(n,q)=1$,
+    \item or both $Y^d-f(X)$ and $Z^q-Z-g(X)$ are absolutely irreducible.
+  \end{enumerate}
+  Then $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\chi(g(\alpha))\rt|\leq (m+n-1)q^{\nicefrac{1}{2}}.$$
+\end{Theorem}

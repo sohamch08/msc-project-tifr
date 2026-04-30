@@ -42,12 +42,12 @@ As we mentioned in the previous section. We can extend $\xi$ to $G$ by setting $
 \end{Theorem}
 
 So we can use \LFactthm and factorize $\ovL(z,\xi)$ and get complex numbers $w_1,\dots, w_{n+m-1}$ such that $$\ovL(z,\xi)=\prod_{j=1}^{n+m-1}(1-w_iz).$$ We can say a lot about the coefficients, specifically $c_1$. 
-\begin{Theorem}{}{thm:ovL-leading-coeff}
+\begin{Theorem}{Leading Coefficient $c_1$ of $\ovL(z,\xi)$}{thm:ovL-leading-coeff}
   If $\psi$ is nontrivial or if $\psi$ is trivial and $f(X)=1$ then $$c_1=\sum_{\gm\in\bbF_q}\psi(f(\gm))\chi(g(\gm)).$$
 \end{Theorem}
 \begin{proof}
   We have \begin{align*}
-    c_1& = \sum_{\substack{h\in\Phi+1\\ \deg(g)=t}}\\ 
+    c_1& = \sum_{\substack{h\in\Phi+1\\ \deg(g)=t}}\xi(h)\\ 
     & = \sum_{\substack{\alpha\in\bbF_q\\ \alpha\neq \gm_i\ \forall i\in[m]}}\xi(X-\alpha)\\ 
     & = \sum_{\substack{\alpha\in\bbF_q\\ \alpha\neq \gm_i\ \forall i\in[m]}}\psi\circ\vsg(X-\alpha)\cdot \chi\circ\vrh(X-\alpha)\\ 
     & = \sum_{\substack{\alpha\in\bbF_q\\ f(\alpha)\neq 0}}\psi(f(\alpha))\cdot \chi(g(\alpha))\\ 
@@ -58,7 +58,7 @@ So we can use \LFactthm and factorize $\ovL(z,\xi)$ and get complex numbers $w_1
 
 \subsection{Field Extensions}
 Suppose we aer given a finite field extension $E$ of $\bbF_q$ where $[E\colon \bbF_q]=r$. So like \autoref{sec:lifting-chars} we can lift $\psi$ and $\chi$ to $\psi^{(r)}$ and $\chi^{(r)}$ for $E$. And using these two characters we can define the lifted multiplicative function $\xi^{(r)}$ on the group $G_r,\ovG_r$ with rational functions defined similarly as $G,\ovG$ but on $E$. So for any $r\in G_r$ we define $$\xi^{(r)}=\psi^{(r)}\circ \vsg(r)\cdot \chi^{(r)}\circ\vrh(r)$$We define $\tdH_r,H_r,\ovH_r$ for $G_r,\ovG_r$ similarly as $\tdH,H,\ovH$. Now using $\xi^{(r)}$ we also create the $L$-functions, $L^{(r)}(s,\xi^{(r)})$ and $\ovL^{(r)}(z,\xi^{(r)})$. So we have $$L^{(r)}(s,\xi^{(r)})=\sum_{h\in\Phi^{(r)}}\chi^{(r)}\cdot\mfn^{(r)}(h)^{-s},\qquad \ovL^{(r)}(z,\xi^{(r)})=\sum_{h\in\Phi^{(r)}}\chi^{(r)}\cdot z^{\deg(h)}$$ where $\Phi^{(r)}$ is the set of all monic polynomials in $E$. We similarly define $\Phi_d$ for any $d\in\bbZ_0$. We also use two notations $$S=\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\cdot \chi(g(\alpha)),\quad S^{(r)}=\sum_{\alpha\in E}\psi^{(r)}(f(\alpha))\cdot\chi^{(r)}(g(\alpha))$$
-\begin{lemma}{}{lem:irr-splits-over-ext}
+\begin{lemma}{Splitting of Irreducible Polynomials over $\bbF_{q^k}$}{lem:irr-splits-over-ext}
   Let $K=\bbF_{q^k}$ and $E=\bbF_{q^r}$. Suppose $h(X)=X^d-a_1X^{d-1}+\cdots+(-1)^da_d$ be an irreducible polynomial in $\bbF_q[X]$. Then in $\bbF_{q^k}[X]$, $h$ splits into $r=\gcd(k,d)$ many irreducible polynomials of degree $\nicefrac{d}{r}$: $$h(X)=h_1(X)\cdots h_r(X)$$If we normalize $h_i(X)$ such that $h_i$ is monic then $h_i(X)\in\bbF_{q^r}[X]$ for all $i\in[r]$. Then
   \begin{enumerate}[label=(\roman*)]
     \item $\mfn^{(k)}(h_i)=\mfn(h)^{\nicefrac{k}{r}}$
@@ -87,65 +87,12 @@ Now we can write $L^{(k)}(s,\xi^{(k)})$ and $\ovL^{(k)}(z,\xi^{(k)})$ in terms o
   \end{align*}So we have the theorem. 
 \end{proof}
 Now bt \ovLXiFinitethm, $L(s,\xi)$ is a polynomial. So there exists the complex numbers $w_1,\dots, w_l\in\bbC$ such that $L(s,\xi)=(1-w_1u)\cdots (1-w_lu)$ for some $l\in\bbN$ where $u=q^{-s}$. By the above theorem we can claim that $\ovL^{(k)}\lt(z,\xi^{(k)}\rt)$ or $L^{(k)}\lt(s,\xi^{(k)}\rt)$ is also a polynomial since its product of finitely many polynomial. We will prove that the corresponding complex number of $L^{(k)}\lt(s,\xi^{(k)}\rt)$ are $w_i^k$ for all $i\in[l]$. 
-\begin{corolary}{}{}
-  If $L(s,\xi)$ is given by $L(s,\xi)=(1-w_1u)\cdots (1-w_lu)$ with $u=q^{-s}$ then $$ L^{(k)}\lt(s,\xi^{(k)}\rt)=(1-w^k\cdot u_k)\cdots (1-w_l^k\cdot u_k)$$where $u_k=q^{-ks}$. 
+\begin{corolary}{Reciprocal Roots of the Lifted $L$-function}{cor:lifted-L-roots}
+  If $L(s,\xi)$ is given by $L(s,\xi)=(1-w_1u)\cdots (1-w_lu)$ with $u=q^{-s}$ then $$ L^{(k)}\lt(s,\xi^{(k)}\rt)=(1-w_1^k\cdot u_k)\cdots (1-w_l^k\cdot u_k)$$where $u_k=q^{-ks}$.
 \end{corolary}
 
-\begin{corolary}{}{}
-  Suppose either $\psi\in\Mq$ is a nontrivial multiplicative character of exponent $d$ and $Y^d-f(X)$ is absolutely irreducible. If $\chi\in\Xq$ is a additive character either non-trivial or its trivial and $f(X)=1$ then  $$S^{(k)}=-\sum_{i=1}^{n+m-1}w_i^k$$
+\begin{corolary}{Character Sum via Reciprocal Roots}{cor:charsum-reciprocal-roots}
+  Suppose either $\psi\in\Mq$ is a nontrivial multiplicative character of exponent $d$ and $Y^d-f(X)$ is absolutely irreducible. If $\chi\in\Xq$ is a additive character either non-trivial or trivial and $f(X)=1$ then $$S^{(k)}=-\sum_{i=1}^{n+m-1}w_i^k.$$
 \end{corolary}
+
 \subsection{Alternate Proof of Davenport-Hasse Relation}
-
-%create a new subsection
-\begin{lemma}{}{}
-  For a given $\alpha\in\bbF_{q^k}$ the number of $\beta\in\bbF_{q^k}$ with $\alpha^d=\beta$ equals $$\sum_{\psi\in\Mq^{(d)}}\psi^{(k)}(\alpha)=\sum_{\psi\in\Mq^{(d)}}\psi(N_{K/\bbF_q}(\alpha))$$
-\end{lemma}
-\begin{lemma}{}{}
-  Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots and suppose that $Y^d-f(X)$ is absolutely irreducible. Then $$Z(Y^d-f(X))=\sum_{\psi\in\Mq^{(d)}}\sum_{\alpha\in\bbF_q}\psi^{(k)}(f(\alpha))=\sum_{\psi\in\Mq^(d)}S_{\psi}^{(k)}$$
-\end{lemma}
-we use above lemma to prove this theorem.
-\begin{Theorem}{}{}
-   Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots. Suppose
-   \begin{enumerate}[label=(\roman*)]
-     \item either $Y^d-f(X)$ is absolutely irreducible. 
-     \item or, $f(X)$ is not a $d^{th}$ power
-   \end{enumerate}
-   Then $$\lt|\sum_{\alpha\in\bbF_q}\psi\lt(f(\alpha)\rt)\rt|\leq (m-1)q^{\nicefrac12}$$
-\end{Theorem}
-
-\begin{lemma}{}{}
-  For a given $\alpha\in\bbF_{q^k}$ the number of $\beta\in\bbF_{q^k}$ with $\alpha^d=\beta$ equals $\beta^q-\beta=\alpha$ equals 
-  $$\sum_{\chi\in\Xq}\chi^{(k)}(\alpha)=\sum_{\chi\in\Xq}\chi(\tr_{K/\bbF_q}(\alpha))$$
-\end{lemma}
-\begin{lemma}{}{}
-  Let $\chi\in\Xq$ be a non-trivial additive character. Let $g(X)\in\bbF_q[X]$ of degree $n$. Suppose that 
-  \begin{enumerate}[label=(\roman*)]
-    \item either $n<q$ and $\gcd(n,q)=1$ 
-    \item or, $Y^q-Y-g(X)$ is absolutely irreducible
-  \end{enumerate}
-  The number of solutions of $\alpha,\beta\in\bbF_{q^k}$ such that $\beta^q-\beta=\alpha$ equals $$\sum_{\chi\in\Xq}\sum_{\alpha\in\bbF_q}\chi^{(k)}(g(\alpha))=\sum_{\chi\in\Xq}S_{\chi}^{(k)}$$
-\end{lemma}
-
-\begin{Theorem}{}{}
-  Let $\chi\in\Xq$ be a non-trivial additive character. Let $g(X)\in\bbF_q[X]$ of degree $n$. Suppose that 
-  \begin{enumerate}[label=(\roman*)]
-    \item either $n<q$ and $\gcd(n,q)=1$ 
-    \item or, $Y^q-Y-g(X)$ is absolutely irreducible
-  \end{enumerate}
-  Then $$\lt|\sum_{\alpha\in\bbF_q}\chi(g(\alpha))\rt|\leq (n-1)q^{\nicefrac12}$$
-\end{Theorem}
-
-\begin{lemma}{}{}
-  For $\alpha_1,\alpha_2\in\bbF_{q^k}$ the number of $\beta_1,\beta_2\in\bbF_{q^k}$ with $$\beta_1^d=\alpha_1,\qquad \beta_2^q-\beta_2=\alpha_2$$ is $$\sum_{\psi\in\Mq^{(d)}}\sum_{\chi\in\Xq}\psi^{(k)}(\alpha_1)\chi^{(k)}(\alpha_2)$$
-\end{lemma}
-\begin{lemma}{}{}
-  The number of $\alpha,\beta,\gm\in\bbF_{q^k}$ with $$\beta^d=f(\alpha),\qquad \gm^q-\gm=g(\alpha)$$ is given by $$\sum_{\psi\in\Mq^(d)}\sum_{\chi\in\Xq}S_{\psi,\chi}^{(k)}$$
-\end{lemma}
-\begin{Theorem}{}{}
-  Let $\psi\in\Mq$ and $\chi\in\Xq$ be non-trivial multiplicative and additive character respectively where $\ord(\psi)=d$, $d\mid q-1$. Let $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots and $g(X)\in\bbF_q[X]$ with $\deg(g)=n$. Suppose that 
-  \begin{enumerate}[label=(\roman*)]
-    \item either $\gcd(d,\deg(f))=\gcd(n,q)=1$ 
-    \item or, both $Y^d-f(X)$ and $Z^q-Z-g(X)$ are absolutely irreducible.
-  \end{enumerate}
-  Then $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\chi(g(\alpha))\rt|\leq (m+n-1)q^{\nicefrac{1}{2}}$$
-\end{Theorem}
