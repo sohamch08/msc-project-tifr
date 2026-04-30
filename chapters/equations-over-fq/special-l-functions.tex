@@ -22,9 +22,9 @@ Now if $\chi\in\Xq$ is an additive character of $\bbF_q$ then for all $r_1,r_2\i
 
 Let $H$ be a subset of $G$ consisting of rational functions $r=\nicefrac{h_1}{h_2}$ where $$h_1(X)=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i},\qquad h_1(X)=X^{d_2}+\sum_{i=1}^{d_2}(-1)^i\cdot b_i\cdot X^{d_2-i}$$ such that $a_i=b_i$ for all $i\in[n]$. Therefore $H$ is a subgroup of $G$. Now notice that suppose $h(X)$ is a monic polynomial and $r=\nicefrac{h_1}{h_2}\in G$ be a rational function. Now we will show another way of writing this condition which is more algebraic to work with.
 
-$$h_1(X) = X^{d_1}\lt(1+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot \frac1{X^i}\rt),\qquad h_2(X) = X^{d_2}\lt(1+\sum_{j=1}^{d_2}(-1)^i\cdot b_j\cdot \frac1{X^j}\rt)$$So take the polynomials $\hh_1(Y)=1+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot Y^i$ and $\hh_2(Y)=1+\sum_{j=1}^{d_2}(-1)^i\cdot b_j\cdot Y^j$. Now since $a_i=b_i$ for all $i\in[n]$ we have $\hh_1\equiv \hat{h_2}\bmod{\lt\la X^{n+1}\rt\ra}$ So we have the following observations
+$$h_1(X) = X^{d_1}\lt(1+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot \frac1{X^i}\rt),\qquad h_2(X) = X^{d_2}\lt(1+\sum_{j=1}^{d_2}(-1)^i\cdot b_j\cdot \frac1{X^j}\rt)$$So take the polynomials $\hh_1(Y)=1+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot Y^i$ and $\hh_2(Y)=1+\sum_{j=1}^{d_2}(-1)^i\cdot b_j\cdot Y^j$. Now since $a_i=b_i$ for all $i\in[n]$ we have $\hh_1\equiv \hat{h_2}\bmod{\la X\ra^{n+1}}$ So we have the following observations
 \begin{observation}
-  If $r=\frac{h_1}{h_2}\in G$ where $h_1=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i}$ and $h_1=X^{d_2}+\sum_{j=1}^{d_2}(-1)^j\cdot a_j\cdot X^{d_2-j}$ then consider the polynomial $\hh_1(Y)=\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot Y^{i}$ and $\hh_2(Y)=\sum_{j=1}^{d_2}(-1)^j\cdot a_j\cdot Y^{j}$ that is we have  $$\hh_1=Y^{d_1}h_1(\nicefrac1Y),\quad\text{and}\quad\hh_2=Y^{d_2}h(\nicefrac1Y)$$Then $r\in H\iff \hh_1\equiv \hh_2\bmod{\lt\la X^{n+1}\rt\ra}$
+  If $r=\frac{h_1}{h_2}\in G$ where $h_1=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i}$ and $h_1=X^{d_2}+\sum_{j=1}^{d_2}(-1)^j\cdot a_j\cdot X^{d_2-j}$ then consider the polynomial $\hh_1(Y)=\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot Y^{i}$ and $\hh_2(Y)=\sum_{j=1}^{d_2}(-1)^j\cdot a_j\cdot Y^{j}$ that is we have  $$\hh_1=Y^{d_1}h_1(\nicefrac1Y),\quad\text{and}\quad\hh_2=Y^{d_2}h(\nicefrac1Y)$$Then $r\in H\iff \hh_1\equiv \hh_2\bmod{\la X\ra^{n+1}}$
 \end{observation}
 
 
@@ -32,12 +32,12 @@ $$h_1(X) = X^{d_1}\lt(1+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot \frac1{X^i}\rt),\qq
 Let $r =\nicefrac{h_1}{h_2}\in G$ be a rational function with $h_1,h_2\in\Phi$ with degrees $d_1, d_2$ respectively and let $h$ be a monic polynomial of degree $d$.
 Suppose $\nicefrac{h}{r}\in H$. Then
 \[
-\hh \equiv \hat{r} \bmod{\lt\la X^{n+1}\rt\ra}
+\hh \equiv \hat{r} \bmod{\la X\ra^{n+1}}
 \]
 \end{lemma}
 \begin{proof}
-  From $h_1,h_2,h$ we construct the corresponding polynomials $\hh_1(Y),\hh_2(Y), \hh(Y)$. Since $\frac{h}{r}=\frac{h\cdot h_2}{h_1}$ we have $\nicefrac{(h\cdot h_2)}{h_1}\in H$. Now we construct the polynomial $\widehat{h\cdot h_2}(Y)$ from $h\cdot h_2$. Then we have $$\widehat{h\cdot h_2}(Y)=Y^{d+d_2}(h(\nicefrac1Y)\cdot h_2(\nicefrac1Y))=\lt(Y^dh(\nicefrac1Y)\rt)\cdot \lt(Y^{d_2}h(\nicefrac1Y)\rt)=\widehat{h}\cdot \widehat{h}_2$$Since $\nicefrac{h}{r}\in H$ we have $\hh_1\equiv \hh_2\cdot \hh\bmod{\lt\la X^{n+1}\rt\ra}$. 
-  Now we compute $\hr$. Now $r=\nicefrac{h_1}{h_2}$ so $h_2\cdot r=h_1$ and therefore $\wh{h_2\cdot r}=\hh_2\cdot \wh{r}$. Hence $$\hh_2\cdot \wh{r}\equiv \hh_1\equiv \hh_2\cdot \hh$$ Since $\hh_2$ is a non-zero polynomial we have $\hr\equiv \hh\bmod{\lt\la X^{n+1}\rt\ra}$. 
+  From $h_1,h_2,h$ we construct the corresponding polynomials $\hh_1(Y),\hh_2(Y), \hh(Y)$. Since $\frac{h}{r}=\frac{h\cdot h_2}{h_1}$ we have $\nicefrac{(h\cdot h_2)}{h_1}\in H$. Now we construct the polynomial $\widehat{h\cdot h_2}(Y)$ from $h\cdot h_2$. Then we have $$\widehat{h\cdot h_2}(Y)=Y^{d+d_2}(h(\nicefrac1Y)\cdot h_2(\nicefrac1Y))=\lt(Y^dh(\nicefrac1Y)\rt)\cdot \lt(Y^{d_2}h(\nicefrac1Y)\rt)=\widehat{h}\cdot \widehat{h}_2$$Since $\nicefrac{h}{r}\in H$ we have $\hh_1\equiv \hh_2\cdot \hh\bmod{\la X\ra^{n+1}}$. 
+  Now we compute $\hr$. Now $r=\nicefrac{h_1}{h_2}$ so $h_2\cdot r=h_1$ and therefore $\wh{h_2\cdot r}=\hh_2\cdot \wh{r}$. Hence $$\hh_2\cdot \wh{r}\equiv \hh_1\equiv \hh_2\cdot \hh$$ Since $\hh_2$ is a non-zero polynomial we have $\hr\equiv \hh\bmod{\la X\ra^{n+1}}$. 
 \end{proof}
 
 \begin{lemma}{}{lem:add-char-rational-func-identity}
@@ -57,12 +57,10 @@ Let $\ovH=H\cap \tdH$. Then from \lemref{lem:mult-char-rational-func-identity} a
   Suppose $t\in\bbZ_0$. Then every coset of $\ovH$ in $\ovG$ in the group $\quotient{\ovG}{\ovH}$ contains precisely $q^t$ polynomials of degree $n+m+t$. 
 \end{lemma}
 \begin{proof}
-  Suppose $r(X)=\nicefrac{h_1}{h_2}\in \ovG$. Then it suffices to show that there are precisely $q^t$ polynomials $h(X)=X^{n+m+t}+\sum_{i=1}^{n+m+t}(-1)^i\cdot b_i\cdot X^{n+m+t-i}$ with $\nicefrac{h}{r}\in\ovH$. By \lemref{lem:coeff-same-poly-by-rat} this means there are $q^t$ polynomails $h(X)\in\Phi$ with $\deg(h)=n+m+t$ such that \begin{equation}\label{eq:H-cond-poly-rat}
-    \hh\equiv \hr\bmod{\lt\la X^{n+1}\rt\ra}
-  \end{equation}
-\begin{equation}\label{eq:tdH-cond-poly-rat}
-  k(\gm_i)=r(\gm_i)\quad \forall i\in[m]
-\end{equation}  Now the coefficients $b_1,\dots, b_n$ are already determined by the condition \eqref{eq:H-cond-poly-rat}. Now the equations in \eqref{eq:tdH-cond-poly-rat} gives $m$ linear equations. The matrix of this equation is a $m\times m$ Vandermonde matrix over $\gm_i^j$ for all $i\in[m]$ and $j\in\{0,1,\dots, m-1\}$. Hence by the system of linear equations $m$ coefficients $\{b_{n+t+1},\dots, b_{n+t+m}\}$ gets uniquely determined. Hence we can pick $b_{n+1},\dots, b_{n+t}$ arbitrarily. Therefore there are $q^t$ many choices for $h(X)$. 
+  Suppose $r(X)=\nicefrac{h_1}{h_2}\in \ovG$. Then it suffices to show that there are precisely $q^t$ polynomials $h(X)=X^{n+m+t}+\sum_{i=1}^{n+m+t}(-1)^i\cdot b_i\cdot X^{n+m+t-i}$ with $\nicefrac{h}{r}\in\ovH$. By \lemref{lem:coeff-same-poly-by-rat} this means there are $q^t$ polynomails $h(X)\in\Phi$ with $\deg(h)=n+m+t$ such that \begin{align}
+    &\hh \equiv \hr\bmod{\la X\ra^{n+1}} \label{eq:H-cond-poly-rat}&\\
+    &k(\gm_i) = r(\gm_i) \quad \forall i\in[m] \label{eq:tdH-cond-poly-rat}&
+  \end{align}  Now the coefficients $b_1,\dots, b_n$ are already determined by the condition \eqref{eq:H-cond-poly-rat}. Now the equations in \eqref{eq:tdH-cond-poly-rat} gives $m$ linear equations. The matrix of this equation is a $m\times m$ Vandermonde matrix over $\gm_i^j$ for all $i\in[m]$ and $j\in\{0,1,\dots, m-1\}$. Hence by the system of linear equations $m$ coefficients $\{b_{n+t+1},\dots, b_{n+t+m}\}$ gets uniquely determined. Hence we can pick $b_{n+1},\dots, b_{n+t}$ arbitrarily. Therefore there are $q^t$ many choices for $h(X)$. 
 \end{proof}
 
 We write alternate proof of Davenport-Hasse Theorem from Schmidt 2.{6,7,8,9,10}
