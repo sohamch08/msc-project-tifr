@@ -1,14 +1,27 @@
 \section{Weil Bounds via the Lifting Method}
 
-In this section we will try to give bounds on the absolute value of deviation of number of zeros from the average number of zeros, $q^{n-1}$. And then we will give upper bounds on the absolute values of $\Wpsil{k}{f}$, $\Wchil{k}{g}$ and $\Wmixl{k}{f}{g}$. 
+In this section we will try to give bounds on the absolute value of deviation of number of zeros from the average number of zeros. And then we will give upper bounds on the absolute values of $\Wpsil{k}{f}$, $\Wchil{k}{g}$ and $\Wmixl{k}{f}{g}$. But here we will count the solutions or give the bounds on absolute value on lifted characters in a finite extension field $K=\bbF_{q^k}$ of $\bbF_q$.  For any polynomial $P(X,Y)\in\bbF_q[X,Y]$ we denote the number of solutions of $P(X,Y)=0$ in the field $K$ by $Z_K(P(X,Y)=0)$. 
 
 \subsection{Bound for Multiplicative Character Sums}
-Let $\psi\in\Mq$ be a non-trivial multiplicative character. Let $f(X)\in\bbF_q[X]$ is a monic polynomial with precisely $m$ distinct roots. Then $$\Wpsi{f}=\sum_{\alpha\in\bbF_q}\psi(f(\alpha)),\qquad \Wpsil{k}{f}=\sum_{\alpha\in\bbF_{q^k}}\psi^{(k)}(f(\alpha))$$So by \LiftedLRootscor there exists complex numbers $w_1,\dots, w_{m-1}\in\bbC$ such that $$\Wpsil{k}{f}=\sum_{\alpha\in\bbF_{q^k}}\psi^{(k)}(f(\alpha))=-\sum_{j=1}^{m-1}w_i^k$$Suppose $\psi\in\Mq^{(d)}$ where $d>1$. Then there are $d$ characters of exponent $d$. For each such character $\psi$ we define the sums 
-\begin{lemma}{Counting $d$-th Powers via Multiplicative Characters}{lem:dth-power-count-mult}
+Let $\psi\in\Mq$ be a non-trivial multiplicative character. And let $\chi_0\in\Xq$ be the trivial additive character. Let $f(X)\in\bbF_q[X]$ is a monic polynomial with precisely $m$ distinct roots. Let $g(X)=0$. Then $W\lt(\psi,\chi_0;f,0\rt)=\Wpsi{f}$ and $W^{(k)}\lt(\psi^{(k)},\chi_0^{(k)};f,0\rt)=\Wpsil{k}{f}$. So by \LiftedLRootscor there exists complex numbers $w_1,\dots, w_{m-1}\in\bbC$ such that $$\Wpsi{f}=\sum_{\alpha\in\bbF_{q}}\psi(f(\alpha))=-\sum_{j=1}^{m-1}w_j,\qquad\Wpsil{k}{f}=\sum_{\alpha\in\bbF_{q^k}}\psi^{(k)}(f(\alpha))=-\sum_{j=1}^{m-1}w_j^k$$
+Suppose $\psi\in\Mq^{(d)}$ where $d>1$. Then there are $d$ characters of exponent $d$. For each such non-trivial character $\psi$ we define complex numbers $w_{\psi,j}\in\bbC$ for all $j\in[m-1]$ such that  $$\Wpsi{f}=-\sum_{j=1}^{m-1}w_{\psi,j},\qquad \Wpsil{k}{f}=-\sum_{j=1}^{m-1}w_{\psi,j}^k$$So taking the sum over all non-trivial $\psi\in\Mq^{(d)}$ we get $$\sum_{\psi\in\Mq^{(d)},\psi\neq \psi_0}\Wpsil{k}{f}=-\sum_{\psi\in\Mq^{(d)},\psi\neq \psi_0}\sum_{j=1}^{m-1}w_{\psi,j}^k$$On the other hand if $\psi$ is trivial then we have $W^{(k)}\lt(\psi_0^{(k)};f\rt)=q^k$. Then we have the following lemma
+\begin{lemma}{Counting Solutions of $\beta^d=\alpha$ via Additive Characters}{lem:dth-power-count-mult}
   For a given $\alpha\in\bbF_{q^k}$ the number of $\beta\in\bbF_{q^k}$ with $\beta^d=\alpha$ equals $$\sum_{\psi\in\Mq^{(d)}}\psi^{(k)}(\alpha)=\sum_{\psi\in\Mq^{(d)}}\psi(N_{K/\bbF_q}(\alpha)).$$
 \end{lemma}
+\begin{proof}
+  Since $\alpha\to N_{K/\bbF_q}(\alpha)$ is a group homomorphism from $\bbF_{q^k}^*\to\bbF_q^*$ which is an onto homomorphism. Now for any $\gm\in\bbF_q^*$ the number of $\beta\in\bbF_{q^k}^*$ such that $N_{K/\bbF_q}(\beta)=\gm$ is exactly $1+q+\cdots +q^{k-1}=\nicefrac{\bbF_{q^k}^*}{|\bbF_q^*|}$. Then restriction $\lt.N_{K/\bbF_q}\rt|_{{\bbF_{q^k}^*}^{(d)}}\colon {\bbF_{q^k}^*}^{(d)}\to {\bbF_q^*}^{(d)}$ is also onto. So for any $\alpha\in\bbF_{q^k}$, $N_{K/\bbF_q}(\alpha)\in {\bbF_q^*}^{(d)}\iff \alpha\in{\bbF_{q^k}^*}^{(d)}$. 
+  
+  Now by \thmref{thm:char-power-sum-d} we have $\sum_{\psi\in\Mq^{(d)}}\psi^{(k)}(\alpha)\in \{0,1,d\}$. If $\alpha=0$ then the sum is $1$ and otherwise if $N_{K/\bbF_q}\in {\bbF_q^*}^{(d)}$ then the sum is $d$ and and if $N_{K/\bbF_q}\notin {\bbF_q^*}^{(d)}$ then the sum is $0$. 
+  \begin{enumerate}[label=(\roman*)]
+    \item If $\alpha= 0$ and $\alpha\notin {\bbF_{q^k}^*}^{(d)}$ then there is single solution for $\beta=0$ such that $\beta^d=\alpha$. 
+    \item If $\alpha\neq 0$ and $\alpha\notin {\bbF_{q^k}^*}^{(d)}$ then there are no solution for $\beta$ such that $\beta^d=\alpha$. 
+    \item If $\alpha\in {\bbF_{q^k}^*}^{(d)}$ then there are $d$ solutions for $\beta\in\bbF_{q^k}$ such that $\beta^d=\alpha$.
+  \end{enumerate}
+  So the sum in the lemma statement exactly gives the number of solutions. 
+\end{proof}
+Now we apply the above lemma for the solutions of  $Y^d-f(X)$ and count the number of solutions using multiplicative character sums. So we take the sum over all possible $\alpha\in\bbF_{q^k}$ we and we get the following lemma:
 \begin{lemma}{Solutions of $Y^d=f(X)$ via Character Sums}{lem:ydminusfx-charsum}
-  Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots and $Y^d-f(X)$ is absolutely irreducible. Then $$Z\lt(Y^d-f(X)\rt)=\sum_{\psi\in\Mq^{(d)}}\sum_{\alpha\in\bbF_q}\psi^{(k)}(f(\alpha))=\sum_{\psi\in\Mq^{(d)}}S_{\psi}^{(k)}.$$
+  Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots. Then $$Z_K\lt(Y^d-f(X)\rt)=\sum_{\psi\in\Mq^{(d)}}\sum_{\alpha\in\bbF_q}\psi^{(k)}(f(\alpha))=\sum_{\psi\in\Mq^{(d)}}\Wpsil{k}{f}.$$
 \end{lemma}
 Combining the two lemmas above we obtain the Weil bound for multiplicative character sums.
 \begin{Theorem}{Weil Bound for Multiplicative Character Sums}{thm:weil-bound-psi}
@@ -19,20 +32,20 @@ Combining the two lemmas above we obtain the Weil bound for multiplicative chara
    \end{enumerate}
    Then $$\lt|\sum_{\alpha\in\bbF_q}\psi\lt(f(\alpha)\rt)\rt|\leq (m-1)q^{\nicefrac12}.$$
 \end{Theorem}
-
+\begin{proof}
+  \begin{enumerate}[label=(\roman*)]
+    \item Now we can assume $f$ to monic. Since $\psi(a\cdot f(\alpha))=\psi(a)\cdot \psi(f(\alpha))$. Now by \Stepanov we know if $Y^d-f(X)$ is absolutely irreducible then $|Z_K(Y^d=f(X))-q^k|=O(q^{\nicefrac{k}2})$. Since $W^{(k)}\lt(\psi^{(k)}_0;f\rt)=q^k$ by \YdFxCharSumlem we have $$|Z_k(Y^d=f(X))-q^k|=\lt|\sum_{\psi\in\Mq^{(d)}, \psi\neq \psi_0}\Wpsil{k}{f}\rt|=O(q^{\nicefrac{k}2})$$Then by \PowerSumBound we have for all $\psi\in\Mq^{(d)}\setminus\{\psi_0^{(k)}\}$ and for all $i\in[m-1]$ we have $|w_{\psi,j}|\leq q^{\nicefrac12}$. Therefore $|\Wpsil{k}{f}|\leq (m-1)q^{\nicefrac{k}{2}}$ and $|\Wpsi{f}|\leq (m-1)q^{\nicefrac12}$. So from this we get $|Z_K(Y^d=f(X))-q^k|\leq (d-1)(m-1)q^{\nicefrac{k}2}$ and $|Z(Y^d=f(X))-q|\leq (d-1)(m-1)q^{\nicefrac{1}2}$.
+    \item will do later
+  \end{enumerate}
+\end{proof}
 \subsection{Bound for Additive Character Sums}
-
+Let $\chi\in\Xq$ be a non-trivial additive character. Let $\psi_0\in\Mq$ be the trivial multiplicative character. Let $g\in\bbF_q$ be a polynomial of degree $n$. Take $f(X)=1$. Then $W\lt(\psi_0,\chi;1,g\rt)=\Wchi{g}$ and $W^{(k)}\lt(\psi_0^{(k)},\chi^{(k)};1,g\rt)=\Wpsil{k}{f}$. So by \LiftedLRootscor there exists complex numbers $w_1,\dots, w_{n-1}$ such that $$\Wchi{g}=\sum_{\alpha\in\bbF_q}\chi(g(\alpha))=-\sum_{j=1}^{n-1}w_j,\qquad \Wchil{k}{g}=\sum_{\alpha\in\bbF_{q^k}}\chi^{(k)}(g(\alpha))=-\sum_{j=1}^{n-1}w_j^k$$There are $q$ additive characters $\chi\in\Xq$ of $\bbF_q$. For each non-trivial character $\chi$ we define complex numbers $w_{\chi,j}\in\bbC$ for all $j\in[n-1]$ such that $$\Wchi{g}=-\sum_{j=1}^{n-1}w_{\chi,j},\qquad \Wchil{k}{g}=-\sum_{j=1}^{n-1}w_{\chi,j}^k$$So if we take the sum over all non-trivial additive character we get $$\sum_{\chi\in\Xq,\chi\neq \chi_0}\Wchil{k}{g}=-\sum_{\chi\in\Xq,\chi\neq \chi_0}\sum_{j=1}^{n-1}w_{\chi,j}^k$$On the other hand if $\chi=\chi_0$ i.e. if $\chi$ is trivial then $\Wchil{k}{g}=q^{k}$. Then we have the following lemma
 \begin{lemma}{Counting Solutions of $\beta^q-\beta=\alpha$ via Additive Characters}{lem:frobenius-count-add}
   For a given $\alpha\in\bbF_{q^k}$ the number of $\beta\in\bbF_{q^k}$ with $\beta^q-\beta=\alpha$ equals
   $$\sum_{\chi\in\Xq}\chi^{(k)}(\alpha)=\sum_{\chi\in\Xq}\chi\!\lt(\tr_{K/\bbF_q}(\alpha)\rt).$$
 \end{lemma}
 \begin{lemma}{Solutions of $\beta^q-\beta=g(\alpha)$ via Character Sums}{lem:frobenius-charsum}
-  Let $\chi\in\Xq$ be a non-trivial additive character and $g(X)\in\bbF_q[X]$ of degree $n$. Suppose that
-  \begin{enumerate}[label=(\roman*)]
-    \item either $n<q$ and $\gcd(n,q)=1$,
-    \item or $Y^q-Y-g(X)$ is absolutely irreducible.
-  \end{enumerate}
-  The number of $(\alpha,\beta)\in\bbF_{q^k}^2$ with $\beta^q-\beta=g(\alpha)$ equals $$\sum_{\chi\in\Xq}\sum_{\alpha\in\bbF_q}\chi^{(k)}(g(\alpha))=\sum_{\chi\in\Xq}S_{\chi}^{(k)}.$$
+  Let $\chi\in\Xq$ be a non-trivial additive character and $g(X)\in\bbF_q[X]$ of degree $n$. The number of $(\alpha,\beta)\in\bbF_{q^k}^2$ with $\beta^q-\beta=g(\alpha)$ equals $$\sum_{\chi\in\Xq}\sum_{\alpha\in\bbF_q}\chi^{(k)}(g(\alpha))=\sum_{\chi\in\Xq}\Wchil{k}{g}.$$
 \end{lemma}
 
 \begin{Theorem}{Weil Bound for Additive Character Sums}{thm:weil-bound-chi}
