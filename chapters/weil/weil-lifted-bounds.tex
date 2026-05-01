@@ -1,9 +1,9 @@
 \section{Weil Bounds via the Lifting Method}
 
-The key tool is to count solutions of certain equations over $\bbF_{q^k}$ in two different ways — once geometrically and once using character sums — and compare. We organise the argument by the type of character involved.
+In this section we will try to give bounds on the absolute value of deviation of number of zeros from the average number of zeros, $q^{n-1}$. And then we will give upper bounds on the absolute values of $\Wpsil{k}{f}$, $\Wchil{k}{g}$ and $\Wmixl{k}{f}{g}$. 
 
 \subsection{Bound for Multiplicative Character Sums}
-
+Let $\psi\in\Mq$ be a non-trivial multiplicative character. Let $f(X)\in\bbF_q[X]$ is a monic polynomial with precisely $m$ distinct roots. Then $$\Wpsi{f}=\sum_{\alpha\in\bbF_q}\psi(f(\alpha)),\qquad \Wpsil{k}{f}=\sum_{\alpha\in\bbF_{q^k}}\psi^{(k)}(f(\alpha))$$So by \LiftedLRootscor there exists complex numbers $w_1,\dots, w_{m-1}\in\bbC$ such that $$\Wpsil{k}{f}=\sum_{\alpha\in\bbF_{q^k}}\psi^{(k)}(f(\alpha))=-\sum_{j=1}^{m-1}w_i^k$$Suppose $\psi\in\Mq^{(d)}$ where $d>1$. Then there are $d$ characters of exponent $d$. For each such character $\psi$ we define the sums 
 \begin{lemma}{Counting $d$-th Powers via Multiplicative Characters}{lem:dth-power-count-mult}
   For a given $\alpha\in\bbF_{q^k}$ the number of $\beta\in\bbF_{q^k}$ with $\beta^d=\alpha$ equals $$\sum_{\psi\in\Mq^{(d)}}\psi^{(k)}(\alpha)=\sum_{\psi\in\Mq^{(d)}}\psi(N_{K/\bbF_q}(\alpha)).$$
 \end{lemma}

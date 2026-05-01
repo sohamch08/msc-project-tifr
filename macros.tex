@@ -100,6 +100,27 @@
 
 \newcommand{\Tfae}{The following are equivalent:}
 \newcommand{\tfae}{the following are equivalent:}
+
+% L-function on ξ — base field
+\newcommand{\Lxi}{L\lt(s,\xi\rt)}
+\newcommand{\ovLxi}{\ovL\lt(z,\xi\rt)}
+% Lifted: \Lxil{k} = L^{(k)}(s,ξ^{(k)}), \ovLxil{k} = \ovL^{(k)}(z,ξ^{(k)})
+\newcommand{\Lxil}[1]{L^{(#1)}\lt(s,\xi^{(#1)}\rt)}
+\newcommand{\ovLxil}[1]{\ovL^{(#1)}\lt(z,\xi^{(#1)}\rt)}
+% Custom first slot: \Lxis{arg} = L(arg,ξ), \Lxils{k}{arg} = L^{(k)}(arg,ξ^{(k)})
+\newcommand{\Lxis}[1]{L\lt(#1,\xi\rt)}
+\newcommand{\ovLxis}[1]{\ovL\lt(#1,\xi\rt)}
+\newcommand{\Lxils}[2]{L^{(#1)}\lt(#2,\xi^{(#1)}\rt)}
+\newcommand{\ovLxils}[2]{\ovL^{(#1)}\lt(#2,\xi^{(#1)}\rt)}
+
+% Weil sums — base field
+\newcommand{\Wpsi}[1]{W\lt(\psi;#1\rt)}
+\newcommand{\Wchi}[1]{W\lt(\chi;#1\rt)}
+\newcommand{\Wmix}[2]{W\lt(\psi,\chi;#1,#2\rt)}
+% Lifted: \Wpsil{k}{f} = W^{(k)}(ψ^{(k)};f), etc.
+\newcommand{\Wpsil}[2]{W^{(#1)}\lt(\psi^{(#1)};#2\rt)}
+\newcommand{\Wchil}[2]{W^{(#1)}\lt(\chi^{(#1)};#2\rt)}
+\newcommand{\Wmixl}[3]{W^{(#1)}\lt(\psi^{(#1)},\chi^{(#1)};#2,#3\rt)}
 \newcommand{\sparsity}{\textit{sparsity}}
 
 

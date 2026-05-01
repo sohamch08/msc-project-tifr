@@ -3,9 +3,12 @@ Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\b
 \begin{Definition}{Weil Sum}{}
   \index{Weil sum}%
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\bbF_q[X]$ be a non-constant polynomial. The \emph{Weil sum} associated to $\chi$ and $f$ is
-  $$W(\chi,f)\coloneqq\sum_{\alpha\in\bbF_q}\chi(f(\alpha)).$$
-  More generally, for a multiplicative character $\psi\in\Mq$ and a rational function $f\in\bbF_q(X)$, the \emph{Weil sum} is
-  $$W(\psi,\chi,f)\coloneqq\sum_{\substack{\alpha\in\bbF_q\\ \alpha\text{ not a pole of }f}}\psi(\alpha)\,\chi(f(\alpha)).$$
+  $$W(\chi;f)\coloneqq\sum_{\alpha\in\bbF_q}\chi(f(\alpha)).$$
+  More generally, for a multiplicative character $\psi\in\Mq$ and a additive character $\chi\in\Xq$ and a polynomials $f,g\in\bbF_q(X)$, the \emph{Weil sum} is
+  \begin{align*}
+    & W(\psi;f)\coloneqq\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\\ 
+    & W(\psi,\chi;f,g)\coloneqq\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\,\chi(g(\alpha)).
+  \end{align*}
 \end{Definition}Weil sums are extremely difficult to evaluate. One usually has to be satisfied with estimates for the absolute value of the sum. In certain cases it is easier to find the character sums exactly. 
 
 \subsection{Additive Character Sums}

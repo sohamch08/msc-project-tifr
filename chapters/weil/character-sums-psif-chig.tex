@@ -57,7 +57,7 @@ So we can use \LFactthm and factorize $\ovL(z,\xi)$ and get complex numbers $w_1
 \end{proof}
 
 \subsection{Field Extensions}
-Suppose we aer given a finite field extension $E$ of $\bbF_q$ where $[E\colon \bbF_q]=r$. So like \autoref{sec:lifting-chars} we can lift $\psi$ and $\chi$ to $\psi^{(r)}$ and $\chi^{(r)}$ for $E$. And using these two characters we can define the lifted multiplicative function $\xi^{(r)}$ on the group $G_r,\ovG_r$ with rational functions defined similarly as $G,\ovG$ but on $E$. So for any $r\in G_r$ we define $$\xi^{(r)}=\psi^{(r)}\circ \vsg(r)\cdot \chi^{(r)}\circ\vrh(r)$$We define $\tdH_r,H_r,\ovH_r$ for $G_r,\ovG_r$ similarly as $\tdH,H,\ovH$. Now using $\xi^{(r)}$ we also create the $L$-functions, $L^{(r)}(s,\xi^{(r)})$ and $\ovL^{(r)}(z,\xi^{(r)})$. So we have $$L^{(r)}(s,\xi^{(r)})=\sum_{h\in\Phi^{(r)}}\chi^{(r)}\cdot\mfn^{(r)}(h)^{-s},\qquad \ovL^{(r)}(z,\xi^{(r)})=\sum_{h\in\Phi^{(r)}}\chi^{(r)}\cdot z^{\deg(h)}$$ where $\Phi^{(r)}$ is the set of all monic polynomials in $E$. We similarly define $\Phi_d$ for any $d\in\bbZ_0$. We also use two notations $$S=\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\cdot \chi(g(\alpha)),\quad S^{(r)}=\sum_{\alpha\in E}\psi^{(r)}(f(\alpha))\cdot\chi^{(r)}(g(\alpha))$$
+Suppose we aer given a finite field extension $E$ of $\bbF_q$ where $[E\colon \bbF_q]=r$. So like \autoref{sec:lifting-chars} we can lift $\psi$ and $\chi$ to $\psi^{(r)}$ and $\chi^{(r)}$ for $E$. And using these two characters we can define the lifted multiplicative function $\xi^{(r)}$ on the group $G_r,\ovG_r$ with rational functions defined similarly as $G,\ovG$ but on $E$. So for any $r\in G_r$ we define $$\xi^{(r)}=\psi^{(r)}\circ \vsg(r)\cdot \chi^{(r)}\circ\vrh(r)$$We define $\tdH_r,H_r,\ovH_r$ for $G_r,\ovG_r$ similarly as $\tdH,H,\ovH$. Now using $\xi^{(r)}$ we also create the $L$-functions, $L^{(r)}(s,\xi^{(r)})$ and $\ovL^{(r)}(z,\xi^{(r)})$. The norm of a polynomial $h\in\Phi^{(r)}$ over $E$ is $\mfn^{(r)}(h)\coloneqq q^{r\cdot\deg(h)}=|E|^{\deg(h)}$, the analogue of $\mfn(h)=q^{\deg(h)}$ for the base field. So we have $$L^{(r)}(s,\xi^{(r)})=\sum_{h\in\Phi^{(r)}}\xi^{(r)}(h)\cdot\mfn^{(r)}(h)^{-s},\qquad \ovL^{(r)}(z,\xi^{(r)})=\sum_{h\in\Phi^{(r)}}\xi^{(r)}(h)\cdot z^{\deg(h)}$$ where $\Phi^{(r)}$ is the set of all monic polynomials over $E$. We similarly define $\Phi_d$ for any $d\in\bbZ_0$. We also use the Weil sum notation from \autoref{sec:character-sum-poly}: $$W(\psi,\chi;f,g)\coloneqq\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\cdot \chi(g(\alpha)),\qquad W^{(r)}(\psi^{(r)},\chi^{(r)};f,g)\coloneqq\sum_{\alpha\in E}\psi^{(r)}(f(\alpha))\cdot\chi^{(r)}(g(\alpha))$$where the superscript $(r)$ indicates the sum is over the extension field $E=\bbF_{q^r}$ using the lifted characters.
 \begin{lemma}{Splitting of Irreducible Polynomials over $\bbF_{q^k}$}{lem:irr-splits-over-ext}
   Let $K=\bbF_{q^k}$ and $E=\bbF_{q^r}$. Suppose $h(X)=X^d-a_1X^{d-1}+\cdots+(-1)^da_d$ be an irreducible polynomial in $\bbF_q[X]$. Then in $\bbF_{q^k}[X]$, $h$ splits into $r=\gcd(k,d)$ many irreducible polynomials of degree $\nicefrac{d}{r}$: $$h(X)=h_1(X)\cdots h_r(X)$$If we normalize $h_i(X)$ such that $h_i$ is monic then $h_i(X)\in\bbF_{q^r}[X]$ for all $i\in[r]$. Then
   \begin{enumerate}[label=(\roman*)]
@@ -86,13 +86,27 @@ Now we can write $L^{(k)}(s,\xi^{(k)})$ and $\ovL^{(k)}(z,\xi^{(k)})$ in terms o
     & = \prod_{t=0}^{k-1}L\lt(s-\frac{2\pi it}{k\log q},\xi\rt)
   \end{align*}So we have the theorem. 
 \end{proof}
-Now bt \ovLXiFinitethm, $L(s,\xi)$ is a polynomial. So there exists the complex numbers $w_1,\dots, w_l\in\bbC$ such that $L(s,\xi)=(1-w_1u)\cdots (1-w_lu)$ for some $l\in\bbN$ where $u=q^{-s}$. By the above theorem we can claim that $\ovL^{(k)}\lt(z,\xi^{(k)}\rt)$ or $L^{(k)}\lt(s,\xi^{(k)}\rt)$ is also a polynomial since its product of finitely many polynomial. We will prove that the corresponding complex number of $L^{(k)}\lt(s,\xi^{(k)}\rt)$ are $w_i^k$ for all $i\in[l]$. 
+Now by \LXiFinitethm, $\Lxi$ is a polynomial. So there exist complex numbers $w_1,\dots, w_l\in\bbC$ such that $\Lxi=(1-w_1u)\cdots (1-w_lu)$ for some $l\in\bbN$ where $u=q^{-s}$. By \LiftedLFactthm, $\ovLxil{k}$ or $\Lxil{k}$ is also a polynomial (a product of finitely many polynomials). We will prove that the reciprocal roots of $\Lxil{k}$ are $w_i^k$ for all $i\in[l]$. 
 \begin{corolary}{Reciprocal Roots of the Lifted $L$-function}{cor:lifted-L-roots}
-  If $L(s,\xi)$ is given by $L(s,\xi)=(1-w_1u)\cdots (1-w_lu)$ with $u=q^{-s}$ then $$ L^{(k)}\lt(s,\xi^{(k)}\rt)=(1-w_1^k\cdot u_k)\cdots (1-w_l^k\cdot u_k)$$where $u_k=q^{-ks}$.
+  If $\Lxi=(1-w_1u)\cdots (1-w_lu)$ with $u=q^{-s}$ then $$\Lxil{k}=(1-w_1^k\cdot u_k)\cdots (1-w_l^k\cdot u_k)$$where $u_k=q^{-ks}$.
 \end{corolary}
+\begin{proof}
+  By \LiftedLFactthm we have $$\Lxil{k}=\prod_{t=1}^k\Lxis{s-\frac{2\pi it}{k\log q}}$$ Now for any $t\in[k]$ we have $q^{-\lt(s-2\pi i\frac{t}{k\log q}\rt)}=e^{2\pi i \frac{t}{k}}\cdot q^{-s}=e^{2\pi i\frac{t}{k}}\cdot u$. So we get
+  \begin{align*}
+    \Lxil{k} & = \prod_{t=1}^k \Lxis{s-\frac{2\pi it}{k\log q}}\\
+    & = \prod_{t=1}^k \prod_{j=1}^l \lt(1-w_je^{2\pi i\frac{t}{k}}u\rt)\\
+    & = \prod_{j=1}^l \prod_{t=1}^k \lt(1-w_je^{2\pi i\frac{t}{k}}u\rt)\\
+    & = \prod_{j=1}^l \lt(1-w_j^ku^k\rt)\\
+    & = \prod_{j=1}^l \lt(1-w_j^k\cdot u_k\rt)
+  \end{align*}
+  So we have the result. 
+\end{proof}
 
+So now we can give an analogue of \LLeadCoeffthm for the lifted sum and give a relation with $\Wmixl{k}{f}{g}$ with the coefficients of $\Lxil{k}$. 
 \begin{corolary}{Character Sum via Reciprocal Roots}{cor:charsum-reciprocal-roots}
-  Suppose either $\psi\in\Mq$ is a nontrivial multiplicative character of exponent $d$ and $Y^d-f(X)$ is absolutely irreducible. If $\chi\in\Xq$ is a additive character either non-trivial or trivial and $f(X)=1$ then $$S^{(k)}=-\sum_{i=1}^{n+m-1}w_i^k.$$
+  Suppose either $\psi\in\Mq$ is a nontrivial multiplicative character of exponent $d$ and $Y^d-f(X)$ is absolutely irreducible. If $\chi\in\Xq$ is a additive character either non-trivial or trivial and $f(X)=1$ then $$W^{(k)}\lt(\psi^{(k)},\chi^{(k)};f,g\rt)=-\sum_{i=1}^{n+m-1}w_i^k.$$
 \end{corolary}
-
+\begin{proof}
+  If we apply \LLeadCoeffthm to $\bbF_{q^k}$ instead of $\bbF_q$ then using \LiftedLRootscor we have $$\Lxil{k}=1+c_{k,1}\cdot u_k+\cdots +c_{k,n+m-1}\cdot u_k^{n+m-1}=\prod_{j=1}^{n+m-1}(1-w_j^k\cdot u_k)$$Thereore $c_{k,1}=\Wmixl{k}{f}{g}$. And on the other hand we have that $c_{k,1}=-\sum_{j=1}^{n+m-1}w_j^k$. 
+\end{proof}
 \subsection{Alternate Proof of Davenport-Hasse Relation}
