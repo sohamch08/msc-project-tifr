@@ -6,36 +6,12 @@
 \input{macros}
 \input{math-operators}
 \input{theorem-macros}
-\usepackage{thmtools,thm-restate,nicefrac}
-\usepackage{longtable,booktabs}
-\usepackage{faktor}
+\input{bibmacros}
+
 \linespread{1.2}
 \definecolor{mycolor1}{HTML}{1becff}
 \definecolor{mycolor2}{HTML}{2E3192}
-% \let\oldchi\chi
-% \renewcommand{\chi}{\protect\raisebox{2pt}{$\oldchi$}}
-% \let\latexchi\chi
-% \makeatletter
-% \renewcommand\chi{\@ifnextchar_\sub@chi\latexchi}
-% \newcommand{\sub@chi}[2]{% #1 is _, #2 is the subscript
-%   \@ifnextchar^{\subsup@chi{#2}}{\latexchi^{}_{#2}}%
-% }
-% \newcommand{\subsup@chi}[3]{% #1 is the subscript, #2 is ^, #3 is the superscript
-%   \latexchi_{#1}^{#3}%
-% }
-% \makeatother
-\let\oldchi\chi
-\makeatletter
-\DeclareRobustCommand{\chi}{\@ifnextchar_\sub@chi\latex@chi}
-\newcommand{\latex@chi}{\protect\raisebox{2pt}{$\oldchi$}}
-\newcommand{\sub@chi}[2]{%
-  \@ifnextchar^{\subsup@chi{#2}}{\latex@chi^{}_{#2}}%
-}
-\newcommand{\subsup@chi}[3]{%
-  \latex@chi_{#1}^{#3}%
-}
-\makeatother
-\newcommand*\quot[2]{{^{\textstyle #1}\big/_{\textstyle #2}}}
+
 % \newcommand*{\titre}[1]{\begingroup
 % 	\newlength{\drop}
 % 	\setlength{\drop}{0.1\textheight}
@@ -139,7 +115,7 @@ f
 % \include{chapters/pseudopolynomial/pseudopolynomials}
 % \include{chapters/decoding/decoding-from-character-evaluations}
 
-\bibliographystyle{alpha}
+\bibliographystyle{prahladhurl}
 \bibliography{refs}
 
 \appendix
