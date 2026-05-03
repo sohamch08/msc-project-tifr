@@ -12,6 +12,7 @@
 \definecolor{mycolor1}{HTML}{1becff}
 \definecolor{mycolor2}{HTML}{2E3192}
 
+% TODO: Titlepage
 % \newcommand*{\titre}[1]{\begingroup
 % 	\newlength{\drop}
 % 	\setlength{\drop}{0.1\textheight}
@@ -29,12 +30,6 @@
 % 	% {\large\scshape\color{white} 2024}\par
 % 	\endgroup}
 	
-
-
-
-
-
-
 \usepackage{xhfill}
 
 \usetikzlibrary{calc} 
@@ -51,7 +46,6 @@
 {\filleft\fontsize{30}{50}\selectfont}
 [\vspace{-1ex}]
 
-
 \usetikzlibrary{arrows.meta, automata, calc,bending,positioning, quotes,
 	overlay-beamer-styles}
 
@@ -65,8 +59,6 @@
 %----------------------------------------------------------------------------------------
 \thispagestyle{empty}
 
-
-
 % \begin{titlepage}
 
 % 	\begin{tikzpicture}[remember picture,overlay]
@@ -75,8 +67,6 @@
 
 % 	\titre{CSS.201.1 Algorithms}
 % \end{titlepage}
-
-
 
 \newpage
 
@@ -120,9 +110,9 @@ f
 
 \appendix
 \chapter{Appendix}
-\input{chapters/appendix/appendix1}
+\include{chapters/appendix/appendix1}
 \chapter{Appendix}
-\input{chapters/appendix/appendix2}
+\include{chapters/appendix/appendix2}
 
 \printindex
 
