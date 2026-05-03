@@ -1,21 +1,72 @@
-\section{Stepanov Method: \texorpdfstring{$Y^d-f(X)$}{Yd-f(X)}}
-\begin{Theorem}{}{thm:stepanov}
-  Suppose that $Y^d-f(X)\in\bbF_q[X,Y]$ is an absolutely irreducible polynomial where $\deg(f)=m$. Suppose $q>100dm^2$. Then $$|Z(Y^d=f(X))-q|\leq 4d^{\nicefrac32}q^{\nicefrac12}$$
+\section{Stepanov Method: \texorpdfstring{$Y^d-f(X)$}{ Yd-f(X)}}
+\begin{Theorem}{Stepanov's Theorem}{thm:stepanov}
+  Suppose that $Y^d-f(X)\in\bbF_q[X,Y]$ is an absolutely irreducible polynomial where $\deg(f)=m$.  Suppose $q>100dm^2$.  Then $$|Z(Y^d=f(X))-q|\leq 4d^{\nicefrac32}q^{\nicefrac12}.$$
 \end{Theorem}
 
-\begin{Theorem}{}{thm:yd-fx-irr}
+\subsection{Absolute Irreducibility Criteria}
+
+\begin{Theorem}{Characterisation of Absolute Irreducibility of $Y^d-f(X)$}{thm:yd-fx-irr}
   Suppose $Y^d-f(X)\in\bbF_q[X,Y]$. Then the following are equivalent:
   \begin{enumerate}[label=(\roman*)]
-    \item $Y^d-f(X)$ is absolutely irreducible. 
-    \item $Y^d-c\cdot f(X)$ is absolutely irreducible for any $c\in\bbF_q^*$. 
-    \item If $f$ factors into $f(X)=a\prod_{i=1}^m(X-\alpha_i)^{k_i}$ over $\ov{\bbF_q}$ where $\alpha_i\in\ov{\bbF_q}$ for some positive integers $k_1,\dots, k_m$. Then $\gcd(d,k_1,\dots, k_n)=1$. 
+    \item $Y^d-f(X)$ is absolutely irreducible.
+    \item $Y^d-c\cdot f(X)$ is absolutely irreducible for any $c\in\bbF_q^*$.
+    \item If $f$ factors into $f(X)=a\prod_{i=1}^m(X-\alpha_i)^{k_i}$ over $\ov{\bbF_q}$ where $\alpha_i\in\ov{\bbF_q}$ for some positive integers $k_1,\dots, k_m$, then $\gcd(d,k_1,\dots, k_m)=1$.
   \end{enumerate}
 \end{Theorem}
 
-\begin{Theorem}{}{}
-  Suppose $d\mid q-1$ and let $\psi\in\Mq^{(d)}$ is a non-trivial multiplicative character of exponent $d$. Let $f(X)\in\bbF_q[X]$ is a polynomial of degree $m$. Let $Y^d-f(X)$ is absolutely irreducible and $q>100dm^3$. Then we have $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\rt|<5md^{\nicefrac{3}{2}}q^{\nicefrac12}$$
+\begin{corolary}{Absolute Irreducibility from Coprime Degree}{cor:yd-fx-irr-coprime}
+  Suppose $f\in\bbF_q[X]$ with $\deg(f)=m$. Then $Y^d-f(X)$ is absolutely irreducible if $\gcd(m,d)=1$.
+\end{corolary}
+
+
+\subsection{Proof of Stepanov's Theorem}
+\begin{lemma}{Solution Count for $Y^d=f(X)$}{lem:stepanov-solution-count}
+  Let $d\mid q-1$ and $f\in \bbF_q[X]$ be a polynomial. Let $F(X)=f^{\nicefrac{(q-1)}{d}}$. Then the number of solutions of $Y^d=f(X)$ in $\bbF_q^2$ is given by $$Z(Y^d=f(X))=Z_0+d\cdot Z_1$$ where $Z_0=|\{\alpha\in\bbF_q\colon f(\alpha)=0\}|$ and $Z_1=|\{\alpha\in\bbF_q\colon F(\alpha)=1\}|$.
+
+  Furthermore, if $Z_2=|\{\alpha\in\bbF_q\colon F^{d-1}(\alpha)+\cdots +F(\alpha)+1=0\}|$ then $Z_0+Z_1+Z_2=q$.
+\end{lemma}
+
+To prove \Stepanov we will assume $d\mid q-1$ and $\gcd(d,m)=1$, so $Y^d-f(X)$ is absolutely irreducible over $\bbF_q$. We also temporarily assume that $q=p$ or $q=p^2$ where $p$ is a prime.
+\begin{lemma}{}{lem:stepanov-linear-indep}
+  Suppose $h_0,h_1,\dots, h_{d-1}(X)\in\bbF_q[X]$ are polynomials of the type $$h_i(X)=\sum_{j=0}^th_{ij}(X)\cdot X^{qj},\quad \forall\ 0\leq i\leq d-1$$ where $h_{ij}\in\bbF_q[X]$ with $\deg(h_{ij})\leq \frac{q}{d}-m$. If $$H(X)=h_0(X)+h_1(X)\cdot F(X)+\cdots+h_{d-1}(X)\cdot F(X)^{d-1}\equiv 0$$ then for all $i\in\{0,1,\dots, d-1\}$ and $j\in\{0,\dots, t\}$ we have $h_{ij}\equiv 0$.
+\end{lemma}
+
+\begin{lemma}{Existence of Auxiliary Polynomial $Q$}{lem:stepanov-Q-exists}
+  Let $1\leq r\leq d-1$ and let $G\in\bbF_q[X]$ be a polynomial of degree $r$. Let $M\in\bbN$ be a positive integer satisfying $(M+3)^2\leq 2\nicefrac{q}{d}$. Then there exists a non-zero polynomial $Q(X)\in\bbF_q[X]$ with $\deg(Q)\leq \nicefrac{r}{d}\cdot qM+4mq$ such that for every $\alpha\in\bbF_q$:
+  \begin{enumerate}[label=(\roman*)]
+    \item if $G(F(\alpha))=0$, then $Q(\alpha)=0$ with multiplicity at least $M$; and
+    \item if $f(\alpha)=0$, then $Q(\alpha)=0$ with multiplicity at least $M$.
+  \end{enumerate}
+\end{lemma}
+
+\begin{Theorem}{Stepanov's Theorem under Simplifying Assumptions}{thm:stepanov-restricted}
+  Let $d\mid q-1$ and $f\in \bbF_q[X]$ be a polynomial of degree $m$. Suppose that $\gcd(d,m)=1$ and $q=p$ or $q=p^2$ where $p$ is a prime. If $q\geq 100dm^2$ then $$|Z(Y^d=f(X))-q|< 4md^{\nicefrac32}q^{\nicefrac12}.$$
 \end{Theorem}
 
-\begin{Theorem}{}{}
-  Suppose $d\mid q-1$ and let $\psi\in\Mq^{(d)}$ is a non-trivial multiplicative character with $\ord(\psi)=d>1$. Let $f(X)\in\bbF_q[X]$ is a polynomial of degree $m$ which is not a $d^{th}$ power and $q>100dm^3$. Then we have $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\rt|<5md^{\nicefrac{3}{2}}q^{\nicefrac12}$$
+\subsubsection{Removal of the assumption \texorpdfstring{$\gcd(m,d)=1$}{gcd(m, d)=1}}
+
+\subsubsection{Removal of the assumption \texorpdfstring{$q=p$ or $q=p^2$}{q=p or q=p2}}
+
+\subsection{Alternate Proof of Stepanov's Theorem}
+
+\subsection{Connection between the Bound and Genus of Curve}
+
+\subsection{Bound for Multiplicative Character Sum of \texorpdfstring{$f(X)$}{f(X)}}
+
+\begin{lemma}{Characterisation of $d$-th Powers in $\bbF_q[X]$}{lem:dth-power-char}
+  Let $f(X)\in\bbF_q[X]$ and let $d\mid q-1$. Then the following are equivalent:
+  \begin{enumerate}[label=(\roman*)]
+    \item $f(X)=ak^d(X)$ with $a\in\bbF_q$ and $k(X)\in\bbF_q[X]$.
+    \item $f(X)=h^d(X)$ with $h(X)\in\ov{\bbF_q}[X]$.
+    \item $f(X)=a(X-\alpha_1)^{k_1}\cdots (X-\alpha_m)^{k_m}$ with $\alpha_i\in\ov{\bbF_q}$ and $d\mid k_i$ for all $i\in[m]$.
+  \end{enumerate}
+\end{lemma}
+
+
+\begin{Theorem}{Bound for $\Wpsi{f}$: Absolutely Irreducible Case}{thm:stepanov-psi-irr}
+  Suppose $d\mid q-1$ and let $\psi\in\Mq^{(d)}$ be a non-trivial multiplicative character of exponent $d$. Let $f(X)\in\bbF_q[X]$ be a polynomial of degree $m$ such that $Y^d-f(X)$ is absolutely irreducible. Suppose $q>100dm^3$. Then $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\rt|<5md^{\nicefrac{3}{2}}q^{\nicefrac12}.$$
+\end{Theorem}
+
+\begin{Theorem}{Bound for $\Wpsi{f}$: Non-$d$-th-Power Case}{thm:stepanov-psi-nondth}
+  Suppose $d\mid q-1$ and let $\psi\in\Mq^{(d)}$ be a non-trivial multiplicative character with $\ord(\psi)=d>1$. Let $f(X)\in\bbF_q[X]$ be a polynomial of degree $m$ which is not a $d$-th power. Suppose $q>100dm^3$. Then $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\rt|<5md^{\nicefrac{3}{2}}q^{\nicefrac12}.$$
 \end{Theorem}

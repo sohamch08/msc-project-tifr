@@ -1,4 +1,24 @@
-\section{Bombieri Method: \texorpdfstring{$Y^q-Y-f(X)$}{Yq-Y-f(X)}}
-\begin{Theorem}{}{thm:bombieri}
-  Suppose that $Y^q-Y-f(X)\in\bbF_q[X,Y]$ is an absolutely irreducible polynomial where $\deg(f)=m$. Suppose $q>100dm^2$. Then $$|Z(Y^q-Y=f(X))-q|=O(dq^{\nicefrac12})$$
+\section{Bombieri Method: \texorpdfstring{$Y^q-Y-f(X)$}{ Yq - Y - f(X)}}
+Let $E$ be the finite extension of $\bbF_q$ such that $[E\colon \bbF_q]=k$ and $K$.
+\begin{Theorem}{Bombieri's Theorem}{thm:bombieri}
+  Let $f\in\bbF_q[X]$ with $(q,\deg f)=1$ and $\deg f<q$. Then $$\lt|Z_E(Y^q-Y=f(X))-q^k\rt|<q^{\lt[\nicefrac{k}2\rt]+4}$$
 \end{Theorem}
+
+\begin{lemma}{}{}
+  Let for any $\alpha\in\bbF_q$, $Z_{\alpha}$ denote the number of $\gm\in E$ such that $\tr_{E/\bbF_q}(\gm)=\alpha$.
+  $$\sum_{\alpha\in\bbF_q}Z_{\alpha}=q^k\quad\text{and}\quad Z_E(Y^q-Y=f(X))=q\cdot Z_0.$$
+\end{lemma}
+
+
+Now let $r=\lt[\nicefrac{k}{2}\rt]$. We can assume $k\geq 3$ and hence $r\geq 1$. Let 
+
+\begin{align*}
+  g(X) & = f(X)^{q^r}+f(X)^{q^{r+1}}+\cdots +f(X)^{q^{k-1}}\\ 
+  h(X) & = f(X)+f(X)^q+\cdots + f(X)^{q^{r-1}}
+\end{align*}
+Then we have the following lemma. 
+\begin{lemma}{}{}
+  Let $\alpha\in\bbF_q$ and let $M\in\bbN$ satisfy $q\mid M$ and $0<M\leq q^{k-r-1}$. Then there exists a non-zero polynomial $Q\in\bbF_q[X]$ with $\deg(Q)\leq M\cdot q^{k-1}+q^{k+1}$ such that every $\gm\in E$ with $\tr_{E/\bbF_q}(\gm)=\alpha$ is a zero of $Q$ with multiplicity at least $M$.
+\end{lemma}
+
+

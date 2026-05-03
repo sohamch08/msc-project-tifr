@@ -13,9 +13,9 @@
 \bottomrule\endlastfoot
 
 \multicolumn{2}{@{}l}{\textit{General}}\\[2pt]
-$\bbN$ & Set of all natural numbers i.e.\ positive integers\\
+$\bbN$ & Set of all natural numbers i.e.,\ positive integers\\
 $\bbZ$ & Set of all integers\\
-$\bbZ_{\geq 0}$ & Set of all non-negative integers\\
+$\bbZ_{0}$ & Set of all non-negative integers\\
 $\bbR$ & Set of real numbers\\
 $\bbC$ & Set of complex numbers\\
 $[n]$ & The set $\{1,2,\dots,n\}$ for $n\in\bbN$\\
@@ -27,12 +27,12 @@ $\zeta_m$ & A primitive $m$-th root of unity\\[6pt]
 $\bbF_q$ & Finite field with $q$ elements\\
 $\bbF_q^*$ & Multiplicative group of nonzero elements of $\bbF_q$\\
 $\bbF_p$ & Prime field with $p$ elements, $p=\Char(\bbF_q)$\\
-$(\bbF_q^*)^{(d)}$ & Subgroup of $d$-th powers in $\bbF_q^*$\\
+${\bbF_q^*}^{(d)}$ & Subgroup of $d$-th powers in $\bbF_q^*$\\
+$E,F,L,K$ & Generic notation for finite fields or finite extensions of $\bbF_q$\\
 $[E:\bbF_q]$ & Degree of the extension $E/\bbF_q$\\
-$E,F,L,K$ & Generic notation for finite fields or finite extensions of $\bbF_q$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Characters of Finite Abelian Groups}}\\[2pt]
-$G$ & A finite abelian group with identity element $1_G$\\
+$G$ & A finite Abelian group with identity element $1_G$\\
 $Z_k$ & Cyclic multiplicative group of order $k$\\
 $\chi_0$ & Trivial character of $G$: $\chi_0(g)=1$ for all $g\in G$\\
 $\ov{\chi}$ & Conjugate (and inverse) character of $\chi$: $\ov{\chi}(g)=\overline{\chi(g)}$\\
@@ -43,10 +43,11 @@ $\Ann(H)$ & Annihilator of subgroup $H\leq G$: $\{\chi\in\hG:\chi(h)=1\ \forall 
 $\ev_g$ & Evaluation character of $\hG$ defined by $\ev_g(\chi)=\chi(g)$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Maps on Finite Fields}}\\[2pt]
-$\tr:\bbF_q\to\bbF_p$ & Absolute trace function\\
+$\tr\colon \bbF_q\to\bbF_p$ & Absolute trace function\\
+$N\colon \bbF_q\to\bbF_p$ & Absolute norm function\\
 $\tr_{E/\bbF_q}$ & Trace function from $E$ to $\bbF_q$\\
 $\norm_{E/\bbF_q}$ & Norm function from $E$ to $\bbF_q$\\
-$\sg:\bbF_q\to\bbF_q$ & Frobenius automorphism: $\sg(\alpha)=\alpha^p$\\[6pt]
+$\sg\colon \bbF_q\to\bbF_q$ & Frobenius automorphism: $\sg(\alpha)=\alpha^p$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Additive Characters of $\bbF_q$}}\\[2pt]
 $\chi,\tau$ & Generic notation for additive characters\\
@@ -58,13 +59,12 @@ $\chi^{(r)}$ & Additive character of $\bbF_q$ lifted to $E$ via $\chi^{(r)}=\chi
 \multicolumn{2}{@{}l}{\textit{Multiplicative Characters of $\bbF_q$}}\\[2pt]
 $\psi,\lm$ & Generic notation for multiplicative characters\\
 $\psi_0$ & Trivial multiplicative character of $\bbF_q$\\
-$\psi_j$ & Multiplicative character defined by $\psi_j(g^k)=e^{2\pi ijk/(q-1)}$, for $0\leq j\leq q-2$\\
 $\eta$ & Quadratic character of $\bbF_q$ (for odd $q$): $\eta(\alpha)=\pm 1$ according as $\alpha$ is a square\\
 $\Mq$ & Set of all multiplicative characters of $\bbF_q^*$\\
 $\Mq^{(e)}$ & Set of multiplicative characters of $\bbF_q$ of exponent $e$\\
 $\ord(\psi)$ & Order of $\psi$: smallest positive integer $d$ with $\psi^d=\psi_0$\\
 $\Leg{\alpha}{q}$ & Legendre symbol; equals $\eta(\alpha)$ for $\alpha\in\bbF_q$\\
-$\psi^{(r)}$ & Multiplicative character of $\bbF_q$ lifted to $E$ via $\psi^{(r)}=\psi\circ\norm_{E/\bbF_q}$\\[6pt]
+$\psi^{(r)}$ & Multiplicative character of $\bbF_q$ lifted to $E$ via $\psi^{(r)}=\psi\circ\norm_{E/\bbF_q}$, $[E\colon \bbF_q]=r$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Gaussian and Jacobi Sums}}\\[2pt]
 $G(\psi,\chi)$ & Gaussian sum: $\displaystyle\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\,\chi(\alpha)$, for $\psi\in\Mq$, $\chi\in\Xq$\\[12pt]
@@ -103,7 +103,6 @@ $\rho$ & Non-trivial zero of $\zeta(s)$\\[6pt]
 $W(\chi,f)$ & Weil sum: $\displaystyle\sum_{\alpha\in\bbF_q}\chi(f(\alpha))$, for $\chi\in\Xq$, $f\in\bbF_q[X]$\\[10pt]
 $W(\psi,\chi,f)$ & Mixed Weil sum: $\displaystyle\sum_\alpha\psi(\alpha)\,\chi(f(\alpha))$ over $\alpha$ not a pole of $f$\\[10pt]
 $F(X)$ & $f(X)^{(q-1)/2}$, used in the continued fraction approach to $\sum_c\eta(f(c))$\\
-$n_f$ & Largest $m$ such that the two continued fraction expansions of $(F\pm1)/G$ agree\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Equations over $\bbF_q$ --- Solution Sets}}\\[2pt]
 $\mcV(f)$ & Solution set of $f(X_1,\dots,X_n)=0$ in $\bbF_q^n$\\
