@@ -1,5 +1,5 @@
+\chapter{Appendix}
 \section{Auxiliary Results on Powers of Complex Numbers}
-
 \begin{lemma}{}{lem:power-sum-bound-implies-modulus-bound}
   Let $\omega_1,\dots,\omega_l$ be complex numbers, and let $B > 0$. If
   \[
@@ -123,3 +123,15 @@ Waring's Formula expresses each power-sum symmetric polynomial $s_k=x_1^k+x_2^k+
     \item if $\deg f=D$ then for every monomial $Y_1^{d_1}\cdots Y_n^{d_n}$  of $g$ with non-zero coefficient then $d_1+2\cdot d_2+\cdots +n\cdot d_n= D$.
   \end{enumerate}
 \end{Theorem}
+\section{Hasse Derivative}
+\begin{definition}{Hasse Derivative}{}
+	For $P(\ovX)\in \bbF[\ovX]$ and non-negative vector $\ovi$, the $\ovi$th (Hasse) derivative of $P$ denoted $P^{(\ovi)}(\ovX)$ is the coefficient of $\ovZ^{\ovi}$ in the polynomial $\widetilde{P} (\ovX,\ovZ)\overset{\Delta}{=} P(\ovX+\ovZ) \in \bbF[\ovX,\ovZ]$. Thus $$P(\ovX+\ovZ)= \sum_{\ovi} P^{(\ovi)}(\ovX)\ovZ^{ \ovi}$$
+\end{definition}
+\begin{Theorem}{Hasse Derivative Properties}{thm:hasse-derivative-properties}
+	Let $P(\ovX), Q(\ovX)\in \bbF[\ovX]$ and let $\ovi, \ovj$ be vectors of non-negative integers. Then:\begin{enumerate}
+		\item $P^{(\ovi)}(\ovX)+Q^{(\ovi)}(\ovX)=(P+Q)^{(\ovi)}(\ovX)$
+		\item $(P\cdot Q)^{(\ovi)}(\ovX)=\sum\limits_{0\leq \ove\leq \ovi}P^{(\ove)}(\ovX)\cdot Q^{(\ovi-\ove)}(\ovX)$
+		\item $\lt(P^{(\ovi)}\rt)^{(\ovj)}(\ovX)=\comb{\ovi+\ovj}{\ovi} P^{(\ovi+\ovj)}(\ovX)$
+	\end{enumerate}
+\end{Theorem}
+
