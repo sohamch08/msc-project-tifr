@@ -10,44 +10,107 @@
   \begin{enumerate}[label=(\roman*)]
     \item $Y^d-f(X)$ is absolutely irreducible.
     \item $Y^d-c\cdot f(X)$ is absolutely irreducible for any $c\in\bbF_q^*$.
-    \item If $f$ factors into $f(X)=a\prod_{i=1}^m(X-\alpha_i)^{k_i}$ over $\ov{\bbF_q}$ where $\alpha_i\in\ov{\bbF_q}$ for some positive integers $k_1,\dots, k_m$, then $\gcd(d,k_1,\dots, k_m)=1$.
+    \item If $f$ factors into $f(X)=a\prod_{i=1}^m(X-\alpha_i)^{k_i}$ over $\ov{\bbF_q}$ where $\alpha_i\in\ov{\bbF_q}$ for some positive integers $k_1,\dots, k_m$, then $r=\gcd(d,k_1,\dots, k_m)=1$.
   \end{enumerate}
 \end{Theorem}
+\begin{proof}We will prove this lemma in three steps:
+  \paragraph*{(i)$\implies$(ii):} Suppose $Y^d-c\cdot f(X)$ is reducible over $\ov{\bbF_q}[X]$. Since $c\in\bbF_q^*$, we can write $\lt(\nicefrac{Y}{\sqrt[d]{c}}\rt)^d - f(X)$. Therefore, $\lt(\nicefrac{Y}{\sqrt[d]{c}}\rt)^d - f(X)$ is also reducible over $\ov{\bbF_q}[X]$. But we have $Y^d-f(X)$ irreducible. Hence, contradiction \ctr So $Y^d-c\cdot f(X)$ is absolutely irreducible.
+
+  \paragraph*{(ii)$\implies$(iii):} Assume the contrary i.e, $r>1$. Then consider the polynomial $$g(X)=\prod_{i=1}^{m}(X-\alpha_i)^{\nicefrac{k_i}r}$$Then we have $$Y^d-\nicefrac1a f(X)=Y^d-g(X)^r=(Y^{\nicefrac{d}r}-g(X))(g(X)^{r-1}+\cdots g(X)+1)$$Therefore, $Y^d-\nicefrac1a f(X)$ is reducible over $\ov{\bbF_q}[X]$. But we are given that $Y^d-c\cdot f(X)$ is absolutely irreducible for any $c\in\bbF_q^*$. Hence, contradiction \ctr We have $r=1$. 
+
+  \paragraph*{(iii)$\implies$(i):} Let $E$ be the function field $\ov{\bbF_q}(X)$. Then we can consider $Y^d-f(X)$ as a polynomial of $E[Y]=\ov{\bbF_q}(X)[Y]$. Suppose $\gm\in \ovE$ be a root of $Y^d-f(X)$ and $\zeta_d$ be the $d^{th}$ root of unity. Then notice that $$Y^d-f(X)=(Y-\gm)(Y-\zeta_d\cdot \gm)\cdots (Y-\zeta_d^{d-1}\cdot \gm)$$Therefore, $\zeta_d^i\cdot \gm$ for all $0\leq i<d$ are the roots of $Y^d-f(X)$ over $\ovE$. Now suppose for the sake of contradiction assume $Y^d-f(X)$ is reducible over $\ov{\bbF_q}[X]$. Then there exists a $t\in[d]$ such that $$\lt(Y-\zeta_d^{i_1}\cdot \gm\rt)\cdots \lt(Y-\zeta_d^{i_t}\cdot \gm\rt)\in \ov{\bbF_q}[X,Y]$$ for some $0\leq i_1<\cdots <i_t\leq d-1$. Now the constant term of this polynomial is $\gm^t\prod_{j=1}^t\zeta_d^{i_j}$. Therefore, $\gm^t\in\ov{\bbF_q}[X]$. Let $l\in\bbZ_0$ be the smallest non-negative integer such that $\gm^l\in\ov{\bbF_q}[X]$. Then $l\mid d$. So consider the polynomial $h(X)=\gm^{l}$. 
+
+  Now since $\gm$ is a root of $Y^d-f(X)$ we have $\gm^d=f(X)$. Therefore, $g^{\nicefrac{d}l}(X)=f(X)$. So take $k=\nicefrac{d}{l}$. Then $k\mid k_i$ for all $i\in[n]$. Therefore, we obtained $k>1$ such that $k\mid \gcd(d,k_1,\dots, k_m)$. Hence, contradiction \ctr So $Y^d-f(X)$ is absolutely irreducible. 
+\end{proof}
 
 \begin{corolary}{Absolute Irreducibility from Coprime Degree}{cor:yd-fx-irr-coprime}
   Suppose $f\in\bbF_q[X]$ with $\deg(f)=m$. Then $Y^d-f(X)$ is absolutely irreducible if $\gcd(m,d)=1$.
 \end{corolary}
 
-
 \subsection{Proof of Stepanov's Theorem}
 \begin{lemma}{Solution Count for $Y^d=f(X)$}{lem:stepanov-solution-count}
-  Let $d\mid q-1$ and $f\in \bbF_q[X]$ be a polynomial. Let $F(X)=f^{\nicefrac{(q-1)}{d}}$. Then the number of solutions of $Y^d=f(X)$ in $\bbF_q^2$ is given by $$Z(Y^d=f(X))=Z_0+d\cdot Z_1$$ where $Z_0=|\{\alpha\in\bbF_q\colon f(\alpha)=0\}|$ and $Z_1=|\{\alpha\in\bbF_q\colon F(\alpha)=1\}|$.
+  Let $d\mid q-1$ and $f\in \bbF_q[X]$ be a polynomial. Let $F(X)=f^{\nicefrac{(q-1)}{d'}}(X)$ where $d'=\gcd(q-1,d)$. Then the number of solutions of $Y^d=f(X)$ in $\bbF_q^2$ is given by 
+  $$Z(Y^d=f(X))=Z_0+d'\cdot Z_1$$ where $Z_0=|\{\alpha\in\bbF_q\colon f(\alpha)=0\}|$ and $Z_1=|\{\alpha\in\bbF_q\colon F(\alpha)=1\}|$.
 
-  Furthermore, if $Z_2=|\{\alpha\in\bbF_q\colon F^{d-1}(\alpha)+\cdots +F(\alpha)+1=0\}|$ then $Z_0+Z_1+Z_2=q$.
+  Furthermore, if $Z_2=|\{\alpha\in\bbF_q\colon F^{d'-1}(\alpha)+\cdots +F(\alpha)+1=0\}|$ then $Z_0+Z_1+Z_2=q$.
 \end{lemma}
+\begin{proof}
+  Now for any solution $(X,Y)=(\alpha,\beta)$ such that $\beta^d=f(\alpha)$ either $\beta-0$ or $\beta\neq 0$. So we consider these two cases separately.
+  \paragraph*{Case I: $\beta=0$} In this case the notice that the set of all $\alpha\in\bbF_q$ such that $f(\alpha)=0$ is exactly the set of solutions such that $\beta=0$. Therefore, the number of solutions for which $\beta=0$ is $Z_0$. 
+  \paragraph*{Case II: $\beta\neq 0$} If for any solution $(\alpha,\beta)$ if $\beta\neq 0$ then $f(\alpha)\in {\bbF_q^*}^{(d)}$. Therefore, for all such $\alpha$'s we have $$f^{\nicefrac{(q-1)}{d'}}(\alpha)=F(\alpha)=1,\quad \text{where }d'=\gcd(q-1,d).$$ Now if $Z_1$ is the number of $\alpha\in\bbF_q$ such that $f(X)^{\nicefrac{(q-1)}{d'}})(\alpha)=1$. This is exactly the set $Z_1$. Now for each such $\alpha\in\bbF_q^*$ there are $d'$ solutions for $\beta$ in $\bbF_q$ such that $\beta^d=f(\alpha)$. Hence, there are $d'\cdot Z_1$ such solutions. 
+  
+  Thus, we get the total number of solutions is $Z_0+d'\cdot Z_1$. Hence, $Z(Y^d=f(X))=Z_0+d'\cdot Z_1$. So we have the first part
+  
+  Now for every $\alpha\in\bbF_q$, $f(\alpha)\in\bbF_q$. Therefore, $f^q(\alpha)=f(\alpha)$. Now we get the following factorization.
+  $$H(X)=f^q(X)-f(X)=f(X)\cdot \lt(f^{\nicefrac{(q-1)}{d'}}\rt)\lt(F(X)^{d'-1}+\cdots + F(X)+1\rt).$$ So $\deg H=q$ and for all $\alpha\in\bbF_q$, $H(\alpha)=0$. Now if $H(\alpha)=0$ then either $f(\alpha)=0$ or $F(\alpha)=0$ or $F^{d-1}(\alpha)+\cdots +F(\alpha)+1=0$. The number of zeros in these three cases are $Z_0$, $Z_1$ and $Z_2$ respectively. Therefore, we get $Z_0+Z_1+Z_2=q$. 
+\end{proof}
 
 To prove \Stepanov we will assume $d\mid q-1$ and $\gcd(d,m)=1$, so $Y^d-f(X)$ is absolutely irreducible over $\bbF_q$. We also temporarily assume that $q=p$ or $q=p^2$ where $p$ is a prime.
 \begin{lemma}{}{lem:stepanov-linear-indep}
-  Suppose $h_0,h_1,\dots, h_{d-1}(X)\in\bbF_q[X]$ are polynomials of the type $$h_i(X)=\sum_{j=0}^th_{ij}(X)\cdot X^{qj},\quad \forall\ 0\leq i\leq d-1$$ where $h_{ij}\in\bbF_q[X]$ with $\deg(h_{ij})\leq \frac{q}{d}-m$. If $$H(X)=h_0(X)+h_1(X)\cdot F(X)+\cdots+h_{d-1}(X)\cdot F(X)^{d-1}\equiv 0$$ then for all $i\in\{0,1,\dots, d-1\}$ and $j\in\{0,\dots, t\}$ we have $h_{ij}\equiv 0$.
+  Let $m,d\in\bbN$ such that $\gcd(d,m)=1$. Suppose $h_0,h_1,\dots, h_{d-1}(X)\in\bbF_q[X]$ are polynomials of the type $$h_i(X)=\sum_{j=0}^th_{ij}(X)\cdot X^{qj},\quad \forall\ 0\leq i\leq d-1$$ where $h_{ij}\in\bbF_q[X]$ with $\deg(h_{ij})\leq \frac{q}{d}-m$. If $$h(X)=h_0(X)+h_1(X)\cdot F(X)+\cdots+h_{d-1}(X)\cdot F(X)^{d-1}\equiv 0$$ then for all $i\in\{0,1,\dots, d-1\}$ and $j\in\{0,\dots, t\}$ we have $h_{ij}\equiv 0$.
 \end{lemma}
+\begin{proof}
+  
+\end{proof}
 
 \begin{lemma}{Existence of Auxiliary Polynomial $Q$}{lem:stepanov-Q-exists}
-  Let $1\leq r\leq d-1$ and let $G\in\bbF_q[X]$ be a polynomial of degree $r$. Let $M\in\bbN$ be a positive integer satisfying $(M+3)^2\leq 2\nicefrac{q}{d}$. Then there exists a non-zero polynomial $Q(X)\in\bbF_q[X]$ with $\deg(Q)\leq \nicefrac{r}{d}\cdot qM+4mq$ such that for every $\alpha\in\bbF_q$:
+  Let $1\leq r\leq d-1$ and let $G\in\bbF_q[X]$ be a polynomial of degree $r$. Let $M\in\bbN$ be a positive integer satisfying $(M+3)^2\leq \nicefrac{2q}{d}$. Then there exists a non-zero polynomial $Q(X)\in\bbF_q[X]$ with $\deg(Q)\leq \nicefrac{r}{d}\cdot qM+4mq$ such that for every $\alpha\in\bbF_q$:
   \begin{enumerate}[label=(\roman*)]
     \item if $G(F(\alpha))=0$, then $Q(\alpha)=0$ with multiplicity at least $M$; and
     \item if $f(\alpha)=0$, then $Q(\alpha)=0$ with multiplicity at least $M$.
   \end{enumerate}
 \end{lemma}
+\begin{proof}
+  
+\end{proof}
 
 \begin{Theorem}{Stepanov's Theorem under Simplifying Assumptions}{thm:stepanov-restricted}
-  Let $d\mid q-1$ and $f\in \bbF_q[X]$ be a polynomial of degree $m$. Suppose that $\gcd(d,m)=1$ and $q=p$ or $q=p^2$ where $p$ is a prime. If $q\geq 100dm^2$ then $$|Z(Y^d=f(X))-q|< 4md^{\nicefrac32}q^{\nicefrac12}.$$
+  Let $d\mid q-1$ and $f\in \bbF_q[X]$ be a polynomial of degree $m$. Assume that \begin{enumerate}[label=(\roman*)]
+    \item $\gcd(d,m)=1$, 
+    \item $q\geq 100dm^2$
+  \end{enumerate} then $$|Z(Y^d=f(X))-q|< 4md^{\nicefrac32}q^{\nicefrac12}.$$
 \end{Theorem}
+\begin{proof}
+  For any $G\in\bbF_q[X]$ of degree $r$ in \StepanovQExistslem we constructed a polynomial $Q\in\bbF_q[X]$ where for all $\alpha\in\bbF_q$ such that $G(F(\alpha))=0$ or $f(\alpha)=0$, $\alpha$ is a zero of $Q$ with multiplicity at least $M$. Let $T_G $ be the set of all $\alpha\in\bbF_q$ such that $G(F(\alpha))=0$ or $f(\alpha)=0$. Therefore, $$|T_G|\cdot M\leq \deg (Q)\leq \nicefrac{r}{d}\cdot qM+4qm\implies |T_G|\leq \frac{r}d+4q\frac{m}{M}$$So now we choose $M=\lt[\sqrt{\nicefrac{2q}d}\rt]-3$. Since $q>100dm^2$ we have $M\geq \sqrt{\nicefrac{2q}d}-4\geq \sqrt{\nicefrac{q}d}\geq m+1$. Therefore, we get $$ |T_G|\leq \frac{r}{d}q+4md^{\nicefrac12}q^{\nicefrac12}$$
 
-\subsubsection{Removal of the assumption \texorpdfstring{$\gcd(m,d)=1$}{gcd(m, d)=1}}
+  Now take $G(X)=X-1$. Then $r-=1$. Observe that in this case $T_G$ is the set of all $\alpha\in\bbF_q$ such that either $F(\alpha)=1$ or $f(\alpha)=0$. Then $|T_G|=Z_0+Z_1$ where $Z_0$ and $Z_1$ are defined in \StepanovSolCountlem. Thus, $$|T_G|=Z_0+Z_1\leq \frac{q}{d}+4md^{\nicefrac12}q^{\nicefrac12}$$Therefore, $$Z(Y^d=f(X))=Z_0+Z_1\leq d\cdot |T_G|\leq q+4md^{\nicefrac32}q^{\nicefrac12}\implies Z(Y^d=f(X))-q\leq 4md^{\nicefrac32}q^{\nicefrac12}$$Now we have to show the lower bound. 
 
-\subsubsection{Removal of the assumption \texorpdfstring{$q=p$ or $q=p^2$}{q=p or q=p2}}
+  Now select $G(X)=X^{d-1}+\cdots +X+1$. Then $r=d-1$. Notice that in this case $T_{G}=Z_0+Z_2$. Therefore, in this case we have $$|T_G|=Z_0+Z_2\leq \frac{d-1}{d}q+4md^{\nicefrac12}q^{\nicefrac12}\implies Z_1=q-Z_0-Z_2\geq \frac{q}d-4md^{\nicefrac12}q^{\nicefrac12}$$Therefore we have $$Z(Y^d=f(X))=d\cdot Z_1\geq q-4md^{\nicefrac32}q^{\nicefrac12}$$Thus, we have the theorem. 
+\end{proof}
+\subsection{Removal of the assumption \texorpdfstring{$\gcd(m,d)=1$}{gcd(m, d)=1}}
+In this part we will remove the assumption that $\gcd(m,d)=1$. So now we can not draw conclusion from $\gcd(d,m)=1$ that $Y^d-f(X)$ is absolutely irreducible. We have to prove \StepanovRestrictedthm just using the assumption that $Y^d-f(X)$ is absolutely irreducible. 
 
+\nt{Now observe that this condition was only required in the proof of \StepanovLinIndeplem. 
+}
+
+Now we can assume $f(0)\neq 0$ without loss of generality. Since $f$ is a non-zero polynomial there exists $c\in\bbF_q$ such that $f(c)\neq 0$. Then we can replace $f$ by $f(X+c)$ and the number of solutions of $Y^d=f(X)$ will not change as well as the polynomials $h_i(X+C)$ in \StepanovLinIndeplem and \StepanovQExistslem doesn't change. So from now on we will assume that $f(0)\neq 0$.
+
+Let $\zeta_1,\dots, \zeta_d\in\ov{\bbF_q}$ be the roots of $X^d-1$, so $X^d-1=(X-\zeta_1)\cdots (X-\zeta_d)$. Working in $\ov{\bbF_q}[T_0,\dots,T_{d-1},Y]$ with formal variables $T_0,\dots,T_{d-1},Y$, consider the polynomial $$\hH(Y,T_0,\dots, T_{d-1})=T_0+T_1 Y+\cdots+T_{d-1}Y^{d-1}$$ and define $$G=\prod_{i=1}^d \hH(\zeta_iY,T_0,\dots, T_{d-1})\in\ov{\bbF_q}[T_0,\dots,T_{d-1},Y].$$ Since permuting the $\zeta_i$'s only permutes the factors of the product, $G$ is symmetric in $\zeta_1Y,\dots,\zeta_dY$. By \ElmSymmetrySpansthm, $G$ is a polynomial in elementary symmetric polynomials in $\zeta_1Y,\dots, \zeta_dY$. 
+Since $X^d-1=(X-\zeta_1)\cdots (X-\zeta_d)$ we have $$\esym_j(\zeta_1,\dots,\zeta_d)\equiv 0\text{ for all } j\in[d-1],\quad\text{and}\quad \esym_d(\zeta_1,\dots,\zeta_d)\equiv =-Y^{d+1}.$$ Therefore, every monomial of $G$ with non-zero $Y$-degree as $Y$-degree multiples of $d$. Hence, there exists $\hG\in\ov{\bbF_q}[T_0,\dots,T_{d-1},Y]$ such that $G\equiv \hG(Y^d,T_0,\dots,T_{d-1})$ where $\deg_Y(\hG)=d-1$ and for all $j\in\{0,\dots,d-1\}$, $\deg_{T_j}(\hG)=d$. So now we construct the polynomial $P\in\bbF_q[Y_1,Y_2,T_0,\dots, T_{d-1}]$ as $$P(Y_1,Y_2,T_0,\dots, T_{d-1})=Y_2^{d-1}\cdot \hG\lt(\frac{Y_1}{Y_2},T_0,\dots, T_{d-1}\rt)$$then $\deg(Y_1)P=d-1$ and $\deg_{Y_2}(P)=d-1$ and $\deg_{T_j}=d$ for all $j\in\{0,\dots, d-1\}$. 
+
+\begin{want}
+We want to show that \StepanovLinIndeplem holds even with the only assumption that  $Y^d-f(X)$ is absolutely irreducible. After that we can apply \StepanovQExistslem and therefore we have \StepanovRestrictedthm without the assumption $\gcd(m,d)=1$.
+\end{want}
+
+Let there is $h_0,\dots, h_{d-1}\in \bbF_q[X]$ with $h_i(X)=\sum_{j=0}^th_{ij}(X)\cdot X^{qj}$ for all $ 0\leq i\leq d-1$ with degree bounds as defined in \StepanovLinIndeplem such that $$h_0(X)+h_1(X)\cdot F(X)+\cdots +h_{d-1}(X)\cdot F(X)^{d-1}\equiv 0$$Therefore, we have $\hH(F,h_0,\dots, h_{d-1})\equiv 0$. Hence, by construction we have $\hG(F^d,h_0,\dots, h_{d-1})\equiv 0$. Now $F(X)=f^{\nicefrac{(q-1)}{d}}(X)$. So $F(X)^d=f^{q-1}(X)=\nicefrac{f^q(X)}{f(X)}$. Therefore, $$P(f^q,f,h_0,\dots, h_{d-1})=f^{d-1}(X)\hG\lt( \frac{f^q(X)}{f(X)},h_0,\dots, h_{d-1} \rt)=f^{(d-1)}\hG(F^d,h_0,\dots, h_{d-1})\equiv 0$$Now if we gather all terms with no factor of $X^q$ we get 
+\begin{equation}\label{eq:stepanov-p-zero}
+  P(f(0),f(X),h_{00},\cdots, h_{(d-1)0})+X^q\cdot P'(X)\equiv 0
+\end{equation}
+Now $\deg(P(f(0),f(X),h_{00},\cdots, h_{(d-1)0}))\leq (d-1)m+d\lt(\nicefrac{q}d-m\rt)<q$. Hence, $P(f(0),f(X),h_{00},\cdots, h_{(d-1)0})\equiv 0$ by \eqref{eq:stepanov-p-zero}. 
+
+\begin{enough}
+It suffices to show that $h_{00},\dots, h_{d-1,0}$ are identically zero. If that happens then we can divide every thing by $X^q$ and run the same argument to show that $h_{ij}\equiv 0$ for all $i\in\{0,\dots, d-1\}$ and $j\in\{0,\dots, t\}$. 
+\end{enough}
+
+Let $\gm\in\ov{\bbF_q(X)}$ such that $\gm^d=\frac{f(X)}{f(0)}$. Since $Y^d-f(X)$ is absolutely irreducible by \YdFxIrrthm $Y^d-\frac1{f(0)}f(X)$ is also absolutely irreducible. Now we already have $P(f(0),f(X),h_{00},\cdots, h_{(d-1)0})\equiv 0$. And $$P(f(0),f(X),h_{00},\cdots, h_{(d-1)0})=f^{d-1}(X)\cdot \hG\lt(\frac{f(0)}{f(X)},h_{00},\dots, h_{d-1,0}  \rt)\equiv 0$$Since $f$ is a non-zero polynomial we have $\hG\lt(\frac{f(0)}{f(X)},h_{00},\dots, h_{d-1,0}  \rt)\equiv 0$. Since $\gm^d=\nicefrac{f(X)}{f(0)}$ we have 
+\begin{equation}\label{eq:stepanov-g-zero}
+  0\equiv \hG\lt(\frac{f(0)}{f(X)},h_{00},\dots, h_{d-1,0}\rt)= \hG\lt(\frac1{\gm^d},h_{00},\dots, h_{d-1,0}\rt)=G\lt(\nicefrac1{\gm},h_{00},\dots, h_{d-1,0}\rt)
+\end{equation}
+Therefore, there exists $i\in [d]$ such that $\hH\lt(\nicefrac{\zeta_i}{\gm},h_{00},\dots, h_{d-1,0}\rt)\equiv 0$. Expanding it out we obtain $$h_{00}(X)+\frac{\zeta_i}{\gm}h_{10}(X)+\cdots +\lt(\frac{\zeta_i}{\gm}\rt)^{d-1}h_{d-1,0}(X)\equiv 0\iff h_{00}\cdot \gm^{d-1}+h_{10}\cdot \gm^{d-2}\cdot \zeta_i+\cdots +h_{d-1,0}\cdot \zeta_i^{d-1}\equiv 0$$ Let $R(Y)=h_{00}\cdot Y^{d-1}+h_{10}\cdot Y^{d-2}\cdot \zeta_i+\cdots +h_{d-1,0}\cdot \zeta_i^{d-1}\in(X)[Y]$. Now since $Y^d-f(X)$ is absolutely irreducible, $[\ov{\bbF_q}(X,\gm)\colon\ov{\bbF_q}(X)]=d$. But we obtained a polynomial $R(Y)$ of degree $d-1$ over $\ov{\bbF_q}(X)$ such that $R(\gm)\equiv 0$. Therefore, $R(Y)$ is a zero polynomial. So $h_{i,0}\equiv 0$ for all $i\in\{0,\dots, d-1\}$. Hence, we are done. 
+
+So now we have finally proved the \Stepanov.
 \subsection{Alternate Proof of Stepanov's Theorem}
+
 
 \subsection{Connection between the Bound and Genus of Curve}
 
@@ -61,7 +124,6 @@ To prove \Stepanov we will assume $d\mid q-1$ and $\gcd(d,m)=1$, so $Y^d-f(X)$ i
     \item $f(X)=a(X-\alpha_1)^{k_1}\cdots (X-\alpha_m)^{k_m}$ with $\alpha_i\in\ov{\bbF_q}$ and $d\mid k_i$ for all $i\in[m]$.
   \end{enumerate}
 \end{lemma}
-
 
 \begin{Theorem}{Bound for $\Wpsi{f}$: Absolutely Irreducible Case}{thm:stepanov-psi-irr}
   Suppose $d\mid q-1$ and let $\psi\in\Mq^{(d)}$ be a non-trivial multiplicative character of exponent $d$. Let $f(X)\in\bbF_q[X]$ be a polynomial of degree $m$ such that $Y^d-f(X)$ is absolutely irreducible. Suppose $q>100dm^3$. Then $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\rt|<5md^{\nicefrac{3}{2}}q^{\nicefrac12}.$$

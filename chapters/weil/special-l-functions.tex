@@ -1,9 +1,9 @@
-\section{Special \texorpdfstring{$L$}{L}-functions}
+\section{Special \texorpdfstring{$L$}{ L }-functions}
 In this section we will construct special $L$-functions which will help us study polynomials like $Y^d-f(X)$ or $Y^q-Y-f(X)$ where they are absolutely irreducible and character sums related to such polynomials. Remember the notions we introduced in \autoref{sec:l-functions}.
 
 Let $G$ be the group of all rational functions $r(X)\in\bbF_q(X)$ such that for any $r(X)=\nicefrac{h_1(X)}{h_2(X)}$ where $h_1,h_2\in\Phi$. 
 
-Let $f(X)\in\bbF_q[X]$ be a monic polynomial in $\bbF_q[X]$. Let $f(X)$ factors into $$f(X)=(X-\gm_1)^{a_1}\cdots (X-\gm_m)^{a_m}$$ in the field $\ov{\bbF}_q[X]$ i.e. $f$ has $m$ distinct roots. Then define the subgroup $\ov{G}$ such that $r=\nicefrac{h_1}{h_2}\in\ovG$ then $$h_1(\gm_i)\cdot h_2(\gm_i)\neq 0\quad\forall\ i\in[m]$$Then $\ovG$ has the property that if $r_1\cdot r_2\in\ovG$ then $r_1,r_2\in \ovG$. 
+Let $f(X)\in\bbF_q[X]$ be a monic polynomial in $\bbF_q[X]$. Let $f(X)$ factors into $$f(X)=(X-\gm_1)^{a_1}\cdots (X-\gm_m)^{a_m}$$ in the field $\ov{\bbF}_q[X]$ i.e., $f$ has $m$ distinct roots. Then define the subgroup $\ov{G}$ such that $r=\nicefrac{h_1}{h_2}\in\ovG$ then $$h_1(\gm_i)\cdot h_2(\gm_i)\neq 0\quad\forall\ i\in[m]$$Then $\ovG$ has the property that if $r_1\cdot r_2\in\ovG$ then $r_1,r_2\in \ovG$. 
 
 Now we define a multiplicative function $\vsg:\ovG\to \bbF_q$. Let $r=\nicefrac{h_1}{h_2}\in\ovG$ factors into $$r(X)=\prod_{i=1}^{d_1}(X-\alpha_i)\cdot \prod_{j=1}^{d_2}(X-\beta_j)^{-1}$$ in $\ov{\bbF_q}(X)$. Then define $$\vsg(r)=\prod_{i=1}^{d_1}f(\alpha_i)\cdot \prod_{j=1}^{d_2}f(\beta_j)^{-1}=\prod_{t=1}^mr(\gm_t)^{a_t}$$Take $\vsg(r)=1$ if $f(X)\equiv 1$. Then $\vsg(r)\in\bbF_q$. Then we have the following observation
 \begin{observation}
@@ -11,7 +11,7 @@ Now we define a multiplicative function $\vsg:\ovG\to \bbF_q$. Let $r=\nicefrac{
 \end{observation}
 If $\psi\in\Mq$ is a multiplicative character of $\bbF_q$ then for any $r_1,r_2\in\ovG$ we have $$\psi(\vsg(r_1\cdot r_2))=\psi(\vsg(r_1))\cdot \psi(\vsg(r_2))$$Therefore $\psi\circ \vsg$ is a character on $\ovG$. Now we extend $\psi\circ\vsg$ to $G$ by setting $\psi\circ\vsg(r)=0$ for all $r\in G\setminus \ovG$. So $\psi\circ \vsg$ is a character on $G$. 
 
-Let $\tdH$ be a subgroup of $\ovG$ consisting only $r=\nicefrac{h_1}{h_2}$ with $h_1(\gm_i)=h_2(\gm_i)\neq 0$ for all $i\in[m]$. Therefore by definition of $\vsg$ we have the following lemma 
+Let $\tdH$ be a subgroup of $\ovG$ consisting only $r=\nicefrac{h_1}{h_2}$ with $h_1(\gm_i)=h_2(\gm_i)\neq 0$ for all $i\in[m]$. Therefore, by definition of $\vsg$ we have the following lemma 
 \begin{lemma}{}{lem:mult-char-rational-func-identity}
   For all $r\in\tdH$, $\psi\circ \vsg(r)=1$. 
 \end{lemma}
@@ -22,13 +22,12 @@ Now let $g\in\bbF_q[X]$ be any fixed polynomial of degree $n$ and constant term 
 \end{observation}
 Now if $\chi\in\Xq$ is an additive character of $\bbF_q$ then for all $r_1,r_2\in G$ we have $$\chi(\vrh(r_1\cdot r_2))=\chi(\vrh(r_1)+\vrh(r_2))=\chi(\vrh(r_1))\cdot \chi(\vrh(r_2))$$Therefore $\chi\circ\vrh$ is a character on $G$. 
 
-Let $H$ be a subset of $G$ consisting of rational functions $r=\nicefrac{h_1}{h_2}$ where $$h_1(X)=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i},\qquad h_1(X)=X^{d_2}+\sum_{i=1}^{d_2}(-1)^i\cdot b_i\cdot X^{d_2-i}$$ such that $a_i=b_i$ for all $i\in[n]$. Therefore $H$ is a subgroup of $G$. Now notice that suppose $h(X)$ is a monic polynomial and $r=\nicefrac{h_1}{h_2}\in G$ be a rational function. Now we will show another way of writing this condition which is more algebraic to work with.
+Let $H$ be a subset of $G$ consisting of rational functions $r=\nicefrac{h_1}{h_2}$ where $$h_1(X)=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i},\qquad h_1(X)=X^{d_2}+\sum_{i=1}^{d_2}(-1)^i\cdot b_i\cdot X^{d_2-i}$$ such that $a_i=b_i$ for all $i\in[n]$. Therefore, $H$ is a subgroup of $G$. Now notice that suppose $h(X)$ is a monic polynomial and $r=\nicefrac{h_1}{h_2}\in G$ be a rational function. Now we will show another way of writing this condition which is more algebraic to work with.
 
 $$h_1(X) = X^{d_1}\lt(1+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot \frac1{X^i}\rt),\qquad h_2(X) = X^{d_2}\lt(1+\sum_{j=1}^{d_2}(-1)^i\cdot b_j\cdot \frac1{X^j}\rt)$$So take the polynomials $\hh_1(Y)=1+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot Y^i$ and $\hh_2(Y)=1+\sum_{j=1}^{d_2}(-1)^i\cdot b_j\cdot Y^j$. Now since $a_i=b_i$ for all $i\in[n]$ we have $\hh_1\equiv \hat{h_2}\bmod{\la X\ra^{n+1}}$ So we have the following observations
 \begin{observation}
-  If $r=\frac{h_1}{h_2}\in G$ where $h_1=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i}$ and $h_1=X^{d_2}+\sum_{j=1}^{d_2}(-1)^j\cdot a_j\cdot X^{d_2-j}$ then consider the polynomial $\hh_1(Y)=\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot Y^{i}$ and $\hh_2(Y)=\sum_{j=1}^{d_2}(-1)^j\cdot a_j\cdot Y^{j}$ that is we have  $$\hh_1=Y^{d_1}h_1(\nicefrac1Y),\quad\text{and}\quad\hh_2=Y^{d_2}h(\nicefrac1Y)$$Then $r\in H\iff \hh_1\equiv \hh_2\bmod{\la X\ra^{n+1}}$
+  If $r=\frac{h_1}{h_2}\in G$ where $h_1=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i}$ and $h_1=X^{d_2}+\sum_{j=1}^{d_2}(-1)^j\cdot a_j\cdot X^{d_2-j}$ then consider the polynomial $\hh_1(Y)=\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot Y^{i}$ and $\hh_2(Y)=\sum_{j=1}^{d_2}(-1)^j\cdot a_j\cdot Y^{j}$ that is we have  $$\hh_1=Y^{d_1}h_1(\nicefrac1Y),\quad\text{and}\quad\hh_2=Y^{d_2}h(\nicefrac1Y)$$Then $r\in H\iff \hh_1\equiv \hh_2\bmod{\la X\ra^{n+1}}.$
 \end{observation}
-
 
 \begin{lemma}{}{lem:coeff-same-poly-by-rat}
 Let $r =\nicefrac{h_1}{h_2}\in G$ be a rational function with $h_1,h_2\in\Phi$ with degrees $d_1, d_2$ respectively and let $h$ be a monic polynomial of degree $d$.
@@ -39,14 +38,14 @@ Suppose $\nicefrac{h}{r}\in H$. Then
 \end{lemma}
 \begin{proof}
   From $h_1,h_2,h$ we construct the corresponding polynomials $\hh_1(Y),\hh_2(Y), \hh(Y)$. Since $\frac{h}{r}=\frac{h\cdot h_2}{h_1}$ we have $\nicefrac{(h\cdot h_2)}{h_1}\in H$. Now we construct the polynomial $\widehat{h\cdot h_2}(Y)$ from $h\cdot h_2$. Then we have $$\widehat{h\cdot h_2}(Y)=Y^{d+d_2}(h(\nicefrac1Y)\cdot h_2(\nicefrac1Y))=\lt(Y^dh(\nicefrac1Y)\rt)\cdot \lt(Y^{d_2}h(\nicefrac1Y)\rt)=\widehat{h}\cdot \widehat{h}_2$$Since $\nicefrac{h}{r}\in H$ we have $\hh_1\equiv \hh_2\cdot \hh\bmod{\la X\ra^{n+1}}$. 
-  Now we compute $\hr$. Now $r=\nicefrac{h_1}{h_2}$ so $h_2\cdot r=h_1$ and therefore $\wh{h_2\cdot r}=\hh_2\cdot \wh{r}$. Hence $$\hh_2\cdot \wh{r}\equiv \hh_1\equiv \hh_2\cdot \hh$$ Since $\hh_2$ is a non-zero polynomial we have $\hr\equiv \hh\bmod{\la X\ra^{n+1}}$. 
+  Now we compute $\hr$. Now $r=\nicefrac{h_1}{h_2}$ so $h_2\cdot r=h_1$ and therefore $\wh{h_2\cdot r}=\hh_2\cdot \wh{r}$. Hence, $$\hh_2\cdot \wh{r}\equiv \hh_1\equiv \hh_2\cdot \hh$$ Since $\hh_2$ is a non-zero polynomial we have $\hr\equiv \hh\bmod{\la X\ra^{n+1}}$. 
 \end{proof}
 
 \begin{lemma}{}{lem:add-char-rational-func-identity}
   For all $r\in H$, $\chi\circ\vrh(r)=1$
 \end{lemma}
 \begin{proof}
-  Let $r\in H$ and $r=\nicefrac{h_1}{h_2}$ where $h_1,h_2\in\Phi$ and  $$h_1(X)=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i},\qquad h_1(X)=X^{d_2}+\sum_{i=1}^{d_2}(-1)^i\cdot b_i\cdot X^{d_2-i}$$ such that $a_i=b_i$ for all $i\in[n]$. The polynomial $\sum_{i=1}^k g(Y_i)$ is a symmetric polynomial for any $k\in\bbN$ of degree $N$ in variables $Y_1,\dots, Y_k$. Hence it is a polynomial in the first $n$ elementary symmetric polynomials $\esym_j(Y_1,\dots, Y_k)$ for all $j\in[n]$. Hence there exists a polynomial $P\in \bbF_q[X_1,\dots,X_n]$ such that for any $k\in\bbN$, $$\sum_{i=1}^k g(Y_i)=P\lt(\esym_1,\dots, \esym_n\rt)$$Now if we take $k=d_1$ and plugin $\alpha_1,\dots, \alpha_{d_1}$ in $Y_1,\dots, Y_{d_1}$ we obtain $$\sum_{i=1}^{d_1}g(\alpha_i)=P\lt(\esym_1(\alpha_1,\dots,\alpha_{d_1}),\dots, \esym_n(\alpha_1,\dots,\alpha_{d_1})\rt)=P(a_1,\dots, a_n)$$And similarly for $k=d_2$ and assign $\beta_1,\dots, \beta_{d_2}$ for $Y_1,\dots, Y_{d_2}$  we obtain $$\sum_{j=1}^{d_2}g(\beta_j)=P\lt(\esym_1(\beta_1,\dots,\beta_{d_2}),\dots, \esym_n(\beta_1,\dots,\beta_{d_2})\rt)=P(b_1,\dots, b_n)$$Since $r\in H$ we have $a_i=b_i$ for all $i\in[n]$. Therefore $\sum_{i=1}^{d_1}g(\alpha_i)=\sum_{j=1}^{d_2}g(\beta_j)$. Therefore for all $r\in H$ we have $\vrh(r)=0$ and hence $\chi\circ \vrh(r)=1$ for all $r\in H$. 
+  Let $r\in H$ and $r=\nicefrac{h_1}{h_2}$ where $h_1,h_2\in\Phi$ and  $$h_1(X)=X^{d_1}+\sum_{i=1}^{d_1}(-1)^i\cdot a_i\cdot X^{d_1-i},\qquad h_1(X)=X^{d_2}+\sum_{i=1}^{d_2}(-1)^i\cdot b_i\cdot X^{d_2-i}$$ such that $a_i=b_i$ for all $i\in[n]$. The polynomial $\sum_{i=1}^k g(Y_i)$ is a symmetric polynomial for any $k\in\bbN$ of degree $N$ in variables $Y_1,\dots, Y_k$. Hence, it is a polynomial in the first $n$ elementary symmetric polynomials $\esym_j(Y_1,\dots, Y_k)$ for all $j\in[n]$. Hence, there exists a polynomial $P\in \bbF_q[X_1,\dots,X_n]$ such that for any $k\in\bbN$, $$\sum_{i=1}^k g(Y_i)=P\lt(\esym_1,\dots, \esym_n\rt)$$Now if we take $k=d_1$ and plugin $\alpha_1,\dots, \alpha_{d_1}$ in $Y_1,\dots, Y_{d_1}$ we obtain $$\sum_{i=1}^{d_1}g(\alpha_i)=P\lt(\esym_1(\alpha_1,\dots,\alpha_{d_1}),\dots, \esym_n(\alpha_1,\dots,\alpha_{d_1})\rt)=P(a_1,\dots, a_n)$$And similarly for $k=d_2$ and assign $\beta_1,\dots, \beta_{d_2}$ for $Y_1,\dots, Y_{d_2}$  we obtain $$\sum_{j=1}^{d_2}g(\beta_j)=P\lt(\esym_1(\beta_1,\dots,\beta_{d_2}),\dots, \esym_n(\beta_1,\dots,\beta_{d_2})\rt)=P(b_1,\dots, b_n)$$Since $r\in H$ we have $a_i=b_i$ for all $i\in[n]$. Therefore, $\sum_{i=1}^{d_1}g(\alpha_i)=\sum_{j=1}^{d_2}g(\beta_j)$. Therefore, for all $r\in H$ we have $\vrh(r)=0$ and hence $\chi\circ \vrh(r)=1$ for all $r\in H$. 
 \end{proof}
 
 So now we define the multiplicative function $\xi:G\to\bbC$ where $$\xi(r)=\lt(\psi\circ\vsg\rt)(r)\cdot \lt(\chi\circ\vrh\rt)(r)$$
@@ -62,7 +61,7 @@ Let $\ovH=H\cap \tdH$. Then from \lemref{lem:mult-char-rational-func-identity} a
   Suppose $r(X)=\nicefrac{h_1}{h_2}\in \ovG$. Then it suffices to show that there are precisely $q^t$ polynomials $h(X)=X^{n+m+t}+\sum_{i=1}^{n+m+t}(-1)^i\cdot b_i\cdot X^{n+m+t-i}$ with $\nicefrac{h}{r}\in\ovH$. By \lemref{lem:coeff-same-poly-by-rat} this means there are $q^t$ polynomials $h(X)\in\Phi$ with $\deg(h)=n+m+t$ such that \begin{align}
     &\hh \equiv \hr\bmod{\la X\ra^{n+1}} \label{eq:H-cond-poly-rat}&\\
     &k(\gm_i) = r(\gm_i) \quad \forall i\in[m] \label{eq:tdH-cond-poly-rat}&
-  \end{align}  Now the coefficients $b_1,\dots, b_n$ are already determined by the condition \eqref{eq:H-cond-poly-rat}. Now the equations in \eqref{eq:tdH-cond-poly-rat} gives $m$ linear equations. The matrix of this equation is a $m\times m$ Vandermonde matrix over $\gm_i^j$ for all $i\in[m]$ and $j\in\{0,1,\dots, m-1\}$. Hence by the system of linear equations $m$ coefficients $\{b_{n+t+1},\dots, b_{n+t+m}\}$ gets uniquely determined. Hence we can pick $b_{n+1},\dots, b_{n+t}$ arbitrarily. Therefore there are $q^t$ many choices for $h(X)$. 
+  \end{align}  Now the coefficients $b_1,\dots, b_n$ are already determined by the condition \eqref{eq:H-cond-poly-rat}. Now the equations in \eqref{eq:tdH-cond-poly-rat} gives $m$ linear equations. The matrix of this equation is an $m\times m$ Vandermonde matrix over $\gm_i^j$ for all $i\in[m]$ and $j\in\{0,1,\dots, m-1\}$. Hence, by the system of linear equations $m$ coefficients $\{b_{n+t+1},\dots, b_{n+t+m}\}$ gets uniquely determined. Hence, we can pick $b_{n+1},\dots, b_{n+t}$ arbitrarily. Therefore, there are $q^t$ many choices for $h(X)$. 
 \end{proof}
 
 We write alternate proof of Davenport-Hasse Theorem from Schmidt 2.{6,7,8,9,10}

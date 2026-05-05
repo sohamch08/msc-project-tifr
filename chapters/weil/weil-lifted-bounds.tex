@@ -13,7 +13,7 @@ Suppose $\psi\in\Mq^{(d)}$ where $d>1$. Then there are $d$ characters of exponen
 \begin{proof}
   Since $\alpha\to N_{E/\bbF_q}(\alpha)$ is a group homomorphism from $ E^*\to\bbF_q^*$ which is an onto homomorphism. Now for any $\gm\in\bbF_q^*$ the number of $\beta\in E^*$ such that $N_{E/\bbF_q}(\beta)=\gm$ is exactly $1+q+\cdots +q^{k-1}=\nicefrac{ E^*}{|\bbF_q^*|}$. Then restriction $\lt.N_{E/\bbF_q}\rt|_{{ E^*}^{(d)}}\colon { E^*}^{(d)}\to {\bbF_q^*}^{(d)}$ is also onto. So for any $\alpha\in E$, $N_{E/\bbF_q}(\alpha)\in {\bbF_q^*}^{(d)}\iff \alpha\in{ E^*}^{(d)}$. 
   
-  Now by \thmref{thm:char-power-sum-d} we have $\sum_{\psi\in\Mq^{(d)}}\psi^{(k)}(\alpha)\in \{0,1,d\}$. If $\alpha=0$ then the sum is $1$ and otherwise if $N_{E/\bbF_q}\in {\bbF_q^*}^{(d)}$ then the sum is $d$ and and if $N_{E/\bbF_q}\notin {\bbF_q^*}^{(d)}$ then the sum is $0$. 
+  Now by \thmref{thm:char-power-sum-d} we have $\sum_{\psi\in\Mq^{(d)}}\psi^{(k)}(\alpha)\in \{0,1,d\}$. If $\alpha=0$ then the sum is $1$ and otherwise if $N_{E/\bbF_q}\in {\bbF_q^*}^{(d)}$ then the sum is $d$ and if $N_{E/\bbF_q}\notin {\bbF_q^*}^{(d)}$ then the sum is $0$. 
   \begin{enumerate}[label=(\roman*),itemsep=-1mm]
     \item If $\alpha= 0$ and $\alpha\notin { E^*}^{(d)}$ then there is single solution for $\beta=0$ such that $\beta^d=\alpha$. 
     \item If $\alpha\neq 0$ and $\alpha\notin { E^*}^{(d)}$ then there are no solution for $\beta$ such that $\beta^d=\alpha$. 
@@ -21,7 +21,7 @@ Suppose $\psi\in\Mq^{(d)}$ where $d>1$. Then there are $d$ characters of exponen
   \end{enumerate}
   So the sum in the lemma statement exactly gives the number of solutions. 
 \end{proof}
-Now we apply the above lemma for the solutions of  $Y^d-f(X)$ and count the number of solutions using multiplicative character sums. So we take the above sum over all possible $\alpha\in E$ and we get the following lemma:
+Now we apply the above lemma for the solutions of  $Y^d-f(X)$ and count the number of solutions using multiplicative character sums. So we take the above sum over all possible $\alpha\in E$, and we get the following lemma:
 \begin{lemma}{Solutions of $Y^d=f(X)$ via Character Sums}{lem:ydminusfx-charsum}
   Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots. Then $$Z_E\lt(Y^d-f(X)\rt)=\sum_{\psi\in\Mq^{(d)}}\sum_{\alpha\in\bbF_q}\psi^{(k)}(f(\alpha))=\sum_{\psi\in\Mq^{(d)}}\Wpsil{k}{f}.$$
 \end{lemma}
@@ -30,10 +30,10 @@ We prove the Weil bound for polynomials like $Y^d-f(X)$ in three steps below. An
   Let $f(X)\in\bbF_q[X]$ be a polynomial with precisely $m$ distinct roots, and let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. If $Y^d-f(X)$ is absolutely irreducible or $f(X)$ is not a $d^{th}$ power, then for every $j\in[m-1]$ we have $|w_{\psi,j}|\leq q^{\nicefrac12}$.
 \end{lemma}
 \begin{proof}
-  We can assume $f$ to be monic since $\psi(a\cdot f(\alpha))=\psi(a)\cdot \psi(f(\alpha)$ and hence $\psi$ evaluated on the leading coefficient gets out of the sum which doesn't change the absolute value. So we will assume $f$ is monic. Now by \Stepanov, $|Z_E(Y^d=f(X))-q^k|=O(q^{\nicefrac{k}2})$. Since $W^{(k)}\lt(\psi_0^{(k)};f\rt)=q^k$, \YdFxCharSumlem gives $$\lt|\sum_{\psi\in\Mq^{(d)},\,\psi\neq\psi_0}\Wpsil{k}{f}\rt|=O(q^{\nicefrac{k}2}).$$Therefore $|\Wpsil{k}{f}|=O(q^{\nicefrac{k}2})$ for each non-trivial $\psi$. Since $\Wpsil{k}{f}=-\sum_{j=1}^{m-1}w_{\psi,j}^k$, \PowerSumBound gives $|w_{\psi,j}|\leq q^{\nicefrac12}$ for all $j$.
+  We can assume $f$ to be monic since $\psi(a\cdot f(\alpha))=\psi(a)\cdot \psi(f(\alpha)$ and hence $\psi$ evaluated on the leading coefficient gets out of the sum which doesn't change the absolute value. So we will assume $f$ is monic. Now by \Stepanov, $|Z_E(Y^d=f(X))-q^k|=O(q^{\nicefrac{k}2})$. Since $W^{(k)}\lt(\psi_0^{(k)};f\rt)=q^k$, \YdFxCharSumlem gives $$\lt|\sum_{\psi\in\Mq^{(d)},\,\psi\neq\psi_0}\Wpsil{k}{f}\rt|=O(q^{\nicefrac{k}2}).$$Therefore, $|\Wpsil{k}{f}|=O(q^{\nicefrac{k}2})$ for each non-trivial $\psi$. Since $\Wpsil{k}{f}=-\sum_{j=1}^{m-1}w_{\psi,j}^k$, \PowerSumBound gives $|w_{\psi,j}|\leq q^{\nicefrac12}$ for all $j$.
 \end{proof}
 
-Now by \lemref{lem:weil-roots-modulus-psi}, $|w_{\psi,j}|\leq q^{\nicefrac12}$ for all $j\in[m-1]$. Hence $|\Wpsi{f}|\leq (m-1)q^{\nicefrac12}$ and $|\Wpsil{k}{f}|\leq (m-1)q^{\nicefrac{k}2}$. So we have the following theorem. 
+Now by \lemref{lem:weil-roots-modulus-psi}, $|w_{\psi,j}|\leq q^{\nicefrac12}$ for all $j\in[m-1]$. Hence, $|\Wpsi{f}|\leq (m-1)q^{\nicefrac12}$ and $|\Wpsil{k}{f}|\leq (m-1)q^{\nicefrac{k}2}$. So we have the following theorem. 
 \begin{Theorem}{Weil Bound for $\Wpsil{k}{f}$: Absolutely Irreducible Case}{thm:weil-bound-psi-irr}
   Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots and $Y^d-f(X)$ is absolutely irreducible. Then
   $$\lt|\Wpsi{f}\rt|\leq (m-1)q^{\nicefrac12}\quad\text{and}\quad \lt|\Wpsil{k}{f}\rt|\leq (m-1)q^{\nicefrac{k}2}.$$
@@ -49,7 +49,7 @@ We can give the same bound for the case where $f$ is not a $d^{th}$ power instea
   $$\lt|Z_E\lt(Y^d=f(X)\rt)-q^k\rt|\leq (d-1)(m-1)q^{\nicefrac{k}2}, \qquad \lt|Z\lt(Y^d=f(X)\rt)-q\rt|\leq (d-1)(m-1)q^{\nicefrac{1}2}.$$
 \end{corolary}
 \begin{proof}
-  By \YdFxCharSumlem, $Z_E(Y^d=f(X))=q^k+\sum_{\psi\neq\psi_0}\Wpsil{k}{f}$. Since there are $d-1$ non-trivial characters in $\Mq^{(d)}$ and \lemref{lem:weil-roots-modulus-psi} gives $|\Wpsil{k}{f}|\leq (m-1)q^{\nicefrac{k}2}$ for each, the triangle inequality yields the bound. Similarly we get $\lt|Z\lt(Y^d=f(X)\rt)-q\rt|\leq (d-1)(m-1)q^{\nicefrac{1}2}$
+  By \YdFxCharSumlem, $Z_E(Y^d=f(X))=q^k+\sum_{\psi\neq\psi_0}\Wpsil{k}{f}$. Since there are $d-1$ non-trivial characters in $\Mq^{(d)}$ and \lemref{lem:weil-roots-modulus-psi} gives $|\Wpsil{k}{f}|\leq (m-1)q^{\nicefrac{k}2}$ for each, the triangle inequality yields the bound. Similarly, we get $\lt|Z\lt(Y^d=f(X)\rt)-q\rt|\leq (d-1)(m-1)q^{\nicefrac{1}2}$
 \end{proof}
 \subsection{Bound for Additive Character Sums}\label{subsec:achar-weil-bound}
 Let $\chi\in\Xq$ be a non-trivial additive character. Let $\psi_0\in\Mq$ be the trivial multiplicative character. Let $g\in\bbF_q$ be a polynomial of degree $n$. Take $f(X)=1$. Then $W\lt(\psi_0,\chi;1,g\rt)=\Wchi{g}$ and $W^{(k)}\lt(\psi_0^{(k)},\chi^{(k)};1,g\rt)=\Wpsil{k}{f}$. So by \LiftedLRootscor there exists complex numbers $w_1,\dots, w_{n-1}$ such that \begin{equation}\label{eq:achar-complex-root-sum}
@@ -63,7 +63,7 @@ Let $\chi\in\Xq$ be a non-trivial additive character. Let $\psi_0\in\Mq$ be the 
   Now we know if $\tr_{E/\bbF_q}(\alpha)=0$ then we have $q$ solutions for $\beta\in E$ such that $\beta^q-\beta=\alpha$ and by \AddCharPropsthm[(i)] we have $$\sum_{\chi\in\Xq}\chi^{(k)}(\alpha)=q$$If $\tr_{E/\bbF_q}(\alpha)\neq 0$ then there is not $\beta\in E$ such that $\beta^q-\beta=\alpha$. And by \AddCharPropsthm[(i)] we get $\sum_{\chi\in\Xq}\chi^{(k)}(\alpha)=0$. So we have the lemma. 
 \end{proof}
 
-Now we apply the above lemma for the solutions of $Y^q-Y-g(X)$ and count the number of solutions using multiplicative character sums. So we take the above sum over all possible $\alpha\in\ E$ and we get the following lemma:
+Now we apply the above lemma for the solutions of $Y^q-Y-g(X)$ and count the number of solutions using multiplicative character sums. So we take the above sum over all possible $\alpha\in\ E$, and we get the following lemma:
 \begin{lemma}{Solutions of $\beta^q-\beta=g(\alpha)$ via Character Sums}{lem:frobenius-charsum}
   Let $\chi\in\Xq$ be a non-trivial additive character and $g(X)\in\bbF_q[X]$ of degree $n$. The number of $(\alpha,\beta)\in E^2$ with $\beta^q-\beta=g(\alpha)$ equals $$\sum_{\chi\in\Xq}\sum_{\alpha\in\bbF_q}\chi^{(k)}(g(\alpha))=\sum_{\chi\in\Xq}\Wchil{k}{g}.$$
 \end{lemma}
@@ -79,14 +79,14 @@ Now we will prove the Weil bound for the polynomial $Y^q-Y-g(X)$ below. We will 
   Then for every $j\in[n-1]$ we have $|w_{\chi,j}|\leq q^{\nicefrac12}$.
 \end{lemma}
 \begin{proof}
-  We can assume $g(X)$ has constant term to be $0$ since $\chi(g(\alpha)+a)=\chi(g(\alpha))\cdot chi(a)$ and so $\chi$ evaluated on the constant term gets out of the sum and it doesn't change the absolute value. So we will assume $g$ has constant term to be $0$. Now suppose we have \begin{equation}\label{eq:yq-y-g-sol-bound}
+  We can assume $g(X)$ has constant term to be $0$ since $\chi(g(\alpha)+a)=\chi(g(\alpha))\cdot chi(a)$ and so $\chi$ evaluated on the constant term gets out of the sum, and it doesn't change the absolute value. So we will assume $g$ has constant term to be $0$. Now suppose we have \begin{equation}\label{eq:yq-y-g-sol-bound}
     \lt|Z(Y^q-y-g(X))-q^k\rt|=O(q^{\nicefrac{k}2})
   \end{equation} Since $W^{(k)}\lt(\chi_0^{(k)};g\rt)=q^k$, by \lemref{lem:frobenius-charsum} we get $$\lt|\sum_{\chi\in\Xq,\chi\neq\chi_0}\Wchil{k}{g}\rt|=O(q^{\nicefrac{k}2})$$So \PowerSumBound gives $|w_{\chi,j}|\leq q^{\nicefrac12}$. 
   \begin{enumerate}[label=(\roman*)]
     \item By \Bombieri we have the bound in \eqref{eq:yq-y-g-sol-bound}. So the lemma is true for this case. 
     \item By \Weil the bound in \eqref{eq:yq-y-g-sol-bound} is true. So the lemma holds. 
   \end{enumerate}
-  Therefore we have the lemma. 
+  Therefore, we have the lemma. 
 \end{proof}
 Now by the above lemma we have $|w_{\chi,j}|\leq q^{\nicefrac12}$ for all non-trivial $\chi\Xq$ and for all $j\in[n-1]$. Therefore $|\Wchi{g}|\leq (n-1)q^{\nicefrac12}$ and $\lt|\Wchil{k}{g}\rt|\leq (n-1)q^{\nicefrac{k}2}$. So we have the following theorem.
 \begin{Theorem}{Weil Bound for $\Wchil{k}{g}$}{thm:weil-bound-chi}
@@ -158,6 +158,5 @@ Andr\'{e} Weil (1940) generalized the above bounds for any absolutely irreducibl
   Let $f(X,Y)\in\bbF_q[X,Y]$ is an absolutely irreducible polynomial and of total degree $d>0$. If $q>250d^5$ then $$|Z(f(X,Y)=0)-q|<\sqrt{2}d^{\nicefrac52}q^{\nicefrac12}$$
 \end{Theorem}
 The proof of this theorem use non-trivial amount of algebraic geometry and is covered in the Chapter 3 of \cite{Schmidt1976}. 
-
 
 In fact Riemann Hypothesis gives a stronger estimate $$|Z(f(X,Y)=0)-q|\leq (d-1)(d-2)q^{\nicefrac12}+c(d)$$ for some constant $c(d)$ which depends on $d=\deg(f)$. 

@@ -106,11 +106,20 @@ The following identity, used in the factorisation of lifted $L$-functions, expre
   Since $\omega^m$ is a primitive $(n/d)$-th root of unity, the inner product equals $1-X^{n/d}$ by the standard factorisation of $1-Y^N = \prod_{k=0}^{N-1}(1-\zeta^k Y)$. Therefore the whole product equals $(1-X^{n/d})^d$. \qed
 \end{proof}
 
-\section{Waring's Formula}
+\section{Elementary Symmetric Polynomials}
 Waring's Formula expresses each power-sum symmetric polynomial $s_k=x_1^k+x_2^k+\cdots+x_n^k$ as an explicit polynomial in the elementary symmetric polynomials $\sigma_1,\dots,\sigma_n$. It is the source of the closed-form reduction of lifted Kloosterman sums $K(\chi^{(s)};a,b)$ to the ground-field sum $K(\chi;a,b)$ in \thmref{thm:kloosterman-reduction}: applying Waring's formula to $\omega_1^s+\omega_2^s$ with $\sigma_1=\omega_1+\omega_2=-K(\chi;a,b)$ and $\sigma_2=\omega_1\omega_2=q$ produces the binomial-coefficient expansion. We state the general identity here for reference.
 \begin{Theorem}{Waring's Formula}{thm:waring}%
   \index{Waring's formula}
   Let $x_1,\dots,x_n$ be indeterminates, let $$\sigma_j=\sum_{1\leq i_1<i_2<\cdots<i_j\leq n}x_{i_1}x_{i_2}\cdots x_{i_j}\qquad (j=1,\dots,n)$$ be the elementary symmetric polynomials in $x_1,\dots,x_n$, and let $$s_k=x_1^k+x_2^k+\cdots+x_n^k$$ be the $k^{\text{th}}$ power-sum. Then for every integer $k\geq 1$,
   $$s_k=\sum(-1)^{i_2+i_4+i_6+\cdots}\cdot \frac{(i_1+i_2+\cdots+i_n-1)!\cdot k}{i_1!\cdot i_2!\cdots i_n!}\cdot \sigma_1^{i_1}\sigma_2^{i_2}\cdots \sigma_n^{i_n},$$
   where the summation runs over all $n$-tuples $(i_1,\dots,i_n)$ of non-negative integers satisfying $i_1+2i_2+\cdots+ni_n=k$. Each coefficient of $\sigma_1^{i_1}\sigma_2^{i_2}\cdots \sigma_n^{i_n}$ is an integer.
+\end{Theorem}
+
+\begin{Theorem}{}{thm:elm-symmetry-spans}
+  Suppose $f\in\bbF_q[X_1,\dots,X_n]$ is a symmetric polynomial. Let $\ovX=(X_1,\dots, X_n)$. Then there exists a polynomial $g\in \bbF_q[Y_1,\dots,Y_n]$ such that $$f(X_1,\dots, X_n)=g(\esym_1(\ovX),\dots,\esym_n(\ovX)).$$ 
+
+  Moreover, \begin{enumerate}[label=(\roman*)]
+    \item if $\deg_{X_i}(f)=d$ for all $i\in[n]$ then $\deg G=d$. 
+    \item if $\deg f=D$ then for every monomial $Y_1^{d_1}\cdots Y_n^{d_n}$  of $g$ with non-zero coefficient then $d_1+2\cdot d_2+\cdots +n\cdot d_n= D$.
+  \end{enumerate}
 \end{Theorem}

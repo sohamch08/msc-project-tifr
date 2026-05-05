@@ -42,7 +42,7 @@
 \setlength{\headheight}{12.4pt}
 \addtolength{\topmargin}{-0.4pt}
 \usepackage{optidef}
-\usepackage{thmtools,thm-restate,nicefrac}
+\usepackage{nicefrac}
 \usepackage{longtable,booktabs}
 \usepackage{faktor}
 %\pagestyle{fancy}
@@ -679,7 +679,9 @@
 \newenvironment{proofof}[1]{\noindent{\textbf{\textit{Proof:
 	of #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{remark}{\noindent\textbf{Remark:}\hspace*{1em}}{\bigskip\\}
-\newenvironment{idea}{\noindent{Idea: }}{\bigskip\\}
+\newenvironment{idea}{\noindent\textbf{Idea: }}{\bigskip\\}
+\newenvironment{want}{\noindent\textbf{Want: }}{\bigskip\\}
+\newenvironment{enough}{\noindent\textbf{Enough to Show: }}{\bigskip\\}
 
 
 
@@ -692,7 +694,7 @@
 \newcommand{\nt}[1]{\begin{note}#1\end{note}}
 
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
-		\node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+		\node[shape=circle, draw, inner sep=1pt] (char) {#1};}}
 \newcommand\getcurrentref[1]{%
 	\ifnumequal{\value{#1}}{0}
 	{??}

@@ -30,6 +30,8 @@ $\bbF_p$ & Prime field with $p$ elements, $p=\Char(\bbF_q)$\\
 ${\bbF_q^*}^{(d)}$ & Subgroup of $d$-th powers in $\bbF_q^*$\\
 $E,F,L,K$ & Generic notation for finite fields or finite extensions of $\bbF_q$\\
 $[E:\bbF_q]$ & Degree of the extension $E/\bbF_q$\\
+$\bbF_q[X_1,\dots,X_n]$ & Polynomial ring in $n$ variables over $\bbF_q$\\
+$\bbF_q^{\leq d}[X_1,\dots,X_n]$ & Polynomials in $\bbF_q[X_1,\dots,X_n]$ of total degree at most $d$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Characters of Finite Abelian Groups}}\\[2pt]
 $G$ & A finite Abelian group with identity element $1_G$\\
@@ -67,56 +69,84 @@ $\Leg{\alpha}{q}$ & Legendre symbol; equals $\eta(\alpha)$ for $\alpha\in\bbF_q$
 $\psi^{(r)}$ & Multiplicative character of $\bbF_q$ lifted to $E$ via $\psi^{(r)}=\psi\circ\norm_{E/\bbF_q}$, $[E\colon \bbF_q]=r$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Gaussian and Jacobi Sums}}\\[2pt]
-$G(\psi,\chi)$ & Gaussian sum: $\displaystyle\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\,\chi(\alpha)$, for $\psi\in\Mq$, $\chi\in\Xq$\\[12pt]
+$G(\psi,\chi)$ & Gaussian sum: $\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\,\chi(\alpha)$, for $\psi\in\Mq$, $\chi\in\Xq$\\[12pt]
 $J_\alpha(\lm_1,\dots,\lm_k)$ & Generalized Jacobi sum: $\displaystyle\sum_{\substack{\alpha_1,\dots,\alpha_k\in\bbF_q\\\alpha_1+\cdots+\alpha_k=\alpha}}\lm_1(\alpha_1)\cdots\lm_k(\alpha_k)$\\[16pt]
 $J(\lm_1,\dots,\lm_k)$ & Jacobi sum; special case $\alpha=1$ of $J_\alpha$\\
 $J_0(\lm_1,\dots,\lm_k)$ & Jacobi sum at zero; special case $\alpha=0$ of $J_\alpha$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Kloosterman Sums}}\\[2pt]
-$K(\chi;a,b)$ & Kloosterman sum: $\displaystyle\sum_{\gm\in\bbF_q^*}\chi(a\gm+b\gm^{-1})$, for $\chi\in\Xq$, $a,b\in\bbF_q$\\[10pt]
+$K(\chi;a,b)$ & Kloosterman sum: $\sum_{\gm\in\bbF_q^*}\chi(a\gm+b\gm^{-1})$, for $\chi\in\Xq$, $a,b\in\bbF_q$\\[10pt]
 $K(\chi^{(r)};a,b)$ & Kloosterman sum lifted to the degree-$r$ extension of $\bbF_q$\\
 $w_1,w_2$ & Reciprocal roots of the $L$-function associated to a Kloosterman sum\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Sali\'{e} and Jacobsthal Sums}}\\[2pt]
-$S(\chi,\tau)$ & Sali\'{e} sum: $\displaystyle\sum_{\gm\in\bbF_q^*}\eta(\gm)\,\chi(\gm)\,\tau(\gm^{-1})$, for $\chi,\tau\in\Xq$, $q$ odd\\[10pt]
-$H_n(\alpha)$ & Jacobsthal sum: $\displaystyle\sum_{\gm\in\bbF_q}\eta(\gm^{n+1}+\alpha\gm)$, for $\alpha\in\bbF_q^*$\\[10pt]
-$I_n(\alpha)$ & Associated Jacobsthal sum: $\displaystyle\sum_{\gm\in\bbF_q}\eta(\gm^n+\alpha)$, for $\alpha\in\bbF_q^*$\\[10pt]
+$S(\chi,\tau)$ & Sali\'{e} sum: $\sum_{\gm\in\bbF_q^*}\eta(\gm)\,\chi(\gm)\,\tau(\gm^{-1})$, for $\chi,\tau\in\Xq$, $q$ odd\\[10pt]
+$H_n(\alpha)$ & Jacobsthal sum: $\sum_{\gm\in\bbF_q}\eta(\gm^{n+1}+\alpha\gm)$, for $\alpha\in\bbF_q^*$\\[10pt]
+$I_n(\alpha)$ & Associated Jacobsthal sum: $\sum_{\gm\in\bbF_q}\eta(\gm^n+\alpha)$, for $\alpha\in\bbF_q^*$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Classical Riemann Zeta Function}}\\[2pt]
+$\zeta(s)$ & Riemann zeta function: $\sum_{n=1}^\infty n^{-s}$, for $\Re(s)>1$\\[10pt]
+$\xi(s)$ & Completed zeta function: $\tfrac12s(s-1)\,\Gm(s/2)\,\pi^{-s/2}\,\zeta(s)$\\
+$\Gm(s)$ & Gamma function: $\int_0^\infty e^{-t}t^{s-1}\,dt$\\
+$\Lambda(n)$ & Von Mangoldt function: $\log p$ if $n=p^k$, else $0$\\
+$\rho$ & Non-trivial zero of $\xi(s)$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Dirichlet $L$-functions over $\bbF_q[X]$}}\\[2pt]
 $\Phi$ & Set of all monic polynomials in $\bbF_q[X]$\\
 $\Phi_d$ & Monic polynomials in $\bbF_q[X]$ of degree exactly $d$\\
 $\irr(\Phi)$ & Set of irreducible monic polynomials in $\Phi$\\
 $\mfn(f)=q^{\deg(f)}$ & Norm of the polynomial $f\in\bbF_q[X]$\\
-$G,\ovG$ & Group of monic rational functions and its subgroup with nonzero constant term\\
-$L(s,\chi)$ & Dirichlet $L$-function: $\displaystyle\sum_{h\in\Phi}\chi(h)\,\mfn(h)^{-s}$, for a multiplicative character $\chi$\\[10pt]
-$\ovL(z,\chi)$ & Power series satisfying $\ovL(z,\chi)=\displaystyle\sum_{h\in\Phi}\chi(h)\,z^{\deg(h)}$ and $\ovL(q^{-s},\chi)=L(s,\chi)$\\[10pt]
+$G$ & Group of rational functions $r=h_1/h_2$ in $\bbF_q(X)$ with $h_1,h_2\in\Phi$ monic\\
+$\ovG$ & Subgroup of $G$ on which a given character is defined; extended to $G$ by zero\\
+$L(s,\chi)$ & Dirichlet $L$-function: $\sum_{h\in\Phi}\chi(h)\,\mfn(h)^{-s}$, for a multiplicative character $\chi$\\
+$\ovL(z,\chi)$ & Power series satisfying $\ovL(z,\chi)=\sum_{h\in\Phi}\chi(h)\,z^{\deg(h)}$ and $\ovL(q^{-s},\chi)=L(s,\chi)$\\[10pt]
 $L_k$ & $k$-th log-derivative coefficient: $\displaystyle\sum_{\substack{h\in\irr(\Phi)\\\deg(h)\mid k}}\deg(h)\,\chi(h)^{k/\deg(h)}$\\[6pt]
-
-\multicolumn{2}{@{}l}{\textit{Classical Riemann Zeta Function}}\\[2pt]
-$\zeta(s)$ & Riemann zeta function: $\displaystyle\sum_{n=1}^\infty n^{-s}$, for $\Re(s)>1$\\[10pt]
-$\xi(s)$ & Completed zeta function: $\tfrac12s(s-1)\,\Gm(s/2)\,\pi^{-s/2}\,\zeta(s)$\\
-$\Gm(s)$ & Gamma function: $\displaystyle\int_0^\infty e^{-t}t^{s-1}\,dt$\\[10pt]
-$\Lambda(n)$ & Von Mangoldt function: $\log p$ if $n=p^k$, else $0$\\
-$\rho$ & Non-trivial zero of $\zeta(s)$\\[6pt]
-
-\multicolumn{2}{@{}l}{\textit{Character Sums with Polynomials (Weil Sums)}}\\[2pt]
-$W(\chi,f)$ & Weil sum: $\displaystyle\sum_{\alpha\in\bbF_q}\chi(f(\alpha))$, for $\chi\in\Xq$, $f\in\bbF_q[X]$\\[10pt]
-$W(\psi,\chi,f)$ & Mixed Weil sum: $\displaystyle\sum_\alpha\psi(\alpha)\,\chi(f(\alpha))$ over $\alpha$ not a pole of $f$\\[10pt]
-$F(X)$ & $f(X)^{(q-1)/2}$, used in the continued fraction approach to $\sum_c\eta(f(c))$\\
 
 \multicolumn{2}{@{}l}{\textit{Equations over $\bbF_q$ --- Solution Sets}}\\[2pt]
 $\mcV(f)$ & Solution set of $f(X_1,\dots,X_n)=0$ in $\bbF_q^n$\\
 $Z(f)$ & Number of solutions: $|\mcV(f)|$\\
-$\ov{\mcV}(f)$ & Set of \emph{non-trivial} solutions (excluding $(0,\dots,0)$) of $f=0$\\
+$\ov{\mcV}(f)$ & Set of \emph{non-trivial} solutions (excluding $(0,\dots,0)$ if it's a zero) of $f=0$\\
 $\ov{Z}(f)$ & Number of non-trivial solutions: $|\ov{\mcV}(f)|$\\
 $\mcV(f_1,\dots,f_k)$ & Common solution set: $\mcV(f_1)\cap\cdots\cap\mcV(f_k)$\\
 $Z(f_1,\dots,f_k)$ & Count of common solutions: $|\mcV(f_1,\dots,f_k)|$\\
+$Z_E(P=0)$ & Number of solutions of $P(X_1,\dots, X_n)=0$ in $E$ where $P\in\bbF_q[X_1,\dots, X_n]$, $[E\colon \bbF_q]>1$\\
 $\Om_d$ & Space $\bbF_q^{\leq d}[X_1,\dots,X_n]$ of polynomials of total degree at most $d$\\
-$\om(d)$ & Set of $n$-tuples $(i_1,\dots,i_n)\in\bbZ_{\geq 0}^n$ with $i_1+\cdots+i_n\leq d$\\[6pt]
+$\om(d)$ & Set of $n$-tuples $(i_1,\dots,i_n)\in\bbZ_{0}^n$ with $i_1+\cdots+i_n\leq d$\\[6pt]
 
 \multicolumn{2}{@{}l}{\textit{Quadratic Forms}}\\[2pt]
 $C_f$ & Coefficient matrix of a quadratic form $f$: $(C_f)_{ij}=a_{ij}$ where $f=X^\top C_f X$\\
 $\det(f)$ & Determinant of the coefficient matrix $C_f$\\
 $\vth:\bbF_q\to\bbZ$ & Auxiliary function: $\vth(0)=q-1$ and $\vth(\alpha)=-1$ for $\alpha\neq 0$\\[6pt]
 
+\multicolumn{2}{@{}l}{\textit{Diagonal Equations}}\\[2pt]
+$d_i=\gcd(k_i,q-1)$ & Exponent reduced modulo the order of $\bbF_q^*$, for $a_iX_i^{k_i}$ in a diagonal equation\\
+$M(d_1,\dots,d_n)$ & $\#\bigl\{(t_1,\dots,t_n)\in\prod_{i}[d_i-1] : \tfrac{t_1}{d_1}+\cdots+\tfrac{t_n}{d_n}\in\bbZ\bigr\}$\\[10pt]
+$D=\lcm(d_1,\dots,d_n)$ & LCM of exponents; appears in the closed-form formula for $M(d_1,\dots,d_n)$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Character Sums with Polynomials (Weil Sums)}}\\[2pt]
+$W(\chi;f)$ & Additive Weil sum: $\sum_{\alpha\in\bbF_q}\chi(f(\alpha))$, for $\chi\in\Xq$, $f\in\bbF_q[X]$\\[10pt]
+$W(\psi;f)$ & Multiplicative Weil sum: $\sum_{\alpha\in\bbF_q}\psi(f(\alpha))$, for $\psi\in\Mq$, $f\in\bbF_q[X]$\\[10pt]
+$W(\psi,\chi;f,g)$ & Mixed Weil sum: $\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\,\chi(g(\alpha))$, for $\psi\in\Mq$, $\chi\in\Xq$, $f,g\in\bbF_q[X]$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Lifted Weil Sums (over Extension Fields)}}\\[2pt]
+$E=\bbF_{q^k}$ & Degree-$k$ extension of $\bbF_q$; $[E:\bbF_q]=k$\\
+$W^{(k)}(\psi^{(k)};f)$ & Lifted multiplicative Weil sum: $\sum_{\alpha\in E}\psi^{(k)}(f(\alpha))$\\[10pt]
+$W^{(k)}(\chi^{(k)};g)$ & Lifted additive Weil sum: $\sum_{\alpha\in E}\chi^{(k)}(g(\alpha))$\\[10pt]
+$W^{(k)}(\psi^{(k)},\chi^{(k)};f,g)$ & Lifted mixed Weil sum: $\sum_{\alpha\in E}\psi^{(k)}(f(\alpha))\,\chi^{(k)}(g(\alpha))$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Special $L$-functions (Weil chapter)}}\\[2pt]
+$\ovG$ (Weil context) & The specific subgroup $\{r\in G : h_1(\gm_i)\cdot h_2(\gm_i)\neq 0\ \forall i\}$ for roots $\gm_i$ of a fixed $f$\\
+$\vsg:\ovG\to\bbF_q$ & Multiplicative map $\vsg(r)=\prod_i f(\alpha_i)\cdot\prod_j f(\beta_j)^{-1}$ for $r=\prod(X-\alpha_i)/\prod(X-\beta_j)$\\
+$\vrh:G\to\bbF_q$ & Additive map $\vrh(r)=\sum_i g(\alpha_i)-\sum_j g(\beta_j)$ for a fixed polynomial $g$\\
+$\xi:G\to\bbC$ & Combined character: $\xi(r)=(\psi\circ\vsg)(r)\cdot(\chi\circ\vrh)(r)$\\
+$L(s,\xi)$ & $L$-function on $\xi$: $\sum_{h\in\Phi}\xi(h)\,\mfn(h)^{-s}$\\[10pt]
+$\ovL(z,\xi)$ & Power series: $\sum_{h\in\Phi}\xi(h)\,z^{\deg(h)}$, related by $\ovL(q^{-s},\xi)=L(s,\xi)$\\[10pt]
+$L^{(k)}(s,\xi^{(k)})$ & $L$-function on the lifted character $\xi^{(k)}$ over $\bbF_{q^k}$\\
+$\ovL^{(k)}(z,\xi^{(k)})$ & Power series form of the lifted $L$-function\\
+$\Phi^{(k)}$ & Set of monic polynomials over $E=\bbF_{q^k}$\\
+$\mfn^{(k)}(h)=q^{k\cdot\deg(h)}$ & Norm of $h\in\Phi^{(k)}$ over $E$; analog of $\mfn(h)=q^{\deg(h)}$ for $\bbF_q$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Absolute Varieties}}\\[2pt]
+$\mcA$ & Variety  defined over $\bbF_q$\\
+$Z_k(\mcA)$ & Number of $\bbF_{q^k}$-rational points of $\mcA$: $|\{(\alpha_1,\dots,\alpha_n)\in\mcA : \alpha_i\in\bbF_{q^k}\}|$
 \end{longtable}
