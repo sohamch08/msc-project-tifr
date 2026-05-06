@@ -1,0 +1,12 @@
+- name: Latexmk
+  # You may pin to the exact commit or the version.
+  # uses: hspaans/latexmk-action@eecdfff4810a6b041362089994e2e0b199c9c71f
+  uses: hspaans/latexmk-action@v2.1.1
+  with:
+    # File format to generate
+    format: pdf
+    # Source file name
+    filename: msc-project.tex
+    # Latexmk options
+    options: # optional, default is 
+          
