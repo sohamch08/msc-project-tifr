@@ -171,6 +171,34 @@ So now we have finally proved the \Stepanov.
 
 \subsection{Connection between the Bound and Genus of Curve}
 
+The constant $4md^{\nicefrac32}$ in \Stepanov, while explicit, is not tight as a function of the curve's geometry. For the hyperelliptic case $d=2$, the correct geometric measure of complexity is the \emph{genus} $g$, and H.\ M.\ Stark \cite{Stark_1973_RiemannHyperelliptic} showed that the Stepanov argument can be refined to replace $4md^{\nicefrac32}$ with a constant of size $2g$, recovering the sharp Weil bound.
+
+\paragraph*{Genus of a Hyperelliptic Curve.}
+Let $f\in\bbF_q[X]$ have degree $m$ with $m$ distinct roots, so $Y^2-f(X)$ is absolutely irreducible. The smooth projective model $\mathcal{C}$ of the affine curve $Y^2=f(X)$ has genus
+\begin{equation}\label{eq:hyperelliptic-genus}
+  g = \begin{cases} \dfrac{m-1}{2} & \text{if } m \text{ is odd,} \\[6pt] \dfrac{m-2}{2} & \text{if } m \text{ is even.} \end{cases}
+\end{equation}
+Equivalently, $g=\lfloor\nicefrac{(m-1)}{2}\rfloor$. The difference between the two cases has a geometric explanation: when $m$ is odd the projective closure of $Y^2=f(X)$ is already smooth at the point at infinity, so the genus is $\frac{m-1}{2}$; when $m$ is even there is a singularity at infinity, and resolving it lowers the genus by $\frac{1}{2}$, giving $\frac{m-2}{2}$. In both cases
+$$2g \leq m-1,\quad \text{with equality iff $m$ is odd.}$$
+The genus is a birational invariant that captures the arithmetic complexity of $\mathcal{C}$ more faithfully than the raw degree $m$: it counts the number of independent holomorphic differentials on $\mathcal{C}$, and it governs both the structure of the Jacobian and the growth rate of the number of rational points.
+
+\paragraph*{Weil's Theorem in Terms of Genus.}
+For any smooth projective absolutely irreducible curve of genus $g$ over $\bbF_q$, Weil's theorem gives
+$$\left| N - (q+1) \right| \leq 2g\,q^{\nicefrac12}$$
+where $N$ is the number of $\bbF_q$-rational points (including those at infinity). For the hyperelliptic curve $\mathcal{C}\colon Y^2=f(X)$ with $N=Z(Y^2=f(X))$, writing this out using \eqref{eq:hyperelliptic-genus} yields
+\begin{equation}\label{eq:weil-genus}
+  |N-q| \leq 2g\,q^{\nicefrac12}\ (m \text{ odd}), \qquad |N-q+1| \leq 2g\,q^{\nicefrac12}\ (m \text{ even}).
+\end{equation}
+The constant $2g$ is sharp: it cannot be replaced by any smaller constant independent of $q$. Comparing with the Stepanov bound $|N-q|<4m\cdot 2^{\nicefrac32}\,q^{\nicefrac12}\approx 11.3\,m\,q^{\nicefrac12}$, the Weil constant $2g\leq m-1$ is smaller by roughly a factor of $5.6$.
+
+\paragraph*{Stark's Sharpening.}
+For $q=p$ prime and $f$ with $m$ distinct roots, Stark \cite{Stark_1973_RiemannHyperelliptic} proved the sharper bound
+$$|N-q| \leq (m-1)\,q^{\nicefrac12}.$$
+Translating via \eqref{eq:hyperelliptic-genus}:
+\begin{equation}\label{eq:stark-genus}
+  |N-q| \leq 2g\,q^{\nicefrac12}\ (m \text{ odd}),\qquad |N-q| \leq (2g+1)\,q^{\nicefrac12}\ (m \text{ even}).
+\end{equation}
+For odd $m$ this matches the Weil bound \eqref{eq:weil-genus} exactly. For even $m$ it falls short by $q^{\nicefrac12}$, which is explained by the same infinity-point singularity that reduces the genus by $\frac{1}{2}$.
 
 \subsection{Bound for Multiplicative Character Sum of \texorpdfstring{$f(X)$}{f(X)}}
 
@@ -188,8 +216,14 @@ When $Y^d - f(X)$ is absolutely irreducible, the Stepanov solution-count bound t
 \begin{Theorem}{Bound for $\Wpsi{f}$: Absolutely Irreducible Case}{thm:stepanov-psi-irr}
   Suppose $d\mid q-1$ and let $\psi\in\Mq^{(d)}$ be a non-trivial multiplicative character of exponent $d$. Let $f(X)\in\bbF_q[X]$ be a polynomial of degree $m$ such that $Y^d-f(X)$ is absolutely irreducible. Suppose $q>100dm^3$. Then $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\rt|<5md^{\nicefrac{3}{2}}q^{\nicefrac12}.$$
 \end{Theorem}
+\begin{proof}
+  Let $g$ be a primitive element of $\bbF_q$. Let $N_{k}$ be the number of $\alpha\in\bbF_q$ such that $f(\alpha)$ is in the coset $g^k\cdot {\bbF_q^*}^{(d)}$.in the group $\quotient{\bbF_q^*}{{\bbF_q^*}^{(d)}}$. Then we have $$\Wpsi{f}= \sum_{k=0}^{d-1}N_k\cdot \psi(g^k)$$Let $Z_k$ be the number of $(\alpha,\beta)\in\bbF_q^2$ such that $\beta^d=f(\alpha)\cdot g^{-k}$. Since $Y^d-f(X)$ is absolutely irreducible, by \YdFxIrrthm we have $Y^d-f(X)\cdot g^{-k}$ is also absolutely irreducible. So by \Stepanov we get $$|Z_k-q|<4md^{\nicefrac32}q^{\nicefrac12}$$Let $\ovZ_k$ be the number of solutions $(\alpha,\beta)\in\bbF_q^2$ such that $\beta^d=f(\alpha)\cdot g^{-k}$ and $\beta\neq 0$. Then $|Z_k-\ovZ_k|\leq m$. So we have $$|\ovZ_k-q|<5md^{\nicefrac32}q^{\nicefrac12}$$Now notice that $N_k=\nicefrac{\ovZ_k}{d}$. We can write $Z_k=\nicefrac{q}d+R_k$. Therefore, we have $$|R_k|< 5md^{\nicefrac12}q^{\nicefrac12}$$So now $$\Wpsi{f}=\sum_{k=0}^{d-1}N_k\cdot \psi(g^k)=\sum_{k=0}^{d-1}\lt(\frac{q}d+R_k\rt)psi(g^k)=\sum_{k=0}^{d-1}R_k\cdot \psi^k(g)$$So we get the bound on the absolute value of $\Wpsi{f}$ as $$|\Wpsi{f}|\leq \sum_{k=0}^{d-1}|R_k|< 5md^{\nicefrac{3}{2}}q^{\nicefrac12}$$Thus, we have the theorem.
+\end{proof}
 
 The absolute irreducibility hypothesis in \StepanovPsiIrrthm can be weakened to the condition that $f$ is not a $d$-th power, which covers all remaining non-trivial cases.
 \begin{Theorem}{Bound for $\Wpsi{f}$: Non-$d$-th-Power Case}{thm:stepanov-psi-nondth}
   Suppose $d\mid q-1$ and let $\psi\in\Mq^{(d)}$ be a non-trivial multiplicative character with $\ord(\psi)=d>1$. Let $f(X)\in\bbF_q[X]$ be a polynomial of degree $m$ which is not a $d$-th power. Suppose $q>100dm^3$. Then $$\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\rt|<5md^{\nicefrac{3}{2}}q^{\nicefrac12}.$$
 \end{Theorem}
+\begin{proof}
+  Let $f(X)$ factors as $f(X)=a(X-\alpha_1)^{k_1}\cdots (X-\alpha_t)^{k_t}$ where $\alpha_i$'s are distinct elements of $\ov{\bbF_q}$. Let $e=\gcd(d,k_1,\dots, k_t)$. Suppose $e$ is a proper divisor of $d$. Then consider the polynomial $$k(X)=\prod_{i=1}^t(X-\alpha_i)^{\nicefrac{k_i}e}$$then by \DthPowerCharlem $f(X)=a\cdot k(X)^e$. Now in $k(X)$, $\gcd(\nicefrac{d}e,\nicefrac{k_1}e,\dots,\nicefrac{k_t}e)=1$. So by \YdFxIrrthm we have $Y^{\nicefrac{d}e}-k(X)$ is absolutely irreducible. Now the character $\psi^e$ is also of exponent $\nicefrac{d}e$. So for any $\alpha\in\bbF_q$ we have $$\psi(f(\alpha))=\psi(a)\cdot \psi^e(k(\alpha))$$So by \StepanovPsiIrrthm we have $$|\Wpsi{f}|=\lt|\sum_{\alpha\in\bbF_q}\psi(a)\cdot \psi^r(k(\alpha)\rt|=\lt|\sum_{\alpha\in\bbF_q}\psi^e(k(\alpha))\rt|<5\lt(\frac{m}e\rt)\lt(\frac{d}e\rt)^{\nicefrac{3}{2}}q^{\nicefrac12}\leq 5md^{\nicefrac{3}{2}}q^{\nicefrac12}$$Thus, we have the theorem.
+\end{proof}
