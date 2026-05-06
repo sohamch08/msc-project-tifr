@@ -1,4 +1,33 @@
 \chapter{Weil Bounds on Special Cases}
+
+A central question in arithmetic geometry is: \emph{how many $\bbF_q$-rational points does an algebraic curve have?} Andr\'{e} Weil proved in 1948 that for any smooth projective absolutely irreducible curve of genus $g$ over $\bbF_q$, the number of rational points $N$ satisfies $|N-(q+1)|\leq 2gq^{\nicefrac12}$. Weil's original proof used the full machinery of algebraic geometry over function fields. This chapter develops the Weil bounds from first principles, working with two families of curves that are central to analytic number theory: the \emph{superelliptic} $Y^d=f(X)$ and the \emph{Artin--Schreier equation} $Y^q-Y=f(X)$.
+
+\paragraph*{Character Sums and Rational Points.}
+The number of $\bbF_q$-rational points on $Y^d=f(X)$ is not just a geometric count --- it encodes the multiplicative character sum $\sum_{\alpha\in\bbF_q}\psi(f(\alpha))$. Precisely, if $d\mid q-1$ and $\psi$ is a non-trivial multiplicative character of order $d$, then (by \StepanovPsiIrrthm) bounding $Z(Y^d=f(X))$ is enough to bounding $\sum_\alpha\psi(f(\alpha))$. Analogously, for $Y^q-Y=f(X)$, the solution count encodes the additive character sum $\sum_\alpha\chi(f(\alpha))$. Proving sharp bounds on these character sums is the overarching goal of the chapter.
+
+\paragraph*{Two Elementary Proofs.}
+The first two sections establish bounds via the \emph{polynomial method} --- constructing an auxiliary polynomial that vanishes with high multiplicity on the solution set, then comparing degree with zero-count.
+
+\S \Autoref{sec:stepanov} (\emph{Stepanov Method: $Y^d-f(X)$}) treats the multiplicative case. The key tool is an explicit auxiliary polynomial $Q$ whose degree and zero-set are controlled, giving $|Z(Y^d=f(X))-q|\leq 4d^{\nicefrac32}q^{\nicefrac12}$ (\Stepanov). The proof is presented in two ways: first under the simplifying assumptions $\gcd(m,d)=1$ and $q=p$ or $p^2$; then in full generality, removing the coprimality assumption via a symmetrization argument with the roots of unity. A connection to genus is drawn: H.\ M.\ Stark sharpened the constant $4d^{\nicefrac32}$ to $2g$ for the hyperelliptic case $d=2$, recovering the Weil bound.
+
+\S \Autoref{sec:bombieri} (\emph{Bombieri Method: $Y^q-Y-f(X)$}) treats the additive case. An auxiliary polynomial is constructed using the trace map on field extensions, yielding $|Z_E(Y^q-Y=f(X))-q^k|<q^{[k/2]+4}$ (\Bombieri). The strategy parallels Stepanov but exploits the Frobenius structure of the Artin--Schreier curve.
+
+\paragraph*{L-function Machinery.}
+The bounds from the polynomial method are sharp in the solution count, but to pass to sharp bounds on character sums one needs to control the individual \emph{reciprocal roots} $w_j$ of an associated $L$-function.
+
+\S \Autoref{sec:special-l-functions} (\emph{Special $L$-functions}) constructs the multiplicative function $\xi = (\psi\circ\vsg)\cdot(\chi\circ\vrh)$ on the group $G$ of rational functions over $\bbF_q(X)$. Here $\vsg$ and $\vrh$ are the ``multiplicative'' and ``additive'' valuations at the roots of $f$, respectively. Two subgroups $\tdH$ (where $\psi\circ\vsg=1$) and $H$ (where $\chi\circ\vrh=1$) are identified, and their intersection $\ovH$ is where $\xi=1$. This structure is the function-field analog of the Gaussian period decomposition.
+
+\S \Autoref{sec:character-sums-psif-chig} (\emph{Character Sums of $\psi(f(X))\chi(g(X))$}) uses the $\xi$-function to build the $L$-function $\ovL(z,\xi)$ and shows it is a polynomial of degree $n+m-1$ (\LXiFinitethm). The leading coefficient is $\sum_\alpha\psi(f(\alpha))\chi(g(\alpha))$, and the polynomial factors as $\prod_j(1-w_jz)$. Lifting $\xi$ to a finite extension field $E=\bbF_{q^k}$ and using the factorization of the lifted $L$-function (\LiftedLFactthm) shows that the sums over $E$ are $-\sum_j w_j^k$, so all information about the character sum over every extension field is encoded in the finitely many reciprocal roots $w_1,\dots,w_{n+m-1}$.
+
+\paragraph*{Weil Bounds from the Roots.}
+\S \Autoref{sec:weil-lifted-bounds} (\emph{Weil Bounds via the Lifting Method}) closes the argument. The polynomial-method bounds of \S \Autoref{sec:stepanov} and \S \Autoref{sec:bombieri} show $|Z_E(\cdot)-q^k|=O(q^{k/2})$ for large $k$, which translates (via the power-sum bound) into $|w_j|\leq q^{\nicefrac12}$ for every reciprocal root. Summing over $j$ then gives:
+\begin{itemize}
+  \item $\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\rt|\leq (m-1)q^{\nicefrac12}$ when $Y^d-f(X)$ is absolutely irreducible,
+  \item $\lt|\sum_{\alpha\in\bbF_q}\chi(g(\alpha))\rt|\leq (n-1)q^{\nicefrac12}$ under appropriate conditions on $Y^q-Y-g(X)$,
+  \item $\lt|\sum_{\alpha\in\bbF_q}\psi(f(\alpha))\chi(g(\alpha))\rt|\leq (n+m-1)q^{\nicefrac12}$ for mixed sums.
+\end{itemize}
+The chapter closes with the general Weil Bound (\Weil): for any absolutely irreducible polynomial of total degree $d$, $|Z(f(X,Y)=0)-q|<\sqrt2\,d^{\nicefrac52}q^{\nicefrac12}$, whose proof rests on the Riemann Hypothesis for curves.
+
 \input{chapters/weil/stepanov}
 \input{chapters/weil/bombieri}
 \input{chapters/weil/special-l-functions}

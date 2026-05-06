@@ -1,5 +1,5 @@
-\section{Stepanov Method: \texorpdfstring{$Y^d-f(X)$}{ Yd-f(X)}}
-The main result of this section gives a sharp bound on the number of $\bbF_q$-rational points on the curve $Y^d = f(X)$, proved via an auxiliary polynomial that vanishes with high multiplicity on the solution set.
+\section{Stepanov Method: \texorpdfstring{$Y^d-f(X)$}{ Yd-f(X)}}\label{sec:stepanov}
+A curve of the form $Y^d=f(X)$ over $\bbF_q$, where $f\in\bbF_q[X]$ and $d\geq 2$, is called a \emph{superelliptic curve}. When $d=2$ it is a \emph{elliptic curve}. The main result of this section gives a sharp bound on the number of $\bbF_q$-rational points on such a curve, proved via an auxiliary polynomial that vanishes with high multiplicity on the solution set. The theorem we will be proving in this section is the following:
 \begin{Theorem}{Stepanov's Theorem}{thm:stepanov}
   Suppose that $Y^d-f(X)\in\bbF_q[X,Y]$ is an absolutely irreducible polynomial where $\deg(f)=m$.  Suppose $q>100dm^2$.  Then $$|Z(Y^d=f(X))-q|\leq 4d^{\nicefrac32}q^{\nicefrac12}.$$
 \end{Theorem}
@@ -211,6 +211,17 @@ To bound $\sum_{\alpha\in\bbF_q}\psi(f(\alpha))$ via \Stepanov, we first need to
     \item $f(X)=a(X-\alpha_1)^{k_1}\cdots (X-\alpha_m)^{k_m}$ with $\alpha_i\in\ov{\bbF_q}$ and $d\mid k_i$ for all $i\in[m]$.
   \end{enumerate}
 \end{lemma}
+\begin{proof}
+  We will prove this in three steps. 
+  \paragraph*{(i)$\implies$(ii):} Let $\gm\in\ov{\bbF_q}$ be such that $\gm^d=a$. Then take $h(X)=\gm\cdot k(X)$. Then we have $f(X)=h^d(X)$. 
+  \paragraph*{(ii)$\implies $(iii):} This direction comes directly. 
+  \paragraph*{(iii)$\implies$(i):} Consider the polynomial $k(X)=\prod_{i=1}^m(X-\alpha)i)^{\nicefrac{k_i}m}$. Then $f(X)=a\cdot k^d(X)$. 
+  
+  \begin{enough}
+    $k(X)\in\bbF_q[X]$. 
+  \end{enough}
+  Since $a\in\bbF_q$ we have $k^d(X)\in\bbF_q[X]$. Let $k(X)=X^u+c_1X^{u-1}+\cdots +c_u$ where $c_i\in\ov{\bbF_q}$ for all $i\in[u]$. Now we look at the coefficients of $k^d(X)$. We will prove via induction that each $c_i\in\bbF_q$. The coefficient of $X^{du-1}$ is $d\cdot c_1$. As $d\neq 0$ and $d\in\bbF_q$, we have $c_1\in\bbF_q$. So suppose $c_1,\dots, c_{i-1}\in\bbF_q$. Now the coefficient of $X^{du-i}$ is $dc_i+$ some polynomial over $c_1,\dots, c_{i-1}$. Since $c_1,\dots, c_{i-1}\in \bbF_q$ and coefficient of $X^{du-i}$ is in $\bbF_q$ we have $dc_i\in\bbF_q\implies c_i\in \bbF_q$. Therefore, $k(X)\in\bbF_q[X]$. Hence, we have the lemma.
+\end{proof}
 
 When $Y^d - f(X)$ is absolutely irreducible, the Stepanov solution-count bound translates directly into a Weil-type bound on the character sum $\sum_\alpha \psi(f(\alpha))$.
 \begin{Theorem}{Bound for $\Wpsi{f}$: Absolutely Irreducible Case}{thm:stepanov-psi-irr}
