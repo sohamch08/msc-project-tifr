@@ -1,4 +1,5 @@
 \section{Jacobi Sums}\label{sec:jacobi-sums}
+\index{Jacobi sum}\index{Jacobi, Carl Gustav Jacob}%
 Jacobi sums form another class of exponential sums which are of great importance in algebraic number theory. Jacobi sums are defined on product of many multiplicative characters. 
 
 Let $\psi\in\Mq$ is a multiplicative character of $\bbF_q$. So we extend the definition of $\psi$ following \autoref{sec:mult-char} by setting $\psi(0)=1$ if $\psi$ is the trivial character and $\psi(0)=0$ if $\psi$ is a non-trivial character. From now on by default we will always use this extended definition of multiplicative characters. 
@@ -23,6 +24,7 @@ Now we want to find the value of $J(\lm_1,\dots, \lm_k)$ and $J_0(\lm_1,\dots, \
 
 We begin with the degenerate cases where at least one character is trivial, then build up to the general absolute-value formula via the key connection to Gaussian sums.
 \begin{lemma}{Jacobi Sums with Trivial Characters}{lem:jacobi-some-trivial}
+\index{Jacobi sum!degenerate}%
 Let $\lm_1,\dots, \lm_k\in\Mq$ are multiplicative characters of $\bbF_q$. Then\begin{enumerate}[label=(\roman*)]
   \item If $\lm_1=\cdots=\lm_k=\psi_0$ where $\psi_0$ is the trivial multiplicative character then $$J(\lm_1,\dots, \lm_k)=J_0(\lm_1,\dots, \lm_k)=q^{k-1}$$
   \item If some but not all $\lm_i$'s are trivial then $$J(\lm_1,\dots, \lm_k)=J_0(\lm_1,\dots, \lm_k)=0$$
@@ -121,6 +123,7 @@ Using the value of $J(\lm_1,\dots,\lm_k)$ we can also get the absolute value of 
 
 Combining \lemref{lem:jacobi-some-trivial}, \lemref{lem:jacobi-zero-relation}, \thmref{thm:jacobi-sum}, and the corollary above, we obtain a complete description of the absolute values of Jacobi sums in all cases.
 \begin{Theorem}{Complete Evaluation of Jacobi Sums}{thm:jacobi-sum-complete}
+  \index{Jacobi sum!evaluation}%
   Let $\lm_1,\dots,\lm_k\in\Mq$ be multiplicative characters of $\bbF_q$. Then
   \begin{enumerate}[label=(\roman*)]
     \item If $\lm_i$ is trivial for all $i\in[k]$ then $J(\lm_1,\dots,\lm_k)=J_0(\lm_1,\dots,\lm_k)=q^{k-1}$.

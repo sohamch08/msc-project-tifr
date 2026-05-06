@@ -1,11 +1,11 @@
 \section{Gaussian Sums}\label{sec:gaussian-sums}
-Having studied additive and multiplicative characters of $\bbF_q$ separately, we now turn to hybrid sums that interleave both types. The first and most fundamental such object is the \emph{Gaussian sum}. A Gaussian sum is formed by taking the product of a multiplicative character and an additive character and summing over all nonzero elements of $\bbF_q$. The interplay between the two kinds of characters gives remarkable algebraic and analytic properties, and they will serve as the key tool throughout this chapter. We define them as follows.
+Having studied additive and multiplicative characters of $\bbF_q$ separately, we now turn to hybrid sums that interleave both types. The first and most fundamental such object is the \emph{Gaussian sum}.\index{Gaussian sum}\index{Gauss, Carl Friedrich} A Gaussian sum is formed by taking the product of a multiplicative character and an additive character and summing over all nonzero elements of $\bbF_q$. The interplay between the two kinds of characters gives remarkable algebraic and analytic properties, and they will serve as the key tool throughout this chapter. We define them as follows.
 \begin{Definition}{Gaussian Sum}{def:gaussian-sum}
   \index{Gaussian sum}%
   Let $\psi $ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then the \emph{Gaussian Sum} associated to $\psi$ and $\chi$ is defined as $$G(\psi,\chi)=\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\cdot \chi(\alpha)$$
 \end{Definition}
 
-The absolute value of the Gaussian sum is at most $q-1$ by the triangle inequality. However, we will see below that when both $\psi$ and $\chi$ are non-trivial, $|G(\psi,\chi)|=\sqrt{q}$ --- far smaller than this naive bound.
+The absolute value of the Gaussian sum is at most $q-1$ by the triangle inequality\index{triangle inequality bound}. However, we will see below that when both $\psi$ and $\chi$ are non-trivial, $|G(\psi,\chi)|=\sqrt{q}$\index{Gaussian sum!absolute value formula} --- far smaller than this naive bound.
 
 \begin{Theorem}{Evaluation of Gaussian Sums}{thm:gaussian-sum}
   Let $\psi$ be a multiplicative character and $\chi$ be an additive character of $\bbF_q$. Then \begin{equation}
@@ -68,7 +68,7 @@ Now by \thmref[(iii)]{thm:add-char-props} for any $\alpha\in\bbF_q^*$ we have \b
                & =\frac1q\sum_{c\in\bbF_q}\chi_c(\alpha)\sum_{\beta\in\bbF_q^*}\psi(\beta)\cdot \ov{\chi}_c(\beta) \\
                & =\frac1q\sum_{c\in\bbF_q}\chi_c(\alpha)\cdot G(\psi,\ov{\chi}_c)                                  \\
                & =\frac1q\sum_{\chi\in\Xq}G(\psi,\ov{\chi})\chi(\alpha)
-\end{align*}This may be thought of as the \emph{Fourier expansion}\index{Fourier expansion!of multiplicative characters} of $\psi$ in terms of the additive characters of $\bbF_q$, with Gaussian sums appearing as Fourier coefficients. 
+\end{align*}This may be thought of as the \emph{Fourier expansion}\index{Fourier expansion!of multiplicative characters}\index{Fourier expansion!multiplicative} of $\psi$ in terms of the additive characters of $\bbF_q$, with Gaussian sums appearing as Fourier coefficients. 
 
 We can do similar thing for multiplicative characters of $\bbF_q$. By using \thmref[(iii)]{thm:mult-char-props} we get $$\chi(\alpha)=\frac1{q-1}\sum_{\psi\in\Mq}G(\ov{\psi},\chi)\chi(\alpha)$$ This can be interpreted as the Fourier expansion of the multiplicative characters of $\bbF_q$ with the Gaussian sums as Fourier coefficients. Hence we have the observations:
 \begin{observation}\label{obs:fourier-coeff-gaussian-sum}

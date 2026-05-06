@@ -1,6 +1,7 @@
 \section{Stepanov Method: \texorpdfstring{$Y^d-f(X)$}{ Yd-f(X)}}\label{sec:stepanov}
-A curve of the form $Y^d=f(X)$ over $\bbF_q$, where $f\in\bbF_q[X]$ and $d\geq 2$, is called a \emph{superelliptic curve}. When $d=2$ it is a \emph{elliptic curve}. The main result of this section gives a sharp bound on the number of $\bbF_q$-rational points on such a curve, proved via an auxiliary polynomial that vanishes with high multiplicity on the solution set. The theorem we will be proving in this section is the following:
+A curve of the form $Y^d=f(X)$ over $\bbF_q$, where $f\in\bbF_q[X]$ and $d\geq 2$, is called a \emph{superelliptic curve}\index{superelliptic curve}. When $d=2$ it is a \emph{hyperelliptic curve}\index{hyperelliptic curve}. The main result of this section gives a sharp bound on the number of $\bbF_q$-rational points on such a curve, proved via an auxiliary polynomial that vanishes with high multiplicity on the solution set. The theorem we will be proving in this section is the following:
 \begin{Theorem}{Stepanov's Theorem}{thm:stepanov}
+  \index{Stepanov method}\index{Weil bound!hyperelliptic}%
   Suppose that $Y^d-f(X)\in\bbF_q[X,Y]$ is an absolutely irreducible polynomial where $\deg(f)=m$.  Suppose $q>100dm^2$.  Then $$|Z(Y^d=f(X))-q|\leq 4d^{\nicefrac32}q^{\nicefrac12}.$$
 \end{Theorem}
 
@@ -8,6 +9,7 @@ A curve of the form $Y^d=f(X)$ over $\bbF_q$, where $f\in\bbF_q[X]$ and $d\geq 2
 
 The hypothesis that $Y^d - f(X)$ is absolutely irreducible is central to \Stepanov. The following theorem gives a concrete criterion in terms of the factorization of $f$ over $\ov{\bbF_q}$.
 \begin{Theorem}{Characterisation of Absolute Irreducibility of $Y^d-f(X)$}{thm:yd-fx-irr}
+  \index{absolutely irreducible}%
   Suppose $Y^d-f(X)\in\bbF_q[X,Y]$. Then the following are equivalent:
   \begin{enumerate}[label=(\roman*)]
     \item $Y^d-f(X)$ is absolutely irreducible.
@@ -72,6 +74,7 @@ The key linear-independence property below ensures that a vanishing relation amo
 
 The heart of the proof is the construction of a nonzero polynomial $Q$ of controlled degree that vanishes with high multiplicity on the zero set of $f$ and on the preimage of $g$ under $F$.
 \begin{lemma}{Existence of Auxiliary Polynomial $Q$}{lem:stepanov-Q-exists}
+  \index{auxiliary polynomial}%
   Let $1\leq r\leq d-1$ and let $g\in\bbF_q[X]$ be a polynomial of degree $r$. Let $M\in\bbN$ be a positive integer satisfying $M\geq m+1$ and $(M+3)^2\leq \nicefrac{2q}{d}$. Then there exists a non-zero polynomial $Q(X)\in\bbF_q[X]$ with $\deg(Q)\leq \nicefrac{r}{d}\cdot qM+4mq$ such that for every $\alpha\in\bbF_q$:
   \begin{enumerate}[label=(\roman*)]
     \item if $g(F(\alpha))=0$, then $Q(\alpha)=0$ with multiplicity at least $M$; and
@@ -80,7 +83,8 @@ The heart of the proof is the construction of a nonzero polynomial $Q$ of contro
 \end{lemma}
 \begin{proof}
   We will construct $Q$ of the form $$Q(X)=f(X)^M\sum_{i=0}^{d-1}h_i(X)\cdot F(X)^i$$ where $h_i(X)=\sum_{j=0}^th_{ij}(X)\cdot X^{qj}$ with $\deg(h_{ij})\leq \frac{q}{d}-m$ for all $i\in\{0,1,\dots, d-1\}$ and $j\in\{0,\dots, t\}$ like \StepanovLinIndeplem. Take $t=\lt\lfloor (M+m+1)\nicefrac{r}{d}\rt\rfloor$. 
-  \paragraph*{Computing the Hasse Derivatives.} We will calculate $H^{(n)}(Q)$ for $0\leq n\leq M-1$ for the multiplicity condition. Now for every term $f^M\cdot h_{ij}\cdot F^i$ we have $H^{(n)}(f^M\cdot h_{ij}\cdot F^i)=f^{M-n}h_{ij,n}\cdot F^i$ where 
+  \paragraph*{Computing the Hasse Derivatives.} \index{Hasse derivative}%
+  We will calculate $H^{(n)}(Q)$ for $0\leq n\leq M-1$ for the multiplicity condition. Now for every term $f^M\cdot h_{ij}\cdot F^i$ we have $H^{(n)}(f^M\cdot h_{ij}\cdot F^i)=f^{M-n}h_{ij,n}\cdot F^i$ where 
   \begin{equation}\label{eq:hijn}
     \deg(h_{ij,n})\leq \deg(h_{ij})+n(k-1)\leq \frac{q}d-m+n(k-1)\leq \frac{q}{m}+n(k-1)-1
   \end{equation}
@@ -174,6 +178,7 @@ So now we have finally proved the \Stepanov.
 The constant $4md^{\nicefrac32}$ in \Stepanov, while explicit, is not tight as a function of the curve's geometry. For the hyperelliptic case $d=2$, the correct geometric measure of complexity is the \emph{genus} $g$, and H.\ M.\ Stark \cite{Stark_1973_RiemannHyperelliptic} showed that the Stepanov argument can be refined to replace $4md^{\nicefrac32}$ with a constant of size $2g$, recovering the sharp Weil bound.
 
 \paragraph*{Genus of a Hyperelliptic Curve.}
+\index{genus!hyperelliptic curve}%
 Let $f\in\bbF_q[X]$ have degree $m$ with $m$ distinct roots, so $Y^2-f(X)$ is absolutely irreducible. The smooth projective model $\mathcal{C}$ of the affine curve $Y^2=f(X)$ has genus
 \begin{equation}\label{eq:hyperelliptic-genus}
   g = \begin{cases} \dfrac{m-1}{2} & \text{if } m \text{ is odd,} \\[6pt] \dfrac{m-2}{2} & \text{if } m \text{ is even.} \end{cases}

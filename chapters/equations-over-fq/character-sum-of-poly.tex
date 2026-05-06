@@ -1,5 +1,5 @@
 \section{Character Sums with Polynomials}\label{sec:character-sum-poly}
-Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\bbF_q[X]$ be a non-constant polynomial. In this section we will look sums of the form $$\sum_{\alpha\in\bbF_q}\chi(f(\alpha))$$Such sums are called \emph{Weil Sums.}
+Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\bbF_q[X]$ be a non-constant polynomial. In this section we will look sums of the form $$\sum_{\alpha\in\bbF_q}\chi(f(\alpha))$$Such sums are called \emph{Weil Sums.}\index{Weil sum}
 \begin{Definition}{Weil Sum}{}
   \index{Weil sum}%
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\bbF_q[X]$ be a non-constant polynomial. The \emph{Weil sum} associated to $\chi$ and $f$ is
@@ -12,10 +12,12 @@ Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $f\in\b
 \end{Definition}Weil sums are extremely difficult to evaluate. One usually has to be satisfied with estimates for the absolute value of the sum. In certain cases it is easier to find the character sums exactly. 
 
 \subsection{Additive Character Sums}
+\index{character sum!additive}%
 
 The first family of Weil sums we evaluate exactly are those of the form $\chi(ac^n+b)$, where the polynomial is a shifted monomial. The key is to factor the sum over $c$ using multiplicative characters of order $d=\gcd(n,q-1)$.
 
 \begin{Theorem}{Weil Sum of a Shifted Monomial}{thm:weil-shifted-monomial}
+  \index{Weil sum!shifted monomial}%
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$, $n\in\bbN$, and let $\lm\in\Mq$ be a multiplicative character of order $d=\gcd(n,q-1)$. Then for any $a,b\in\bbF_q$ with $a\neq 0$,
   $$\sum_{\gm\in\bbF_q}\chi(a\cdot\gm^n+b)=\chi(b)\sum_{j=1}^{d-1}\ov{\lm}^j(a)\,G(\lm^j,\chi).$$
 \end{Theorem}
@@ -44,6 +46,7 @@ So if $\gcd(n,q-1)=1$ then the sum at right hand side is over no elements. So th
 For quadratic polynomials in odd characteristic the Weil sum can be evaluated exactly in terms of a Gaussian sum and the quadratic character. 
 
 \begin{Theorem}{Weil Sum of a Quadratic Polynomial}{thm:weil-quadratic-odd}
+  \index{Weil sum!quadratic}\index{Gaussian sum!connection to Weil sum}%
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ with $q$ odd, and let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $a_2\neq 0$. Then
   $$\sum_{\gm\in\bbF_q}\chi(f(\gm))=\chi\lt(a_0-a_1^2(4a_2)^{-1}\rt)\,\eta(a_2)\,G(\eta,\chi),$$
   where $\eta\in\Mq$ is the quadratic character of $\bbF_q$.
@@ -51,7 +54,7 @@ For quadratic polynomials in odd characteristic the Weil sum can be evaluated ex
 \begin{proof}
   Since $f$ is a quadratic polynomial we can express $f$ as in the form of \thmref{thm:weil-shifted-monomial} for degree $2$. $$f(X)=a_2X^2+a_1X+a_0=a_2\lt(X+a_1\cdot (2a_2)^{-1}\rt)^2+\lt(a_0-a_1^2(4a_2)^{-1}\rt)$$Let $\ov{\gm}=\gm+a_1(2a_2)^{-1}$ and $\beta=a_0-a_1^2(4a_2)^{-1}$. Then we have $$\sum_{\gm\in\bbF_q}\chi(f(\gm))=\sum_{\ov{\gm}\in\bbF_q}\chi(a_2\cdot \ov{\gm}^2+\beta)$$So by \thmref{thm:weil-shifted-monomial}$$\sum_{\gm\in\bbF_q}\chi(f(\gm))=\chi(\beta)\cdot \eta(a_2)\cdot G(\eta,\chi)$$Hence we have the result. 
 \end{proof}
-For polynomials whose monomials are all \emph{affine $p$-polynomials}\index{affine $p$-polynomial} i.e. powers of $p = \Char(\bbF_q)$, the sum collapses to either $0$ or a full power of $q$ depending on a linear condition on the parameter $b$.
+For polynomials whose monomials are all \emph{affine $p$-polynomials}\index{affine $p$-polynomial}\index{Weil sum!of affine $p$-polynomial} i.e. powers of $p = \Char(\bbF_q)$, the sum collapses to either $0$ or a full power of $q$ depending on a linear condition on the parameter $b$.
 
 \begin{Theorem}{Weil Sum of an Affine $p$-Polynomial}{thm:weil-p-polynomial}
   Let $p=\Char(\bbF_q)$ and let
@@ -79,8 +82,9 @@ The above theorem covers both odd and even characteristic, whereas \thmref{thm:w
 \end{corolary}
 
 \subsection{Quadratic Character Sums}
+\index{character sum!quadratic character}%
 
-When the character is the quadratic character $\eta$, the sums $\sum_c\eta(f(c))$ can be evaluated by completing the square (for quadratic $f$) or by the continued fraction algorithm (for polynomials with no roots in $\bbF_q$).
+When the character is the quadratic character\index{quadratic character} $\eta$, the sums $\sum_c\eta(f(c))$ can be evaluated by completing the square (for quadratic $f$) or by the continued fraction algorithm (for polynomials with no roots in $\bbF_q$).
 \begin{Theorem}{Quadratic Character Sum of a Quadratic Polynomial}{thm:eta-quadratic-poly}
   Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ odd and $a_2\neq 0$, let $\Dl=a_1^2-4a_0a_2$ denote the discriminant of $f$, and let $\eta$ be the quadratic character of $\bbF_q$ (extended by $\eta(0)=0$). Then $$\sum_{\gm\in\bbF_q}\eta(f(\gm))=\begin{cases}-\eta(a_2) & \text{if }\Dl\neq 0,\\ (q-1)\cdot \eta(a_2) & \text{if }\Dl=0.\end{cases}$$
 \end{Theorem}
@@ -91,6 +95,7 @@ When the character is the quadratic character $\eta$, the sums $\sum_c\eta(f(c))
 \end{proof}
 
 \subsection{Weil Sums of Continued Fractions}
+\index{Weil sum!continued fraction method}%
 
 There is a remarkable connection between Weil sums for the quadratic character $\eta$ and the \emph{continued fraction algorithm}\index{continued fraction algorithm} for rational functions over $\bbF_q$. We collect the necessary algebraic facts about continued fractions of rational functions in Appendix~\ref{sec:cont-frac-fq}; here we set up the specific expansion needed for the application to character sums and state the main results.
 % TODO: Write some intro on continued fraction P,Q

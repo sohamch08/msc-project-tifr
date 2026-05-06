@@ -1,6 +1,7 @@
 \section{Lifting of Gaussian and Jacobi Sums}\label{sec:lifting-gauss-jacobi}
 So using the discussion on \emph{Dirichlet $L$-functions} we can relate Gaussian sums in $\bbF_q$ with Gaussian sum of lifted characters to any finite extension of $\bbF_q$. 
 \begin{Theorem}{Davenport-Hasse Theorem}{thm:davenport-hasse}
+  \index{Davenport-Hasse theorem}\index{lifting of characters}\index{Davenport, Harold}\index{Hasse, Helmut}%
   Let $\chi\in\Xq$ be an additive character and $\psi\in\Mq$ be a multiplicative character of $\bbF_q$, not both of them trivial. Suppose $\chi$ and $\psi$ are lifted to characters $\chi^{(r)}$ and $\psi^{(r)}$ respectively of the finite extension field $E$ of $\bbF_q$ with $[E\colon \bbF_q]=r$. Then $$G(\psi^{(r)},\chi^{(r)})=(-1)^{r-1}G(\psi,\chi)^r$$
 \end{Theorem}
 \begin{proof}
@@ -11,25 +12,25 @@ So using the discussion on \emph{Dirichlet $L$-functions} we can relate Gaussian
   Now $\Phi(0)=\{1\}$ and $\Phi(1)=\{x-\alpha\colon \alpha\in\bbF_q^*\}$. Hence $$\sum_{h\in\Phi_1}\lm(h)=\sum_{\alpha\in\bbF_q^*}\psi(\alpha)\cdot \chi(\alpha)=G(\psi,\chi)$$Therefore $$\ovL(z,\lm)=1+G(\psi,\chi)\cdot z\qquad\text{and}\qquad L(s,\chi)=1+q^{-s}\cdot G(\psi,\chi)$$Therefore root of $\ovL(z,\lm)$ is $-G(\psi,\chi)$.  
 
   Now we will calculate $L_r$  where $r=[E\colon \bbF_q]$. From the definition of $L_r$ in previous section we have $$L_r =  \sum_{\substack{h\in\irr(\Phi),\\ \deg(h)\mid r}}\deg(h)\cdot \chi(h)^{\nicefrac{r}{\deg(h)}}= \sum_{\substack{h\in\irr(\Phi),\\ \deg(h)\mid r}} \deg(h)\cdot \lm\lt( h^{\nicefrac{r}{\deg(h)}}\rt)$$Now for any irreducible $h$ let $\gm$ be a root of $h$ in the splitting field of $f$. Let $$h^{\nicefrac{r}{\deg(f)}}= x^r-c_1\cdot x^{r-1}+\cdots+(-1)^k c_r=\prod_{i=o}^{r-1}\lt(X-\gm^{q^i}\rt)$$Hence 
-  $c_1=\tr_{E/\bbF_q}(\gm)$ and $c_r=\norm_{E/\bbF_q}(\gm)$. Hence we have $$\lm\lt(h^{\nicefrac{r}{\deg(h)}}\rt)=\psi(c_r)\cdot \chi(c_1)=\psi\lt(\norm_{E/\bbF_q}(\gm)\rt)\cdot \chi\lt(\tr_{E/\bbF_q}(\gm)\rt)=\psi^{(r)}(\gm)\cdot \chi^{(r)}(\gm)$$Now we can express $\deg(h)\cdot \lm\lt(h^{\nicefrac{r}{\deg(h)}}\rt)=\sum_{\gm\in E,h(\gm)=0}\psi^{(r)}(\gm)\cdot \chi^{(r)}(\gm)$. 
-  Therefore $$L_r= \sum_{\substack{h\in\irr(\Phi),\\ \deg(h)\mid k}} \deg(h)\cdot \lm\lt( h^{\nicefrac{k}{\deg(h)}}\rt)=\sum_{\substack{h\in\irr(\Phi),\\ \deg(h)\mid k}}\sum_{\gm\in E,h(\gm)=0}\psi^{(r)}(\gm)\cdot \chi^{(r)}(\gm) $$Now all irreducible polynomials of $\bbF_q$ whose degree divides $r$ with non-zero constant their roots in $E$ are disjoint sets and partition $E^*$. Therefore we have $$L_r=\sum_{\gm\in E^*}\psi^{(r)}(\gm)\cdot \chi^{(r)}(\gm)=G(\psi^{(r)},\chi^{(r)})$$Since  by \thmref{thm:l-function-root-factorisation} we have $L_r=-(-G(\psi,\chi))^r$. So we have the theorem. 
+  $c_1=\tr_{E/\bbF_q}(\gm)$\index{trace!of field extension} and $c_r=\norm_{E/\bbF_q}(\gm)$.\index{norm!of field extension} Hence we have $$\lm\lt(h^{\nicefrac{r}{\deg(h)}}\rt)=\psi(c_r)\cdot \chi(c_1)=\psi\lt(\norm_{E/\bbF_q}(\gm)\rt)\cdot \chi\lt(\tr_{E/\bbF_q}(\gm)\rt)=\psi^{(r)}(\gm)\cdot \chi^{(r)}(\gm)$$Now we can express $\deg(h)\cdot \lm\lt(h^{\nicefrac{r}{\deg(h)}}\rt)=\sum_{\gm\in E,h(\gm)=0}\psi^{(r)}(\gm)\cdot \chi^{(r)}(\gm)$. 
+  Therefore $$L_r= \sum_{\substack{h\in\irr(\Phi),\\ \deg(h)\mid k}} \deg(h)\cdot \lm\lt( h^{\nicefrac{k}{\deg(h)}}\rt)=\sum_{\substack{h\in\irr(\Phi),\\ \deg(h)\mid k}}\sum_{\gm\in E,h(\gm)=0}\psi^{(r)}(\gm)\cdot \chi^{(r)}(\gm) $$Now all irreducible polynomials of $\bbF_q$ whose degree divides $r$ with non-zero constant their roots in $E$ are disjoint sets and partition $E^*$. Therefore we have $$L_r=\sum_{\gm\in E^*}\psi^{(r)}(\gm)\cdot \chi^{(r)}(\gm)=G(\psi^{(r)},\chi^{(r)})$$Since  by \thmref{thm:l-function-root-factorisation}\index{L-function!root factorisation} we have $L_r=-(-G(\psi,\chi))^r$. So we have the theorem. 
 \end{proof}
 
 An analogous lifting phenomenon holds for Jacobi sums. Using the relation between Jacobi and Gaussian sums established in \thmref{thm:jacobi-gaussian} together with the \DHthm, one can compare the Jacobi sum of a tuple of characters over $\bbF_q$ with the Jacobi sum of their lifts to a finite extension. The following theorem makes this precise.
-\begin{Theorem}{Lifting of Jacobi Sums}{thm:jacobi-lift}
+\begin{Theorem}{Lifting of Jacobi Sums}{thm:jacobi-lift}\index{Jacobi sum!lifting formula}
   Let $\lm_1,\dots,\lm_k\in\Mq$ be multiplicative characters of $\bbF_q$, not all of which are trivial. Suppose $\lm_1,\dots,\lm_k$ are lifted to characters $\lm_1{(r)},\dots, \lm_k^{(r)}$ respectively, of the finite extension field $E$ of $\bbF_q$ with $[E:\bbF_q]=r$. Then $$J\lt(\lm_1^{(r)},\dots, \lm_k^{(r)}\rt)=(-1)^{(r-1)(k-1)}J(\lm_1,\dots,\lm_k)^r$$
 \end{Theorem}
 \begin{proof}
   Now if any $\lm_i$ is trivial then the lifted character $\lm^{(r)}$ is also trivial over $E$. If Then by \thmref[(ii)]{thm:jacobi-sum-complete} we get both sides to be $0$. So suppose $\lm_1,\dots,\lm_k$ are non-trivial. Now we will use \thmref{thm:jacobi-gaussian}. Let $\chi\in\Xq$ be any non-trivial additive character of $\bbF_q$. So let $\chi^{(r)}$ be the lifted character of $\chi$ to $E$. If $\prod_{i=1}^k \lm_i$ is non-trivial then we have \begin{align*}
     J\lt(\lm_1^{(r)},\dots, \lm_k^{(r)}\rt) & = \frac{\prod_{i=1}^kG\lt(\lm_i^{(r)},\chi^{(r)}\rt)}{G\lt(\prod_{i=1}^k\lm_i^{(r)},\chi^{(r)}\rt)}\\
-    & = \frac{\prod_{i=1}^k(-1)^{r-1}G(\lm_i,\chi)^r}{(-1)^{r-1}G\lt(\prod_{i=1}^k\lm_i,\chi\rt)^r}\by{\DHthm}\\
+    & = \frac{\prod_{i=1}^k(-1)^{r-1}G(\lm_i,\chi)^r}{(-1)^{r-1}G\lt(\prod_{i=1}^k\lm_i,\chi\rt)^r}\by{\DHthm\index{Davenport-Hasse theorem}}\\
     & = (-1)^{(s-1)(r-1)}\lt[ \frac{\prod_{i=1}^kG(\lm_i,\chi)}{G\lt(\prod_{i=1}^k\lm_i,\chi\rt)} \rt]^r\\ 
     & = (-1)^{(s-1)(r-1)}J(\lm_1,\dots,\lm_k)^r
   \end{align*}
   Now the only case remaining is when $\prod_{i=1}^k \lm_i$ is trivial. In that case we have 
   \begin{align*}
     J\lt(\lm_1^{(r)},\dots, \lm_k^{(r)}\rt) & = -\frac1{q^r}\prod_{i=1}^k G\lt(\lm_i^{(r)},\chi^{(r)}\rt)\\
-    & = -\frac1{q^s}\cdot (-1)^{(r-1)\cdot k}\prod_{i=1}^k G(\lm_i,\chi)^r\by{\DHthm}\\
+    & = -\frac1{q^s}\cdot (-1)^{(r-1)\cdot k}\prod_{i=1}^k G(\lm_i,\chi)^r\by{\DHthm\index{Davenport-Hasse theorem}}\\
     & = (-1)^{(r-1)(k-1)}\cdot J(\lm_1,\dots, \lm_k)
   \end{align*}
   So we have the theorem. 

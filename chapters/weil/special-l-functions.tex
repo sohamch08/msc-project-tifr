@@ -1,11 +1,12 @@
 \section{Special \texorpdfstring{$L$}{ L }-functions}\label{sec:special-l-functions}
+\index{L-function!special}%
 In this section we will construct special $L$-functions which will help us study polynomials like $Y^d-f(X)$ or $Y^q-Y-f(X)$ where they are absolutely irreducible and character sums related to such polynomials. Remember the notions we introduced in \autoref{sec:l-functions}.
 
 Let $G$ be the group of all rational functions $r(X)\in\bbF_q(X)$ such that for any $r(X)=\nicefrac{h_1(X)}{h_2(X)}$ where $h_1,h_2\in\Phi$. 
 
 Let $f(X)\in\bbF_q[X]$ be a monic polynomial in $\bbF_q[X]$. Let $f(X)$ factors into $$f(X)=(X-\gm_1)^{a_1}\cdots (X-\gm_m)^{a_m}$$ in the field $\ov{\bbF}_q[X]$ i.e., $f$ has $m$ distinct roots. Then define the subgroup $\ov{G}$ such that $r=\nicefrac{h_1}{h_2}\in\ovG$ then $$h_1(\gm_i)\cdot h_2(\gm_i)\neq 0\quad\forall\ i\in[m]$$Then $\ovG$ has the property that if $r_1\cdot r_2\in\ovG$ then $r_1,r_2\in \ovG$. 
 
-Now we define a multiplicative function $\vsg:\ovG\to \bbF_q$. Let $r=\nicefrac{h_1}{h_2}\in\ovG$ factors into $$r(X)=\prod_{i=1}^{d_1}(X-\alpha_i)\cdot \prod_{j=1}^{d_2}(X-\beta_j)^{-1}$$ in $\ov{\bbF_q}(X)$. Then define $$\vsg(r)=\prod_{i=1}^{d_1}f(\alpha_i)\cdot \prod_{j=1}^{d_2}f(\beta_j)^{-1}=\prod_{t=1}^mr(\gm_t)^{a_t}$$Take $\vsg(r)=1$ if $f(X)\equiv 1$. Then $\vsg(r)\in\bbF_q$. Then we have the following observation
+Now we define a multiplicative function $\vsg:\ovG\to \bbF_q$\index{multiplicative function on rational functions}. Let $r=\nicefrac{h_1}{h_2}\in\ovG$ factors into $$r(X)=\prod_{i=1}^{d_1}(X-\alpha_i)\cdot \prod_{j=1}^{d_2}(X-\beta_j)^{-1}$$ in $\ov{\bbF_q}(X)$. Then define $$\vsg(r)=\prod_{i=1}^{d_1}f(\alpha_i)\cdot \prod_{j=1}^{d_2}f(\beta_j)^{-1}=\prod_{t=1}^mr(\gm_t)^{a_t}$$Take $\vsg(r)=1$ if $f(X)\equiv 1$. Then $\vsg(r)\in\bbF_q$. Then we have the following observation
 \begin{observation}
   For all  $r_1,r_2\in\ovG$ we have $\vsg(r_1\cdot r_2)=\vsg(r_1)\cdot \vsg(r_2)$. 
 \end{observation}

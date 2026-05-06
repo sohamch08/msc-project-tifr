@@ -33,6 +33,7 @@ We eventually want to construct the $L$-function using the multiplicative functi
 
 As we mentioned in the previous section. We can extend $\xi$ to $G$ by setting $\xi(h)=0$ if $h$ is a polynomial not in $\ovG$. So now we form the $L$-functions, $L(s,\xi)$ and $\ovL(Z,\xi)$ on $\xi$. And using the above lemma we have the following theorem:
 \begin{Theorem}{Finite Degree of $\ovL(z,\xi)$}{thm:ovL-xi-finite}
+  \index{L-function!finite degree}%
   Suppose either $\psi\in\Mq$ is a nontrivial multiplicative character of exponent $d$ and $Y^d-f(X)$ is absolutely irreducible. Or, $\chi\in\Xq$ is a non-trivial additive character and
   \begin{enumerate}[label=(\roman*)]
     \item either, $\gcd(n,q)=1$
@@ -88,6 +89,7 @@ Now we can write $L^{(k)}(s,\xi^{(k)})$ and $\ovL^{(k)}(z,\xi^{(k)})$ in terms o
 \end{proof}
 Now by \LXiFinitethm, $\Lxi$ is a polynomial. So there exist complex numbers $w_1,\dots, w_l\in\bbC$ such that $\Lxi=(1-w_1u)\cdots (1-w_lu)$ for some $l\in\bbN$ where $u=q^{-s}$. By \LiftedLFactthm, $\ovLxil{k}$ or $\Lxil{k}$ is also a polynomial (a product of finitely many polynomials). We will prove that the reciprocal roots of $\Lxil{k}$ are $w_i^k$ for all $i\in[l]$. 
 \begin{corolary}{Reciprocal Roots of the Lifted $L$-function}{cor:lifted-L-roots}
+  \index{reciprocal roots}%
   If $\Lxi=(1-w_1u)\cdots (1-w_lu)$ with $u=q^{-s}$ then $$\Lxil{k}=(1-w_1^k\cdot u_k)\cdots (1-w_l^k\cdot u_k)$$where $u_k=q^{-ks}$.
 \end{corolary}
 \begin{proof}
@@ -110,3 +112,4 @@ So now we can give an analog of \LLeadCoeffthm for the lifted sum and give a rel
   If we apply \LLeadCoeffthm to $\bbF_{q^k}$ instead of $\bbF_q$ then using \LiftedLRootscor we have $$\Lxil{k}=1+c_{k,1}\cdot u_k+\cdots +c_{k,n+m-1}\cdot u_k^{n+m-1}=\prod_{j=1}^{n+m-1}(1-w_j^k\cdot u_k)$$Thereore $c_{k,1}=\Wmixl{k}{f}{g}$. And on the other hand we have that $c_{k,1}=-\sum_{j=1}^{n+m-1}w_j^k$. 
 \end{proof}
 \subsection{Alternate Proof of Davenport-Hasse Relation}
+\index{Davenport-Hasse relation!alternate proof}%

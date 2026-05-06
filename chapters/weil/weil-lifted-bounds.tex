@@ -35,6 +35,7 @@ We prove the Weil bound for polynomials like $Y^d-f(X)$ in three steps below. An
 
 Now by \lemref{lem:weil-roots-modulus-psi}, $|w_{\psi,j}|\leq q^{\nicefrac12}$ for all $j\in[m-1]$. Hence, $|\Wpsi{f}|\leq (m-1)q^{\nicefrac12}$ and $|\Wpsil{k}{f}|\leq (m-1)q^{\nicefrac{k}2}$. So we have the following theorem. 
 \begin{Theorem}{Weil Bound for $\Wpsil{k}{f}$: Absolutely Irreducible Case}{thm:weil-bound-psi-irr}
+  \index{Weil bound}\index{Weil bound!multiplicative character sum}%
   Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots and $Y^d-f(X)$ is absolutely irreducible. Then
   $$\lt|\Wpsi{f}\rt|\leq (m-1)q^{\nicefrac12}\quad\text{and}\quad \lt|\Wpsil{k}{f}\rt|\leq (m-1)q^{\nicefrac{k}2}.$$
 \end{Theorem}
@@ -91,6 +92,7 @@ Now we will prove the Weil bound for the polynomial $Y^q-Y-g(X)$ below. We will 
 \end{proof}
 Now by the above lemma we have $|w_{\chi,j}|\leq q^{\nicefrac12}$ for all non-trivial $\chi\Xq$ and for all $j\in[n-1]$. Therefore $|\Wchi{g}|\leq (n-1)q^{\nicefrac12}$ and $\lt|\Wchil{k}{g}\rt|\leq (n-1)q^{\nicefrac{k}2}$. So we have the following theorem.
 \begin{Theorem}{Weil Bound for $\Wchil{k}{g}$}{thm:weil-bound-chi}
+  \index{Weil bound!additive character sum}%
   Let $\chi\in\Xq$ be a non-trivial additive character and $g(X)\in\bbF_q[X]$ of degree $n$. Suppose that
   \begin{enumerate}[label=(\roman*)]
     \item either $n<q$ and $\gcd(n,q)=1$,
@@ -135,6 +137,7 @@ Now we apply the above lemma for the solutions of $Y^d-f(X)$ and $Z^q-Z-g(X)$ an
 
 So now we give a general Weil Bound for the number of common solutions of $Y^d-f(X)$ and $Z^q-Z-g(X)$. We will have to use a very non-trivial theorem \thmref{thm:absolute-variety-sols} from algebraic geometry. We will assume that theorem. And then give a bound on the absolute value of mixed weil sum.
 \begin{Theorem}{Weil Bound for Mixed Character Sums}{thm:weil-bound-mixed}
+  \index{Weil bound!mixed character sum}%
   Let $\psi\in\Mq$ and $\chi\in\Xq$ be non-trivial multiplicative and additive characters with $\ord(\psi)=d$, $d\mid q-1$. Let $f(X)\in\bbF_q[X]$ have precisely $m$ distinct roots and $g(X)\in\bbF_q[X]$ with $\deg(g)=n$. Suppose that
   \begin{enumerate}[label=(\roman*)]
     \item either $\gcd(d,\deg(f))=\gcd(n,q)=1$,
@@ -145,8 +148,8 @@ So now we give a general Weil Bound for the number of common solutions of $Y^d-f
 \begin{proof}
   Like in the previous two sections we can assume $f$ to be monic and $g$ has constant term zero since $\psi(af(\alpha))=\psi(a)\cdot \psi(f(\alpha))$ and $\chi(b+g(\alpha))=\chi(b)\cdot \chi(g(\alpha))$ and so $\psi$, $\chi$ evaluated $a$ and $b$ respectively gets out of the sum and it doesn't change the absolute value. So we will assume $f$ monic and $g$ has constant term zero. Now suppose we already have $$\lt|Z_E\lt(Y^d=f(X), Z^q-Z=g(X)\rt)-q^k\rt|=O(q^{\sqrt{k}2})$$We have  $W^{(k)}\lt(\psi_0^{(k)},\chi_0^{(k)};f,g\rt)=q^k$ by \JointSolCharSumlem we have $$\lt|\sum_{\psi\in\Mq^{(d)},\psi\neq \psi_0}\sum_{\chi\in\Xq,\chi\neq \chi_0}\Wmixl{k}{f}{g}+\sum_{\psi\in\Mq^{(d)},\psi\neq \psi_0}\Wpsil{k}{f}+\sum_{\chi\in\Xq,\chi\neq \chi_0}\Wchil{k}{g} \rt|=O(q^{\nicefrac{k}{2}})$$Now by \WeilRootsModulusChilem and \WeilRootsModuluslem, $|w_{\psi,i}|\leq q^{\nicefrac12}$, $|w_{\chi,j}|\leq q^{\nicefrac12}$ for all $i\in[m-1]$, $\psi\in\Mq^{(d)}$ where $\psi\neq \psi_0$ and $j\in[n-1]$, $\chi\in\Xq$ where $\chi\neq \chi_0$. Therefore by \PowerSumBound we have $|w_{\psi,\chi,j}|\leq q^{\nicefrac{1}{2}}$ for all $j\in[n+m-1]$ and $\psi\in\Mq^{(d)}$ with $\psi\neq \psi_0$ and $\chi\in\Xq$ with $\chi\neq \chi_0$. Therefore we get $\lt|\Wmixl{k}{f}{g}\rt|\leq (n+m-1)q^{\nicefrac{k}2}$ and $|\Wmix{f}{g}|\leq (n+m-1)q^{\nicefrac12}$. 
 
-  Now all we need to prove $\lt|Z_E\lt(Y^d=f(X), Z^q-Z=g(X)\rt)-q^k\rt|=O(q^{\sqrt{k}2})$. 
-  Now under the conditions of the theorem $Y^d=f(X)$ and $Z^q-Z=g(X)$ defines a special curve called absolute variety. So by a theorem from algebraic geometry \thmref{thm:absolute-variety-sols} we get the bound. 
+  Now all we need to prove $\lt|Z_E\lt(Y^d=f(X), Z^q-Z=g(X)\rt)-q^k\rt|=O(q^{\sqrt{k}2})$.
+  Now under the conditions of the theorem $Y^d=f(X)$ and $Z^q-Z=g(X)$ defines a special curve called absolute variety\index{absolute variety}. So by a theorem from algebraic geometry \thmref{thm:absolute-variety-sols} we get the bound. 
 \end{proof}
 The following theorem helps us to count number of solutions in something called absolute variety in algebraic geometry. The proof of this theorem is beyond our scope so we ommit the proof of the theorem. 
 \begin{Theorem}{}{thm:absolute-variety-sols}

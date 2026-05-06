@@ -1,20 +1,21 @@
 \section{Some Elementary Results}\label{sec:elementary-results}
 In this section we give some elementary results on the number of solutions. We present some classical theorems such as those of K\"{o}nig-Rados, Chevalley, and Warning. We also establish elementary upper bounds for the number of solutions and results on the expected order of magnitude.
 \subsection{Univariate Polynomials}
-We start of with univariate polynomials. Let $f\in\bbF_q[X]$ is an univariate polynomial Naturally the number of solutions in $\bbF_q$ for the equation $f(X)=0$ is basically the degree of $\gcd(f(X),X^q-X)$. Since checking if $0$ is a solution or not is very easy to check we'll only consider non-zero solutions. So the number of non-zero solutions of $f(X)=0$ is basically the degree of $\gcd(f(X),X^{q-1}-1)$. Therefore we may always assume without loss of generality that $\deg(f)\leq q-1$. Suppose $$f(X)=a_{q-1}\cdot X^{q-1}+a_{q-2}\cdot X^{q-2}+\cdots+a_1\cdot X+a_0$$where $a_i\in\bbF_q$ for all $0\leq i\leq q-1$. Since for all $\alpha\in\bbF_q^*$ we have $\alpha^{q-1}=1$ the variable $X^{q-1}$ will always evaluate to be $1$ for all non-zero values of $X$. Therefore the number of solutions of $f$ is same as of the equation $a_{q-2}\cdot X^{q-2}+\cdots+a_1\cdot X+(a_0+a_{q-1})=0$. Therefore we can always assume $\deg(f)\leq q-2$. So suppose we have a polynomial $f\in\bbF_q[X]$ such that $$f(X)=a_{q-2}\cdot X^{q-2}+\cdots+a_1\cdot X+a_0$$where $a_i\in\bbF_q$ for all $0\leq i\leq q-2$. 
+We start of with univariate polynomials. Let $f\in\bbF_q[X]$ is an univariate polynomial\index{polynomial!univariate} Naturally the number of solutions\index{solution count} in $\bbF_q$ for the equation $f(X)=0$ is basically the degree of $\gcd(f(X),X^q-X)$. Since checking if $0$ is a solution or not is very easy to check we'll only consider non-zero solutions. So the number of non-zero solutions of $f(X)=0$ is basically the degree of $\gcd(f(X),X^{q-1}-1)$. Therefore we may always assume without loss of generality that $\deg(f)\leq q-1$. Suppose $$f(X)=a_{q-1}\cdot X^{q-1}+a_{q-2}\cdot X^{q-2}+\cdots+a_1\cdot X+a_0$$where $a_i\in\bbF_q$ for all $0\leq i\leq q-1$. Since for all $\alpha\in\bbF_q^*$ we have $\alpha^{q-1}=1$ the variable $X^{q-1}$ will always evaluate to be $1$ for all non-zero values of $X$. Therefore the number of solutions of $f$ is same as of the equation $a_{q-2}\cdot X^{q-2}+\cdots+a_1\cdot X+(a_0+a_{q-1})=0$. Therefore we can always assume $\deg(f)\leq q-2$. So suppose we have a polynomial $f\in\bbF_q[X]$ such that $$f(X)=a_{q-2}\cdot X^{q-2}+\cdots+a_1\cdot X+a_0$$where $a_i\in\bbF_q$ for all $0\leq i\leq q-2$.
 
-Now we can also analyze the number of solutions of $f$ using matrix methods. From $f$ we can define the following matrix $$M_f=\mat{a_0 & a_1 & \cdots & a_{q-2}\\ a_1 & a_2 & \cdots & a_0\\ \vdots & \vdots & \ddots & \vdots\\ a_{q-2} & a_0 & \cdots & a_{q-3}}$$This matrix is a \emph{left circulant matrix}\index{circulant matrix} i.e. each row is obtained from the preceding row by a cyclic shift of the entries to the left. The number of non-zero solutions of $f(X)=0$ and the rank of the matrix $M_f$ are very related. 
+Now we can also analyze the number of solutions of $f$ using matrix methods. From $f$ we can define the following matrix $$M_f=\mat{a_0 & a_1 & \cdots & a_{q-2}\\ a_1 & a_2 & \cdots & a_0\\ \vdots & \vdots & \ddots & \vdots\\ a_{q-2} & a_0 & \cdots & a_{q-3}}$$This matrix is a \emph{left circulant matrix}\index{circulant matrix} i.e. each row is obtained from the preceding row by a cyclic shift of the entries to the left. The number of non-zero solutions of $f(X)=0$ and the rank of the matrix $M_f$ are very related.
 \begin{Theorem}{K\"{o}nig-Rados Theorem}{thm:konig-rados}
-  \index{Konig-Rados theorem}%
+  \index{Konig-Rados theorem}\index{König, Denis}\index{Rados, Gusztáv}%
   Let $f(X)=\sum_{i=0}^{q-2}a_i\cdot X^i\in\bbF_q[X]$ be an univariate polynomial. Then $$\ov{Z}(f)=q-1-\Rank(M_f)$$
 \end{Theorem}
 \begin{proof}
-  Since $\deg(f)\leq q-2$ we have $\ov{Z}(f)\leq q-2$. $\ov{Z}(f)=q-1$ rises only when $f$ is a zero polynomial i.e. $M_f$ is a zero matrix and in that case $\Rank(M_f)=0$ which satisfies the theorem. Let $\gm$ be the primitive element of $\bbF_q$. Then consider the \emph{Vandermonde matrix}\index{Vandermonde matrix}, $V(\gm,\gm^2,\dots, \gm^{q-1})$: $$V=\mat{1&1&\cdots&1\\ \gm & \gm^2 &\cdots & \gm^{q-1}\\ \vdots & \vdots & \ddots & \vdots\\ \gm^{q-2} & \gm^{2 (q-2)} & \cdots &\gm^{(q-1)(q-2)}}$$Then using $\gm^{i\cdot (q-1)}=1$ for all $i\in[q-1]$ we obtain $$M_f\cdot V=\mat{f(\gm) & f(\gm^2) & \cdots & f(\gm^{q-1})\\ \gm^{-1}f(\gm) & \gm^{-2} f(\gm^2) & \cdots & \gm^{-(q-1)}f(\gm^{q-1})\\ \vdots & \vdots & \ddots & \vdots \\ \gm^{-(q-2)}f(\gm) & \gm^{-2(q-2)}f(\gm^2) & \cdots & \gm^{-(q-1)(q-2)}f(\gm^{q-1})}$$Now for any $i\in[q-1]$ we have $f(\gm^i)=0$ if and only if  the $i^{th}$ row becomes zero. Therefore the $\Rank(M_f\cdot V)=q-1-\ov{Z}(f)$. Since $V$ is the Vandermonde matrix $V$ and $M_f\cdot V$ have the same rank. So the theorem follows. 
+  Since $\deg(f)\leq q-2$ we have $\ov{Z}(f)\leq q-2$. $\ov{Z}(f)=q-1$ rises only when $f$ is a zero polynomial i.e. $M_f$ is a zero matrix and in that case $\Rank(M_f)=0$ which satisfies the theorem. Let $\gm$ be the primitive element\index{primitive element!of a finite field} of $\bbF_q$. Then consider the \emph{Vandermonde matrix}\index{Vandermonde matrix}, $V(\gm,\gm^2,\dots, \gm^{q-1})$: $$V=\mat{1&1&\cdots&1\\ \gm & \gm^2 &\cdots & \gm^{q-1}\\ \vdots & \vdots & \ddots & \vdots\\ \gm^{q-2} & \gm^{2 (q-2)} & \cdots &\gm^{(q-1)(q-2)}}$$Then using $\gm^{i\cdot (q-1)}=1$ for all $i\in[q-1]$ we obtain $$M_f\cdot V=\mat{f(\gm) & f(\gm^2) & \cdots & f(\gm^{q-1})\\ \gm^{-1}f(\gm) & \gm^{-2} f(\gm^2) & \cdots & \gm^{-(q-1)}f(\gm^{q-1})\\ \vdots & \vdots & \ddots & \vdots \\ \gm^{-(q-2)}f(\gm) & \gm^{-2(q-2)}f(\gm^2) & \cdots & \gm^{-(q-1)(q-2)}f(\gm^{q-1})}$$Now for any $i\in[q-1]$ we have $f(\gm^i)=0$ if and only if  the $i^{th}$ row becomes zero. Therefore the $\Rank(M_f\cdot V)=q-1-\ov{Z}(f)$. Since $V$ is the Vandermonde matrix $V$ and $M_f\cdot V$ have the same rank. So the theorem follows. 
 \end{proof}
 
 In the next subsections we will give simple upper and lower bounds for solutions multivariate polynomial equations or system of polynomial equations. 
 \subsection{Chevalley--Warning Theorem}
-We begin with two elementary lemmas about power sums that will serve as the key tools.
+\index{Chevalley--Warning theorem}%
+We begin with two elementary lemmas about power sums\index{power sum} that will serve as the key tools.
 \begin{lemma}{}{lem:power-sum}
   Let $k$ be a non-negative integer. Suppose for $k=0$, $0^0=1$. Then $$\sum_{\alpha\in\bbF_q}\alpha^k=\begin{cases}
     0 & \text{if $k=0$ or $q-1\nmid k$}\\ 
@@ -37,10 +38,10 @@ So using this lemma we can prove if we take the sum over all evaluations of a po
 The two lemmas above are the principal tools behind the Chevalley--Warning theorem. It asserts that whenever the total degree of a system is small relative to the number of variables, the number of common zeros is divisible by $p$ --- forcing, in particular, that a system with one solution must have a second.
 
 \begin{Theorem}{Chevalley--Warning Theorem}{thm:chevalley-warning}
-  \index{Chevalley-Warning theorem}%
-  Let $f\in\bbF_q[X_1,\dots,X_n]$ with $\deg(f)<n$. Then the number of solutions of the equation $f(X_1,\dots, X_n)=0$ in $\bbF_q^n$ is divisible by the characteristic $p$ of $\bbF_q$. 
+  \index{Chevalley--Warning theorem}\index{Chevalley, Claude}\index{Warning, Ewald}%
+  Let $f\in\bbF_q[X_1,\dots,X_n]$ with $\deg(f)<n$. Then the number of solutions of the equation $f(X_1,\dots, X_n)=0$ in $\bbF_q^n$ is divisible by the characteristic $p$ of $\bbF_q$.
 
-  Moreover, if $f(0,\dots, 0)=0$ then there exists a nontrivial solution in $\mcV(f)$ i.e. $\ov{\mcV}(f)\neq \emptyset$ or $\ov{Z}(f)\geq 1$. 
+  Moreover, if $f(0,\dots, 0)=0$ then there exists a nontrivial solution in $\mcV(f)$ i.e. $\ov{\mcV}(f)\neq \emptyset$ or $\ov{Z}(f)\geq 1$.
 \end{Theorem}
 \begin{proof}
   We first construct a polynomial and then will use \PolyEvallem. So take the polynomial $F(X_1,\dots, X_n)=1-f^{q-1}(X_1,\dots, X_n)$. By construction $F$ always takes vale $0$ or $1$. Therefore for any $\alpha_1,\dots, \alpha_n\in\bbF_q$ we have $$F(\alpha_1,\dots,\alpha_n)=1\iff f(\alpha_1,\dots, \alpha_n)=0$$So $$\sum_{\alpha_1,\dots,\alpha_n\in\bbF_q}F(\alpha_1,\dots, \alpha_k)=Z(f)\bmod p$$Now by \PolyEvallem we have $$\sum_{\alpha_1,\dots,\alpha_n\in\bbF_q}F(\alpha_1,\dots, \alpha_k)=0$$Therefore $p\mid Z(f)$. So we have the first part. 
@@ -49,7 +50,7 @@ The two lemmas above are the principal tools behind the Chevalley--Warning theor
 \end{proof}
 
 \begin{note}
-The bound $\deg(f)<n$ in \CWthm is the best possible: the norm polynomial $f(X_1,\dots, X_n)=\prod_{j=0}^{n-1}\lt(\sum_{i=1}^n \alpha_i^{q^j}X_i\rt)$, where $\{\alpha_1,\dots, \alpha_n\}$ is a basis of $\bbF_{q^n}$ over $\bbF_q$, has degree $n$ and satisfies $f(\gm_1,\dots,\gm_n)=N_{\bbF_{q^n}/\bbF_q}(\sum_i\alpha_i\gm_i)$, which is zero only when $\gm_j=0$ for all $j$. Thus $Z(f)=1$, so divisibility by $p\geq 2$ fails.
+The bound $\deg(f)<n$ in \CWthm is the best possible: the norm polynomial\index{norm!polynomial} $f(X_1,\dots, X_n)=\prod_{j=0}^{n-1}\lt(\sum_{i=1}^n \alpha_i^{q^j}X_i\rt)$, where $\{\alpha_1,\dots, \alpha_n\}$ is a basis of $\bbF_{q^n}$ over $\bbF_q$, has degree $n$ and satisfies $f(\gm_1,\dots,\gm_n)=N_{\bbF_{q^n}/\bbF_q}(\sum_i\alpha_i\gm_i)$, which is zero only when $\gm_j=0$ for all $j$. Thus $Z(f)=1$, so divisibility by $p\geq 2$ fails.
 \end{note} 
 
 Now we can extend the \CWthm to a system of polynomial equations $f_1=0,\dots,f_k=0$ with $f_1,\dots,f_k\in\bbF_q[X_1,\dots,X_n]$. In this case we are interested in the number of common solutions. 
@@ -64,7 +65,7 @@ Now we can extend the \CWthm to a system of polynomial equations $f_1=0,\dots,f_
 
 \subsection{Lower Bounds on the Number of Solutions}
 
-In the next theorem we will show if we have a system of polynomial equations $f_1=0,\dots,f_k=0$ with $f_1,\dots,f_k\in\bbF_q[X_1,\dots,X_n]$ then for any affine subspace $W$ all its parallel shifts have same number of solutions modulo the characteristic of $\bbF_q$. If $W_1$ and $W_2$ are two affine subspaces of $\bbF_q^n$ of same dimension then we call they are parallel affine subspaces if they are obtained by translation from the same linear subspace. 
+In the next theorem we will show if we have a system of polynomial equations $f_1=0,\dots,f_k=0$ with $f_1,\dots,f_k\in\bbF_q[X_1,\dots,X_n]$ then for any affine subspace\index{affine subspace} $W$ all its parallel shifts have same number of solutions modulo the characteristic of $\bbF_q$. If $W_1$ and $W_2$ are two affine subspaces of $\bbF_q^n$ of same dimension then we call they are parallel affine subspaces if they are obtained by translation from the same linear subspace. 
 \begin{lemma}{Parallel Shift Invariance of Solution Counts}{lem:solutions-affine-subspace-parallel-shift}
   Let $f_1,\dots, f_k\in\bbF_q[X_1,\dots, X_n]$.  If $W_1$ and $W_2$ are two parallel affine subspaces of $\bbF_q^n$ of dimension $d$ where $d=\deg(f_1)+\cdots+\deg(f_k)$ then $$|W_1\cap \mcV(f_1,\dots,f_k)|\equiv |W_2\cap \mcV(f_1,\dots, f_k)|\bmod p$$where $p=\Char(\bbF_q)$. 
 \end{lemma}
@@ -86,6 +87,7 @@ In the next theorem we will show if we have a system of polynomial equations $f_
 
 The \AffSubspaceShiftlem above can be used to obtain a lower bound on $Z(f_1,\dots,f_k)$: the \CWthm guarantees that $p\mid Z(f_1,\dots,f_k)$ whenever $d<n$, but by counting how many parallel affine hyperplanes each must contain a solution we can say much more.
 \begin{Theorem}{Lower Bound via Parallel Shifts}{thm:lower-bound-parallel-shifts}
+  \index{Warning's bound}%
   Let $f_1,\dots, f_k\in\bbF_q[X_1,\dots, X_n]$ with $d=\deg(f_1)+\cdots+\deg(f_k)<n$. If $Z(f_1,\dots, f_k)\geq 1$ then $Z(f_1,\dots, f_k)\geq q^{n-d}$
 \end{Theorem}
 \begin{proof}
@@ -102,7 +104,7 @@ The lower bound on the number of solutions above is best possible even for $k=1$
 
 \subsection{Upper Bounds on the Number of Solutions}
 
-We now give upper bounds on the number of solutions of a polynomial equation. The first is the celebrated Schwartz--Zippel lemma, which bounds the probability of a random point being a root in terms of total degree.
+We now give upper bounds on the number of solutions of a polynomial equation. The first is the celebrated Schwartz--Zippel lemma,\index{Schwartz--Zippel lemma} which bounds the probability of a random point being a root in terms of total degree.
 \begin{lemma}{Schwartz-Zippel Lemma}{lem:schwartz-zippel}
   \index{Schwartz-Zippel lemma}%
   Let $f\in\bbF_q[X_1,\dots, X_n]$ with $\deg(f)=d$ be a non-zero polynomial. If $S\subseteq \bbF_q$ be any subset then $$\Pr[\alpha_1,\dots,\alpha_n\in S] [f(\alpha_1,\dots,\alpha_n)=0]\leq \frac{d}{|S|}$$
@@ -132,7 +134,7 @@ We can give another probabilistic upper bound when we control the degree of $f$ 
   Let $p\coloneqq \underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP} [f_t(\alpha_1,\dots,\alpha_{n-1})=0]$. For the second term after fixing $\alpha_1,\dots,\alpha_{n-1}$ we have $\underset{\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots, \alpha_{n-1},\alpha_n)=0\mid f_t(\alpha_1,\dots,\alpha_{n-1})\neq 0]\leq\frac{d}q$. Now $$\underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP}[f_t(\alpha_1,\dots,\alpha_{n-1})\neq 0]=1-\underset{\alpha_1,\dots,\alpha_{n-1}\in\bbF_q}{\bbP}[f_t(\alpha_1,\dots,\alpha_{n-1})= 0]$$ Therefore together we get $$\underset{\alpha_1,\dots,\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots,\alpha_n)=0]\leq p+(1-p)\frac{d}{q}=\frac{d}{q}+\lt(1-\frac{d}{q}\rt)p$$By induction hypothesis $p\leq 1-\lt(1-\frac{d}q\rt)^{n-1}$. Therefore we have $$\underset{\alpha_1,\dots,\alpha_n\in\bbF_q}{\bbP} [f(\alpha_1,\dots,\alpha_n)=0]\leq \frac{d}{q}+\lt(1-\frac{d}{q}\rt)\lt[1-\lt(1-\frac{d}{q}\rt)^{n-1}\rt]=1-\lt(1-\frac{d}{q}\rt)^{n}$$So we have the lemma. 
 \end{proof}
 
-We can give another upper bound based on individual degrees of each variables. If degree of each variable is at most $d$ then there can be at most $d(q^{n-1}-1)$ many non-trivial solutions. For this we consider $f$ to be \emph{homogeneous}\index{homogeneous polynomial} i.e. total degree of each monomial is same.
+We can give another upper bound based on individual degrees of each variables. If degree of each variable is at most $d$ then there can be at most $d(q^{n-1}-1)$ many non-trivial solutions. For this we consider $f$ to be \emph{homogeneous}\index{homogeneous polynomial}\index{polynomial!homogeneous} i.e. total degree of each monomial is same.
 \begin{Theorem}{Nontrivial Solution Bound for Homogeneous Polynomials}{thm:homogeneous-bound}
   Let $f\in\bbF_q[X_1,\dots, X_n]$ be a homogeneous with $\deg(f)=d\geq 1$. Then the equation $f(X_1,\dots,X_n)=0$ has at most $d(q^{n-1}-1)$ non-trivial solutions. 
 \end{Theorem}

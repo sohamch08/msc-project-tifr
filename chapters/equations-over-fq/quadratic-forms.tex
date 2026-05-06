@@ -25,7 +25,7 @@ Since $\tdX=MX$. So $M$ gives the one-one correspondence between $\mcV(f(X_1,\do
 \end{observation}
 We will use another terminology to make our life easier. If $f\in\bbF_q[X_1,\dots, X_n]$ is a quadratic form then for any $\alpha\in\bbF_q$ we will say $f$ \emph{represents} $\alpha$ if $f(X_1,\dots, X_n)=\alpha$ has a solution.
 
-To calculate and understand the of solutions of quadratic forms we define the integer-valued function $\vth:\bbF_q\to\bbZ$ by $\vth(\alpha)=-1$ for all $\alpha\in\bbF_q^*$ and $\vth(0)=q-1$. Then we have the following properties of $\vth$ function. 
+To calculate and understand the of solutions of quadratic forms we define the integer-valued function $\vth:\bbF_q\to\bbZ$ by $\vth(\alpha)=-1$ for all $\alpha\in\bbF_q^*$ and $\vth(0)=q-1$. Then we have the following properties of $\vth$ function.\index{theta-function@$\theta$-function}
 \begin{lemma}{}{lem:theta-convolution}
   For any finite field $\bbF_q$ we have $$\sum_{\alpha\in\bbF_q}\vth(\alpha)=0,$$and for any $\alpha\in\bbF_q$ and integers $1\leq k\leq m$,
   $$\sum_{\substack{\alpha_1,\dots,\alpha_m\in\bbF_q\\ \alpha_1+\cdots+\alpha_m=\alpha}}\vth(\alpha_1)\cdots \vth(\alpha_k)=\begin{cases}
@@ -52,6 +52,7 @@ To calculate and understand the of solutions of quadratic forms we define the in
   so now we have the second result too. So we have the lemma. 
 \end{proof}
 \subsection{Odd Characteristic Quadratic Forms}
+\index{quadratic form!odd characteristic}%
 We now resume the study of quadratic forms $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd. We will first show that every quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd is equivalent to a \emph{diagonal quadratic form}\index{quadratic form!diagonal} i.e. a quadratic form of type $a_1X_q^2+\cdots+a_nX_n^2$ where $a_i\in\bbF_q$ for all $i\in[n]$. 
 \begin{lemma}{Reduction by Separating a Variable}{lem:qf-reduction-by-rep}
   Let $q$ be odd and $f\in\bbF_q[X_1,\dots,X_n]$ be a quadratic form with $n\geq 2$. If $f$ represents $\alpha\in\bbF_q^*$ then $f$ is equivalent to $\alpha\cdot X_1^2+g(X_2,\dots, X_n)$ where $g$ is a quadratic form in $n-1$ variables.
@@ -104,6 +105,7 @@ The two-variable lemma below is the base case for the induction used in \QFCount
   Now consider the polynomial $g(X)=\alpha X-X^2$. Then by \EtaQuadPolythm using the function $\vth$ we have $\sum_{\gm\in\bbF_q}\eta(g(\gm))=\vth(\alpha)\eta(-1)$. Therefore we have the lemma. 
 \end{proof}
 \begin{Theorem}{Solution Count for Non-degenerate Diagonal Quadratic Forms}{thm:qf-count-even-n-odd-q}
+  \index{quadratic form!solution count}\index{solution count formula}%
   Let $f$ be a non-degenerate quadratic form in $\bbF_q[X_1,\dots,X_n]$ with $n$ even and $q$ odd. Then for any $\alpha\in\bbF_q$,
   \begin{enumerate}[label=(\roman*)]
     \item If $n$ is even $Z\lt(f(X_1,\dots,X_n)=\alpha\rt)=q^{n-1}+\vth(\alpha)\cdot q^{\nicefrac{(n-2)}{2}}\cdot \eta\lt((-1)^{\nicefrac{n}{2}}\cdot \det(f)\rt).$
@@ -136,7 +138,7 @@ The two-variable lemma below is the base case for the induction used in \QFCount
   So we have the results for both cases. 
 \end{proof}
 
-The following alternate proof uses Jacobi sums directly and illustrates how the machinery of the previous chapter applies to count solutions of polynomial equations.
+The following alternate proof uses Jacobi sums\index{Jacobi sum!connection to quadratic forms} directly and illustrates how the machinery of the previous chapter applies to count solutions of polynomial equations.
 
 
 \begin{alternate-proof}
@@ -173,6 +175,7 @@ The following alternate proof uses Jacobi sums directly and illustrates how the 
 \end{note}
 
 \subsection{Even Characteristic Quadratic Forms}
+\index{quadratic form!even characteristic}%
 We will now study quadratic forms and its number of solutions over finite fields $\bbF_q$ with $\Char(\bbF_q)=2$ i.e. $q$ is even. Again like in the case of odd characteristic we will first reduce any general quadratic form to canonical forms and then we will try to find the number of solutions of such canonical forms. 
 
 For even characteristic fields we define \emph{non-degenerate} quadratic forms differently. Let $f\in\bbF_q[X_1,\dots,X_n]$ is a quadratic form in $n$-variables. Then $f$ is called non-degenerate if $f$ is not equivalent to a quadratic form in fewer than $n$ variables.

@@ -1,12 +1,12 @@
 \section{Kloosterman Sums}\label{sec:kloosterman}
-We now turn to a genuinely different family of exponential sums, introduced by Hendrik Kloosterman in 1926 in his refinement of the Hardy--Littlewood circle method for the representation of integers by positive definite quaternary quadratic forms. Instead of twisting two characters of different types, a Kloosterman sum twists a single additive character $\chi$ with the \emph{inversion} map $\gm\mapsto \gm^{-1}$ on $\bbF_q^*$, producing a sum of the form $\sum_{\gm}\chi(a\gm+b\gm^{-1})$.
+We now turn to a genuinely different family of exponential sums, introduced by Hendrik Kloosterman\index{Kloosterman, Hendrik} in 1926 in his refinement of the Hardy--Littlewood circle method\index{circle method} for the representation of integers by positive definite quaternary quadratic forms. Instead of twisting two characters of different types, a Kloosterman sum twists a single additive character $\chi$ with the \emph{inversion} map\index{inversion map} $\gm\mapsto \gm^{-1}$ on $\bbF_q^*$, producing a sum of the form $\sum_{\gm}\chi(a\gm+b\gm^{-1})$.
 
 \begin{Definition}{Kloosterman Sums}{def:kloosterman}
   \index{Kloosterman sum}%
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $a,b\in\bbF_q$. Then the \emph{Kloosterman Sum} associated to $\chi,a,b$ is defined as $$K(\chi;a,b)=\sum_{\gm\in\bbF_q^*}\chi(a\cdot \gm+b\cdot \gm^{-1})$$
 \end{Definition}
 
-When one or both of the parameters $a,b$ vanish, the Kloosterman sum collapses to an additive character sum on $\bbF_q^*$, which we have already computed in \AddCharPropsthm. If both $a=b=0$ then for all $\gm\in\bbF_q^*$, $\chi(a\cdot \gm+b\cdot \gm^{-1})=\chi(0)=1$. Hence $K(\chi;0,0)=q-1$. 
+When one or both of the parameters $a,b$ vanish, the Kloosterman sum collapses to an additive character sum on $\bbF_q^*$, which we have already computed in \AddCharPropsthm.\index{Kloosterman sum!degenerate} If both $a=b=0$ then for all $\gm\in\bbF_q^*$, $\chi(a\cdot \gm+b\cdot \gm^{-1})=\chi(0)=1$. Hence $K(\chi;0,0)=q-1$. 
 
 If exactly one of $a,b$ is zero then we have either $$K(\chi;a,b)=\sum_{\gm\in\bbF_q^*}\chi(a\cdot \gm)=-1\text{ or }K(\chi;a,b)=\sum_{\gm\in\bbF_q^*}\chi(b\cdot \gm^{-1})=-1$$ So in both cases $K(\chi;a,b)=-1$. So we have the following observations:
 \begin{observation}\label{obs:kloosterman-at-zero}
@@ -17,7 +17,7 @@ If exactly one of $a,b$ is zero then we have either $$K(\chi;a,b)=\sum_{\gm\in\b
   \end{enumerate}
 \end{observation}
 
-Now another property to notice is Kloosterman sum is always real since $$\ov{K(\chi;a,b)}=\sum_{\gm\in\bbF_q^*}\ov{\chi}(a\cdot \gm+b\cdot \gm^{-1})= \sum_{\gm\in\bbF_q^*}\chi(-(a\cdot \gm+b\cdot \gm^{-1}))=\sum_{\gm\in\bbF_q^*}\chi(a\cdot (-\gm)+b\cdot (-\gm)^{-1})=K(\chi;a,b)$$
+Now another property to notice is Kloosterman sum is always real\index{Kloosterman sum!real-valued} since $$\ov{K(\chi;a,b)}=\sum_{\gm\in\bbF_q^*}\ov{\chi}(a\cdot \gm+b\cdot \gm^{-1})= \sum_{\gm\in\bbF_q^*}\chi(-(a\cdot \gm+b\cdot \gm^{-1}))=\sum_{\gm\in\bbF_q^*}\chi(a\cdot (-\gm)+b\cdot (-\gm)^{-1})=K(\chi;a,b)$$
 Therefore we have another observation:
 \begin{observation}\label{obs:kloosterman-real}
   For all additive characters $\chi\in\Xq$ and $a,b\in\bbF_p$, the Kloosterman Sum is real i.e. $\ov{K(\chi;a,b)}=K(\ov{\chi};a,b)=K(\chi;-a,-b)=K(\chi;a,b)$. 
@@ -39,6 +39,7 @@ When the ground field has odd characteristic there is a useful alternative expre
 
 The following theorem is the Kloosterman analogue of the \DHthm: the entire sequence of lifted sums $K(\chi^{(s)};a,b)$ is controlled by just two algebraic numbers $w_1,w_2$ --- the reciprocal roots of the associated $L$-function. The proof uses the Dirichlet $L$-function theory from \autoref{sec:l-functions}.
 \begin{Theorem}{Lifting of Kloosterman Sum}{thm:kloosterman-lift}
+  \index{Weil bound!Kloosterman}%
   Let $\chi\in\Xq$ be a non-trivial additive character of $\bbF_q$ and let $a,b\in\bbF_q$ with $ab\neq 0$. Suppose $\chi$ is lifted to character $\chi^{(r)}$ of the finite extension field $E$ of $\bbF_q$ with $[E\colon \bbF_q]=r$. Then there exist complex numbers $w_1,w_2$ (depending only on $\chi,a,b$), which are either complex conjugates of each other or both real, such that for every positive integer $r$
   $$K(\chi^{(r)};a,b)=\sum_{\gm\in\bbF_{q^r}^*}\chi^{(r)}(a\gm+b\gm^{-1})=-w_1^r-w_2^r,$$
 \end{Theorem}

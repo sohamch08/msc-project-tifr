@@ -1,13 +1,14 @@
 \section{Diagonal Equations}\label{sec:diagonal-equations}
 In the previous section we talked about equations involving diagonal quadratic forms. These are a special case of much general family of equations called \emph{diagonal equations}
 \begin{Definition}{Diagonall Equations}{}
-  \index{diagonal equation}%
+  \index{diagonal equation}\index{diagonal equation!at zero}%
   A diagonal equation over $\bbF_q$ is an equation of the type $$a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha$$ for some positive integers $k_1,\dots,k_n\in\bbN$ with coefficients $a_1,\dots,a_n\in\bbF_q^*$ and $\alpha\in\bbF_q$.
 \end{Definition}
 
 
 \subsection{Counting Solutions using Jacobi Sums}
-Now we express the number of solutions $Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha\rt)$ in terms of Jacobi sums. 
+\index{Jacobi sum!application to diagonal equations}%
+Now we express the number of solutions $Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha\rt)$ in terms of Jacobi sums.\index{Jacobi sum} 
 $$Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=\alpha\rt) = \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots +\alpha_n=\alpha}}\prod_{j=1}^n Z\lt( a_jX_j^{k_j}=\alpha_j\rt)=\sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots +\alpha_n=\alpha}}\prod_{j=1}^n Z\lt(X_j^{k_j}=a_j^{-1}\alpha_j\rt)$$ Let $\lm$ is a multiplicative character of $\bbF_q$ with $\ord(\lm)=d=\gcd(k,q-1)$. Then for any $k\in\bbN$ and $\gm\in\bbF_q$ we have $Z(X^k=\gm)=\sum_{j=0}^{d-1}\lm^j$. So here let for $j\in[n]$ let $d_i=\gcd(k_i,q-1)$ and $\lm_i$ is the multiplicative character of $\bbF_q$ of order $d_i$. Then we have 
 \begin{align*}
   Z\lt( a_jX_j^{k_j}=\alpha_j\rt) & = \sum_{\substack{\alpha_1,\dots,\alpha_n\in\bbF_q\\ \alpha_1+\cdots +\alpha_n=\alpha}}\prod_{j=1}^n Z\lt(X_j^{k_j}=a_j^{-1}\alpha_j\rt)\\ 
@@ -24,6 +25,7 @@ If $(t_1,\dots, t_n)=(0,\dots, o)$ then by \JacobiCompletethm[(i)] we have $J_{\
 
 Now we distinguish the cases when $\alpha=0$ and when $\alpha\neq 0$. If $\alpha=0$ then by \JacZeroRellem[(i)] for any $(t_1,\dots, t_n)$ if $\lm_1^{t_1}\cdots \lm_n^{t_n}$ is non-trivial then $J_0\lt(\lm_1^{t_1},\dots ,\lm_n^{t_n}\rt)=0$. So let $T$ denote the set of all tuples $(t_1,\dots, t_n)\in \bigtimes_{i=1}^n [d_i-1]$ such that $\lm_1^{t_1}\cdots \lm_n^{t_n}$ is trivial. Then we have the following result
 \begin{Theorem}{Solution Count for Diagonal Equations at Zero}{thm:diagonal-count-zero}
+  \index{diagonal equation!at zero}\index{solution count!diagonal equations}%
   For any diagonal equation $a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=0$ with $k_1,\dots,k_n\in\bbN$ and $a_1,\dots,a_n\in\bbF_q^*$, the number of solutions is $$Z\lt(a_1X_1^{k_1}+\cdots+a_nX_n^{k_n}=0\rt)=q^{n-1}+\sum_{(t_1,\dots, t_n)\in T}\ov{\lm}_1^{t_1}(a_1)\cdots\ov{\lm}_n^{t_n}(a_n) \cdot J_0\lt(\lm_1^{t_1},\dots, \lm_n^{t_n}\rt),$$where $d_i=\gcd(k_i,q-1)$, $\lm_i$ has order $d_i$, and $T$ is the set of tuples $(t_1,\dots,t_n)$ with each $t_i\geq 1$ such that $\lm_1^{t_1}\cdots\lm_n^{t_n}$ is trivial.
 \end{Theorem}
 Now we can a trivial upper bound on the set $T$. Since $T\subseteq \bigtimes_{i=1}^n [d_i-1]$ we have $|T|\leq \prod_{i=1}^n (d_i-1)$. So we get the following upper bound from the above theorem.
