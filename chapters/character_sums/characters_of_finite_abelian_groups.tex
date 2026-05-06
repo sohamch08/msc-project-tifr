@@ -7,7 +7,7 @@ Let $G$ be a finite abelian group with the identity element $1_G$. Let $S^1$ be 
 
 So if $\chi$ is any character of $G$ then $\chi(1_G)=1$. Since by definition for all $g\in G$, $$\chi(g)^{|G|}=\chi(g^{|G|})=\chi(1_G)=1$$ the values of $\chi$ are $|G|^{th}$ roots of unity. Also we have for any $g\in G$, $$\chi(g)\chi(g^{-1})=\chi(g\cdot g^{-1})=\chi(1_G)=1$$ so $\chi(g^{-1})=\chi(g)^{-1}=\overline{\chi(g)}$.
 
-There are some special characters of $G$ which have specific name. The character $\chi_0$ defined by $\chi_0(g)=1$ for all $g\in G$ is called the \emph{trivial character}\index{character!trivial}. For any character $\chi$ of $G$, the character $\overline{\chi}$ defined by $\overline{\chi}(g)=\overline{\chi(g)}$ for all $g\in G$ is called the \emph{conjugate character}\index{character!conjugate} of $\chi$.
+There are some special characters of $G$ which have specific name. The character $\chi_0$ defined by $\chi_0(g)=1$ for all $g\in G$ is called the \emph{trivial character}\index{character!trivial}. For any character $\chi$ of $G$, the character $\overline{\chi}$ defined by $\overline{\chi}(g)=\overline{\chi(g)}$ for all $g\in G$ is called the \emph{conjugate character}\index{character!conjugate}\index{conjugate character} of $\chi$.
 
 Given any finitely many characters of $G$, $\chi_1,\dots, \chi_n$ we can define the product character $\chi=\chi_1\cdot \chi_2\cdots \chi_n$ such that for all $g\in G$, $$\chi(g)=\chi_1(g)\cdot \chi_2(g)\cdots \chi_n(g)$$
 Hence for all $g\in G$, $$\chi(g)\cdot \overline{\chi}(g)=|\chi(g)|^2=1$$Hence the $\overline{\chi}$ is also the inverse character of $\chi$. Hence the set of all characters of $G$ forms a group, $\Hom(G,S^1)$ under multiplication whose identity element is the trivial character $\chi_0$.
@@ -104,7 +104,7 @@ So now by counting in two ways for the sum $\sum_{\chi\in \hG}\sum_{g\in G}\chi(
   From \obsref[(ii)]{obs:char-sum} we have $$|G|=\sum_{\chi\in \hG}\sum_{g\in G}\chi(g)=\sum_{g\in G}\sum_{\chi\in \hG}\chi(g)=|\hG|$$Hence we have the result.
 \end{proof}
 
-From above theorem and \obsref[(i)]{obs:char-sum} we get the \emph{orthogonality relations for characters}.\index{orthogonality relations!for characters}
+From above theorem and \obsref[(i)]{obs:char-sum} we get the \emph{orthogonality relations for characters}\index{orthogonality relations!for characters}.
 \begin{observation}\label{obs:orthogonal-relation}
   Let $G$ be a finite abelian group.
   \begin{enumerate}[label=(\roman*)]

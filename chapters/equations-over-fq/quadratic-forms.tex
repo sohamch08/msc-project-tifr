@@ -1,15 +1,17 @@
 \section{Quadratic Forms}\label{sec:quadratic-forms}
 In this section we will study about quadratic forms and its equivalent forms which are easier to study than a general quadratic form. We will give bounds on the deviation of number of solutions from average number of solutions. Before all of that let's see what is a quadratic form.
 \begin{Definition}{Quadratic Forms}{}
+  \index{quadratic form}%
   A quadratic form over $\bbF_q$ is a degree-$2$ \emph{homogeneous} polynomial or the zero polynomial.
 \end{Definition}
 If $f\in\bbF_q[X_1,\dots,X_n]$ is a quadratic form. Now if $q$ is odd then for any $i,j\in[n]$ we write $a_{i,j}X_iX_j=\frac12a_{i,j}X_iX_j+\frac12a_{ij}X_jX_i$ which leads to the representation $$f(X_1,\dots, X_n)= \sum_{i,j\in[n]}a_{i,j}X_iX_j\quad\text{for all }a_{i,j}\in\bbF_q\text{ with }a_{i,j}=a_{j,i}.$$
-From this formulation we can represent $f$ by a matrix denoted by $C_f$ where $(i,j)^{th}$ entry of $C_f$ is $a_{i,j}$. This matrix is called the \emph{coefficient matrix}.
+From this formulation we can represent $f$ by a matrix denoted by $C_f$ where $(i,j)^{th}$ entry of $C_f$ is $a_{i,j}$. This matrix is called the \emph{coefficient matrix}\index{coefficient matrix}.
 \begin{observation}\label{obs:coeff-matrix-symmetric}
   Since $a_{i,j}=a_{j,i}$ we have $C_f^\top=C_f$.
 \end{observation}
 So if $X$ denotes the column vector of all variables then $f=X^\top C_fX$. With this representation now we can talk about equivalence of two quadratic forms.
 \begin{Definition}{Equivalent Quadratic Forms}{}
+  \index{quadratic form!equivalent}%
   Let $f,g\in\bbF_q[X_1,\dots, X_n]$ be two quadratic forms over $\bbF_q$. Then $f$ and $g$ are said to be \emph{equivalent} if $f$ can be transformed into $g$ by a non-singular linear transformation of the variables.
 \end{Definition}
 
@@ -50,7 +52,7 @@ To calculate and understand the of solutions of quadratic forms we define the in
   so now we have the second result too. So we have the lemma. 
 \end{proof}
 \subsection{Odd Characteristic Quadratic Forms}
-We now resume the study of quadratic forms $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd. We will first show that every quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd is equivalent to a \emph{diagonal quadratic form} i.e. a quadratic form of type $a_1X_q^2+\cdots+a_nX_n^2$ where $a_i\in\bbF_q$ for all $i\in[n]$. 
+We now resume the study of quadratic forms $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd. We will first show that every quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ where $q$ is odd is equivalent to a \emph{diagonal quadratic form}\index{quadratic form!diagonal} i.e. a quadratic form of type $a_1X_q^2+\cdots+a_nX_n^2$ where $a_i\in\bbF_q$ for all $i\in[n]$. 
 \begin{lemma}{Reduction by Separating a Variable}{lem:qf-reduction-by-rep}
   Let $q$ be odd and $f\in\bbF_q[X_1,\dots,X_n]$ be a quadratic form with $n\geq 2$. If $f$ represents $\alpha\in\bbF_q^*$ then $f$ is equivalent to $\alpha\cdot X_1^2+g(X_2,\dots, X_n)$ where $g$ is a quadratic form in $n-1$ variables.
 \end{lemma}
@@ -82,7 +84,7 @@ So now we can only talk about the solutions of diagonal quadratic forms since al
 \begin{observation}\label{obs:equivalent-det-value}
   Let $f,g\in\bbF_q[X_1,\dots,X_n]$ are two equivalent quadratic forms by the non-singular linear transformation $M\in\bbF_q^{n\times n}$. Since by \QFEquivCoeffObs we have $C_g=M^\top C_f M$ and therefore $\det(g)=\det(f)\cdot \det(M)^2$. 
 \end{observation}
-If the coefficient matrix $C_f$ for any quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ has rank $n$ then we call $f$ to be \emph{non-degenerate}. We also define \emph{determinant of $f$}, $\det(f)$ to be the determinant of the coefficient matrix $C_f$. 
+If the coefficient matrix $C_f$ for any quadratic form $f\in\bbF_q[X_1,\dots,X_n]$ has rank $n$ then we call $f$ to be \emph{non-degenerate}\index{quadratic form!non-degenerate}. We also define \emph{determinant of $f$}\index{quadratic form!determinant}, $\det(f)$ to be the determinant of the coefficient matrix $C_f$. 
 
 The two-variable lemma below is the base case for the induction used in \QFCountOddthm. Once we know $Z(a_1X_1^2+a_2X_2^2=\alpha)$ exactly, the convolution property \QFConvProplem allows us to build up the solution count for $n$ variables.
 
