@@ -1,4 +1,4 @@
-\section{Characters of Finite Fields}
+\section{Characters of Finite Fields}\label{sec:chars-finite-fields}
 In a finite field $\bbF_q$ there are two inherent group structures--namely, the additive group and the multiplicatve group. The nonzero elements of $\bbF_q$ forms a cyclic group of $q-1$ elements under multiplication and the whole $\bbF_q$ forms a group of $q$ elements under addition.
 
 \subsection{Additive Characters of \texorpdfstring{$\bbF_q$}{Fq}}
@@ -6,7 +6,7 @@ We first turn to the additive group of $\bbF_q$. Characters of the additive grou
 
 Suppose $p$ be the characteristic of $\bbF_q$.  Then the prime field contained in $\bbF_q$ is $\bbF_p$. Let $\tr:\bbF_q\to\bbF_p$ be the absolute \emph{trace function}\index{trace function} from $\bbF_q$ to $\bbF_p$. Then define the function $\chi_1$ by $$\chi_1(\alpha)=e^{2\pi i\frac{\tr(\alpha)}{p}}\quad \forall\ \alpha\in \bbF_q$$Then $\chi_1$ is an additive character of $\bbF_q$ since for all $\alpha_1,\alpha_2\in\bbF_q$, $\tr(\alpha_1+\alpha_2)=\tr(\alpha_1)+\tr(\alpha_2)$ and hence $\chi_1(\alpha_1+\alpha_2)=\chi_1(\alpha_1)\cdot \chi_1(\alpha_2)$. This character $\chi_1$ is called the \emph{canonical additive character}\index{character!canonical additive} of $\bbF_q$.
 \begin{Theorem}{Structure of Additive Characters}{thm:add-char-define}
-  For $\beta\in\bbF_q$, define the function $\chi_{\beta}$ with $\chi_{\beta}(\alpha)=\chi_1(\beta\cdot \alpha)$ for all $\alpha\in\bbF_q$. Then $\chi_{\beta}$ is an additive character of $\bbF_q$ and every additive character of $\bbF_q$ is obtained this way i.e. for all $\chi\in\Xq$, there exists $\beta\in\bbF_q$ such that for all $\alpha\in\bbF_q$ we have $\chi(\alpha)=\chi_{\beta}(\alpha)$. 
+  For $\beta\in\bbF_q$, define $\chi_{\beta}$ with $\chi_{\beta}(\alpha)=\chi_1(\beta\cdot \alpha)$ for all $\alpha\in\bbF_q$. Then $\chi_{\beta}$ is an additive character of $\bbF_q$ and every additive character of $\bbF_q$ is obtained this way i.e. $\forall\ \chi\in\Xq$, there exists $\beta\in\bbF_q$ such that $\forall\ \alpha\in\bbF_q$, $\chi(\alpha)=\chi_{\beta}(\alpha)$. 
 \end{Theorem}
 \begin{proof}
   Now for any $\alpha_1,\alpha_2\in\bbF_q$, we have $$\chi_{\beta}(\alpha_1+\alpha_2)=\chi_1(\beta(\alpha_1+\alpha_2))=\chi_1(\beta\cdot \alpha_1)\cdot \chi_1(\beta\cdot \alpha_2)=\chi_{\beta}(\alpha_1)\cdot \chi_{\beta}(\alpha_2)$$ Hence $\chi_{\beta}$ is an additive character of $\bbF_q$.

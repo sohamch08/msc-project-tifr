@@ -69,7 +69,7 @@ For polynomials whose monomials are all \emph{affine $p$-polynomials} i.e. power
 
   Now for all $j\in\{0,\dots, s-1\}$ we have $$\sum_{i=0}^rb^{p^{k-i}}a_i^{p^{k-i}}=0\iff \lt(\sum_{i=0}^rb^{p^{k-i}}a_i^{p^{k-i}}\rt)^{p^{r-k}}=0\iff \sum_{i=0}^rb^{p^{r-i}}a_i^{p^{r-i}}=0$$So we get the Theorem. 
 \end{proof}
-In the above theorem the case when $q$ is even is also studies while in \thmref{thm:weil-quadratic-odd} its not been studied. Now for the above theorem if $f$ is a quadratic polynomial we can extend \thmref{thm:weil-quadratic-odd} for $q$ is even case and we get the following corollary: 
+The above theorem covers both odd and even characteristic, whereas \thmref{thm:weil-quadratic-odd} was restricted to odd $q$. Specializing to the case where $f$ is a quadratic polynomial $f(X)=a_2X^2+a_1X+a_0$ and applying the $p$-polynomial criterion, we can fill this gap and obtain the analogue of \thmref{thm:weil-quadratic-odd} for even characteristic: \newpage
 \begin{corolary}{Weil Sum of Quadratic Polynomial in Even Characteristic}{cor:weil-quadratic-even}
   Let $f(X)=a_2X^2+a_1X+a_0\in\bbF_q[X]$ with $q$ even, and let $\chi_b\in\Xq$, $b\in\bbF_q^*$, be as defined in \thmref{thm:weil-p-polynomial}. Then
   $$\sum_{c\in\bbF_q}\chi_b(f(c))=\begin{cases}
@@ -93,7 +93,7 @@ When the character is the quadratic character $\eta$, the sums $\sum_c\eta(f(c))
 \subsection{Weil Sums of Continued Fractions}
 
 There is a remarkable connection between Weil sums for the quadratic character $\eta$ and the \emph{continued fraction algorithm} for rational functions over $\bbF_q$. We collect the necessary algebraic facts about continued fractions of rational functions in Appendix~\ref{sec:cont-frac-fq}; here we set up the specific expansion needed for the application to character sums and state the main results.
-
+% TODO: Write some intro on continued fraction P,Q
 For $q$ odd, put $G(X)=X^q-X$, let $f\in\bbF_q[X]$ be a polynomial of positive degree with no roots in $\bbF_q$, and set $F(X)=f(X)^{(q-1)/2}$. Consider the continued fraction expansions
 $$\frac{F(X)-1}{G(X)}=[A_0,A_1,\dots,A_s]\qquad\text{and}\qquad\frac{F(X)+1}{G(X)}=[a_0,a_1,\dots,a_t]$$
 with $P_i,Q_i$ and $p_i,q_i$ the corresponding numerator/denominator sequences from Appendix~\ref{sec:cont-frac-fq}. It is clear that $A_0=a_0$. Define $n_f$ to be the largest integer $m$ such that $A_i=a_i$ for $i=0,1,\dots,m$.
