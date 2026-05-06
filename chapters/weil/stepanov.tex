@@ -134,7 +134,7 @@ Combining \StepanovSolCountlem, \StepanovLinIndeplem, and \StepanovQExistslem, w
 
   Now take $g(X)=X-1$. Then $r-=1$. Observe that in this case $T_g$ is the set of all $\alpha\in\bbF_q$ such that either $F(\alpha)=1$ or $f(\alpha)=0$. Then $|T_g|=Z_0+Z_1$ where $Z_0$ and $Z_1$ are defined in \StepanovSolCountlem. Thus, $$|T_g|=Z_0+Z_1\leq \frac{q}{d}+4md^{\nicefrac12}q^{\nicefrac12}$$Therefore, $$Z(Y^d=f(X))=Z_0+Z_1\leq d\cdot |T_g|\leq q+4md^{\nicefrac32}q^{\nicefrac12}\implies Z(Y^d=f(X))-q\leq 4md^{\nicefrac32}q^{\nicefrac12}$$Now we have to show the lower bound. 
 
-  Now select $g(X)=X^{d-1}+\cdots +X+1$. Then $r=d-1$. Notice that in this case $T_{g}=Z_0+Z_2$. Therefore, in this case we have $$|T_g|=Z_0+Z_2\leq \frac{d-1}{d}q+4md^{\nicefrac12}q^{\nicefrac12}\implies Z_1=q-Z_0-Z_2\geq \frac{q}d-4md^{\nicefrac12}q^{\nicefrac12}$$Therefore we have $$Z(Y^d=f(X))=d\cdot Z_1\geq q-4md^{\nicefrac32}q^{\nicefrac12}$$Thus, we have the theorem. 
+  Now select $g(X)=X^{d-1}+\cdots +X+1$. Then $r=d-1$. Notice that in this case $T_{g}=Z_0+Z_2$. Therefore, in this case we have $$|T_g|=Z_0+Z_2\leq \frac{d-1}{d}q+4md^{\nicefrac12}q^{\nicefrac12}\implies Z_1=q-Z_0-Z_2\geq \frac{q}d-4md^{\nicefrac12}q^{\nicefrac12}$$Therefore we have $$Z(Y^d=f(X))\geq d\cdot Z_1\geq q-4md^{\nicefrac32}q^{\nicefrac12}$$Thus, we have the theorem. 
 \end{proof}
 \subsubsection{Removal of the assumption \texorpdfstring{$\gcd(m,d)=1$}{gcd(m, d)=1}}
 In this part we will remove the assumption that $\gcd(m,d)=1$. So now we can not draw conclusion from $\gcd(d,m)=1$ that $Y^d-f(X)$ is absolutely irreducible. We have to prove \StepanovRestrictedthm just using the assumption that $Y^d-f(X)$ is absolutely irreducible. 
@@ -169,13 +169,8 @@ Therefore, there exists $i\in [d]$ such that $\hH\lt(\nicefrac{\zeta_i}{\gm},h_{
 
 So now we have finally proved the \Stepanov.
 
-\subsubsection{Alternate Proof of Stepanov's Theorem}
-
-The proof in this part follows a simpler and more direct approach based on the polynomial method, as presented in \cite{Kumar_2024_PolynomialMethods} and \cite{Kopparty_2013_WeilBound}. Rather than going through the \StepanovLinIndeplem and the auxiliary polynomial $Q$, \StepanovQExistslem the argument finds a nonzero polynomial $R$ that vanishes with high multiplicity on the solution set directly, using a dimension argument to guarantee its existence. The tradeoff is that this approach yields a slightly weaker bound: for the $d=2$ case it gives $|Z(Y^2=f(X))-q|\leq O(m\sqrt{q})$ with an untracked constant, compared to the explicit constant $4d^{\nicefrac32}$ in \Stepanov.
-
-
-
 \subsection{Connection between the Bound and Genus of Curve}
+
 
 \subsection{Bound for Multiplicative Character Sum of \texorpdfstring{$f(X)$}{f(X)}}
 
