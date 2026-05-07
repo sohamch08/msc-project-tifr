@@ -8,7 +8,7 @@
 \input{theorem-macros}
 \input{bibmacros}
 \usepackage{gitinfo}
-\newcommand{\gitinfonotecolour}{Gray}
+\newcommand{\gitinfonotecolour}{gray}
 \newcommand{\gitinfonote}{git info:~\gitAbbrevHash\;,\;(\gitAuthorIsoDate)\; \;\gitVtag}
 \linespread{1.2}
 \definecolor{mycolor1}{HTML}{1becff}
@@ -80,6 +80,12 @@
 
 \pagestyle{plain}
 
+\IfFileExists{gitHeadInfo.gin}{
+	{\let\thefootnote\relax
+			\footnotetext{\textcolor{\gitinfonotecolour}{\gitinfonote}}
+	}
+}{}
+
 \begin{abstract}
 	f
 \end{abstract}
@@ -101,11 +107,6 @@
 \clearpage
 \pagestyle{fancy}
 
-\IfFileExists{gitHeadInfo.gin}{
-    {\let\thefootnote\relax
-    \footnotetext{\textcolor{\gitinfonotecolour}{\gitinfonote}
-    }}
-}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Body
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
