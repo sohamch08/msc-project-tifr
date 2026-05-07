@@ -78,11 +78,6 @@
 
 \pagestyle{plain}
 
-\IfFileExists{gitHeadInfo.gin}{
-	{\let\thefootnote\relax
-			\footnotetext{\noindent\textcolor{\gitinfonotecolour}{\gitinfonote}}
-		}
-}{}
 
 \begin{abstract}
 	f
@@ -122,9 +117,9 @@
 \bibliographystyle{prahladhurl}
 \bibliography{refs}
 
-\appendix
-\include{chapters/appendix/appendix1}
-\include{chapters/appendix/appendix2}
+% \appendix
+% \include{chapters/appendix/appendix1}
+% \include{chapters/appendix/appendix2}
 
 \printindex
 
