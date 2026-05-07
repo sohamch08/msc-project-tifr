@@ -2,12 +2,13 @@
 % PACKAGE IMPORTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \usepackage[tmargin=2cm,rmargin=1in,lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
 \usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
 \usepackage{bookmark}
 \usepackage[inline]{enumitem}
 \usepackage{cancel}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
 \usepackage{hyperref,theoremref}
 \usepackage{imakeidx}
 \makeindex[columns=2, title=Index, intoc]
@@ -17,7 +18,6 @@
 	bookmarksopen=true
 }
 \usepackage[most,many,breakable]{tcolorbox}
-\usepackage{xcolor}
 \usepackage{graphicx}
 \usepackage{changepage}
 %\graphicspath{ {./images/} } %give your suitable image path
@@ -47,9 +47,37 @@
 \usepackage{faktor}
 \usepackage{etoolbox}
 \usepackage{todonotes}
-\usepackage{gitinfo}
-\newcommand{\gitinfonotecolour}{gray}
-\newcommand{\gitinfonote}{git info:~\gitAbbrevHash\;,\;(\gitAuthorIsoDate)\; \;\gitVtag}
+\usepackage{tikz}
+\usepackage[missing=Untracked]{gitinfo2}
+
+\definecolor{gitaccent}{RGB}{100,180,255}   % cyan-blue accent
+\definecolor{gitdim}{RGB}{130,130,145}      % muted text
+\definecolor{gitmid}{RGB}{170,170,190}      % medium text
+\definecolor{gitbright}{RGB}{220,220,255}   % bright white-blue
+
+\newcommand{\gitinfonotecolour}{gitdim}
+
+\newcommand{\gitsep}{%
+  \textcolor{gitaccent}{\,\raisebox{0.2ex}{\rule{0.4pt}{1.2ex}}\,}%
+}
+
+\newcommand{\gitinfonote}{%
+  \texttt{\footnotesize%
+    \textcolor{gitaccent}{%
+      \normalfont%
+    }\,%
+    \href{https://github.com/sohamch08/msc-project-tifr}{%
+      \textcolor{gitaccent}{\faGithub\texttt{\textup{sohamch08/msc-project-tifr}}}%
+    }%
+    \;\gitsep\;%
+    \textcolor{gitaccent}{\normalfont\faGit*}\,%
+    \textcolor{gitmid}{\texttt{\textsc{\gitAbbrevHash}}}%
+    \;\gitsep\;%
+    \textcolor{gitaccent}{\normalfont\faCalendar*[regular]}\,%
+    \textcolor{gitdim}{\texttt{\gitAuthorIsoDate}}%
+  }%
+}
+
 %\pagestyle{fancy}
 \fancypagestyle{plain}{%
 	\renewcommand{\headrulewidth}{0pt}%
@@ -184,7 +212,6 @@
 }
 {th}
 
-
 \tcbuselibrary{theorems,skins,hooks}
 \newtcolorbox{Theoremcon}
 {%
@@ -199,7 +226,6 @@
 	,separator sign none
 	,fontupper = \itshape
 }
-
 
 %================================
 % Corollery
@@ -267,7 +293,6 @@
 }
 {th}
 
-
 \newtcbtheorem[use counter from=theorem, number within=chapter]{Lemma}{Lemma}
 {%
 	enhanced
@@ -310,7 +335,6 @@
 	,segmentation style={solid, mytheoremfr}
 }
 {th}
-
 
 \newtcbtheorem[number within=chapter]{Claim}{Claim}
 {%
@@ -418,7 +442,6 @@
 	fontupper=\itshape,
 	title={#2},#1}{def}
 
-
 %================================
 % OPEN QUESTION BOX
 %================================
@@ -468,8 +491,6 @@
 	fontupper=\itshape,
 	title={#2},#1}{def}
 
-
-
 %================================
 % EXERCISE BOX
 %================================
@@ -500,11 +521,9 @@
 }{def}
 \makeatother
 
-
 %================================
 % Question BOX
 %================================
-
 
 \makeatletter
 \newtcbtheorem[number within=chapter]{question}{Question}{enhanced,
@@ -551,8 +570,6 @@
 		},
 	#1
 }{def}
-
-
 
 %================================
 % NOTE BOX
@@ -617,7 +634,6 @@
 }
 \makeatother
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % SELF MADE COMMANDS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -653,8 +669,6 @@
 \@onlypreamble\RedeclareMathOperator
 \makeatother
 
-
-
 \newcommand{\thm}[3][]{\begin{Theorem}{#2}{#1}#3\end{Theorem}}
 \newcommand{\thmc}[3][]{\begin{theorem}{#2}{#1}#3\end{theorem}}
 \newcommand{\cor}[3][]{\begin{corolary}{#2}{#1}#3\end{corolary}}
@@ -671,10 +685,6 @@
 \newcommand{\opnc}[3][]{\begin{Open}{#2}{#1}#3\end{Open}}
 \newcommand{\pr}[3][]{\begin{problem}{#2}{#1}#3\end{problem}}
 
-
-
-
-
 \newtheorem*{observation*}{Observation}
 \newtheorem*{goal*}{Goal}
 \newtheorem*{idea*}{Idea}
@@ -682,7 +692,6 @@
 \newtheorem{observation}{Observation}[chapter]
 \newtheorem{fact}[observation]{Fact}
 \newtheorem{assumption}{Assumption}[chapter]
-
 
 \renewenvironment{proof}{\noindent{\textit{\textbf{Proof:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
 \newenvironment{proofmany}[1]{\noindent{\textbf{\textit{Proof #1:}}}\hspace*{1em}}{\hfill\qed\bigskip\\}
@@ -703,13 +712,10 @@
 \newenvironment{want}{\noindent\textbf{Want: }}{\bigskip\\}
 \newenvironment{enough}{\noindent\textbf{Enough to Show: }}{\bigskip\\}
 
-
-
 %% The proof environment actually multipurpose. For a proof many things actually play. Proof idea. Proof overview. Main pproof. Proof prerequisites etc. Thats why the first option uses the actual name of what exactly we are writing for the proof. It will go like this
 %% Proof idea: \pf{Proof Idea}{content..}
 %% Proof Overview: \pf{Proof Overview}{content..}
 %% Proof : \pf{Proof}{content..}
-
 
 \newcommand{\nt}[1]{\begin{note}#1\end{note}}
 
@@ -723,15 +729,12 @@
 
 \newcounter{mylabelcounter}
 
-
-
 \makeatletter
 \newcommand{\setword}[2]{%
 	\phantomsection
 	#1\def\@currentlabel{\unexpanded{#1}}\label{#2}%
 }
 \makeatother
-
 
 \tikzset{
 	symbol/.style={
@@ -740,7 +743,6 @@
 					edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
 		}
 }
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TABLE OF CONTENTS 1
@@ -775,14 +777,10 @@
 %{\sffamily\contentslabel{3em}}{}{}  
 %{\hspace{0.5em}\nobreak\itshape\color{myred}\contentspage}
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % TABLE OF CONTENTS 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-\usepackage{tikz}
 \usetikzlibrary{shapes, positioning}
 \usepackage{titletoc,titlesec}
 \contentsmargin{0cm}
@@ -826,8 +824,6 @@
 %{\hfill\small \thecontentspage}
 %[]
 
-
-
 \makeatletter
 \renewcommand{\tableofcontents}{%
 	\chapter*{%
@@ -843,7 +839,6 @@
 %\titleformat{\chapter}[display]
 %{\normalfont\Huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
 
-
 \newcommand\colorlink[3]{\href{#2}{\color{#1}#3}}
 \newcommand\colorurl[2]{{\color{#1}\url{#2}}}
 
@@ -855,9 +850,6 @@
 	\begin{tikzpicture}[remember picture,overlay]
 		%%%%%%%%%%%%%%%%%%%% Background %%%%%%%%%%%%%%%%%%%%%%%%
 		\fill[orange] (current page.south west) rectangle (current page.north east);
-
-
-
 
 		%%%%%%%%%%%%%%%%%%%% Background Polygon %%%%%%%%%%%%%%%%%%%%
 
@@ -876,12 +868,10 @@
 				\node[rounded corners,orange!90,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.north east)+(0,-9.5)$) {} ;
 			}
 
-
 		\foreach \i in {21,...,6}
 			{
 				\node[orange!85,rounded corners,draw,regular polygon,regular polygon sides=6, minimum size=\i cm,ultra thick] at ($(current page.south east)+(-0.2,-0.45)$) {} ;
 			}
-
 
 		%%%%%%%%%%%%%%%%%%%% Title of the Report %%%%%%%%%%%%%%%%%%%% 
 		\node[left,black,minimum width=0.625*\paperwidth,minimum height=3cm, rounded corners] at ($(current page.north east)+(0,-9.5)$)
