@@ -1,23 +1,154 @@
 \section{Bombieri Method: \texorpdfstring{$Y^q-Y-f(X)$}{ Yq - Y - f(X)}}\label{sec:bombieri}
-A curve of the form $Y^q-Y=f(X)$ over $\bbF_q$, where $f\in\bbF_q[X]$, is called an \emph{Artin--Schreier curve}\index{Artin-Schreier curve}. Its defining equation is the Artin--Schreier equation, and the map $\wp\colon Y\mapsto Y^q-Y$ (the \emph{Artin--Schreier map}) plays the role that the $d$-th power map plays for superelliptic curves. Let $E$ be the finite extension of $\bbF_q$ such that $[E\colon \bbF_q]=k$ and $K$.
+A curve of the form $Y^q-Y=f(X)$ over $\bbF_q$, where $f\in\bbF_q[X]$, is called an \emph{Artin--Schreier curve}\index{Artin-Schreier curve}. Let $E$ be the finite extension of $\bbF_q$ with $[E\colon \bbF_q]=k$. The main result of this section is:
 \begin{Theorem}{Bombieri's Theorem}{thm:bombieri}
   \index{Bombieri method}%
   Let $f\in\bbF_q[X]$ with $(q,\deg f)=1$ and $\deg f<q$. Then $$\lt|Z_E(Y^q-Y=f(X))-q^k\rt|<q^{\lt[\nicefrac{k}2\rt]+4}$$
 \end{Theorem}
 
+\nt{The bound is meaningful when $k$ is large. For small $k$ like $k=2$ it gives $\lt|Z_E(Y^q-Y=f(X))-q^k\rt|< q^{5}$, whereas the solution space $E^2=\bbF_{q^2}^2$ has size only $q^4$.}
+
+\subsection{Proof of Bombieri's Theorem via the Polynomial Method}
+
+The proof mirrors the Stepanov method: reduce the solution count to a count by trace value, then construct an auxiliary univariate polynomial $Q$ that vanishes with high multiplicity at each point with a given trace value, and bound its degree.
+
+% TODO: Connect with trace: Later refer to trace function properties from trace and field
 \begin{lemma}{Trace Decomposition of Solutions}{lem:bombieri-trace-count}
   \index{trace decomposition}%
   Let for any $\alpha\in\bbF_q$, $Z_{\alpha}$ denote the number of $\gm\in E$ such that $\tr_{E/\bbF_q}(\gm)=\alpha$.
   $$\sum_{\alpha\in\bbF_q}Z_{\alpha}=q^k\quad\text{and}\quad Z_E(Y^q-Y=f(X))=q\cdot Z_0.$$
 \end{lemma}
+\begin{proof}
+  The first statement is obvious and the later follows from trace properties.
+\end{proof}
 
-Now let $r=\lt[\nicefrac{k}{2}\rt]$. We can assume $k\geq 3$ and hence $r\geq 1$. Let 
-
+Set $r=\lt[\nicefrac{k}{2}\rt]$; we may assume $k\geq 3$ so $r\geq 1$. Split $\tr_{E/\bbF_q}(f(X))=g_0(X)+g_r(X)$ by defining
 \begin{align*}
-  g(X) & = f(X)^{q^r}+f(X)^{q^{r+1}}+\cdots +f(X)^{q^{k-1}}\\ 
-  h(X) & = f(X)+f(X)^q+\cdots + f(X)^{q^{r-1}}
+  g_r(X) & = f(X)^{q^r}+f(X)^{q^{r+1}}+\cdots +f(X)^{q^{k-1}},\\
+  g_0(X) & = f(X)+f(X)^q+\cdots + f(X)^{q^{r-1}}.
 \end{align*}
-Then we have the following lemma. 
+The key lemma constructs a polynomial $Q$ that vanishes with high multiplicity on every $\gm\in E$ such that $\tr_{E/\bbF_q}(f(\gm))=\alpha$.
 \begin{lemma}{Existence of Auxiliary Polynomial $Q$}{lem:bombieri-Q-exists}
-  Let $\alpha\in\bbF_q$ and let $M\in\bbN$ satisfy $q\mid M$ and $0<M\leq q^{k-r-1}$. Then there exists a non-zero polynomial $Q\in\bbF_q[X]$ with $\deg(Q)\leq M\cdot q^{k-1}+q^{k+1}$ such that every $\gm\in E$ with $\tr_{E/\bbF_q}(\gm)=\alpha$ is a zero of $Q$ with multiplicity at least $M$.
+  Let $\alpha\in\bbF_q$ and let $M\in\bbN$ satisfy $q\mid M$ and $0<M\leq q^{k-r-1}$ where $r=\lt[\nicefrac{k}{2}\rt]$. Then there exists a non-zero polynomial $Q\in\bbF_q[X]$ with $\deg(Q)\leq M\cdot q^{k-1}+q^{k+1}$ such that every $\gm\in E$ with $\tr_{E/\bbF_q}(f(\gm))=\alpha$ is a zero of $Q$ with multiplicity at least $M$.
 \end{lemma}
+\begin{proof}
+  We follow the same approach as \Stepanov. Construct polynomials $h_0,\dots, h_{q-1}$ where $h_i(X)=\sum_{j=0}^t h_{ij}(X)\cdot X^{q^k\cdot j}$ with $\deg(h_{ij})<q^{k-1}$, and set $$Q(X)=\sum_{i=0}^{q-1}h_i(X)\cdot g_r(X)^i.$$ The goal is to choose the $h_{ij}$ so that $Q$ vanishes at every $\gm\in E$ with $\tr_{E/\bbF_q}(f(\gm))=\alpha$ with multiplicity at least $M$. Take $t=\lt\lfloor\nicefrac{M}q\rt\rfloor$. Since $k\leq 2r+1$ we have $M\leq q^r$.
+
+  \paragraph*{Computing the Hasse Derivatives.} Since $g_r(X)=\sum_{i=r}^{k-1}f^{q^i}(X)=\sum_{i=0}^{k-r-1}f\lt(X^{q^r}\rt)^{q^i}$, define $\tdg_r\in\bbF_q[Y]$ by $\tdg_r(Y)=\sum_{i=0}^{k-r-1}f(Y)^{q^i}$, so $\tdg_r\lt(X^{q^r}\rt)=g_r(X)$. Then $Q(X)=\tdQ\lt(X,X^{q^r}\rt)$ where $$\tdQ(X,Y)=\sum_{i=0}^{q-1}\sum_{j=0}^th_{ij}(X)\cdot \tdg_r(Y)^i\cdot Y^{q^{k-r}}.$$ Since $M\leq q^r$, for any $n<M$ the Hasse derivative satisfies $$H^{(n)}Q(X)=\sum_{i=0}^{q-1}\sum_{j=0}^t h_{ij}^{(n)}(X)\cdot g_r(X)^i\cdot X^{q^r\cdot j}$$ where $h_{ij}^{(n)}(X)=H^{(n)}h_{ij}(X)$.
+
+  \paragraph*{Imposing the Multiplicity Condition.} Since $\tr_{E/\bbF_q}(f(X))=g_0(X)+g_r(X)$, for any $\gm\in E$ with $\tr_{E/\bbF_q}(f(\gm))=\alpha$ we have $g_r(\gm)=\alpha-g_0(\gm)$ and $\gm^{q^k}=\gm$. Substituting, the condition $H^{(n)}(Q)(\gm)=0$ for all such $\gm$ and all $0\leq n<M$ reduces to requiring that the polynomials $$Q_n(X)=\sum_{i=0}^{q-1}\sum_{j=0}^t h_{ij}^{(n)}(X)\cdot (\alpha-g_0(X))^i\cdot X^{j}$$ be identically zero for all $0\leq n<M$.
+
+  \paragraph*{Counting Equations.} From the degree bound of $h_{ij}$ we have $\deg(Q_n)\leq q^{k-1}+(q-1)^2q^{r-1}+t\leq q^{k-1}+q^{r+1}-2$ for all $0\leq n<M$. Hence the total number of linear equations $s$ on the coefficients of $h_{ij}$ satisfies \begin{equation}\label{eq:bombieri-num-equations}
+    s\leq \sum_{n=0}^{M-1}\deg(Q_n)+1<M(q^{k-1}+q^{r+1})\leq M\cdot q^{k-1}+q^k.
+  \end{equation}
+
+  \paragraph*{Counting Variables.} The unknowns are the coefficients of $h_{ij}$ for all $0\leq i\leq q-1$ and $0\leq j\leq t$. Their total count is \begin{equation}\label{eq:bombieri-num-vars}
+    v=\sum_{i=0}^{q-1}\sum_{j=0}^t (\deg(h_{ij})+1)=q(t+1)q^{k-1}=M\cdot q^{k-1}+q^k.
+  \end{equation}
+
+  \paragraph*{Existence of a Non-Zero Solution.} Comparing \eqref{eq:bombieri-num-equations} and \eqref{eq:bombieri-num-vars} gives $v>s$, so there exists a non-zero solution for the $h_{ij}$, and hence a non-zero $Q$ vanishing with multiplicity at least $M$ at every $\gm\in E$ with $\tr_{E/\bbF_q}(f(\gm))=\alpha$. Now $$\deg(Q)\leq q^{k-1}\cdot t+(q-1)^2q^{k-1}+q^{k-1}\leq M\cdot q^{k-1}+q^{k+1}$$
+
+  \paragraph*{Non-Vanishing of $Q$.} Each summand of $Q$ has the form $h_{ij}(X)\cdot g_r(X)^i\cdot X^{q^k\cdot j}$, of degree $q^{k-1}(qj+i\cdot\deg f)+\deg(h_{ij})$. By the same degree-separation argument as in \StepanovLinIndeplem, distinct pairs $(i,j)$ give summands of distinct degree. Hence, $Q\not\equiv 0$, so we have the lemma.
+\end{proof}
+
+We now deduce \Bombieri from \BombieriQExistslem and \BombieriTraceCountlem. Fix $\alpha\in\bbF_q$. Applying \BombieriQExistslem with parameter $M$ gives a polynomial $Q$ of degree at most $M\cdot q^{k-1}+q^{k+1}$ that vanishes with multiplicity $\geq M$ at every $\gm\in E$ with $\tr_{E/\bbF_q}(f(\gm))=\alpha$. Counting zeros gives
+$$Z_{\alpha}\cdot M\leq\deg Q\leq M\cdot q^{k-1}+q^{k+1}\implies Z_{\alpha}\leq q^{k-1}+\frac{q^{k+1}}{M}.$$
+Choose $M=q^{k-r-1}$; then $q\mid M$ for $k\geq 3$, and the hypothesis $M\leq q^{k-r-1}$ is satisfied, giving $Z_{\alpha}\leq q^{k-1}+q^{r+2}$. Since $\sum_{\alpha\in\bbF_q}Z_{\alpha}=q^k$ by \BombieriTraceCountlem, we also obtain a lower bound:
+$$Z_{\alpha}=q^k-\sum_{\beta\neq\alpha}Z_{\beta}\geq q^k-(q-1)(q^{k-1}+q^{r+2})>q^{k-1}-q^{k+3}.$$
+Hence $|Z_{\alpha}-q^{k-1}|<q^{r+3}$ for every $\alpha\in\bbF_q$, and in particular $|Z_0-q^{k-1}|<q^{r+3}$. Since $Z_E(Y^q-Y=f(X))=q\cdot Z_0$ by \BombieriTraceCountlem,
+$$\lt|Z_E(Y^q-Y=f(X))-q^k\rt|=q\cdot|Z_0-q^{k-1}|<q^{r+4}=q^{\lt[\nicefrac{k}2\rt]+4},$$
+which is \Bombieri.
+
+\subsection{Alternate Proof via B\'{e}zout's Theorem}
+
+We now give an alternate approach, following \cite{Kopparty_2013_WeilBound} and \cite{Kumar_2024_PolynomialMethods}. The argument is more direct but yields a weaker bound. Let $E$ be the finite extension field of $\bbF_q$ with $[E\colon\bbF_q]=k$.
+\begin{Theorem}{Bombieri's Bound via B\'{e}zout}{thm:bombieri-bezout-ext}
+  Let $[E\colon\bbF_q]=k$ so $|E|=q^k$. Let $f\in \bbF_q[X]$ be a polynomial of degree $d$ such that $d<q$. Then $$Z_E(Y^q-Y=f(X))\leq q^k+O(q\cdot d\cdot q^{\nicefrac{k}2}).$$
+\end{Theorem}
+
+The final bound on $Z_E(Y^q-Y=f(X))$ comes from bounding the number of common zeros of $P$ and the auxiliary polynomial $Q$ we will construct. The standard B\'{e}zout theorem counts common zeros by the product of degrees, but $P = Y^q - Y - f(X)$ has a very unbalanced structure (high $Y$-degree, low $X$-degree). The following weighted version exploits this imbalance by assigning different weights to the two variables, producing a bound of the form $D + qd$ rather than $Dq$.
+\begin{lemma}{Weighted B\'{e}zout's Theorem}{lem:weighted-bezout}
+  For integers $a,b>0$, the \emph{$(a,b)$-degree} of a monomial $X^iY^j$ is $ai+bj$ and of a polynomial is the maximum over its monomials. Let $P(X,Y)=u(Y)-f(X)\in E[X,Y]$ with $\deg_X P=d_X$ and $\deg_Y P=d_Y$. If $Q(X,Y)$ is relatively prime to $P$ and has $(d_Y,d_X)$-degree at most $D$, then $$Z(P,Q)\leq D+d_X\cdot d_Y.$$
+\end{lemma}
+\begin{proof}
+  Since $P$ is monic in $Y$, reduce $Q$ modulo $P$ to get $Q_0$ with $\deg_Y Q_0\leq d_Y-1$, without increasing the $(d_Y,d_X)$-degree. Then $Q_0$ has $X$-degree $\leq D/d_Y$ and $Y$-degree $\leq d_Y-1$. By the resultant bound, $Z(P,Q)=Z(P,Q_0)\leq d_X(d_Y-1)+d_Y\cdot\nicefrac{D}{d_Y}=D+d_Xd_Y-d_X\leq D+d_Xd_Y$.
+\end{proof}
+
+The dimension argument that produces the auxiliary polynomial $\tdQ$ rests on comparing the number of free coefficient variables against the number of linear constraints forced by the vanishing condition. Both counts are expressed in terms of $|S_N|$, the number of monomials $M_{i,j}=X^iY^j$ whose $(q,d)$-degree does not exceed a threshold $N$. The following lemma gives the precise asymptotic.
+\begin{lemma}{Size of $S_N$ for $(q,d)$-Degrees}{lem:sn-size-qd}
+  Let $S_N=\{(i,j): i\geq 0,\ j\in\{0,\dots,q-1\},\ qi+dj\leq N\}$. For $N\geq(q-1)d$ we have $|S_N|=N-\nicefrac{(q-1)d}{2}+O(q)$.
+\end{lemma}
+\begin{proof}
+  We count $|S_N|$ by summing over the $q$ possible values of $j$. Fix $j\in\{0,\dots,q-1\}$. The condition $qi+dj\leq N$ with $i\geq 0$ is equivalent to $0\leq i\leq\nicefrac{(N-dj)}{q}$. Since $N\geq (q-1)d\geq dj$, this range is non-empty for every $j$, and the number of valid non-negative integers $i$ is
+  $$\lfloor(N-dj)/q\rfloor+1 = \frac{N-dj}{q}+O(1),$$
+  where the $O(1)$ accounts for the fractional part discarded by the floor. Summing over all $j\in\{0,\dots,q-1\}$:
+  \begin{align*}
+    |S_N| &= \sum_{j=0}^{q-1}\lt(\lfloor(N-dj)/q\rfloor+1\rt)
+    = \sum_{j=0}^{q-1}\frac{N-dj}{q}+O(q)\\
+    &= \frac{1}{q}\lt(qN - d\sum_{j=0}^{q-1}j\rt)+O(q)
+    = \frac{1}{q}\lt(qN-d\cdot\frac{q(q-1)}{2}\rt)+O(q)
+    = N-\frac{(q-1)d}{2}+O(q).\qedhere
+  \end{align*}
+\end{proof}
+
+Once $Q$ is constructed, we must show it is not a multiple of $P$ --- otherwise the B\'{e}zout bound is vacuous. The argument reduces to showing that the reduced monomials appearing in $Q$ all have distinct $(q,d)$-degrees, so no cancellation can occur. This distinctness follows from the injectivity of the map $(i,j)\mapsto qi+dj$, which in turn relies on $q\nmid d$, a consequence of $f$ being $q$-free.
+\begin{lemma}{Injectivity of $(q,d)$-Degrees}{lem:qd-injectivity}
+  Since $f$ is $q$-free, $q\nmid d$, and the map $(i,j)\mapsto qi+dj$ is injective on $\{(i,j): i\geq 0,\ j\in\{0,\dots,q-1\}\}$.
+\end{lemma}
+\begin{proof}
+  If $qi+dj=qi'+dj'$ set $e=\gcd(q,d)$; then $(q/e)(i-i')=(d/e)(j'-j)$ and $\gcd(q/e,d/e)=1$ force $q/e\mid(j'-j)$. Since $q\nmid d$ we have $q/e\geq 2$, so $|j'-j|<q/e$ forces $j=j'$ and then $i=i'$.
+\end{proof}
+
+Let $M_{i,j}(X,Y)=X^iY^j$ for $i\geq 0$ and $j\in\{0,\dots,q-1\}$. Set $d_Y=q$ and $d_X=d$.
+
+\paragraph*{Reduction Modulo $P$ and Degree Preservation.}
+Since $P$ is monic of degree $q$ in $Y$, every $R(X,Y)$ reduces mod $P$ to $\bar{R}$ of $Y$-degree $\leq q-1$ by replacing $Y^q\mapsto Y+f(X)$. A single step on $X^aY^b$ ($b\geq q$) gives
+$$X^aY^b\longmapsto X^aY^{b-q+1}+f(X)\cdot X^aY^{b-q}.$$
+The first term has $(q,d)$-degree $qa+db-d(q-1)<qa+db$, and each monomial $X^{a+\ell}Y^{b-q}$ ($0\leq \ell\leq d$) in the second has degree $q(a+\ell)+d(b-q)\leq qa+db$. By induction, reduction preserves $(q,d)$-degree, and if $R$ has degree $\leq N$ then $\bar{R}\in E\text{-span}\{M_{i,j}: (i,j)\in S_N\}$. By \QDInjectivitylem the monomials in $S_N$ have distinct $(q,d)$-degrees.
+
+\paragraph*{Irreducibility of $P$.}
+Since $f$ is $q$-free, $f\notin\wp(E(X))$ where $\wp(h)=h^q-h$, so $P$ is irreducible over $E[X]$ by Artin--Schreier theory.
+
+\paragraph*{Constructing $\tdQ$: Dimension Argument.}
+Set $r=\lt[\nicefrac{k}{2}\rt]$. Let $A,B>0$ with $B<q^{k-r}$. Define
+$$\tdQ(X,Y)\coloneqq\sum_{\substack{(i,j)\in S_A\\(s,t)\in S_B}}a_{(i,j),(s,t)}\cdot M_{i,j}(X,Y)\cdot\overline{M_{s,t}(X,Y)^{q^r}}$$
+with formal variables $a_{(i,j),(s,t)}$. Its $(q,d)$-degree is at most $A+q^rB$, so $\tdQ\in E\text{-span}\{M_{u,v}: (u,v)\in S_{A+q^rB}\}$. By \SNSizeQDlem the condition
+\begin{equation}\label{eq:bezout-dim-cond-ext}
+  \lt(A-\tfrac{(q-1)d}{2}\rt)\lt(B-\tfrac{(q-1)d}{2}\rt)>A+q^rB-\tfrac{(q-1)d}{2}
+\end{equation}
+ensures $|S_A|\cdot|S_B|>|S_{A+q^rB}|$, giving a nonzero tuple with $P\mid\tdQ$. Fix such a $\tdQ$.
+
+\paragraph*{Constructing $Q$ and the Frobenius Identity.}
+Define
+$$Q(X,Y)\coloneqq\sum_{\substack{(i,j)\in S_A\\(s,t)\in S_B}}a_{(i,j),(s,t)}^{q^{k-r}}\cdot M_{i,j}(X,Y)^{q^{k-r}}\cdot M_{s,t}(X,Y).$$
+\begin{lemma}{}{lem:frobenius-identity-ext}
+$\ Q(X,Y)\equiv\tdQ(X,Y)^{q^{k-r}}\bmod{\langle X^{q^k}-X,\ Y^{q^k}-Y\rangle}$
+\end{lemma}
+\begin{proof}
+  Taking the $q^{k-r}$ power distributes over the sums: $$\tdQ^{q^{k-r}}=\sum_{\substack{(i,j)\in S_A\\(s,t)\in S_B}} a_{(i,j),(s,t)}^{q^{k-r}}\cdot M_{i,j}^{q^{k-r}}\cdot M_{s,t}^{q^r\cdot q^{k-r}}=\sum_{\substack{(i,j)\in S_A\\(s,t)\in S_B}} a_{(i,j),(s,t)}^{q^{k-r}}\cdot M_{i,j}^{q^{k-r}}\cdot M_{s,t}^{q^k}.$$ For $\alpha,\beta\in E$ we have $\alpha^{q^k}=\alpha$ and $\beta^{q^k}=\beta$, so $M_{s,t}(\alpha,\beta)^{q^k}=\alpha^{q^k s}\beta^{q^k t}=\alpha^s\beta^t=M_{s,t}(\alpha,\beta)$, giving the identity.
+\end{proof}
+
+\paragraph*{Verifying the Three Properties.}
+
+\begin{enumerate}[label=(\roman*)]
+  \item Vanishing on $Z_E(Y^q-Y=f(X))$: For $(\alpha,\beta)\in V\subseteq E^2$: $P\mid\tdQ$ gives $\tdQ(\alpha,\beta)=0$, hence $Q(\alpha,\beta)=\tdQ(\alpha,\beta)^{q^{k-r}}=0$ by \FrobeniusIdentityExtlem.
+  \item Relative primality to $P$.
+\end{enumerate}
+
+\begin{lemma}{Distinct $(q,d)$-Degrees}{lem:distinct-qd-ext}
+  All monomials of $Q$ have distinct $(q,d)$-degrees; hence $\bar{Q}\neq 0$ and $\gcd(P,Q)=1$.
+\end{lemma}
+\begin{proof}
+  The degree of $M_{i,j}^{q^{k-r}}\cdot M_{s,t}$ is $q^{k-r}(qi+dj)+(qs+dt)$. If two pairs give the same value then $q^{k-r}\bigl[(qi+dj)-(qi'+dj')\bigr]=(qs'+dt')-(qs+dt)$. Since $|(qs+dt)-(qs'+dt')|\leq qB+d(q-1)<q\cdot q^{k-r}$ (using $B<q^{k-r}$ and $d<q^{k-r}$), the left side (a multiple of $q^{k-r}$) must equal zero. By \QDInjectivitylem applied twice, both pairs are equal. Hence, degrees are distinct, $\bar{Q}\neq 0$, and since $P$ is irreducible, $\gcd(P,Q)=1$.
+\end{proof}
+
+\begin{enumerate}[label=(\roman*),resume]
+  \item Applying \WeightedBezoutlem with $D=q^{k-r}A+B$:
+$$Z_E(Y^q-Y=f(X))\leq D+d_X\cdot d_Y=q^{k-r}A+B+qd.$$
+\end{enumerate}
+
+\paragraph*{Choosing Parameters and the Final Bound.}
+Set $B=q^{k-r}-1$ and $A=q^r+\nicefrac{(q-1)d+2}{2}$. One verifies \eqref{eq:bezout-dim-cond-ext} holds. Substituting:
+$$Z_E(Y^q-Y=f(X))\leq q^{k-r}\!\lt(q^r+\tfrac{(q-1)d+2}{2}\rt)+(q^{k-r}-1)+qd=q^k+\tfrac{(q-1)d+2}{2}\cdot q^{k-r}+q^{k-r}-1+qd.$$
+Since $r=\lt[\nicefrac{k}{2}\rt]$, $q^{k-r}\leq q\sqrt{q^k}$, so all error terms are $O(qd\sqrt{q^k})$:
+$$Z_E(Y^q-Y=f(X))\leq q^k+O\!\lt(q\cdot d\cdot\sqrt{q^k}\rt),$$
+which is the required bound. So we have \BombieriBezoutExtthm.
