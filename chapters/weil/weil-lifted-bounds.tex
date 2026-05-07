@@ -41,11 +41,23 @@ Now by \lemref{lem:weil-roots-modulus-psi}, $|w_{\psi,j}|\leq q^{\nicefrac12}$ f
 \end{Theorem}
 
 We can give the same bound for the case where $f$ is not a $d^{th}$ power instead of the absolute irreducibility of $Y^d-f(X)$. 
-% TODO: Proof following dth power for stepanov
+
 \begin{Theorem}{Weil Bound for $\Wpsil{k}{f}$: Non-$d$-th-Power Case}{thm:weil-bound-psi-nondth}
   Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots and $f(X)$ is not a $d$-th power in $\bbF_q[X]$. Then
   $$\lt|\Wpsi{f}\rt|\leq (m-1)q^{\nicefrac12}\quad\text{and}\quad \lt|\Wpsil{k}{f}\rt|\leq (m-1)q^{\nicefrac{k}2}.$$
 \end{Theorem}
+\begin{proof}
+  Let $f(X)=a(X-\alpha_1)^{k_1}\cdots(X-\alpha_m)^{k_m}$ where $\alpha_1,\dots,\alpha_m\in\ov{\bbF_q}$ are the $m$ distinct roots of $f$. Let $e=\gcd(d,k_1,\dots,k_m)$. Since $f$ is not a $d$-th power in $\bbF_q[X]$, by \DthPowerCharlem we have $e<d$, i.e., $e$ is a proper divisor of $d$.
+
+  Define the polynomial $k(X)=\prod_{i=1}^m(X-\alpha_i)^{\nicefrac{k_i}{e}}$, so that $f(X)=a\cdot k(X)^e$. In $k(X)$ we have $\gcd\lt(\nicefrac{d}{e},\nicefrac{k_1}{e},\dots,\nicefrac{k_m}{e}\rt)=1$, so by \YdFxIrrthm the polynomial $Y^{\nicefrac{d}{e}}-k(X)$ is absolutely irreducible. The polynomial $k(X)$ has precisely the same $m$ distinct roots $\alpha_1,\dots,\alpha_m$ as $f$.
+
+  Since $f(\alpha)=a\cdot k(\alpha)^e$ for every $\alpha\in\bbF_q$, the character $\psi$ satisfies
+  $$\psi(f(\alpha))=\psi(a)\cdot\psi^e(k(\alpha)).$$
+  The character $\psi^e$ has exponent $\nicefrac{d}{e}$, and $|\psi(a)|=1$. Applying \WeilBoundPsiIrrthm to $\psi^e$ and $k(X)$ (which has $m$ distinct roots and $Y^{\nicefrac{d}{e}}-k(X)$ is absolutely irreducible) gives
+  $$\lt|\Wpsi{f}\rt|=\lt|\sum_{\alpha\in\bbF_q}\psi(a)\cdot\psi^e(k(\alpha))\rt|=\lt|W(\psi^e;k)\rt|\leq (m-1)q^{\nicefrac12}.$$
+  The same argument applied to the lifted characters $\psi^{(k)}$ and $(\psi^e)^{(k)}=(\psi^{(k)})^e$ over $E=\bbF_{q^k}$ gives $\lt|\Wpsil{k}{f}\rt|\leq(m-1)q^{\nicefrac{k}{2}}$.
+\end{proof}
+
 \begin{corolary}{Bound on the Number of Solutions of $Y^d=f(X)$ over $ E$}{cor:zk-yd-fx-bound}
   Let $\psi\in\Mq$ be a non-trivial multiplicative character of exponent $d$. Suppose $f(X)\in\bbF_q[X]$ has precisely $m$ distinct roots and either $Y^d-f(X)$ is absolutely irreducible, or $f(X)$ is not a $d$-th power. Then 
   $$\lt|Z_E\lt(Y^d=f(X)\rt)-q^k\rt|\leq (d-1)(m-1)q^{\nicefrac{k}2}, \qquad \lt|Z\lt(Y^d=f(X)\rt)-q\rt|\leq (d-1)(m-1)q^{\nicefrac{1}2}.$$
