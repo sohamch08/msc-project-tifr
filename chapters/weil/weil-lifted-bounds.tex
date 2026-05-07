@@ -49,13 +49,11 @@ We can give the same bound for the case where $f$ is not a $d^{th}$ power instea
 \begin{proof}
   Let $f(X)=a(X-\alpha_1)^{k_1}\cdots(X-\alpha_m)^{k_m}$ where $\alpha_1,\dots,\alpha_m\in\ov{\bbF_q}$ are the $m$ distinct roots of $f$. Let $e=\gcd(d,k_1,\dots,k_m)$. Since $f$ is not a $d$-th power in $\bbF_q[X]$, by \DthPowerCharlem we have $e<d$, i.e., $e$ is a proper divisor of $d$.
 
-  Define the polynomial $k(X)=\prod_{i=1}^m(X-\alpha_i)^{\nicefrac{k_i}{e}}$, so that $f(X)=a\cdot k(X)^e$. In $k(X)$ we have $\gcd\lt(\nicefrac{d}{e},\nicefrac{k_1}{e},\dots,\nicefrac{k_m}{e}\rt)=1$, so by \YdFxIrrthm the polynomial $Y^{\nicefrac{d}{e}}-k(X)$ is absolutely irreducible. The polynomial $k(X)$ has precisely the same $m$ distinct roots $\alpha_1,\dots,\alpha_m$ as $f$.
+  Define the polynomial $h(X)=\prod_{i=1}^m(X-\alpha_i)^{\nicefrac{k_i}{e}}$, so that $f(X)=a\cdot h(X)^e$. In $h(X)$ we have $\gcd\lt(\nicefrac{d}{e},\nicefrac{k_1}{e},\dots,\nicefrac{k_m}{e}\rt)=1$, so by \YdFxIrrthm the polynomial $Y^{\nicefrac{d}{e}}-h(X)$ is absolutely irreducible. The polynomial $h(X)$ has precisely the same $m$ distinct roots $\alpha_1,\dots,\alpha_m$ as $f$.
 
-  Since $f(\alpha)=a\cdot k(\alpha)^e$ for every $\alpha\in\bbF_q$, the character $\psi$ satisfies
-  $$\psi(f(\alpha))=\psi(a)\cdot\psi^e(k(\alpha)).$$
-  The character $\psi^e$ has exponent $\nicefrac{d}{e}$, and $|\psi(a)|=1$. Applying \WeilBoundPsiIrrthm to $\psi^e$ and $k(X)$ (which has $m$ distinct roots and $Y^{\nicefrac{d}{e}}-k(X)$ is absolutely irreducible) gives
-  $$\lt|\Wpsi{f}\rt|=\lt|\sum_{\alpha\in\bbF_q}\psi(a)\cdot\psi^e(k(\alpha))\rt|=\lt|W(\psi^e;k)\rt|\leq (m-1)q^{\nicefrac12}.$$
-  The same argument applied to the lifted characters $\psi^{(k)}$ and $(\psi^e)^{(k)}=(\psi^{(k)})^e$ over $E=\bbF_{q^k}$ gives $\lt|\Wpsil{k}{f}\rt|\leq(m-1)q^{\nicefrac{k}{2}}$.
+  Since $f(\alpha)=a\cdot h(\alpha)^e$ for every $\alpha\in\bbF_q$, the character $\psi$ satisfies $\psi^{(k)}(f(\alpha))=\psi^{(k)}(a)\cdot\lt(\psi^{(k)}\rt)^e(h(\alpha)).$
+  The character $\lt(\psi^{(k)}\rt)^e$ has exponent $\nicefrac{d}{e}$, and $|\psi(a)|=1$. Applying \WeilBoundPsiIrrthm to $\lt(\psi^{(k)}\rt)^e$ and $h(X)$ (which has $m$ distinct roots and $Y^{\nicefrac{d}{e}}-h(X)$ is absolutely irreducible) gives
+  $$\lt|\Wpsil{k}{f}\rt|=\lt|\sum_{\alpha\in\bbF_q}\psi^{(k)}(a)\cdot\lt(\psi^{(k)}\rt)^e(h(\alpha))\rt|=\lt|W^{(k)}\lt(\lt(\psi^{(k)}\rt)^e;h\rt)\rt|\leq (m-1)q^{\nicefrac12}.$$
 \end{proof}
 
 \begin{corolary}{Bound on the Number of Solutions of $Y^d=f(X)$ over $ E$}{cor:zk-yd-fx-bound}
