@@ -1,0 +1,28 @@
+name: Release PDF
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v4
+        with:
+          root_file: main.tex
+          compiler: latexmk
+          args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode -quiet
+
+      - name: Create release and upload PDF
+        uses: softprops/action-gh-release@v2
+        with:
+          files: main.pdf
