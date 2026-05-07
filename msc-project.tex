@@ -101,6 +101,11 @@
 \clearpage
 \pagestyle{fancy}
 
+\IfFileExists{gitHeadInfo.gin}{
+    {\let\thefootnote\relax
+    \footnotetext{\textcolor{\gitinfonotecolour}{\gitinfonote}
+    }}
+}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%% Body
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
