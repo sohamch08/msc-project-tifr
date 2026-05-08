@@ -64,24 +64,21 @@ This introduces us to look at roots and field automorphisms in a new way. Let $F
 Then there is an induced homomorphism $\vph:F[X]\to F'[X]$ given by $$\vph\lt(\sum_{i=0}^na_i\cdot X^i\rt)=\sum_{i=0}^n \vph(a_i)\cdot X^i$$
 So if $f=\sum_{i=0}^na_iX^i$ factors into $a(X-\alpha_1)\cdots (X-\alpha_n)$ then $\vph(f)=\vph(a)(X-\vph(\\alpha_1))\cdots (X-\vph(\alpha_n))$. The \emph{Frobenius map},  $\sg:\alpha\mapsto \alpha^q$ for any element of the extended field $\bbF_{q^d}$ over $\bbF_q$ is an $\bbF_q$-automorphism meaning that automorphism fixes the elements of $\bbF_q$. The above theorem tells us if $\alpha$ is a root of $f$ which is an irreducible polynomial over $\bbF_q$ then $\sg(\alpha)$ is also a root.
 
-\begin{corolary}{}{}
-  Let $f$ is an irreducible polynomial of $\bbF_q[X]$ of degree $d$. Then the splitting field of $f$ over $\bbF_q$ is given by $\bbF_{q^d}$.
-\end{corolary}
+Now by the above theorem if $f$ is irreducible over $\bbF_q$ of degree $d$ then $\bbF_{q^d}$ contains a root $\alpha$ of $f$. Then $\alpha,\alpha^q,\dots, \alpha^{q^{d-1}}$ all are in $\bbF_{q^d}$. Therefore, $f$ splits in $\bbF_{q^d}$. Since $f$ is the minimal polynomial of $\alpha$, $\bbF_{q^d}=\quotient{\bbF_q[X]}{\la f\ra}$. So $\bbF_{q^d}$ is the splitting field of $f$. Since all finite fields of size $q^d$ are isomorphic for any other degree $d$ irreducible polynomial $g\in\bbF_q[X]$, if $\beta$ is a root of $g$ then $$\bbF_q(\alpha)\cong \quotient{\bbF_q[X]}{\la f\ra}\cong\bbF_{q^d}\cong \quotient{\bbF_q[X]}{\la g\ra}\cong\bbF_q(\beta)$$So the splitting fields of $f$ and $g$ are isomorphic. So we have the following corollary.
 
 \begin{corolary}{}{}
-  Any two irreducible polynomials $f,g\in\bbF_q[X]$ of same degree has isomorphic splitting fields.
+  Let $f$ is an irreducible polynomial of $\bbF_q[X]$ of degree $d$. Then the splitting field of $f$ over $\bbF_q$ is given by $\bbF_{q^d}$. Moreover, any two irreducible polynomials $f,g\in\bbF_q[X]$ of same degree has isomorphic splitting fields.
 \end{corolary}
 
+Now we have heard the term conjugate of an element in complex numbers. The notion of conjugates is more general than just in complex numbers. 
 \begin{Definition}{}{}
-  Let $\bbF_{q^d}$ be an extension of $\bbF_q$ and $\alpha\in\bbF_{q^d}$. Then the elements $\alpha,\alpha^q,\dots, \alpha^{q^{d-1}}$ are called the conjugates of $\alpha$. 
+  Let $\bbF_{q^d}$ be an extension of $\bbF_q$ and $\alpha\in\bbF_{q^d}$. Then the elements $\alpha,\alpha^q,\dots, \alpha^{q^{d-1}}$ are called the \emph{conjugates} of $\alpha$. 
 \end{Definition}
 
+The conjugates of $\alpha\in\bbF_{q^m}$ with respect to $\bbF_q$ are distinct if and only if the minimal polynomial of $\alpha$ over $\bbF_q$ has degree $m$. Otherwise, the degree $d$ of this minimal polynomial is a proper divisor of $m$, and then the conjugates of $\alpha$ with respect to $\bbF_q$ are the distinct elements $\alpha,\alpha^q ,\dots,\alpha^{q^{d-1}}$, each repeated $\nicefrac{m}d$ times.
 \begin{lemma}{}{}
   For any $\alpha\in\bbF_{q}^*$ the conjugates with respect to any subfield of $\bbF_q$ have the same order in the group $\bbF_q^*$.
 \end{lemma}
-
-There is an intimate relationship between conjugate elements and certain automorphisms of a finite field. Let $\bbF_{q^m}$ be an extension of $\bbF_q$. By an \emph{automorphism $\sigma$ of $\bbF_{q^m}$ over $\bbF_q$} we mean an automorphism of $\bbF_{q^m}$ that fixes the elements of $\bbF_q$. Thus, in detail, we require that $\sigma$ be a one-to-one mapping from $\bbF_{q^m}$ onto itself with $\sigma(\alpha+\beta)=\sigma(\alpha)+\sigma(\beta)$ and $\sigma(\alpha\beta)=\sigma(\alpha)\sigma(\beta)$ for all $\alpha,\beta\in\bbF_{q^m}$ and $\sigma(a)=a$ for all $a\in\bbF_q$.
-
-\begin{Theorem}{}{thm:frobenius-autos}
-  The distinct automorphisms of $\bbF_{q^m}$ over $\bbF_q$ are exactly the mappings $\sigma_0,\sigma_1,\ldots,\sigma_{m-1}$, defined by $\sigma_j(\alpha)=\alpha^{q^j}$ for $\alpha\in\bbF_{q^m}$ and $0\leq j\leq m-1$.
-\end{Theorem}
+\begin{proof}
+  Let $\bbF_{q'}$ be a subfield of $\bbF_q$ where $q'^r=q$. Since $\bbF_q^*$ is a cyclic group of order $q-1$ and $\gcd(q'^i,q-1) =1$ for all $0\leq i\leq r-1$. Therefore, the order of the conjugates of $\alpha$ has the same order as $\alpha$ in the group $\bbF_q^*$.  
+\end{proof}
