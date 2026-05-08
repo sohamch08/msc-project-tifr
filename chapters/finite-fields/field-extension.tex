@@ -5,7 +5,7 @@ We build up the theory of field extensions following Morandi~\cite{Morandi1996}.
 The study of field theory is primarily the study of field extensions. The classical problems of ruler-and-compass constructions and the solvability of polynomial equations by radicals were settled by analyzing appropriate field extensions. The central idea is to associate a group---the \emph{Galois group}---to a field extension, converting field-theoretic questions into group-theoretic ones. Since the Galois group of a finite extension is finite, the rich structure theory of finite groups becomes available. In this section we build the foundational vocabulary: degrees, algebraic elements, minimal polynomials, and the key structural results about simple and algebraic extensions.
 
 %------------------------------------------------------------------
-\subsection*{Degrees and Generated Subfields}
+\subsection{Degrees and Generated Subfields}
 %------------------------------------------------------------------
 Let $F\subseteq K$ are fields. 
 Then $K$ is called a \emph{field extension} of $F$. 
@@ -103,7 +103,7 @@ In this case we can give the description of the new field in terms of all finite
 \end{proof}
 
 %------------------------------------------------------------------
-\subsection*{Algebraic Elements and Minimal Polynomials}
+\subsection{Algebraic Elements and Minimal Polynomials}
 %------------------------------------------------------------------
 
 \begin{Definition}{Algebraic and Transcendental Elements}{algebraic-elem}
@@ -169,57 +169,123 @@ Therefore we have the observation:
   If $K/F$ is a field extension and $\alpha,\beta\in K$ are both algebraic over $F$, and they have the same minimal polynomials then $F(\alpha)\cong F(\beta)$ with the isomorphism $\varphi:\alpha\mapsto \beta$. 
 \end{observation}
 %------------------------------------------------------------------
-\subsection*{Finite and Algebraic Extensions}
+\subsection{Finite and Algebraic Extensions}
 %------------------------------------------------------------------
-
-\begin{lemma}{}{thm:rat-func-deg}
-  Let $K=F(X)$ be the field of rational functions in $X$ over $F$. If $u\in K$ with $u\notin F$ let $u=\nicefrac{f}{g}$ where $f,g\in F[X]$ and $\gcd(f,g)=1$. Let $L=F(u)$. Then $$[K\colon L]=\max\{\deg(f),\deg(g)\}$$
-\end{lemma}
 
 \begin{lemma}{}{thm:finite-alg}
   If $[K:F]<\infty$, then $K$ is algebraic and finitely generated over $F$.
 \end{lemma}
 
 \begin{proof}
-  Let $\{\alpha_1,\ldots,\alpha_n\}$ be an $F$-basis of $K$; then $K=F(\alpha_1,\ldots,\alpha_n)$, so $K$ is finitely generated. For any $\alpha\in K$, the $n+1$ elements $1,\alpha,\ldots,\alpha^n$ span only an $n$-dimensional space, so they are $F$-linearly dependent. A nontrivial relation gives a nonzero polynomial of degree $\leq n$ in $F[x]$ vanishing at $\alpha$, so $\alpha$ is algebraic over $F$.
+  Let $\{\alpha_1,\ldots,\alpha_n\}$ be an $F$-basis of $K$. 
+  Then for any element $\alpha\in K$, there exists $a_1,\dots, a_n$ such that $\alpha=a_1\cdot \alpha_1+\cdots +a_n\cdot \alpha_n$. 
+  So certainly we have $K=F(\alpha_1,\dots, \alpha_n)$ and hence $K$ is finitely generated over $F$. 
+  Since $[K\colon F]=n$, for any $\alpha\in K$, the $n+1$ elements $1,\alpha,\ldots,\alpha^n$ span only an $n$-dimensional space. 
+  So they are $F$-linearly dependent. 
+  Thus, there exists $\beta_0,\dots, \beta_n\in F$ such that $\sum_{i=0}^n\beta_i\cdot \alpha^i=0$. So we get a polynomial $f(X)=\sum_{i=0}^n \beta_i\cdot X^i$ and $f(\alpha)=0$. 
+  Therefore, $\alpha$ is algebraic over $F$. 
 \end{proof}
 
-\begin{Theorem}{Tower Law}{thm:tower-law}
+Let $K/F$ is a finite extension and $K=F(\alpha_1,\dots, \alpha_n)$.  
+Then we can break up the extension $K/F$ into collection of subextensions. 
+Let $L_i=F(\alpha_1,\dots,\alpha_i)$. 
+Set $L_0=F$. 
+Then basically $L_{i+1}=L_i(\alpha_{i+1})$. 
+And we have $$F=L_0\subseteq L_1\subseteq \cdots \subseteq L_{n-1}\subseteq L_n=K$$
+We will show a theorem which relates the degree of the extension $K/F$ and each subextensions. 
+
+\begin{Theorem}{}{thm:tower-law}
   Let $F\subseteq L\subseteq K$ be fields. Then $[K:F]=[K:L]\cdot[L:F]$.
 \end{Theorem}
 
 \begin{proof}
-  Let $\{a_i\}_{i\in I}$ be an $F$-basis of $L$ and $\{b_j\}_{j\in J}$ an $L$-basis of $K$. We show $\{a_ib_j\}_{I\times J}$ is an $F$-basis of $K$.
-
-  \textit{Spanning.} For $x\in K$, write $x=\sum_j\alpha_jb_j$ with $\alpha_j\in L$, and $\alpha_j=\sum_i\beta_{ij}a_i$ with $\beta_{ij}\in F$; then $x=\sum_{i,j}\beta_{ij}a_ib_j$.
-
-  \textit{Independence.} If $\sum_{i,j}\beta_{ij}a_ib_j=0$, regroup to get $\sum_j\bigl(\sum_i\beta_{ij}a_i\bigr)b_j=0$. By $L$-independence of $\{b_j\}$, each $\sum_i\beta_{ij}a_i=0$, and by $F$-independence of $\{a_i\}$, each $\beta_{ij}=0$.
+  Let $\{a_i\}_{i\in I}$ be an $F$-basis of $L$ and $\{b_j\}_{j\in J}$ an $L$-basis of $K$. 
+  We show $\{a_i\cdot b_j\}_{I\times J}$ is an $F$-basis of $K$. 
+  For any $\gm\in K$, write $\gm=\sum_j\alpha_jb_j$ with $\alpha_j\in L$. 
+  Now each $\alpha_j=\sum_i\beta_{ij}a_i$ with $\beta_{ij}\in F$; then $\gm=\sum_{i,j}\beta_{ij}a_ib_j$. 
+  Therefore, the set $\{a_i\cdot b_j\}_{I\times J}$ spans $K$ over $F$. 
+  
+  If $\sum_{i,j}\beta_{ij}a_ib_j=0$ for some non-trivial linear combinations where $\beta_{i,j}\in F$ for all $i\in I$, $j\in J$. 
+  Now $$\sum_{i,j}\beta_{ij}a_ib_j=\sum_j\bigl(\sum_i\beta_{ij}a_i\bigr)b_j=0.$$ 
+  Since $\{b_j\}_{j\in J}$ is a basis of $K$ over $L$, each $\sum_i\beta_{ij}a_i=0$. 
+  And by $F$-independence of $\{a_i\}$, each $\beta_{ij}=0$. 
+  So $\{a_i\cdot b_j\}_{I\times J}$ form a $F$-basis of $K$. 
+  Therefore, $$[K:F]=|\{a_i\cdot b_j\}_{I\times J}|=|\{a_i\colon i\in I\}|\cdot |\{b_j\colon j\in J\}|=[K\colon L]\cdot [L\colon F]$$ 
+  So we have the theorem. 
 \end{proof}
 
+\begin{lemma}{}{thm:rat-func-deg}
+  Let $K=F(X)$ be the field of rational functions in $X$ over $F$. 
+  If $u\in K$ with $u\notin F$ let $u=\nicefrac{f}{g}$ where $f,g\in F[X]$ and $\gcd(f,g)=1$. 
+  Let $L=F(u)$. 
+  Then $$[K\colon L]=\max\{\deg(f),\deg(g)\}$$
+\end{lemma}
+\begin{proof}
+  By \SimpleExtthm we need to find the minimal polynomial of $X$ over $L$ to determine $[K\colon L]$. 
+  Consider the polynomial $p(Y)=u\cdot g(Y)-f(Y)\in L[Y]$. 
+  Then $X$ is a root of $p$. 
+  Therefore, $X$ is algebraic over $L$ and so $[K\colon L]<\infty$ and $K=L(X)$. 
+
+  Notice that $\deg(p)=\max\{\deg(f),\deg(g)\}$. 
+  Let $f=\sum_{i=0}^n a_iX^i$ and $g=\sum_{j=0}^m b_i\cdot X^i$. 
+  We will show that $p$ is irreducible over $L$. 
+  Now the element $u$ cannot be algebraic over $k$ otherwise by \TowerLawthm we have $[K\colon F]=[K\colon L]\cdot [L\colon F]<\infty$, and we know $F(X)$ is an infinite extension of $F$. 
+  So $u$ is transcendental over $F$ and hence $F[u]\cong F[X]$. 
+  Now observe that the polynomial $p\in F[Y][u]\subseteq F(Y)[u]$ which is of degree $1$. 
+  Hence, $p$ is irreducible over $k(Y)$. 
+  Now $p\in k[Y][u]=k[u][Y]$ and therefore $p$ is irreducible over $k(u)$. 
+  Hence, $p$ is the minimal polynomial of $X$ over $F$. 
+  So we have the lemma.
+\end{proof}
+
+\begin{note}
+In the proof of \TowerLawthm the proof do not assume that the field extensions needs to be finite. 
+\end{note}
+
+We will now prove a converse theorem of \FiniteAlglem. 
+
 \begin{Theorem}{}{thm:fin-gen-alg}
-  Let $K/F$ be a field extension. If $\alpha_1,\ldots,\alpha_n\in K$ are algebraic over $F$, then
+  Let $K/F$ be a field extension. 
+  If $\alpha_1,\ldots,\alpha_n\in K$ are algebraic over $F$, then
   \[
-    [F(\alpha_1,\ldots,\alpha_n):F] \;\leq\; \prod_{i=1}^{n}[F(\alpha_i):F].
+    [F(\alpha_1,\ldots,\alpha_n)\colon F] \;\leq\; \prod_{i=1}^{n}[F(\alpha_i)\colon F].
   \]
 \end{Theorem}
 
 \begin{proof}
-  By induction on $n$; the case $n=1$ is trivial. Set $L=F(\alpha_1,\ldots,\alpha_{n-1})$; by induction $[L:F]\leq\prod_{i=1}^{n-1}[F(\alpha_i):F]<\infty$. Since $\alpha_n$ is algebraic over $F$ and hence over $L$, with $\min(L,\alpha_n)\mid\min(F,\alpha_n)$ in $L[x]$, we have $[L(\alpha_n):L]\leq[F(\alpha_n):F]$. The tower law gives
+  We will prove this by induction on $n$. 
+  The base case, $n=1$ follows from the \TowerLawthm. 
+  So suppose this is true for $n-1$. 
+  Take $L=F(\alpha_1,\ldots,\alpha_{n-1})$. 
+  Then by induction hypothesis $[L:F]\leq\prod_{i=1}^{n-1}[F(\alpha_i):F]$. 
+  Since $\alpha_n$ is algebraic over $F$ and hence over $L$, with $\min(L,\alpha_n)\mid\min(F,\alpha_n)$ in $L[X]$, we have $[L(\alpha_n):L]\leq[F(\alpha_n):F]$. 
+  Therefore, $[F(\alpha_1,\dots, \alpha_n)\colon L]\leq [F(\alpha_n)\colon F]$. 
+  So by \TowerLawthm we have 
   \[
     [F(\alpha_1,\ldots,\alpha_n):F] = [L(\alpha_n):L]\cdot[L:F] \leq [F(\alpha_n):F]\cdot\prod_{i=1}^{n-1}[F(\alpha_i):F].
   \]
+  So we have the theorem. 
 \end{proof}
+
+The inequality above can be strict in some cases. 
+For example let $a=\sqrt[4]{2}$ and $b=\sqrt[4]{18}$. 
+Then both $[\bbQ(a)\colon \bbQ]=[\bbQ(b)\colon \bbQ]=4$ as $X^4-2$ and $X^4-18$ are both irreducible polynomials over $\bbQ$. 
+But $[\bbQ(\sqrt[4]{2},\sqrt3)\colon \bbQ]=8$ and $\sqrt[4]{18}\in  \bbQ(\sqrt[4]{2},\sqrt3)$. 
+Hence, in this the inequality doesn't follow. 
+
+So from \SimpleExtthm and \FinGenAlgthm we have the following criterion for an element being algebraic over a field. 
 
 \begin{corolary}{}{cor:alg-degree}
-  Let $K/F$ be a field extension and $\alpha\in K$. Then $\alpha$ is algebraic over $F$ if and only if $[F(\alpha):F]<\infty$. Moreover, $K$ is algebraic over $F$ if $[K:F]<\infty$.
+  Let $K/F$ be a field extension and $\alpha\in K$. 
+  Then $\alpha$ is algebraic over $F$ if and only if $[F(\alpha):F]<\infty$. 
+  Moreover, $K$ is algebraic over $F$ if $[K:F]<\infty$.
 \end{corolary}
 
-\begin{proof}
-  If $\alpha$ is algebraic, then $[F(\alpha):F]=\deg\min(F,\alpha)<\infty$ by \thmref[(iii)]{thm:simple-ext}. Conversely, if $[F(\alpha):F]<\infty$, then $\alpha$ is algebraic by \thmref{thm:finite-alg}. The final statement is \thmref{thm:finite-alg}.
-\end{proof}
-
+Now we can extend \FinGenAlgthm to the case of fields generated by arbitrary number of elements or extending field.
 \begin{Theorem}{}{thm:alg-gen}
-  Let $K$ be a field extension of $F$ and $X\subseteq K$ such that each element of $X$ is algebraic over $F$. Then $F(X)/F$ is algebraic. If $|X|<\infty$, then $[F(X):F]<\infty$.
+  Let $K$ be a field extension of $F$ and $X\subseteq K$ such that each element of $X$ is algebraic over $F$. 
+  Then $F(X)/F$ is algebraic. 
+  If $|X|<\infty$, then $[F(X):F]<\infty$.
 \end{Theorem}
 
 \begin{proof}
@@ -236,8 +302,9 @@ Therefore we have the observation:
   \]
   so $\alpha$ is algebraic over $F$ by \thmref{thm:finite-alg}.
 \end{proof}
+
 %------------------------------------------------------------------
-\subsection*{Algebraic Closure and Transitivity}
+\subsection{Algebraic Closure and Transitivity}
 %------------------------------------------------------------------
 
 \begin{Definition}{Algebraic Closure in $K$}{alg-closure-def}
