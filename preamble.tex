@@ -49,6 +49,7 @@
 \usepackage{todonotes}
 \usepackage{tikz}
 \usepackage[missing=Untracked]{gitinfo2}
+\providecommand{\gitUnpushedCount}{0}% fallback when gin file absent
 
 \definecolor{gitaccent}{RGB}{100,180,255}   % cyan-blue accent
 \definecolor{gitdim}{RGB}{130,130,145}      % muted text
@@ -63,9 +64,6 @@
 
 \newcommand{\gitinfonote}{%
   \texttt{\footnotesize%
-    \textcolor{gitaccent}{%
-      \normalfont%
-    }\,%
     \href{https://github.com/sohamch08/msc-project-tifr}{%
       \textcolor{gitaccent}{\faGithub\texttt{\textup{sohamch08/msc-project-tifr}}}%
     }%
@@ -75,6 +73,11 @@
     \;\gitsep\;%
     \textcolor{gitaccent}{\normalfont\faCalendar}\,%
     \textcolor{gitdim}{\texttt{\gitAuthorIsoDate}}%
+    \ifnum\gitUnpushedCount>0%
+      \;\gitsep\;%
+      \textcolor{gitaccent}{\normalfont\faArrowUp}\,%
+      \textcolor{gitmid}{\texttt{\gitUnpushedCount}\,unpushed}%
+    \fi%
   }%
 }
 
