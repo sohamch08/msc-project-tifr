@@ -94,7 +94,7 @@ In this case we can give the description of the new field in terms of all finite
 \end{Theorem}
 
 \begin{proof}
-  Let $U\coloneqq \bigcup\,\{F(a_1,\ldots,a_n) \colon a_1,\ldots,a_n\in S\}$
+  Let $U\coloneqq \cup\,\{F(a_1,\ldots,a_n) \colon a_1,\ldots,a_n\in S\}$. 
   Each $F(a_1,\ldots,a_n)$ contains $F$ and lies in $F(S)$ where $a_1,\dots, a_n\in S$. 
   So the union $U$ satisfies $U\subseteq F(S)$. 
   The set $U$ contains $F$ and $S$. 
@@ -107,44 +107,67 @@ In this case we can give the description of the new field in terms of all finite
 %------------------------------------------------------------------
 
 \begin{Definition}{Algebraic and Transcendental Elements}{algebraic-elem}
-  Let $K$ be a field extension of $F$. An element $\alpha\in K$ is \emph{algebraic over $F$} if there is a nonzero polynomial $f(x)\in F[x]$ with $f(\alpha)=0$. If $\alpha$ is not algebraic over $F$, then $\alpha$ is \emph{transcendental over $F$}. If every element of $K$ is algebraic over $F$, then $K$ is said to be \emph{algebraic over $F$}, and $K/F$ is called an \emph{algebraic extension}.
+  Let $K$ be a field extension of $F$. 
+  An element $\alpha\in K$ is \emph{algebraic over $F$} if there is a nonzero polynomial $f(X)\in F[X]$ with $f(\alpha)=0$. 
+  If $\alpha$ is not algebraic over $F$, then $\alpha$ is called \emph{transcendental over $F$}. 
+  If every element of $K$ is algebraic over $F$, then $K$ is said to be \emph{algebraic over $F$}, and $K/F$ is called an \emph{algebraic extension}.
 \end{Definition}
 
-Hermite (1873) proved that $e$ is transcendental over $\mathbb{Q}$ and Lindemann (1882) proved the same for $\pi$. On the other hand, $\sqrt[n]{r}\in\mathbb{R}$ is algebraic over $\mathbb{Q}$ for any $r\in\mathbb{Q}$ (root of $x^n-r$), as is $i=\sqrt{-1}$ (root of $x^2+1$).
+Hermite (1873) proved that $e$ is transcendental over $\mathbb{Q}$ and Lindemann (1882) proved the same for $\pi$. 
+On the other hand, $\sqrt[n]{r}\in\mathbb{R}$ is algebraic over $\mathbb{Q}$ for any $r\in\mathbb{Q}$ (root of $x^n-r$), as is $i=\sqrt{-1}$ (root of $x^2+1$).
 
 \begin{Definition}{Minimal Polynomial}{min-poly}
-  If $\alpha$ is algebraic over a field $F$, the \emph{minimal polynomial} of $\alpha$ over $F$ is the monic polynomial $p(x)$ of least degree in $F[x]$ for which $p(\alpha)=0$; it is denoted $\min(F,\alpha)$. Equivalently, $\min(F,\alpha)$ is the monic generator of the kernel of the evaluation homomorphism $\mathrm{ev}_\alpha$.
+  If $\alpha$ is algebraic over a field $F$, the \emph{minimal polynomial} of $\alpha$ over $F$ is the monic polynomial $p(X)$ of least degree in $F[X]$ for which $p(\alpha)=0$; it is denoted $\min(F,\alpha)$. 
+  Equivalently, $\min(F,\alpha)$ is the monic generator of the kernel of the evaluation homomorphism $\mathrm{ev}_\alpha$.
 \end{Definition}
 
-The minimal polynomial depends on the base field. For instance, $\min(\mathbb{Q},i)=x^2+1$ while $\min(\mathbb{C},i)=x-i$, since $i\in\mathbb{C}$ is already in the base field.
+The minimal polynomial depends on the base field. 
+For instance, $\min(\mathbb{Q},i)=x^2+1$ while $\min(\mathbb{C},i)=x-i$, since $i\in\mathbb{C}$ is already in the base field.
 
-%------------------------------------------------------------------
-\subsection*{Structure of Simple Algebraic Extensions}
-%------------------------------------------------------------------
+The minimal polynomial of an element and the degree of a field extension
+are two of the most basic tools we shall use. 
+The following proposition gives a relation between these objects.
 
 \begin{Theorem}{}{thm:simple-ext}
-  Let $K$ be a field extension of $F$ and let $\alpha\in K$ be algebraic over $F$. If $p(x)=\min(F,\alpha)$, then:
+  Let $K/F$ be a field extension and let $\alpha\in K$ be algebraic over $F$. 
+  If $p(X)=\min(F,\alpha)$, then:
   \begin{enumerate}[label=\textup{(\roman*)}]
-    \item $p(x)$ is irreducible over $F$.
-    \item If $g(x)\in F[x]$, then $g(\alpha)=0$ if and only if $p(x)\mid g(x)$.
-    \item If $n=\deg(\min(F,\alpha))$, then the elements $1,\alpha,\ldots,\alpha^{n-1}$ form a basis for $F(\alpha)$ over $F$, so $[F(\alpha):F]=\deg(\min(F,\alpha))<\infty$. Moreover, $F(\alpha)=F[\alpha]$.
-    \item $F(\alpha)\cong F[x]/(p(x))$.
+    \item $p(X)$ is irreducible over $F$.
+    \item If $g(X)\in F[X]$, then $g(\alpha)=0$ if and only if $p(X)\mid g(X)$.
+    \item If $n=\deg(\min(F,\alpha))$, then the elements $1,\alpha,\ldots,\alpha^{n-1}$ form a basis for $F(\alpha)$ over $F$. 
+    So $[F(\alpha)\colon F]=\deg(\min(F,\alpha))<\infty$. Moreover, $F(\alpha)=F[\alpha]$.
+    \item $F(\alpha)\cong \quotient{F[X]}{\la p(X)\ra}$.
   \end{enumerate}
 \end{Theorem}
-
 \begin{proof}
-  The first isomorphism theorem gives $F[\alpha]\cong F[x]/(p(x))$. Since $F[\alpha]\subseteq K$ is an integral domain, $(p(x))$ is a prime ideal; in a PID every nonzero prime is maximal, so $F[x]/(p(x))$ is a field and $F[\alpha]=F(\alpha)$. This gives (i) and (iv). Part (ii) follows from $\ker(\mathrm{ev}_\alpha)=(p(x))$.
+  The \emph{first isomorphism theorem} gives $F[\alpha]\cong \quotient{F[X]}{\la p(X)\ra}$. 
+  Since $F[\alpha]\subseteq K$ is an integral domain, $\langle p(X)\rangle$ is a prime ideal. 
+  Now in a \pid every nonzero prime is maximal, so $\quotient{F[X]}{\la p(X)\ra}$ is a field and $F[\alpha]=F(\alpha)$. 
+  This gives (i) and (iv).  
+  Part (ii) follows from $\ker(\ev_\alpha)=\langle p(X)\rangle$.
 
-  For (iii): any $b\in F(\alpha)=F[\alpha]$ satisfies $b=g(\alpha)$; dividing gives $g=qp+r$ with $\deg r<n$, so $b=r(\alpha)$ lies in the span of $\{1,\alpha,\ldots,\alpha^{n-1}\}$. A nontrivial $F$-linear relation among these would give a polynomial of degree $<n$ in $\ker(\mathrm{ev}_\alpha)$, contradicting minimality of $p$.
+  For (iii): any $b\in F(\alpha)=F[\alpha]$ satisfies $b=g(\alpha)$. 
+  Dividing gives $g=qp+r$ with $\deg r<n$ and $q,r\in F[X]$. 
+  So $b=r(\alpha)$ lies in the span of $\{1,\alpha,\ldots,\alpha^{n-1}\}$. 
+  Therefore, the set $\{1,\alpha,\dots, \alpha^{n-1}\}$ spans $F(\alpha)$ as a vector space. 
+  If $a_0+a_1\cdot \alpha+\cdots +a_{n-1}\cdot \alpha^{n-1}=0$ where $a_0,\dots, a_{n-1}\in F$ then the polynomial $f(X)=\sum_{i=0}^{n-1}a_iX^i$ is in $\ker(\ev_\alpha)$. 
+  Hence, either $f\equiv 0$ or $p\mid f$ by part (ii). 
+  But $\deg(f)<n$. 
+  So $f\equiv 0$. 
+  Thus, $1,\alpha,\dots, \alpha^{n-1}$ forms a basis of $F(\alpha)$ over $F$. 
 \end{proof}
 
-\begin{Example}{}{min-poly-ex}
-  \begin{enumerate}[label=\textup{(\roman*)}]
-    \item $\alpha=\sqrt[3]{2}$: the polynomial $x^3-2$ is irreducible over $\mathbb{Q}$ by Eisenstein at $p=2$, so $\min(\mathbb{Q},\sqrt[3]{2})=x^3-2$ and $[\mathbb{Q}(\sqrt[3]{2}):\mathbb{Q}]=3$, with $\mathbb{Q}$-basis $\{1,\sqrt[3]{2},\sqrt[3]{4}\}$.
-    \item $\omega=e^{2\pi i/p}$, $p$ prime: since $\omega^p=1$ and $\omega\neq 1$, it is a root of the cyclotomic polynomial $\Phi_p(x)=x^{p-1}+\cdots+x+1$, which is irreducible over $\mathbb{Q}$. Hence $\min(\mathbb{Q},\omega)=\Phi_p(x)$ and $[\mathbb{Q}(\omega):\mathbb{Q}]=p-1$.
-  \end{enumerate}
-\end{Example}
+The part (iii) of above theorem gives us a basis of $F(\alpha)$ over $F$ using only $\alpha$. 
+So we get the following observation:
+\begin{observation}
+  If $K/F$ is a field extension and $\alpha\in K$ is algebraic over $F$ where $p=\min(F,\alpha)$ then $[F(\alpha)\colon F]=\deg(p)$. 
+\end{observation}
 
+Notice that if $\alpha,\beta\in K$ are both algebraic over $F$ and $\min(F,\alpha)=\min(F,\beta)=p$ i.e., their minimal polynomials are same then by the above theorem $$F(\alpha)\cong\quotient{F[X]}{\la p\ra}\cong F(\beta)$$
+Therefore we have the observation:
+\begin{observation}
+  If $K/F$ is a field extension and $\alpha,\beta\in K$ are both algebraic over $F$ and they have the same minimal polynomials then $F(\alpha)\cong F(\beta)$ with the isomorphism $\varphi:\alpha\mapsto \beta$. 
+\end{observation}
 %------------------------------------------------------------------
 \subsection*{Finite and Algebraic Extensions}
 %------------------------------------------------------------------
@@ -216,8 +239,6 @@ The minimal polynomial depends on the base field. For instance, $\min(\mathbb{Q}
 %------------------------------------------------------------------
 \subsection*{Algebraic Closure and Transitivity}
 %------------------------------------------------------------------
-
-
 
 \begin{Definition}{Algebraic Closure in $K$}{alg-closure-def}
   Let $K$ be a field extension of $F$. The set
