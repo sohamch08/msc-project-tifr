@@ -143,7 +143,7 @@ The following proposition gives a relation between these objects.
 \begin{proof}
   The \emph{first isomorphism theorem} gives $F[\alpha]\cong \quotient{F[X]}{\la p(X)\ra}$. 
   Since $F[\alpha]\subseteq K$ is an integral domain, $\langle p(X)\rangle$ is a prime ideal. 
-  Now in a \pid every nonzero prime is maximal, so $\quotient{F[X]}{\la p(X)\ra}$ is a field and $F[\alpha]=F(\alpha)$. 
+  Now in an \pid every nonzero prime is maximal, so $\quotient{F[X]}{\la p(X)\ra}$ is a field and $F[\alpha]=F(\alpha)$. 
   This gives (i) and (iv).  
   Part (ii) follows from $\ker(\ev_\alpha)=\langle p(X)\rangle$.
 
@@ -210,7 +210,7 @@ We will show a theorem which relates the degree of the extension $K/F$ and each 
   Now $$\sum_{i,j}\beta_{ij}a_ib_j=\sum_j\bigl(\sum_i\beta_{ij}a_i\bigr)b_j=0.$$ 
   Since $\{b_j\}_{j\in J}$ is a basis of $K$ over $L$, each $\sum_i\beta_{ij}a_i=0$. 
   And by $F$-independence of $\{a_i\}$, each $\beta_{ij}=0$. 
-  So $\{a_i\cdot b_j\}_{I\times J}$ form a $F$-basis of $K$. 
+  So $\{a_i\cdot b_j\}_{I\times J}$ form an $F$-basis of $K$. 
   Therefore, $$[K:F]=|\{a_i\cdot b_j\}_{I\times J}|=|\{a_i\colon i\in I\}|\cdot |\{b_j\colon j\in J\}|=[K\colon L]\cdot [L\colon F]$$ 
   So we have the theorem. 
 \end{proof}
@@ -274,7 +274,7 @@ Then both $[\bbQ(a)\colon \bbQ]=[\bbQ(b)\colon \bbQ]=4$ as $X^4-2$ and $X^4-18$ 
 But $[\bbQ(\sqrt[4]{2},\sqrt3)\colon \bbQ]=8$ and $\sqrt[4]{18}\in  \bbQ(\sqrt[4]{2},\sqrt3)$. 
 Hence, in this the inequality doesn't follow. 
 
-So from \SimpleExtthm and \FinGenAlgthm we have the following criterion for an element being algebraic over a field. 
+So from, and \FinGenAlgthm we have the following criterion for an element being algebraic over a field. 
 
 \begin{corolary}{}{cor:alg-degree}
   Let $K/F$ be a field extension and $\alpha\in K$. 
@@ -437,7 +437,7 @@ So using the corollary we can immediately relate algebraic closure with splittin
 
 But now comes another question. Can one field have multiple algebraic closures? Or even can we have more than one splitting fields? 
 The answer is splitting fields are unique, and hence algebraic closures are also unique. 
-Below we share the theorem which proves the above. We will not prove it because its beyond our scope of study. But for further reading and understanding the reader can look \cite{Morandi1996}
+Below we share the theorem which proves the above. We will not prove it because its beyond our scope of study. But for further reading and understanding the reader can look \cite{Morandi1996}.
 
 \begin{Theorem}{Isomorphism Extension Theorem, \cite[Chapter 1]{Morandi1996}}{thm:iso-ext}
   Let $\sigma:F\to F'$ be a field isomorphism. Let $S=\{f_i(x)\}$ be a set of polynomials over $F$, and let $S'=\{\sigma(f_i)\}$ be the corresponding set over $F'$. Let $K$ be a splitting field for $S$ over $F$, and let $K'$ be a splitting field for $S'$ over $F'$. Then there is an isomorphism $\tau:K\to K'$ with $\tau|_F=\sigma$. Furthermore, if $\alpha\in K$ and $\alpha'$ is any root of $\sigma(\min(F,\alpha))$ in $K'$, then $\tau$ can be chosen so that $\tau(\alpha)=\alpha'$.

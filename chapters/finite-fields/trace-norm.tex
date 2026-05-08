@@ -1,1 +1,74 @@
 \section{Trace and Norm}
+Let $V$ is an $n$-dimensional vector space over $K$ where $K$ is a field. 
+Let $\vph:V\to V$ is any linear operator. 
+For a basis $\{q_1,\dots, q_n\}$ of $V$ we van generate the matrix of $\vph$ with respect to that basis. 
+This is called the \emph{matrix representation} of $\vph$ and denoted by $[\vph]$. 
+
+We now turn to field extensions. 
+For a finite extension of field $L/K$ we associate each element $\alpha$ of $L$ the $K$-linear transformation $m_{\alpha}:L\to L$ where $m_{\alpha}(x)=\alpha\cdot x$ for any $x\in L$. 
+Now $m_{\alpha}$ is indeed a linear transformation from $L$ to $L$ as 
+\begin{align}
+  &m_{\alpha}(x+y)=\alpha(x+y)=\alpha\cdot x+\alpha\cdot y=m_{\alpha}(x)+m_{\alpha}(y)\\ 
+  & m_{\alpha}(c\cdot x)=\alpha(c\cdot x)=c(\alpha\cdot x)=c\cdot m_{\alpha}(x)
+\end{align}
+for all $x,y\in L$ and $c\in K$. 
+Now by choosing a $K$-basis of $L$ we can create a matrix representation for $m_{\alpha}$ which is denoted by $[m_{\alpha}]$. 
+So for any $c\in K$ the matrix $[m_c]$ is $cI_k$ where $[L\colon K]=n$. 
+
+\begin{Definition}{Trace and Norm of $\alpha$}{}
+  For any $\alpha\in L$ where $L/K$ be a finite extension the trace and norm of $\alpha$ from $L$ to $K$ are the trace and determinant of a matrix representation of the $K$-linear map $m_{\alpha}$ and denoted as $$\tr_{L/K}(\alpha)=\tr([m_{\alpha}])\in K,\qquad \norm_{L/K}(\alpha)=\det([m_{\alpha}])$$
+\end{Definition}
+
+For any finite field $\bbF_q$ if $\bbF_p$ is the base prime field of $\bbF_q$ then for any $\alpha\in\bbF_q$ we denote the trace and norm of $\alpha$ from $\bbF_q$ to $\bbF_p$ by $\tr_{\bbF_q}(\alpha)$ and $\norm_{\bbF_q}(\alpha)$, and we call it the \emph{absolute trace} and \emph{absolute norm} of $\alpha$ respectively. 
+
+\begin{observation}
+  For any $\alpha\in K$, where $[L\colon K]=n$, $\tr_{L/K}(\alpha)=n\cdot \alpha$ and $\norm_{L/K}(\alpha)=\alpha^n$. In particular $\tr_{L/K}(1)=[L\colon K]$ and $N_{L/K}(1)=1$. 
+\end{observation}
+\nt{There is an alternate definition of trace and norm in terms of sum and product of field embeddings of $L$ into an algebraic closure of $K$.  
+But those definitions is hard to work with and also beyond our scope. 
+So interested readers can look into \cite[Chapter 1]{Lang2002}}
+
+\begin{lemma}{}{}
+  Let $\alpha,\beta\in L$. \begin{enumerate}[label=(\roman*)]
+    \item If $\alpha\neq \beta$ then $m_{\alpha}\neq m_{\beta}$. 
+    \item As functions from $L\to L$ $$m_{\alpha+\beta}=m_{\alpha}+m_{\beta}\quad\text{and}\quad m_{\alpha\beta}=m_{\alpha}\circ m_{\beta}$$and $m_1$ is the identity map $L\to L$. 
+  \end{enumerate}
+\end{lemma}
+
+\begin{Theorem}{}{}
+  The trace $\tr_{L/K}:L\to K$ is a $K$-linear and the norm $N_{L/K}:L\to K$ is multiplicative. 
+  Moreover, $N_{L/K}(L^*)\subseteq K^*$. 
+\end{Theorem}
+
+\begin{Definition}{Characteristic Polynomial of $\alpha\in L$}{}
+  For $\alpha\in L$ where $L/K$ is a finite extension the \emph{characteristic polynomial} of $\alpha$ relative to the extension $L/K$ is the characteristic polynomial of the matrix representation $[m_{\alpha}]$: 
+  $$P_{\alpha,L/K}(X)=\det(X\cdot I_n-[m_{\alpha}])\in K[X]$$ 
+  where $n=[L\colon K]$
+\end{Definition}
+
+\begin{Theorem}{}{}
+  For every $\alpha\in L$, $P_{\alpha,L/K}(\alpha)=0$. 
+\end{Theorem}
+
+\begin{Theorem}{}{}
+  For any $\alpha\in L$, where $L/K$ is a finite extension. 
+  Let $f=\min(K,\alpha)$ is the minimal polynomial of $\alpha$ in $K[X]$. If $L=K(\alpha)$ then $P_{\alpha,L/K}(X)=f(X)$. 
+
+  More generally, $P_{\alpha,L/K}(X)=f^{\nicefrac{n}d}$ where $d=\deg(f)=[K(\alpha)\colon K]$. 
+\end{Theorem}
+
+\begin{corolary}{}{}
+  Let the minimal polynomial of $\alpha$ over $K$ be $X^d+c_{d-1}X^{d-1}+\cdots c_1X+c_0$. Then $$\tr_{K(\alpha)/K}(\alpha)=-c_{d-1}\quad\text{and}\quad N_{K(\alpha)/k}(\alpha)=(-1)^dc_0$$and more generally when $K\subseteq K(\alpha)\subseteq L$ and $[L\colon K]=n$, $$\tr_{L/K}(\alpha)=-\frac{n}dc_{d-1}=-[L\colon K(\alpha)]\cdot c_{d-1},\quad \text{and}\quad N_{L/K}(\alpha)=(-1)^n\cdot c_0^{\nicefrac{n}d}=(-1)^n\cdot c_0^{[L\colon K(\alpha)]}$$
+\end{corolary}
+
+\begin{corolary}{}{}
+  Let the minimal polynomial for $\alpha$ over $K$ splits completely over a large enough field extension $L$ of $K$ as $(X-\alpha_1)\cdots (X-\alpha_d)$. Then $$\tr_{K(\alpha)/K}(\alpha)=\alpha_1+\cdots+\alpha_d\quad\text{and}\quad N_{K(\alpha)/K}(\alpha)=\alpha_1\cdots\alpha_d$$
+  More generally, if $K\subseteq K(\alpha)\subseteq L$, then $$\tr_{L/K}(\alpha)=\frac{n}d(\alpha_1+\cdots+\alpha_d)\quad\text{and}\quad N_{L/K}(\alpha)=(\alpha_1\cdot \alpha_d)^{\nicefrac{n}d}$$where $[L\colon K]=n$ and $[K(\alpha)\colon K]=d$, so $\nicefrac{n}d=[L\colon K(\alpha)]$. 
+\end{corolary}
+
+\begin{corolary}{}{}
+  Let $K/\bbF_q$ be finite extension with $[K\colon \bbF_q]=n$. Then for any $\alpha\in K$, $$\tr_{K/\bbF_q}=\alpha+\alpha^q+\cdots+\alpha^{q^{n-1}}\quad\text{and}\quad \norm_{K/\bbF_q}(\alpha)=\alpha\cdot \alpha^q\cdots\alpha^{q^{n-1}}$$
+\end{corolary}
+\begin{Theorem}{}{}
+  Let $L/K/F$ be finite extensions. Then for any $\alpha\in L$ $$\tr_{L/F}(\alpha)=\tr_{K/F}\circ \tr_{L/K}(\alpha)\quad\text{and}\quad \norm_{L/F}(\alpha)=N_{K/F}\circ \norm_{L/K}(\alpha)$$
+\end{Theorem}
