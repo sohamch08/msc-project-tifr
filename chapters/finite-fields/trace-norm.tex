@@ -1,74 +1,199 @@
 \section{Trace and Norm}
-Let $V$ is an $n$-dimensional vector space over $K$ where $K$ is a field. 
-Let $\vph:V\to V$ is any linear operator. 
-For a basis $\{q_1,\dots, q_n\}$ of $V$ we van generate the matrix of $\vph$ with respect to that basis. 
-This is called the \emph{matrix representation} of $\vph$ and denoted by $[\vph]$. 
+Let $V$ is an $n$-dimensional vector space over $K$ where $K$ is a field.
+Let $\vph:V\to V$ is any linear operator.
+For any basis of $V$ we can generate the matrix of $\vph$ with respect to that basis.
+This is called the \emph{matrix representation} of $\vph$ and denoted by $[\vph]$.
 
-We now turn to field extensions. 
-For a finite extension of field $L/K$ we associate each element $\alpha$ of $L$ the $K$-linear transformation $m_{\alpha}:L\to L$ where $m_{\alpha}(x)=\alpha\cdot x$ for any $x\in L$. 
-Now $m_{\alpha}$ is indeed a linear transformation from $L$ to $L$ as 
-\begin{align}
-  &m_{\alpha}(x+y)=\alpha(x+y)=\alpha\cdot x+\alpha\cdot y=m_{\alpha}(x)+m_{\alpha}(y)\\ 
-  & m_{\alpha}(c\cdot x)=\alpha(c\cdot x)=c(\alpha\cdot x)=c\cdot m_{\alpha}(x)
-\end{align}
-for all $x,y\in L$ and $c\in K$. 
-Now by choosing a $K$-basis of $L$ we can create a matrix representation for $m_{\alpha}$ which is denoted by $[m_{\alpha}]$. 
-So for any $c\in K$ the matrix $[m_c]$ is $cI_k$ where $[L\colon K]=n$. 
+We now turn to field extensions.
+For a finite extension of field $L/K$ we associate each element $\alpha$ of $L$ the $K$-linear transformation $m_{\alpha}:L\to L$ where $m_{\alpha}(x)=\alpha\cdot x$ for any $x\in L$.
+Now $m_{\alpha}$ is indeed a linear transformation from $L$ to $L$ as
+\begin{align*}
+   & m_{\alpha}(x+y)=\alpha(x+y)=\alpha\cdot x+\alpha\cdot y=m_{\alpha}(x)+m_{\alpha}(y) & m_{\alpha}(c\cdot x)=\alpha(c\cdot x)=c(\alpha\cdot x)=c\cdot m_{\alpha}(x)
+\end{align*}
+for all $x,y\in L$ and $c\in K$.
+Now by choosing a $K$-basis of $L$ we can create a matrix representation for $m_{\alpha}$ which is denoted by $[m_{\alpha}]$.
+So for any $c\in K$ the matrix $[m_c]$ is $cI_k$ where $[L\colon K]=n$.
 
 \begin{Definition}{Trace and Norm of $\alpha$}{}
   For any $\alpha\in L$ where $L/K$ be a finite extension the trace and norm of $\alpha$ from $L$ to $K$ are the trace and determinant of a matrix representation of the $K$-linear map $m_{\alpha}$ and denoted as $$\tr_{L/K}(\alpha)=\tr([m_{\alpha}])\in K,\qquad \norm_{L/K}(\alpha)=\det([m_{\alpha}])$$
 \end{Definition}
 
-For any finite field $\bbF_q$ if $\bbF_p$ is the base prime field of $\bbF_q$ then for any $\alpha\in\bbF_q$ we denote the trace and norm of $\alpha$ from $\bbF_q$ to $\bbF_p$ by $\tr_{\bbF_q}(\alpha)$ and $\norm_{\bbF_q}(\alpha)$, and we call it the \emph{absolute trace} and \emph{absolute norm} of $\alpha$ respectively. 
+For any finite field $\bbF_q$ if $\bbF_p$ is the base prime field of $\bbF_q$ then for any $\alpha\in\bbF_q$ we denote the trace and norm of $\alpha$ from $\bbF_q$ to $\bbF_p$ by $\tr_{\bbF_q}(\alpha)$ and $\norm_{\bbF_q}(\alpha)$, and we call it the \emph{absolute trace} and \emph{absolute norm} of $\alpha$ respectively.
 
 \begin{observation}
-  For any $\alpha\in K$, where $[L\colon K]=n$, $\tr_{L/K}(\alpha)=n\cdot \alpha$ and $\norm_{L/K}(\alpha)=\alpha^n$. In particular $\tr_{L/K}(1)=[L\colon K]$ and $N_{L/K}(1)=1$. 
+  For any $\alpha\in K$, where $[L\colon K]=n$, $\tr_{L/K}(\alpha)=n\cdot \alpha$ and $\norm_{L/K}(\alpha)=\alpha^n$. In particular $\tr_{L/K}(1)=[L\colon K]$ and $
+    \norm_{L/K}(1)=1$.
 \end{observation}
-\nt{There is an alternate definition of trace and norm in terms of sum and product of field embeddings of $L$ into an algebraic closure of $K$.  
-But those definitions is hard to work with and also beyond our scope. 
-So interested readers can look into \cite[Chapter 1]{Lang2002}}
+\nt{There is an alternate definition of trace and norm in terms of sum and product of field embeddings of $L$ into an algebraic closure of $K$.
+  But those definitions is hard to work with and also beyond our scope.
+  So interested readers can look into \cite[Chapter 1]{Lang2002}}
 
-\begin{lemma}{}{}
+\begin{lemma}{}{lem:mult-map-props}
   Let $\alpha,\beta\in L$. \begin{enumerate}[label=(\roman*)]
-    \item If $\alpha\neq \beta$ then $m_{\alpha}\neq m_{\beta}$. 
-    \item As functions from $L\to L$ $$m_{\alpha+\beta}=m_{\alpha}+m_{\beta}\quad\text{and}\quad m_{\alpha\beta}=m_{\alpha}\circ m_{\beta}$$and $m_1$ is the identity map $L\to L$. 
+    \item If $\alpha\neq \beta$ then $m_{\alpha}\neq m_{\beta}$.
+    \item As functions from $L\to L$ $$m_{\alpha+\beta}=m_{\alpha}+m_{\beta}\quad\text{and}\quad m_{\alpha\beta}=m_{\alpha}\circ m_{\beta}$$and $m_1$ is the identity map $L\to L$.
   \end{enumerate}
 \end{lemma}
+\begin{proof}
+  Since $m_{\alpha}(1)=\alpha$ we can recover the element $\alpha$ uniquely from the mapping $m_{\alpha}$.
+  Therefore, the map, $\vph:L\to \{m_{\alpha}\colon \alpha\in L\}$ where $\vph(\alpha)=m_{\alpha}$ is a bijection.
+  And hence if $\alpha,\beta\in L$ and $\alpha\neq \beta$ then $m_{\alpha}\neq m_{\beta}$.
 
-\begin{Theorem}{}{}
-  The trace $\tr_{L/K}:L\to K$ is a $K$-linear and the norm $N_{L/K}:L\to K$ is multiplicative. 
-  Moreover, $N_{L/K}(L^*)\subseteq K^*$. 
+  Now for any $x\in L$ we have $$m_{\alpha+\beta}(x)=(\alpha+\beta)x=\alpha\cdot x+\beta\cdot x=m_{\alpha}(x)+m_{\beta}(x)$$and $$m_{\alpha}\circ m_{\beta}(x)=m_{\alpha}(\beta \cdot x)=(\alpha\beta)x=m_{\alpha\beta}(x)$$
+  Since $x$ is an arbitrary element of $L$ we have $m_{\alpha+\beta}=m_{\alpha}+m_{\beta}$ and $m_{\alpha\beta}=m_{\alpha}\circ m_{\beta}$. Easily $m_1$ is the identity mapping since $1\cdot \alpha=\alpha$ and therefore $m_1\circ m_{\alpha}=m_{\alpha}$.
+\end{proof}
+
+\begin{Theorem}{}{thm:trace-norm-props}
+  The trace $\tr_{L/K}:L\to K$ is a $K$-linear and the norm $\norm_{L/K}:L\to K$ is multiplicative.
+  Moreover, $\norm_{L/K}(L^*)\subseteq K^*$.
 \end{Theorem}
+\begin{proof}
+  By \MultMapPropslem for any $\alpha,\beta\in L$ we have $m_{\alpha+\beta}=m_{\alpha}+m_{\beta}$ and $m_{\alpha\beta}=m_{\alpha}\circ m_{\beta}$.
+  Therefore, if we look into the matrix representation of $m_{\alpha}$ and $m_{\beta}$ then we get
+  $$[m_{\alpha+\beta}]=[m_{\alpha}]+[m_{\beta}],\qquad [m_{\alpha\beta}]=[m_{\alpha}\circ m_{\beta}]=[m_{\alpha}]\cdot [m_{\beta}]$$
+  So $$\tr_{L/K}(\alpha+\beta)=\tr([m_{\alpha+\beta}])=\tr([m_{\alpha}])+\tr([m_{\beta}])=\tr_{L/K}(\alpha)+\tr_{L/K}(\beta)$$ and $$\norm_{L/K}(\alpha\beta)=\det([m_{\alpha\beta}])=\det([m_{\alpha}])\cdot \det([m_{\beta}])=\norm_{L/K}(\alpha)\cdot \norm_{L/K}(\beta)$$So $\tr_{L/K}$ is additive and $\norm_{L/K}$ is multiplicative.
 
+  Now to show $\tr_{L/K}$ is $K$-linear we need to show for any $c\in K$ and $\alpha\in L$ we have $\tr_{L/K}(c\cdot \alpha)=c\cdot \tr_{L/K}(\alpha)$ which is true since $$\tr_{L/K}(c\cdot \alpha)=\tr([m_{c\alpha}])=\tr(c[m_{\alpha}])=c\cdot \tr([m_{\alpha}])=c\cdot \tr_{L/K}(\alpha)$$
+
+  Now $\norm_{L/K}(1)=1$. So for any non-zero $\alpha\in L^*$, $\norm_{L/K}(\alpha)\cdot \norm_{L/K}(\alpha^{-1})=1$ and hence $\norm_{L/K}(\alpha)\neq 0$. Therefore, $\norm_{L/K}(L^*)\subseteq K^*$.
+\end{proof}
+
+Now the elements $\tr_{L/K}(\alpha)$ and $\norm_{L/K}(\alpha)$ can be expressed in terms of the coefficients or the roots of the minimal polynomial of $\alpha$ over $K$. To explain this we need another polynomial in $K[X]$ which is very similar to the characteristic polynomial of any square matrix.
 \begin{Definition}{Characteristic Polynomial of $\alpha\in L$}{}
-  For $\alpha\in L$ where $L/K$ is a finite extension the \emph{characteristic polynomial} of $\alpha$ relative to the extension $L/K$ is the characteristic polynomial of the matrix representation $[m_{\alpha}]$: 
-  $$P_{\alpha,L/K}(X)=\det(X\cdot I_n-[m_{\alpha}])\in K[X]$$ 
-  where $n=[L\colon K]$
+  For $\alpha\in L$ where $L/K$ is a finite extension the \emph{characteristic polynomial} of $\alpha$ relative to the extension $L/K$ is the characteristic polynomial of the matrix representation $[m_{\alpha}]$:
+  $$P_{\alpha,L/K}(X)=\det(X\cdot I_n-[m_{\alpha}])\in K[X]$$
+  where $n=[L\colon K]$. Therefore, $\deg(P_{\alpha,L/K})=[L\colon K]$.
 \end{Definition}
 
-\begin{Theorem}{}{}
-  For every $\alpha\in L$, $P_{\alpha,L/K}(\alpha)=0$. 
+Note that here we defined the characteristic polynomial to be of the form $\det(X\cot I_n-A)$ instead of $\det(A-X\cdot I_n)$ which we typically do in linear algebra. This is because we want our polynomials to monic.
+
+If $A$ is a square matrix then the trace of $A$ and the determinant of $A$ appears as signed coefficients in its characteristic polynomial.$$\det(X\cdot I_n-A)=X^^n-\tr(A)X^{n-1}+\cdots +(-1)^n\det(A)$$
+Therefore \begin{equation}\label{eq:char-poly-trace-norm}
+  P_{\alpha,L/K}(X)=X^n-\tr_{L/K}(\alpha)X^{n-1}+\cdots +(-1)^n\norm_{L/K}(\alpha)
+\end{equation}Below we show a Cayley-Hamilton like theorem for characteristic polynomial of field elements.
+\begin{Theorem}{}{thm:charpoly-vanish}
+  For every $\alpha\in L$, $P_{\alpha,L/K}(\alpha)=0$.
 \end{Theorem}
+\begin{proof}
+  By the consequence of Cayley-Hamilton theorem we have $P_{\alpha,L/K}([m_{\alpha}])=O$. Now for any polynomial $f\in K[X]$ where $f(X)=X^n+\sum_{i=0}^{n-1}a_iX^i$ then \begin{align*}
+    f([m_{\alpha}]) = [m_{\alpha}]^n+\sum_{i=0}^{n-1}a_i[m_{\alpha}]^{i} = [m_{\alpha^n}]+\sum_{i=0}^{n-1}[m_{a_i\alpha^i}] = m_{\alpha^n+a_{n-1}\alpha^{n-1}+\cdots +c_0} = m_{f(\alpha)}
+  \end{align*}Therefore $P_{\alpha,L/K}([m_{\alpha}])=m_{P_{\alpha,L/K}(\alpha)}$. Since $P_{\alpha,L/K}([m_{\alpha}])=O$ and by \MultMapPropslem all $m_{\alpha}$ maps are distinct we have $P_{\alpha,L/K}(\alpha)=0$.
+\end{proof}
 
-\begin{Theorem}{}{}
-  For any $\alpha\in L$, where $L/K$ is a finite extension. 
-  Let $f=\min(K,\alpha)$ is the minimal polynomial of $\alpha$ in $K[X]$. If $L=K(\alpha)$ then $P_{\alpha,L/K}(X)=f(X)$. 
+Now for any $\alpha\in L$ let $f=\min(K,\alpha)$. Let $\deg(f)=d$. Hence, $[K(\alpha)\colon K]=d$. Therefore, $P_{\alpha,K(\alpha)/K}$ is a monic degree $d$ polynomial over $K$. Since both $f$ and $P_{\alpha,K(\alpha)/K}$ are monic and have same degree and shares a common root we have $f=P_{\alpha,K(\alpha)/K}$. So we have the following theorem.
+\begin{Theorem}{}{thm:charpoly-minpoly}
+  For any $\alpha\in L$, where $L/K$ is a finite extension.
+  Let $f=\min(K,\alpha)$ is the minimal polynomial of $\alpha$ in $K[X]$. If $L=K(\alpha)$ then $P_{\alpha,L/K}(X)=f(X)$.
 
-  More generally, $P_{\alpha,L/K}(X)=f^{\nicefrac{n}d}$ where $d=\deg(f)=[K(\alpha)\colon K]$. 
+  More generally, $P_{\alpha,L/K}(X)=f^{\nicefrac{n}d}$ where $d=\deg(f)=[K(\alpha)\colon K]$.
 \end{Theorem}
+\begin{proof}
+  We already prove the first part in the discussion before the theorem. So we will show the second part here. Let $[L\colon K(\alpha)]=m$ and $\{\beta_1,\dots,\beta_m\}$ is a basis of $L$ over $K(\alpha)$. $1,\alpha,\dots,\alpha^{d-1}$ is a basis of $K(\alpha)$ over $K$. Therefore, $\{\alpha^i\beta_j\colon 0\leq i\leq d-1,j\in[n]\}$ is a basis of $L$ over $K$.
+  So for all $i\in\{0,1,\dots,d-1\}$ there exists $c_{i,j}\in \bbF_q$ such that $\alpha\cdot \alpha^i=\sum_{j=0}^{d-1}c_{ij}\alpha^j$. Therefore for any $t\in[n]$ and $i\in\{0,1,\dots, d-1\}$, $\alpha\cdot \alpha^i\beta_t=\sum_{j=0}^{d-1}c_{ij}\alpha^j\cdot \beta_t$. Hence, the matrix  $[m_{\alpha}]$ is a repeated diagonal $d\times d$ block matrix of $m_{\alpha}$ for $K(\alpha)$ over $K$ created by $c_{ij}$. Therefore, $P_{\alpha,L/K}=(P_{\alpha,K(\alpha)/K})^{\nicefrac{n}d}$.
+\end{proof}
 
-\begin{corolary}{}{}
-  Let the minimal polynomial of $\alpha$ over $K$ be $X^d+c_{d-1}X^{d-1}+\cdots c_1X+c_0$. Then $$\tr_{K(\alpha)/K}(\alpha)=-c_{d-1}\quad\text{and}\quad N_{K(\alpha)/k}(\alpha)=(-1)^dc_0$$and more generally when $K\subseteq K(\alpha)\subseteq L$ and $[L\colon K]=n$, $$\tr_{L/K}(\alpha)=-\frac{n}dc_{d-1}=-[L\colon K(\alpha)]\cdot c_{d-1},\quad \text{and}\quad N_{L/K}(\alpha)=(-1)^n\cdot c_0^{\nicefrac{n}d}=(-1)^n\cdot c_0^{[L\colon K(\alpha)]}$$
+\begin{corolary}{}{cor:trace-norm-minpoly-coeffs}
+  Let the minimal polynomial of $\alpha$ over $K$ be $X^d+c_{d-1}X^{d-1}+\cdots c_1X+c_0$. Then $$\tr_{K(\alpha)/K}(\alpha)=-c_{d-1}\quad\text{and}\quad
+    \norm_{K(\alpha)/k}(\alpha)=(-1)^dc_0$$and more generally when $K\subseteq K(\alpha)\subseteq L$ and $[L\colon K]=n$, $$\tr_{L/K}(\alpha)=-\frac{n}dc_{d-1}=-[L\colon K(\alpha)]\cdot c_{d-1},\quad \text{and}\quad
+    \norm_{L/K}(\alpha)=(-1)^n\cdot c_0^{\nicefrac{n}d}=(-1)^n\cdot c_0^{[L\colon K(\alpha)]}$$
+\end{corolary}
+\begin{proof}
+  Let $f$ is the minimal polynomial of $\alpha$ over $K$. Hence by \CharPolyMinPolythm, $P_{\alpha,K(\alpha)/K}=f(X)$. So we have the first part. Now $$P_{\alpha,L/K}(X)=f^{\nicefrac{n}d}(X)=\lt(X^d+c_{d-1}X^{d-1}+\cdots +c_1X+c_0\rt)^{\nicefrac{n}d}=X^n+\frac{n}dc_{d-1}X^{n-1}+\cdots +c_o^{\nicefrac{n}d}$$Therefore by comparing with \eqref{eq:char-poly-trace-norm} we have the result.
+\end{proof}
+
+\begin{observation}
+  We can rewrite the above formulas for $\tr_{L/K}(\alpha)$ and $
+    \norm_{L/K}(\alpha)$ in terms of $\tr_{K(\alpha)/K}$ and $
+    \norm_{K(\alpha)/K}$ in the following way $$\tr_{L/K}(\alpha)=[L\colon K(\alpha)]\tr_{K(\alpha)/K}(\alpha),\qquad \norm_{L/K}(\alpha)=\norm_{K(\alpha)\colon K}(\alpha)^{[L\colon K(\alpha)]}$$
+\end{observation}
+
+From \TraceNormMinPolyCoeffscor we can draw a relation between the coefficients of the trace and the norm with the roots of the minimum polynomial of $\alpha$. For any $\alpha\in L$ if $f$ is the minimum polynomial of $\alpha$ over $K$ then $P_{\alpha,K(\alpha)/K}=f(X)$. Now let $f(X)=X^d+c_{d-1}X^{d-1}+\cdots c_1X+c_0$ and $f$ splits into linear factors $f(X)=(X-\alpha_1)\cdots (X-\alpha_d)$ in the splitting field of $f$ over $K$. Then $-c_{d-1}=\alpha_1+\cdots +\alpha_d$ and $(-1)^dc_0=\alpha_1\cdots \alpha_d$. Therefore, by rewriting \TraceNormMinPolyCoeffscor we get the following corollary.
+\begin{corolary}{}{cor:trace-norm-roots}
+  Let the minimal polynomial for $\alpha$ over $K$ splits completely over a large enough field extension $L$ of $K$ as $(X-\alpha_1)\cdots (X-\alpha_d)$. Then $$\tr_{K(\alpha)/K}(\alpha)=\alpha_1+\cdots+\alpha_d\quad\text{and}\quad
+    \norm_{K(\alpha)/K}(\alpha)=\alpha_1\cdots\alpha_d$$
+  More generally, if $K\subseteq K(\alpha)\subseteq L$, then $$\tr_{L/K}(\alpha)=\frac{n}d(\alpha_1+\cdots+\alpha_d)\quad\text{and}\quad
+    \norm_{L/K}(\alpha)=(\alpha_1\cdot \alpha_d)^{\nicefrac{n}d}$$where $[L\colon K]=n$ and $[K(\alpha)\colon K]=d$, so $\nicefrac{n}d=[L\colon K(\alpha)]$.
 \end{corolary}
 
-\begin{corolary}{}{}
-  Let the minimal polynomial for $\alpha$ over $K$ splits completely over a large enough field extension $L$ of $K$ as $(X-\alpha_1)\cdots (X-\alpha_d)$. Then $$\tr_{K(\alpha)/K}(\alpha)=\alpha_1+\cdots+\alpha_d\quad\text{and}\quad N_{K(\alpha)/K}(\alpha)=\alpha_1\cdots\alpha_d$$
-  More generally, if $K\subseteq K(\alpha)\subseteq L$, then $$\tr_{L/K}(\alpha)=\frac{n}d(\alpha_1+\cdots+\alpha_d)\quad\text{and}\quad N_{L/K}(\alpha)=(\alpha_1\cdot \alpha_d)^{\nicefrac{n}d}$$where $[L\colon K]=n$ and $[K(\alpha)\colon K]=d$, so $\nicefrac{n}d=[L\colon K(\alpha)]$. 
-\end{corolary}
-
-\begin{corolary}{}{}
+Now for finite fields for any $\alpha\in\bbF_{q^d}$ let $f$ is the minimal polynomial of $\alpha$  over $\bbF_q$. Then by \IrrRootsConjugatesthm we know the roots of $f$ are $\alpha,\alpha^q,\dots, \alpha^{\deg(f)-1}$. Hence, rewriting \TraceNormRootscor in terms of conjugates of $\alpha$ we get the following corollary.
+\begin{corolary}{Formula of Trace and Norm}{cor:trace-norm-fq-frobenius}
   Let $K/\bbF_q$ be finite extension with $[K\colon \bbF_q]=n$. Then for any $\alpha\in K$, $$\tr_{K/\bbF_q}=\alpha+\alpha^q+\cdots+\alpha^{q^{n-1}}\quad\text{and}\quad \norm_{K/\bbF_q}(\alpha)=\alpha\cdot \alpha^q\cdots\alpha^{q^{n-1}}$$
 \end{corolary}
-\begin{Theorem}{}{}
-  Let $L/K/F$ be finite extensions. Then for any $\alpha\in L$ $$\tr_{L/F}(\alpha)=\tr_{K/F}\circ \tr_{L/K}(\alpha)\quad\text{and}\quad \norm_{L/F}(\alpha)=N_{K/F}\circ \norm_{L/K}(\alpha)$$
+
+In particular, the trace and norm are invariant under the Frobenius automorphism $\alpha\mapsto\alpha^q$: replacing $\alpha$ by $\alpha^q$ merely cycles the summands (respectively, the factors) in the expressions above, leaving the total unchanged.
+
+\begin{Theorem}{}{thm:trace-linear-maps}
+  Let $K$ be a finite extension of $F=\bbF_q$. The $F$-linear transformations from $K$ into $F$ are exactly the mappings $L_\beta$, $\beta\in K$, where $L_\beta(\alpha)=\tr_{K/F}(\beta\alpha)$ for all $\alpha\in K$. Furthermore, $L_\beta\neq L_\gamma$ whenever $\beta$ and $\gamma$ are distinct elements of $K$.
 \end{Theorem}
+\begin{proof}
+  For any $\alpha_1,\alpha_2\in K$ and $c\in F$,
+  \[
+    L_\beta(\alpha_1+c\alpha_2) = \tr_{K/F}(\beta(\alpha_1+c\alpha_2))
+    = \tr_{K/F}(\beta\alpha_1) + c\,\tr_{K/F}(\beta\alpha_2)
+    = L_\beta(\alpha_1) + c\,L_\beta(\alpha_2),
+  \]
+  using the $F$-linearity of $\tr_{K/F}$ from \TraceNormPropsthm.
+
+  Let $\beta,\gamma\in K$ with $\beta\neq\gamma$. For any $\alpha\in K$,
+  \[
+    L_\beta(\alpha) - L_\gamma(\alpha) = \tr_{K/F}(\beta\alpha) - \tr_{K/F}(\gamma\alpha)
+    = \tr_{K/F}((\beta-\gamma)\alpha).
+  \]
+  Since $\beta-\gamma\neq 0$, the map $\alpha\mapsto(\beta-\gamma)\alpha$ is a $K$-linear bijection on $F$, so the image of $\alpha\mapsto\tr_{F/K}((\beta-\gamma)\alpha)$ equals the image of $\tr_{F/K}$ itself. As $\tr_{F/K}:F\to K$ is a non-zero $K$-linear map onto $K$, since $\tr_{K/F}(1)=[K\colon F]>0$, there exists $\alpha\in F$ such that $\tr_{F/K}((\beta-\gamma)\alpha)\neq 0$. Hence, $L_\beta\neq L_\gamma$.
+
+
+  Write $F=\bbF_q$ and $K=\bbF_{q^m}$, so $[K\colon F]=m$. Since the $L_\beta$ are pairwise distinct as $\beta$ ranges over $K=\bbF_{q^m}$, they yield $q^m$ distinct $F$-linear maps from $K$ to $F$. On the other hand, any $F$-linear map $K\to F$ is determined by its values on a fixed $F$-basis of $K$, which has $m$ elements; each value can be assigned arbitrarily in $F=\bbF_q$. So the total number of $F$-linear maps $K\to F$ is $q^m$. Therefore, the maps $\{L_\beta:\beta\in K\}$ exhaust all $F$-linear transformations from $K$ into $F$.
+
+\end{proof}
+
+\begin{Theorem}{}{thm:trace-zero-artin-schreier}
+  Let $K$ be a finite extension of $F=\bbF_q$. Then for $\alpha\in K$ we have $\tr_{K/F}(\alpha)=0$ if and only if $\alpha=\beta^q-\beta$ for some $\beta\in K$.
+\end{Theorem}
+
+\begin{proof}
+  The sufficiency of the condition is obvious. To prove the necessity, suppose $\alpha\in K=\bbF_{q^m}$ with $\tr_{K/F}(\alpha)=0$ and let $\beta$ be a root of $X^q-X-\alpha$ in some extension field of $K$. Then $\beta^q-\beta=\alpha$ and
+  \begin{align*}
+    0 = \tr_{K/F}(\alpha) & = \alpha+\alpha^q+\cdots+\alpha^{q^{m-1}}                                    \\
+                          & = (\beta^q-\beta)+(\beta^q-\beta)^q+\cdots+(\beta^q-\beta)^{q^{m-1}}         \\
+                          & = (\beta^q-\beta)+(\beta^{q^2}-\beta^q)+\cdots+(\beta^{q^m}-\beta^{q^{m-1}}) \\
+                          & = \beta^{q^m}-\beta,
+  \end{align*}
+  so that $\beta\in K$.
+\end{proof}
+
+
+\begin{Theorem}{}{thm:trace-norm-transitivity}
+  Let $L/K/F$ be finite extensions. Then for any $\alpha\in L$ $$\tr_{L/F}(\alpha)=\tr_{K/F}\circ \tr_{L/K}(\alpha)\quad\text{and}\quad \norm_{L/F}(\alpha)=
+    \norm_{K/F}\circ \norm_{L/K}(\alpha)$$
+\end{Theorem}
+\begin{proof}
+  Let $[L\colon K]=m$ and $[K\colon F]=n$. Suppose $\{a_1,\dots, a_n\}$ is a $F$-basis of $K$ and $\{b_1,\dots, b_m\}$ is a $K$-basis of $L$. Then $\{a_i\cdot b_j\colon i\in[n],j\in[m]\}$ is a $F$-basis of $L$. 
+
+  For any $\alpha\in L$ let\begin{equation}
+    \alpha\cdot b_j=\sum_{i=1}^m c_{ij}\cdot b_i,\quad c_{ij}a_s=\sum_{r=1}^nd_{ijrs}\cdot a_r
+  \end{equation}
+  where $c_{ij}\in K$ and $d_{ijrs}\in F$. Therefore, $$\alpha(a_sb_j)=\sum_{i=1}^mc_{ij}\cdot a_s\cdot b_i=\sum_{i=1}^m\sum_{r=1}^n b_{ijrs}\cdot a_rb_j$$So now if we look into the matrix representation of $[m_{\alpha}]_{L/K}$ and $[m_{\alpha}]_{L/F}$ then we have $$[m_{\alpha}]_{L/K}=\lt(c_{ij}\rt)_{1\leq i,j\leq n},\quad [m_{c_{ij}}]_{K/F}=\lt(b_{ijrs}\rt)_{1\leq r,s\leq n},\quad [m_{\alpha}]_{L/F}=\lt([m_{c_{ij}}]_{K/F}\rt)_{1\leq i,j\leq n}$$
+  where the field extension in the subscript indicates what extension is being used for that matrix. The last matrix is a block matrix. So using all these three matrices we get \begin{align*}
+    \tr_{K/F}\circ \tr_{L/K}(\alpha)  = \tr_{K/F}\lt(\sum_{i=1}^m c_{ii}\rt) = \sum_{i=1}^m \tr_{K/F}(c_{ii}) = \sum_{i=1}^m \tr\lt([m_{c_{ii}}]_{K/F}\rt)= \sum_{i=1}^m \sum_{r=1}^n b_{iirr}= \tr_{L/F}(\alpha)
+  \end{align*}
+  So we have the transitivity of the trace function. Now we will show for the norm function. For norm it is very delicate and harder to show. We will show a proof from \cite{scholl2005galois}. Again assume $[L\colon K]=m$ and $[K\colon F]=n$. We will prove this by dividing it into 3 cases. 
+
+  \paragraph*{Case I $\alpha\in K$:} Suppose the transitivity formula already holds. Then $\norm_{L/K}(\alpha)=\alpha^{[L\colon K]}$ and hence $\norm_{K/F}\circ \norm_{L/K}(\alpha)=\norm_{K/F}(\alpha^{[L\colon K]})=\norm_{K/F}(\alpha)^{[L\colon K]}$. So in this case we will try to show that this expression is true. 
+
+  In this case $F\subseteq F(\alpha)\subseteq K\subseteq L$. Let $f-\min(F,\alpha)$ and $\deg(f)=d$. Therefore, by \CharPolyMinPolythm we have $P_{\alpha,F(\alpha)/F}(X)=f(X)$ and $P_{\alpha,K/F}(X)=P_{\alpha,F(\alpha)/F}(X)^{[K\colon F(\alpha)]}$ and $P_{\alpha,L/F}(X)=P_{\alpha,F(\alpha)/F}(X)^{[L\colon F(\alpha)]}$. Since $F\subseteq F(\alpha)\subseteq K\subseteq L$ we have by \TowerLawthm, $[L\colon F(\alpha)]=[L\colon K]\cdot [K\colon F(\alpha)]$. Therefore, $$P_{\alpha,L/F}(X)=P_{\alpha,F(\alpha)/F}(X)^{[L\colon F(\alpha)]}=\lt(P_{\alpha,F(\alpha)/F}(X)^{[K\colon F(\alpha)]}\rt)^{[L\colon K]}=P_{\alpha,K/F}(X)^{[L\colon K]}$$So if we compare the constant terms we get $$(-1)^{[L\colon F]}\norm_{L/F}(\alpha)=\lt((-1)^{[K\colon F]}\norm_{K/F}(\alpha)\rt)^{[L\colon K]}\implies \norm_{L/F}(\alpha)=\norm_{K/F}(\alpha)^{[L\colon K]}$$Hence we have settled this case. 
+
+  \paragraph*{Case II $L=K(\alpha)$:} Let $f$ is the minimal polynomial of $\alpha$ over $K$. Then $\deg(f)=m$. Let $f(X)=X^m+c_{m-1}X^{m-1}+\cdots+c_0$. Then $$\norm_{K/F}\circ \norm_{K(\alpha)/K}(\alpha)=\norm_{K/F}((-1)^mc_0)=(-1)^{mn}\norm_{K/F}(c_0)$$So now we will compute $\norm_{K/F}(c_0)$. 
+  
+  Let $\{b_1,\dots, b_n\}$ is an $F$-basis of $K$. So an $F$-basis of $K(\alpha)$ is $\{\alpha^i\cdot b_j\colon 0\leq i\leq m-1,1\leq j\leq n\}$. By definition $\norm_{K(\alpha)/F}(\alpha)$ is the determinant of the matrix for multiplication by $\alpha$ on $K(\alpha)$ as an $F$-linear map. Now for all $j\in[n]$, $\alpha\cdot (\alpha^ib_j)=\alpha^{i+1}b_j$ where $0\leq i\leq m-2$ but $$\alpha\cdot (\alpha^{m-1}b_j)=\alpha^mb_j=-\alpha^{m-1}(c_{m-1}b_j)-\cdots -\alpha(c_1b_j)-c_0b_j$$Let $C_i$ be the matrix of expressing $c_ib_j$ for all $j\in[n]$ as $F$-linear combinations of $b_1,\dots, b_n$. Hence, using the above basis we have the matrix to be $$[m_{\alpha}]_{K(\alpha)/F}=\mat{O & O & \cdots & O & -C_0\\ I_n & O & \cdots & O & -C_1\\ O & I_n & \cdots & O & -C_2\\ \vdots & \vdots & \ddots & \vdots & \vdots \\ O & O & \cdots & I_n & -C_{m=1}}=\mat{O & -C_0\\ I_{(m-1)n}& B}$$where $O$ is the zero matrix of dimension $n\times (m-1)n$ and $B$ is the $(m-1)n\times n$ matrix gathering all the $C_1,\dots, C_{m-1}$. Therefore, $$\det\mat{O & -C_0\\ I_{(m-1)n}& B}=(-1)^{(m-1)n^2}\det(-C_0)=(-1)^{(m-1)n}\cdot (-1)^n\det(C_0)=(-1)^{mn}\det(C_0)$$Now $C_0$ is the matrix for multiplication by $c_0$ and therefore, $\det(c_0)=\norm_{K/F}(c_0)$.  So, $\norm_{K(\alpha)/F}(\alpha)=(-1)^{mn}\norm_{K/F}(c_0)$ and previously we prove that $(-1)^{mn}\norm_{K/F}(c_0)=\norm_{K/F}\circ \norm_{K(\alpha)/K}(\alpha)$. So we have settled case II. 
+
+  \paragraph*{Case III General Situation:} Therefore in this case $F\subseteq K\subseteq F(\alpha)\subseteq L$. Then we have \begin{align*}
+    \norm_{L/F}(\alpha) & = \norm_{F(\alpha)/F}(\alpha)^{[L\colon F(\alpha)]} & [\text{By Case I for $L/F(\alpha)/F$}]\\ 
+    & = \lt(\norm_{K/F}\circ \norm_{F(\alpha)/K}(\alpha)\rt)^{[L\colon F(\alpha)]} & [\text{By Case II for $F(\alpha)/K/F$}]\\ 
+    & =\norm_{K/F}\lt(\norm_{F(\alpha)/K}(\alpha)^{[L\colon F(\alpha)]}\rt)\\ 
+    & = \norm_{K/F}\circ \norm_{L/K}(\alpha) & [\text{By Case I for $L/F(\alpha)/F$}]
+  \end{align*}
+  This settles case III too. And hence the proof is complete.
+\end{proof}
+
+This concludes our discussion on finite fields and their basic theory, including field extensions, the structure of $\bbF_q$, and the trace and norm maps. In the next chapter we turn to the theory of characters of finite fields, which will be the primary tool in our study of equations over finite fields. For a thorough and self-contained treatment of finite fields beyond what is covered here, the reader is referred to~\cite{Lidl1996}.
+
