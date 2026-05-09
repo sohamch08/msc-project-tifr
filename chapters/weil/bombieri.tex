@@ -11,14 +11,13 @@ A curve of the form $Y^q-Y=f(X)$ over $\bbF_q$, where $f\in\bbF_q[X]$, is called
 
 The proof mirrors the Stepanov method: reduce the solution count to a count by trace value, then construct an auxiliary univariate polynomial $Q$ that vanishes with high multiplicity at each point with a given trace value, and bound its degree.
 
-% TODO: Connect with trace: Later refer to trace function properties from trace and field
 \begin{lemma}{Trace Decomposition of Solutions}{lem:bombieri-trace-count}
   \index{trace decomposition}%
   Let for any $\alpha\in\bbF_q$, $Z_{\alpha}$ denote the number of $\gm\in E$ such that $\tr_{E/\bbF_q}(\gm)=\alpha$.
   $$\sum_{\alpha\in\bbF_q}Z_{\alpha}=q^k\quad\text{and}\quad Z_E(Y^q-Y=f(X))=q\cdot Z_0.$$
 \end{lemma}
 \begin{proof}
-  The first statement is obvious and the later follows from trace properties.
+  The first statement is obvious and the later follows from \TraceZeroArtinSchreierthm
 \end{proof}
 
 Set $r=\lt[\nicefrac{k}{2}\rt]$; we may assume $k\geq 3$ so $r\geq 1$. Split $\tr_{E/\bbF_q}(f(X))=g_0(X)+g_r(X)$ by defining
