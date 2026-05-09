@@ -116,8 +116,8 @@ From \TraceNormMinPolyCoeffscor we can draw a relation between the coefficients 
 \end{corolary}
 
 Now for finite fields for any $\alpha\in\bbF_{q^d}$ let $f$ is the minimal polynomial of $\alpha$  over $\bbF_q$. Then by \IrrRootsConjugatesthm we know the roots of $f$ are $\alpha,\alpha^q,\dots, \alpha^{\deg(f)-1}$. Hence, rewriting \TraceNormRootscor in terms of conjugates of $\alpha$ we get the following corollary.
-\begin{corolary}{Formula of Trace and Norm}{cor:trace-norm-fq-frobenius}
-  Let $K/\bbF_q$ be finite extension with $[K\colon \bbF_q]=n$. Then for any $\alpha\in K$, $$\tr_{K/\bbF_q}=\alpha+\alpha^q+\cdots+\alpha^{q^{n-1}}\quad\text{and}\quad \norm_{K/\bbF_q}(\alpha)=\alpha\cdot \alpha^q\cdots\alpha^{q^{n-1}}$$
+\begin{corolary}{Formula of Trace and Norm in Finite Fields}{cor:trace-norm-fq-frobenius}
+  Let $K/\bbF_q$ be finite extension with $[K\colon \bbF_q]=n$. Then for any $\alpha\in K$, $$\tr_{K/\bbF_q}(\alpha)=\alpha+\alpha^q+\cdots+\alpha^{q^{n-1}}\quad\text{and}\quad \norm_{K/\bbF_q}(\alpha)=\alpha\cdot \alpha^q\cdots\alpha^{q^{n-1}}$$
 \end{corolary}
 
 In particular, the trace and norm are invariant under the Frobenius automorphism $\alpha\mapsto\alpha^q$: replacing $\alpha$ by $\alpha^q$ merely cycles the summands (respectively, the factors) in the expressions above, leaving the total unchanged.
@@ -162,7 +162,7 @@ In particular, the trace and norm are invariant under the Frobenius automorphism
 \end{proof}
 
 
-\begin{Theorem}{}{thm:trace-norm-transitivity}
+\begin{Theorem}{Transitive Property of Trace and Norm}{thm:trace-norm-transitivity}
   Let $L/K/F$ be finite extensions. Then for any $\alpha\in L$ $$\tr_{L/F}(\alpha)=\tr_{K/F}\circ \tr_{L/K}(\alpha)\quad\text{and}\quad \norm_{L/F}(\alpha)=
     \norm_{K/F}\circ \norm_{L/K}(\alpha)$$
 \end{Theorem}
