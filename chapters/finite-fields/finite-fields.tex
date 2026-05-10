@@ -4,10 +4,10 @@ Fields are the most fundamental algebraic structures in which one can add, subtr
 
 \begin{Definition}{Rings and Fields}{def:ring-types}
   \begin{enumerate}[label={(\roman*)}]
-    \item A ring is called a \emph{ring with identity} if the ring has a multiplicative identity---that is, if there is an element $e$ such that $ae=ea=a$ for all $a\in R$.
-    \item A ring is called \emph{commutative} if $\cdot$ is commutative.
+    \item A ring $R$ is an abelian group with a multiplication operation such that the ring is closed under the multiplication operation. We assume the ring has a multiplicative identity $e\in R$ such that for all element $a\in R$, $ea=ae=a$. 
+    \item A ring is called \emph{commutative} if the multiplication operation is commutative.
     \item A ring is called an \emph{integral domain} if it is a commutative ring with identity $e\neq 0$ in which $ab=0$ implies $a=0$ or $b=0$.
-    \item A ring is called a \emph{division ring} (or \emph{skew field}) if the nonzero elements of $R$ form a group under $\cdot$.
+    \item A ring is called a \emph{division ring} (or \emph{skew field}) if the nonzero elements of $R$ form a group under the multiplication operation. 
     \item A commutative division ring is called a \emph{field}.
   \end{enumerate}
 \end{Definition}
