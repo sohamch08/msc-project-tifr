@@ -73,14 +73,14 @@ Now every element of $\hG$ is a function $\chi$ which takes an element of $G$ an
             \sum_{g\in G}\chi(g)=0
           \end{equation}
     \item If $g\in G$ with $g\neq 1_G$ then \begin{equation}
-            \sum_{\chi\in \hG}\chi(g)=0
+            \sum_{\oldchi\in \hG}\chi(g)=0
           \end{equation}
   \end{enumerate}
 \end{Theorem}
 \begin{proof}
   Since $\chi$ is nontrivial there exists $h\in G$ such that $\chi(h)\neq 1$. Then $$\chi(h)\sum_{g\in G}\chi(g)=\sum_{g\in G}\chi(h\cdot g)= \sum_{g\in G}\chi(g)$$Hence we have $$(\chi(h)-1)\sum_{g\in G}\chi(g)=0$$Since we know $\chi(h)\neq 1$ we have $\sum_{g\in G}\chi(g)=0$.
 
-  Now from the discussion above for any $g\in G$ and $\chi\in hG$ we have $\chi(g)=\ev_g(\chi)$. Hence $$\sum_{\chi\in \hG}\chi(g)=\sum_{\chi\in \hG}\ev_g(\chi)$$Since $g\neq 1_G$, there is a $\chi\in\hG$ such that $\chi(g)\neq 1$. Hence $\ev_g$ is a nontrivial character of $\hG$. Hence by the first part of the theorem we have $\sum_{\chi\in \hG}\ev_g(\chi)=0$.
+  Now from the discussion above for any $g\in G$ and $\chi\in hG$ we have $\chi(g)=\ev_g(\chi)$. Hence $$\sum_{\oldchi\in \hG}\chi(g)=\sum_{\oldchi\in \hG}\ev_g(\chi)$$Since $g\neq 1_G$, there is a $\chi\in\hG$ such that $\chi(g)\neq 1$. Hence $\ev_g$ is a nontrivial character of $\hG$. Hence by the first part of the theorem we have $\sum_{\oldchi\in \hG}\ev_g(\chi)=0$.
 \end{proof}
 
 The above theorem leaves the case when $\chi$ is the trivial character. Then for all $g\in G$, $\chi(g)=1$. Hence we have $\sum_{g\in G}\chi(g)=|G|$. Hence we have the following corollary
@@ -92,16 +92,16 @@ The above theorem leaves the case when $\chi$ is the trivial character. Then for
               0   & \text{otherwise}
             \end{cases}
           \end{equation}
-    \item $|G|=\sum_{\chi\in \hG}\sum_{g\in G}\chi(g)$
+    \item $|G|=\sum_{\oldchi\in \hG}\sum_{g\in G}\chi(g)$
   \end{enumerate}
 \end{observation}
 
-So now by counting in two ways for the sum $\sum_{\chi\in \hG}\sum_{g\in G}\chi(g)$ we get the following theorem:
+So now by counting in two ways for the sum $\sum_{\oldchi\in \hG}\sum_{g\in G}\chi(g)$ we get the following theorem:
 \begin{Theorem}{}{thm:group-char-equal}
   For any finite abelian group $G$, we have $|G|=|\hG|$.
 \end{Theorem}
 \begin{proof}
-  From \obsref[(ii)]{obs:char-sum} we have $$|G|=\sum_{\chi\in \hG}\sum_{g\in G}\chi(g)=\sum_{g\in G}\sum_{\chi\in \hG}\chi(g)=|\hG|$$Hence we have the result.
+  From \obsref[(ii)]{obs:char-sum} we have $$|G|=\sum_{\oldchi\in \hG}\sum_{g\in G}\chi(g)=\sum_{g\in G}\sum_{\oldchi\in \hG}\chi(g)=|\hG|$$Hence we have the result.
 \end{proof}
 
 From above theorem and \obsref[(i)]{obs:char-sum} we get the \emph{orthogonality relations for characters}\index{orthogonality relations!for characters}\index{orthogonality relations!additive characters}\index{orthogonality relations!multiplicative characters}.
@@ -112,7 +112,7 @@ From above theorem and \obsref[(i)]{obs:char-sum} we get the \emph{orthogonality
               1 & \text{if $\chi=\tau$} \\
               0 & \text{otherwise}
             \end{cases}$$
-    \item If $g,h\in G$ are any two elements then $$\frac{1}{|G|}\sum_{\chi\in \hG}\chi(g)\cdot \overline{\chi(h)}=\begin{cases}
+    \item If $g,h\in G$ are any two elements then $$\frac{1}{|G|}\sum_{\oldchi\in \hG}\chi(g)\cdot \overline{\chi(h)}=\begin{cases}
               1 & \text{if $g=h$}  \\
               0 & \text{otherwise}
             \end{cases}$$
