@@ -46,7 +46,7 @@ We claim that there exist nonzero polynomials $A(X)$ and $B(X)$ of the form
   \qquad
   B(X)=\sum_{i=0}^{t+c-1} B_i(X)\Lambda^i(X),
 \]
-with
+with 
 \(
 \deg(A_i)\le k\), \(
 \deg(B_i)\le k+2e,
@@ -54,7 +54,7 @@ with
 such that
 \(
 A(X)F(X)=B(X)G(X).
-\)We again argue by dimension counting. The total number of coefficients of the $A_i$ and $B_i$ equals
+\) We again argue by dimension counting. The total number of coefficients of the $A_i$ and $B_i$ equals 
 \(
 N=t(k+1)+(t+c)(k+2e+1).
 \) Substituting the values of $t$ and $k$, we get
@@ -78,10 +78,10 @@ roots counted with multiplicity. On the other hand,
   <
   \left(\frac78+\frac{\varepsilon}{2}\right)Mq.
 \]
-Thus
+Thus, 
 \(
 A(X)F(X)=B(X)G(X).
-\) It remains to show that Equation \eqref{eq:twisted-relate-FG} can indeed be enforced using fewer than $N$ linear constraints. For each $\ell$, define
+\) It remains to show that Equation \eqref{eq:twisted-relate-FG} can indeed be enforced using fewer than $N$ linear constraints. For each $\ell$, define 
 \(
 A_{\langle \ell\rangle}(X)
 =
@@ -91,11 +91,11 @@ B_{\langle \ell\rangle}(X)
 =
 \sum_{i=0}^{t+c-1}
 (-1)^i B_i^{(\ell-i)}(X).
-\) By \DerivativeXqXlem we get
+\) By \DerivativeXqXlem we get 
 \(
 A^{(\ell)}(\alpha)=A^{\langle \ell\rangle}(\alpha)\) and \(
 B^{(\ell)}(\alpha)=B^{\langle \ell\rangle}(\alpha)
-\) for every $\alpha\in\mathbb F_q$. Now recall that
+\) for every $\alpha\in\mathbb F_q$. Now recall that 
 \(
 F^{(\ell)}(\alpha)=r(\alpha)U_\ell(\alpha).
 \) Hence,
@@ -162,45 +162,40 @@ Now let $H(X)$ be an irreducible polynomial in $\mathbb F_q[X]$. Denote by
 \) 
 Applying the lemma to $A$ and $B$, we have
 \[
-  \mu_B\in q\mathbb Z+[0,3e+4dM+\tfrac78 M],\text{ and }
+  \mu_B\in q\mathbb Z+[0,3e+4dM+\tfrac78 M]\quad\text{ and }\quad
   \mu_A\in q\mathbb Z+[0,e+4dM+\tfrac38 M].
 \]
 Therefore
-\[
+\(
   \mu_F
   \in
   \mu_G+q\mathbb Z+[-e-5dM,\,3e+5dM].
-\]
-
-Now
-\[
+\) Now
+\(
   \mu_G=\left(\frac{q-1}{2}+M\right)\mu_g.
-\]
+\) 
 
 If $\mu_g=1$, then
-\[
+\(
   \mu_G=\frac q2+\frac{M-1}{2},
-\]
+\)
 and hence
-\[
+\(
   \mu_F
   \in
   q\mathbb Z+\frac q2+[-e-5dM,\,3e+6dM].
-\]
-Using
-\[
+\) Using 
+\( 
   e\le \left(\frac18-\varepsilon\right)q
-\]
-and
-\[
+\) 
+and 
+\(
   6dM<\varepsilon q,
-\]
-we obtain
-\[
+\)
+we obtain 
+\(
   \mu_F\in q\mathbb Z+(3q/8,7q/8).
-\]
-
-On the other hand, if $\mu_g=0$, then $\mu_G=0$, and thus
+\) On the other hand, if $\mu_g=0$, then $\mu_G=0$, and thus
 \[
   \mu_F
   \in
@@ -209,10 +204,7 @@ On the other hand, if $\mu_g=0$, then $\mu_G=0$, and thus
   q\mathbb Z+(-q/8,3q/8).
 \]
 
-Hence the set $J$ selected in Step~4 consists precisely of those irreducible factors which divide $g(X)$. Therefore the polynomial produced in Step~5 is exactly
-\[
-  f(X)=g(X).
-\]
+Hence the set $J$ selected in Step~5 of the algorithm consists precisely of those irreducible factors which divide $g(X)$. Therefore, the polynomial produced in Step~5 is exactly $f(X)=g(X)$. 
 
 
 
