@@ -29,7 +29,7 @@ So define $$V_{\ell}(X)= \sum_{\ell_1+\ell_2=\ell}E_{\la \ell_1\ra}(X)\cdot G_{g
     Set $M=\nicefrac{16}{\eps}\cdot d$, $c=\nicefrac{M}2$, $h=2\cdot e$, $D=d(\nicefrac{(q-1)}2+M)+cq$\;
     Use system of linear equations to find $r$-twisted $(h+dM,M)$-pseudopolynomial $F(X)$ of degree at most $D$. \;
     Complete factorization of $F(X)$ into distinct monic irreducible factors $\{h_1,\dots, h_k\}$ with $\mult(h_j,F)=k_j$. \;
-    Compute the set $J=\lt\{j\in [t]\colon k_j\in \lt[\nicefrac{3q}8,\nicefrac{7q}8\rt]\rt\}$. Then compute $f(X)=\prod_{j\in J}h_j$. \;
+    Compute the set $J=\lt\{j\in [t]\colon k_j\in \lt[\nicefrac{3q}8,\nicefrac{7q}8\rt]\bmod{q}\rt\}$. Then compute $f(X)=\prod_{j\in J}h_j$. \;
     \Return{$f(X)$}
   }
 \end{algorithm}
@@ -210,7 +210,7 @@ Hence, the set $J$ selected in Step~5 of the algorithm consists precisely of tho
 
 \subsection{General Multiplicative Character of order \texorpdfstring{$m$}{m}}
 
-Now we take the multiplicative character $\psi\in\Mq$or order $m>1$. Hence, we assume the polynomials are monic and don't have a factor of power $m$. Then by \WeilBoundPsiNondthm we have $$\lt|\sum_{\alpha}\psi((g_1\cdot g_2)(\alpha))\rt|< O(m\sqrt{q})$$Therefore the hamming distance is at least $\lt(1-\frac1m\rt)q$ which gives the distance of the code. So the unique decoding radius is $\frac12\lt(1-\frac1m\rt)q$.
+Now we take the multiplicative character $\psi\in\Mq$or order $m>1$. Hence, we assume the polynomials are monic and don't have a factor of power $m$. Then by \WeilBoundPsiNondthm we have $\lt|\sum_{\alpha}\psi((g_1\cdot g_2)(\alpha))\rt|< O(m\sqrt{q})$. Therefore the hamming distance is at least $\lt(1-\frac1m\rt)q$ which gives the distance of the code. So the unique decoding radius is $\frac12\lt(1-\frac1m\rt)q$.
 
 Now we can also think of the character as $\psi:\bbF_q\to \{0\}\cup\bbF_q^{*^{(\nicefrac{(q-1)}m)}}$ where $\alpha\mapsto \alpha^{\nicefrac{(q-1)}m}$. So here we will consider the multiplicative as an map from $\bbF_q\to \{0\}\cup\bbF_q^{*^{(\nicefrac{(q-1)}m)}}$. Like for the case of quadratic character we will not prove the correctness of the algorithm instead we just give the pseudocode of the algorithm below. The details of the correctness of the algorithm is given in \cite{Kopparty2026}.
 
@@ -226,9 +226,9 @@ Now we can also think of the character as $\psi:\bbF_q\to \{0\}\cup\bbF_q^{*^{(\
       Use system of linear equations to find $r^k$-twisted $(h+(m-1)dM,M)$-pseudopolynomial $F_k(X)$ of degree at most $D$. \;
       Complete factorization of $F(X)$ into distinct monic irreducible factors $\{h_{1,k},\dots, h_{t_k,k}\}$ with $\mult(h_{j,k},F_k)=d_{j,k}$. 
     }
-    Let the irreducible factors are $H_1,\dots, H_t$ with $\mult(H_j,F_k)=d_{j,k}$.
+    Let the irreducible factors are $H_1,\dots, H_t$ with $\mult(H_j,F_k)=d_{j,k}$.\;
     \For{$j\in [t]$}{
-      Let $\mu_j\in\{0,1,\dots, m-1\}$ be the unique number such the for all $k\in[m-1]$ $$d_{k,j}-\frac{k\cdot \mu_j}{m}\cdot (q-1)\in\lt(-\lt(\frac1{12}-\eps\rt)q,\lt(\frac3{12}-\eps\rt)q  \rt)$$
+      Let $\mu_j\in\{0,1,\dots, m-1\}$ be the unique number such the for all $k\in[m-1]$ $$d_{k,j}-\frac{k\cdot \mu_j}{m}\cdot (q-1)\in\lt(-\lt(\frac1{12}-\eps\rt)q,\lt(\frac3{12}-\eps\rt)q  \rt)\bmod{q}$$
     }
     Compute $f(X)=\prod_{j=1}^th_j^{\mu_j}(X)$.\;
     \Return{$f(X)$}

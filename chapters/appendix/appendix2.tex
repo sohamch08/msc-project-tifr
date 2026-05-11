@@ -117,28 +117,31 @@ Waring's Formula expresses each power-sum symmetric polynomial $s_k=x_1^k+x_2^k+
 \end{Theorem}
 
 \begin{Theorem}{}{thm:elm-symmetry-spans}
-  Suppose $f\in\bbF_q[X_1,\dots,X_n]$ is a symmetric polynomial. Let $\ovX=(X_1,\dots, X_n)$. Then there exists a polynomial $g\in \bbF_q[Y_1,\dots,Y_n]$ such that $$f(X_1,\dots, X_n)=g(\esym_1(\ovX),\dots,\esym_n(\ovX)).$$ 
+  Suppose $f\in\bbF_q[X_1,\dots,X_n]$ is a symmetric polynomial. Let $\ovX=(X_1,\dots, X_n)$. Then there exists a polynomial $g\in \bbF_q[Y_1,\dots,Y_n]$ such that $$f(X_1,\dots, X_n)=g(\esym_1(\ovX),\dots,\esym_n(\ovX)).$$
 
   Moreover, \begin{enumerate}[label=(\roman*)]
-    \item if $\deg_{X_i}(f)=d$ for all $i\in[n]$ then $\deg G=d$. 
+    \item if $\deg_{X_i}(f)=d$ for all $i\in[n]$ then $\deg G=d$.
     \item if $\deg f=D$ then for every monomial $Y_1^{d_1}\cdots Y_n^{d_n}$  of $g$ with non-zero coefficient then $d_1+2\cdot d_2+\cdots +n\cdot d_n= D$.
   \end{enumerate}
 \end{Theorem}
-\section{Hasse Derivative}
-% TODO: Hasse Derivative Properties
-\begin{definition}{Hasse Derivative}{}
-	For $P(\ovX)\in \bbF[\ovX]$ and non-negative vector $\ovi$, the $\ovi$th (Hasse) derivative of $P$ denoted $P^{(\ovi)}(\ovX)$ is the coefficient of $\ovZ^{\ovi}$ in the polynomial $\widetilde{P} (\ovX,\ovZ)\overset{\Delta}{=} P(\ovX+\ovZ) \in \bbF[\ovX,\ovZ]$. Thus $$P(\ovX+\ovZ)= \sum_{\ovi} P^{(\ovi)}(\ovX)\ovZ^{ \ovi}$$
-\end{definition}
-\begin{Theorem}{Hasse Derivative Properties}{thm:hasse-derivative-properties}
-	Let $P(\ovX), Q(\ovX)\in \bbF[\ovX]$ and let $\ovi, \ovj$ be vectors of non-negative integers. Then:\begin{enumerate}
-		\item $P^{(\ovi)}(\ovX)+Q^{(\ovi)}(\ovX)=(P+Q)^{(\ovi)}(\ovX)$
-		\item $(P\cdot Q)^{(\ovi)}(\ovX)=\sum\limits_{0\leq \ove\leq \ovi}P^{(\ove)}(\ovX)\cdot Q^{(\ovi-\ove)}(\ovX)$
-		\item $\lt(P^{(\ovi)}\rt)^{(\ovj)}(\ovX)=\comb{\ovi+\ovj}{\ovi} P^{(\ovi+\ovj)}(\ovX)$
-	\end{enumerate}
-\end{Theorem}
 
+\section{Hasse Derivative}
+\begin{Definition}{Hasse Derivative}{}
+  Let $P\in\bbF_q[X_1,\dots,X_n]$. Then $\ovi\in \bbZ_0^n$ Hasse derivative of $P$ is denoted by $P^{(\ovi)}(X_1,\dots, X_n)$ or $H^{(\ovi)}(P)$ which is the coefficient of $Z^{i_1}\cdots Z_n^{i_n}\eqqcolon \ovZ^{\ovi}$ in the polynomial  $P(X_1+Z_1,\dots, X_n+Z_n)$. Thus $$P(X_1+Z_1,\dots, X_n+Z_n)= \sum_{\ovi} P^{(\ovi)}(X_1,\dots, X_n)\cdot \ovZ^{ \ovi}$$
+\end{Definition}
+
+For univariate polynomials we immediately get a closed form formula of $k^{th}$ hasse derivative. Let $f\in\bbF_q[X]$ where $f(X)=\sum_{i=0}^da_iX^i$. Then $$f^{(k)}(X)=\sum_{i=0}^d \binom{k}{i}\cdot a_iX^{i-k}$$
+
+From the definition we have the following observation
+\begin{observation}
+  For any $f,f_1,f_2\in\bbF_q[X_1,\dots, X_n]$ and $\alpha\in\bbF$ and for any $\ovk\in\bbZ^n$ we have\begin{enumerate}[label=(\roman*)]
+    \item $(f_1+f_2)^{(\ovk)}(X_1,\dots, X_n)=f_1^{(\ovk)}(X_1,\dots, X_n)+f_2^{(\ovk)}(X_1,\dots, X_n)$
+    \item $(\alpha\cdot f)^{(\ovk)}(X_1,\dots, X_n)=\alpha\cdot f^{(\ovk)}(X_1,\dots, X_n)$.
+  \end{enumerate}
+\end{observation}
+Since throughout this report we only use hasse derivatives in the context of univariate polynomials we will only focus on univariate polynomials and see some properties of hasse derivatives,
 \begin{lemma}{}{lem:derivative-xq-x}
-   Suppose $U(X), V(X) \in \bbF_q[X]$, $\deg(V) < q$, $i \geq 0$, and
+  Suppose $U(X), V(X) \in \bbF_q[X]$, $\deg(V) < q$, $i \geq 0$, and
   \[
     U(X) = V(X)\cdot \Lambda^i(X).
   \]
