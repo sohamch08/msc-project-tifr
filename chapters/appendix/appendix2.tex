@@ -1,45 +1,4 @@
 \chapter{Appendix}
-\section{Auxiliary Results on Powers of Complex Numbers}
-% TODO: Proofs
-\begin{lemma}{}{lem:power-sum-bound-implies-modulus-bound}
-  Let $\omega_1,\dots,\omega_l$ be complex numbers, and let $B > 0$. If
-  \[
-    |\omega_1^k + \cdots + \omega_l^k| = O(B^k)
-    \quad \text{for } k\in\bbN
-  \]
-  then $|\omega_j| \le B $ for all $j = 1,\dots,l$.
-\end{lemma}
-
-\begin{lemma}{}{lem:real-part-bound-implies-modulus-bound}
-  Let $\omega_1,\dots,\omega_l$ be complex numbers, and let $B > 0$. If
-  \[
-    \Re(\omega_1^k + \cdots + \omega_l^k) \le B^k
-    \quad \text{for } k = 1,2,\dots,
-  \]
-  then $|\omega_j| \le B $ for all $j = 1,\dots,l$.
-\end{lemma}
-
-\begin{lemma}{}{lem:simultaneous-diophantine-approximation}
-  Let $\theta_1,\dots,\theta_l$ be real numbers. Then there exist $(l+1)$-tuples of integers $(k, m_1,\dots,m_l)$ with arbitrarily large $k > 0$ such that
-  \[
-    \left|\theta_i - \frac{m_i}{k}\right| < k^{-1 - (1/l)} \quad (i = 1,\dots,l).
-  \]
-\end{lemma}
-
-\begin{lemma}{}{lem:large-real-part-powers}
-  Let $\omega_1,\dots,\omega_l$ be non-zero complex numbers. Then there exist infinitely many positive integers $k$ such that
-  \[
-    \Re(\omega_1^k + \cdots + \omega_l^k)
-    >
-    \left(1 - 2\pi k^{-1/l}\right)\left(|\omega_1|^k + \cdots + |\omega_l|^k\right).
-  \]
-  Hence, for any given $\varepsilon > 0$, there exist infinitely many $k$ such that
-  \[
-    \Re(\omega_1^k + \cdots + \omega_l^k)
-    >
-    (1 - \varepsilon)\left(|\omega_1|^k + \cdots + |\omega_l|^k\right).
-  \]
-\end{lemma}
 \section{Continued Fractions over Finite Fields}\label{sec:cont-frac-fq}
 
 Let $r_0,r_1\in\bbF_q[X]$ with $r_1\neq 0$. Applying the Euclidean algorithm yields a sequence
@@ -127,10 +86,10 @@ Waring's Formula expresses each power-sum symmetric polynomial $s_k=x_1^k+x_2^k+
 
 \section{Hasse Derivative}
 \begin{Definition}{Hasse Derivative}{}
-  Let $P\in\bbF_q[X_1,\dots,X_n]$. Then $\ovi\in \bbZ_0^n$ Hasse derivative of $P$ is denoted by $P^{(\ovi)}(X_1,\dots, X_n)$ or $H^{(\ovi)}(P)$ which is the coefficient of $Z^{i_1}\cdots Z_n^{i_n}\eqqcolon \ovZ^{\ovi}$ in the polynomial  $P(X_1+Z_1,\dots, X_n+Z_n)$. Thus $$P(X_1+Z_1,\dots, X_n+Z_n)= \sum_{\ovi} P^{(\ovi)}(X_1,\dots, X_n)\cdot \ovZ^{ \ovi}$$
+  Let $\bbF$ be any field. Let $P\in\bbF[X_1,\dots,X_n]$. Then $\ovi\in \bbZ_0^n$ Hasse derivative of $P$ is denoted by $P^{(\ovi)}(X_1,\dots, X_n)$ or $H^{(\ovi)}(P)$ which is the coefficient of $Z^{i_1}\cdots Z_n^{i_n}\eqqcolon \ovZ^{\ovi}$ in the polynomial  $P(X_1+Z_1,\dots, X_n+Z_n)$. Thus $$P(X_1+Z_1,\dots, X_n+Z_n)= \sum_{\ovi} P^{(\ovi)}(X_1,\dots, X_n)\cdot \ovZ^{ \ovi}$$
 \end{Definition}
 
-For univariate polynomials we immediately get a closed form formula of $k^{th}$ hasse derivative. Let $f\in\bbF_q[X]$ where $f(X)=\sum_{i=0}^da_iX^i$. Then $$f^{(k)}(X)=\sum_{i=0}^d \binom{k}{i}\cdot a_iX^{i-k}$$
+For univariate polynomials we immediately get a closed form formula of $k^{th}$ hasse derivative. Let $f\in\bbF[X]$ where $f(X)=\sum_{i=0}^da_iX^i$. Then $$f^{(k)}(X)=\sum_{i=0}^d \binom{k}{i}\cdot a_iX^{i-k}$$
 
 From the definition we have the following observation
 \begin{observation}
@@ -139,7 +98,14 @@ From the definition we have the following observation
     \item $(\alpha\cdot f)^{(\ovk)}(X_1,\dots, X_n)=\alpha\cdot f^{(\ovk)}(X_1,\dots, X_n)$.
   \end{enumerate}
 \end{observation}
-Since throughout this report we only use hasse derivatives in the context of univariate polynomials we will only focus on univariate polynomials and see some properties of hasse derivatives,
+Since throughout this report we only use hasse derivatives in the context of univariate polynomials we will only focus on univariate polynomials and see some properties of hasse derivatives. Here we take $\bbF$ to be any field.
+\begin{lemma}{}{}
+  \begin{enumerate}[label=(\roman*)]
+    \item For $f_1,\dots, f_t\in\bbF[X]$ then we have $$(f_1\cdot f_t)^{(n)}=\sum_{\substack{n_1,\dots, n_t\geq 0\\ n_1+\cdots n_t=n}}\prod_{i=1}^tf_i^{(n_i)}$$ 
+    \item For any $\alpha\in\bbF$ we have $$\lt((X-c)^t\rt)^{(n)}=\binom{t}n\cdot (X-c)^{t-n}.$$  
+    \item For $0\leq n\leq $ and $f,g\in \bbF[X]$we have $$\lt(gf^t\rt)^{(n)}=\tdg\cdot f^{t-n}$$ where $\tdg\in\bbF[X]$ with $\deg(\tdg)\leq \deg(g)+n(\deg(f)-1)$.  
+  \end{enumerate}
+\end{lemma}
 \begin{lemma}{}{lem:derivative-xq-x}
   Suppose $U(X), V(X) \in \bbF_q[X]$, $\deg(V) < q$, $i \geq 0$, and
   \[
@@ -151,3 +117,6 @@ Since throughout this report we only use hasse derivatives in the context of uni
     \pmod{\Lambda(X)}.
   \]
 \end{lemma}
+\begin{Theorem}{}{}
+  Suppose $\Char(\bbF)=p$ where $p$ is a prime. Let $Q(X,Y)\in\bbF[X,Y]$ be a polynomial and define $h(X)=Q\lt(X,X^{p^s}\rt)$ for some $s\in\bbN$. Then for all $0\leq n<p^s$ $$h^{(n)}(X)=Q^{(n,0)}\lt(X,X^{p^s}\rt)$$where $Q^{(i,0)}$ is the $i^{th}$ partial derivative of $Q$ with respect to $X$ where we consider $Q$ as a polynomial of $\bbF[Y][X]$. 
+\end{Theorem}

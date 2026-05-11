@@ -1,6 +1,17 @@
 \section{Weil Bounds via the Lifting Method}\label{sec:weil-lifted-bounds}
 
-In this section we will try to give bounds on the absolute value of deviation of number of zeros from the average number of zeros. And then we will give upper bounds on the absolute values of $\Wpsil{k}{f}$, $\Wchil{k}{g}$ and $\Wmixl{k}{f}{g}$. But here we will count the solutions or give the bounds on absolute value on lifted characters in a finite extension field $E=\bbF_{q^k}$ of $\bbF_q$.  For any polynomial $P(X,Y)\in\bbF_q[X,Y]$ we denote the number of solutions of $P(X,Y)=0$ in the field $ E$ by $Z_E(P(X,Y)=0)$. 
+In this section we will try to give bounds on the absolute value of deviation of number of zeros from the average number of zeros. And then we will give upper bounds on the absolute values of $\Wpsil{k}{f}$, $\Wchil{k}{g}$ and $\Wmixl{k}{f}{g}$. But here we will count the solutions or give the bounds on absolute value on lifted characters in a finite extension field $E=\bbF_{q^k}$ of $\bbF_q$.  For any polynomial $P(X,Y)\in\bbF_q[X,Y]$ we denote the number of solutions of $P(X,Y)=0$ in the field $ E$ by $Z_E(P(X,Y)=0)$.
+
+Before we dive deeper into the weil bounds first we prove an auxiliary lemma which will help us to give bounds to the complex roots. 
+% TODO: Proof of auxiliary lemma
+\begin{lemma}{}{lem:power-sum-bound-implies-modulus-bound}
+  Let $\omega_1,\dots,\omega_l$ be complex numbers, and let $B > 0$. If
+  \[
+    |\omega_1^k + \cdots + \omega_l^k| = O(B^k)
+    \quad \text{for all } k\in\bbN
+  \]
+  then $|\omega_j| \le B $ for all $j = 1,\dots,l$.
+\end{lemma}
 
 \subsection{Bound for Multiplicative Character Sums}\label{subsec:mchar-weil-bound}
 Let $\psi\in\Mq$ be a non-trivial multiplicative character. And let $\chi_0\in\Xq$ be the trivial additive character. Let $f(X)\in\bbF_q[X]$ is a monic polynomial with precisely $m$ distinct roots. Let $g(X)=0$. Then $W\lt(\psi,\chi_0;f,0\rt)=\Wpsi{f}$ and $W^{(k)}\lt(\psi^{(k)},\chi_0^{(k)};f,0\rt)=\Wpsil{k}{f}$. So by \LiftedLRootscor there exists complex numbers $w_1,\dots, w_{m-1}\in\bbC$ such that \begin{equation}\label{eq:mchar-complex-root-sum}
