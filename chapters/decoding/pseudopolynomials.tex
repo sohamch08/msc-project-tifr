@@ -74,7 +74,7 @@ By definition, we have same basic observations on how $\pdeg$ behaves on additio
 
 Now the pseudopolynomials are special because even though we may have a very large degree pseudopolynomials the multiplicities of an irreducible factor is small. The following lemma gives a bound on the multiplicity modulo $q$.
 
-\begin{lemma}{Multiplicity Bound for Pseudopolynomials}{pdeg-mult-bound}
+\begin{lemma}{Multiplicity Bound for Pseudopolynomials}{lem:pdeg-mult-bound}
   Let $k < q$, and let $F(X)$ be a nonzero $k$-pseudopolynomial of degree $D$ over $\bbF_q$. For an irreducible polynomial $H(X) \in \bbF_q[X]$, let $\mu$ be the highest power of $H(X)$ that divides $F(X)$. Then:
   \[
     \mu \;\bmod\; q \;\in\; \left[0,\; k + \left\lfloor\frac{D}{q}\right\rfloor\right].
@@ -133,7 +133,7 @@ which is always at least $(1 - 2R)\cdot q$.
 The following lemma shows that any two $r$-twisted $(h, M)$-pseudopolynomials with degree at most $cq$ are very closely related, provided $h$ and $c$ are small enough.
 
 \begin{lemma}{}{lem:twisted-two}
-  Let $c, h, M$ be parameters, with $c < M/2$. Let $r : \bbF_q \to \bbF_q$. Suppose $F(X), G(X) \in \bbF_q[X]$ with $\deg(F), \deg(G) < cq$ are both $r$-twisted $(h, M)$-pseudopolynomials and $k > \nicefrac{M}{M - 2c} \cdot (h + 1)$. Then there exist nonzero $k$-pseudopolynomials $A(X), B(X)$, with $\deg(A), \deg(B) < Mq$, such that:
+  Let $c, h, M$ be parameters, with $c < \nicefrac{M}2$. Let $r : \bbF_q \to \bbF_q$. Suppose $F(X), G(X) \in \bbF_q[X]$ with $\deg(F), \deg(G) < cq$ are both $r$-twisted $(h, M)$-pseudopolynomials and $k > \frac{M}{M - 2c} \cdot (h + 1)$. Then there exist nonzero $k$-pseudopolynomials $A(X), B(X)$, with $\deg(A), \deg(B) < Mq$, such that:
   \[
     A(X) \cdot F(X) = B(X) \cdot G(X).
   \]
@@ -179,23 +179,19 @@ The following lemma shows that any two $r$-twisted $(h, M)$-pseudopolynomials wi
 
 The next lemma shows that if we have many $r$-twisted $(h, M)$-pseudopolynomials with degree at most $cq$ and $c, h$ small, then they are nontrivially related. The smallness requirement on $c$ is weaker, but the deduced relation is also weaker.
 
-\begin{lemma}{}{twisted-many}
-  Let $m, c, h, M$ be parameters, with $c < \nicefrac{m-1}{m}M$. Let $r : \bbF_q \to \bbF_q$.
-
-  Suppose $F_1(X), \ldots, F_m(X) \in \bbF_q[X]$ with $\deg(F_i) < cq$ are all $r$-twisted $(h, M)$-pseudopolynomials. Let $k > \nicefrac{M}{(m-1)M - mc} \cdot (h + 1)$. Then there exist $k$-pseudopolynomials $A_1(X), \ldots, A_m(X)$ with $\deg(A_i) < Mq$ and not all zero, such that:
-  \[
-    \sum_{i} A_i(X)\, F_i(X) = 0.
-  \]
+\begin{lemma}{}{lem:twisted-many}
+  Let $m, c, h, M$ be parameters, with $c < \frac{m-1}{m}\cdot M$. Let $r : \bbF_q \to \bbF_q$. Suppose $F_1(X), \ldots, F_m(X) \in \bbF_q[X]$ with $\deg(F_i) < cq$ are all $r$-twisted $(h, M)$-pseudopolynomials. Let $$k > \frac{M}{(m-1)M - mc} \cdot (h + 1).$$ Then there exist $k$-pseudopolynomials $A_1(X), \ldots, A_m(X)$ with $\deg(A_i) < Mq$ and not all zero, such that, $\sum_{i} A_i(X)\, F_i(X) = 0.$
 \end{lemma}
 The proof is exactly like that of \lemref{lem:twisted-two}, which is the $m = 2$ case. The exact same argument also gives robust version.
 
+\begin{Theorem}{Robust Version for Two}{thm:twisted-many}
+    Let $m, c, h, \gamma, M$ be parameters, with $c < \frac12(1- 2\gamma)M$. Let $r_1,r_2: \bbF_q \to \bbF_q$, with: $\Dl(r_1,r_2)\leq \gm q$. Suppose $F(X), G(X) \in \bbF_q[X]$ with $\deg(F),\deg(G) < cq$ are $r_1$-twisted and $r_2$-twisted $(h, M)$-pseudopolynomials respectively. Let $$k > \frac{M}{(1 - 2\gamma)M - 2c} \cdot (h + 1).$$ Then there exist $k$-pseudopolynomials $A(X),  B(X)$, with $\deg(A),\deg(B) < Mq$, not all zero, such that,  $A(X)\cdot F(X)=B(X)\cdot G(X)$.
+\end{Theorem}
+
 \begin{Theorem}{Robust Version for Many}{twisted-robust-many}
-  Let $m, c, h, \gamma, M$ be parameters, with $c < \nicefrac{(m-1) - m\gamma}{m}M$. Let $r_1, \ldots, r_m : \bbF_q \to \bbF_q$, with:
+  Let $m, c, h, \gamma, M$ be parameters, with $c < \frac1m((m-1) - m\gamma)M$. Let $r_1, \ldots, r_m : \bbF_q \to \bbF_q$, with:
   \[
     \bigl|\{\alpha \in \bbF_q \mid r_i(\alpha) \neq r_j(\alpha) \text{ for some } i, j\}\bigr| \leq \gamma q.
   \]
-  Suppose $F_1(X), \ldots, F_m(X) \in \bbF_q[X]$ with $\deg(F_i) < cq$ are $r_i$-twisted $(h, M)$-pseudopolynomials. Let $k > \nicefrac{M}{(m - 1 - m\gamma)M - mc} \cdot (h + 1)$. Then there exist $k$-pseudopolynomials $A_1(X), \ldots, A_m(X)$, with $\deg(A_i) < Mq$, not all zero, such that:
-  \[
-    \sum_{i} A_i(X)\, F_i(X) = 0.
-  \]
+  Suppose $F_1(X), \ldots, F_m(X) \in \bbF_q[X]$ with $\deg(F_i) < cq$ are $r_i$-twisted $(h, M)$-pseudopolynomials. Let $$k > \frac{M}{(m - 1 - m\gamma)M - mc} \cdot (h + 1).$$ Then there exist $k$-pseudopolynomials $A_1(X), \ldots, A_m(X)$, with $\deg(A_i) < Mq$, not all zero, such that,  $\sum_{i} A_i(X)\, F_i(X) = 0$.
 \end{Theorem}
