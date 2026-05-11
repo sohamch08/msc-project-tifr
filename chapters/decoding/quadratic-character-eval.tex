@@ -1,0 +1,21 @@
+\section{Quadratic Character Evaluations for Odd Characteristic}
+Let $\psi\in \Xq$ is a non-trivial multiplicative character of $\bbF_q$ where $\ord(\psi)=d$. Then the polynomial based code we can construct is $\lt(\psi\circ f(\alpha)\rt)_{\alpha\in \bbF_q}$ where $f\in\bbF_q[X]$. Now suppose $g$ is another polynomial. Then for any $\alpha\in\bbF_q$, $$\psi((f\cdot g^d)(\alpha))=\psi(f(\alpha))\cdot \psi^d(g(\alpha))=\psi(f(\alpha))$$So we assume $f$ doesn't have a power $d$ factor. Similarly, for any $\alpha,\beta$ where $\beta\neq 0$ $$\psi((\beta^{d}\cdot f)(\alpha))=\psi^d(\beta)\cdot \psi(f(\alpha))=\psi(f(\alpha))$$Since different leading coefficient can lead to same character evaluation we assume $f$ to be monic. 
+
+
+Now we take the quadratic character $\eta\in\Mq$. Hence, we assume the polynomials are monic and squarefree. Then by \WeilBoundPsiNondthm we have $$\lt|\sum_{\alpha}\eta((g_1\cdot g_2)(\alpha))\rt|< O(d\sqrt{q})$$Therefore the vectors $\eta\circ g_1$ and $\eta\circ g_2$ differs in at least $\lt(q-O(d\sqrt{q})\rt)=\lt(\frac12-\frac{d}{\sqrt{q}}\rt)q$ many locations. So their hamming distance is at least $\lt(\frac12-\frac{d}{\sqrt{q}}\rt)q$ which gives the distance of the code.  
+
+\begin{algorithm}
+  \KwIn{Noisy received word, $r:\bbF_q\to \{0,1,-1\}$, with degree $d\leq O(\eps\sqrt{q})$ and error bound $e\leq \lt(\nicefrac18-\eps\rt)q$}
+  \KwOut{Find the closest vector $\eta\circ f$ where $f\in\bbF_q[X]$ of degree at most $d$}
+  \DontPrintSemicolon
+  \caption{Decoding from $\nicefrac18-$th of distance of Quadratic Character Evaluation}
+  \Begin{
+    Set $M=\nicefrac{16}{\eps}\cdot d$, $c=\nicefrac{M}2$, $h=2\cdot e$, $D=d(\nicefrac{(q-1)}2+M)+cq$, $u=h+d\cdot M$\;
+    Use system of linear equations to find $F(X)\in\bbF_q^{\leq D}[X]$ and $g_0(X),\dots, g_{M-1}(X)\in\bbF_q^{\leq u}[X]$ not all zero such that for all $\alpha\in\bbF_q$, $i\in\{0,\dots, M-1\}$: $$F^{(i)}(\alpha)=r(\alpha)\cdot g_i(\alpha)$$\;
+    Complete factorization of $F(X)$ into distinct monic irreducible factors $\{h_1,\dots, h_k\}$ such that there exists $k_j\in \bbN$ for all $j\in[k]$ such that $$F(X)=a\prod_{j=1}^kh_j(X)^{k_i}$$\;
+    Compute the set $J=\lt\{j\in [t]\colon k_j\in \lt[\nicefrac{3q}8,\nicefrac{7q}8\rt]\rt\}$. Then compute $f(X)=\prod_{j\in J}h_j$. \;
+    \Return{$f(X)$}
+  }
+\end{algorithm}
+
+

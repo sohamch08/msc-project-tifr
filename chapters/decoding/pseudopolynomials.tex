@@ -1,0 +1,201 @@
+\section{Theory of Pseudopolynomials}\label{sec:pseudopolynomials}
+
+\subsection{Pseudopolynomials}
+\begin{Definition}{Pseudoderivative}{pseudoderivative}
+  Let $F(X) \in \bbF_q[X]$. Define the $\ell$-th \emph{pseudoderivative} of $F$, denoted $F_{\langle\ell\rangle}(X)$, to be the unique polynomial of degree at most $q - 1$ whose evaluations on $\bbF_q$ agree with the evaluations of $F^{(\ell)}(X)$. Explicitly:
+  \[
+    F_{\langle\ell\rangle}(X) = \Bigl(F^{(\ell)}(X) \bmod \Lambda(X)\Bigr),
+  \]
+  where $\Lambda(X) = X^q - X$.
+
+  Abusing notation, we will sometimes use $F_{\langle\ell\rangle}$ to denote the function $F_{\langle\ell\rangle} : \bbF_q \to \bbF_q$, defined by $F_{\langle\ell\rangle}(\alpha) = F^{(\ell)}(\alpha)$.
+\end{Definition}
+
+\begin{Definition}{Pseudodegree}{pseudodegree}
+  Let $F(X) \in \bbF_q[X]$. We define the \emph{pseudodegree} of $F$, denoted $\pdeg(F)$, to be:
+  \[
+    \max_{\ell \geq 0} \deg(F_{\langle\ell\rangle}).
+  \]
+  We say $F(X)$ is a \emph{$k$-pseudopolynomial} if $\pdeg(F) \leq k$. When $\deg(F) = d$ we refer to $F$ as a \emph{$k$-pseudopolynomial of degree $d$}.
+\end{Definition}
+
+By definition, we have same basic observations on how $\pdeg$ behaves on addition and multiplication of polynomials.
+
+\begin{observation}
+  Like normal degree of polynomials $\pdeg$ behave the similar way, but we have inequality instead of equality. For any $F,G\in\bbF_q[X]$
+  \begin{itemize}
+    \item $\pdeg(F + G) \leq \max(\pdeg(F),\, \pdeg(G))$.
+    \item $\pdeg(F \cdot G) \leq \pdeg(F) + \pdeg(G)$.
+  \end{itemize}
+\end{observation}
+
+\subsubsection{Algebraic Characterization}
+\begin{lemma}{Algebraic Characterization of Pseudodegree}{lem:pdeg-char}
+  Let $F(X) \in \bbF_q[X]$, and let $F(X) = \sum_{i \geq 0} F_i(X)\,\Lambda(X)^i$, with each $\deg(F_i) < q$, be the base-$\Lambda(X)$ expansion of $F(X)$. Then $\pdeg(F) = \max_{i \geq 0} \deg(F_i)$.
+\end{lemma}
+
+\begin{proof}
+  We expand $F^{(\ell)}$ by applying the product rule for Hasse derivatives to each term of the base-$\Lambda$ expansion:
+  \[
+    F^{(\ell)}(X)
+    = \sum_{i \geq 0} \bigl(F_i \cdot \Lambda^i\bigr)^{(\ell)}(X)
+    = \sum_{i \geq 0} \left(
+    \sum_{\substack{\ell_0,\ell_1,\ldots,\ell_i \\ \sum \ell_j = \ell}}
+    F_i^{(\ell_0)}(X) \cdot \prod_{j=1}^{i} \Lambda^{(\ell_j)}(X)
+    \right).
+  \]
+  When we reduce mod $\Lambda(X)$, recall that $\Lambda^{(0)} = \Lambda \equiv 0$, and $\Lambda^{(j)} = 0$ for $j \notin \{0,1,q\}$. So the only terms surviving mod $\Lambda$ are those with $\ell_1, \ldots, \ell_i \in \{1, q\}$, which forces $\ell \geq i$ and $\ell_0 = \ell - (\ell_1 + \cdots + \ell_i) \in [0, \ell - i]$. Collecting these terms:
+  \begin{align*}
+    F^{(\ell)}(X) \bmod \Lambda(X)
+     & = \sum_{i=0}^{\ell} \sum_{\ell_0=0}^{\ell-i}
+    F_i^{(\ell_0)}(X) \cdot
+    \underbrace{\left(
+    \sum_{\substack{\ell_1,\ldots,\ell_i\,\in\,\{1,q\} \\ \ell_1+\cdots+\ell_i\,=\,\ell-\ell_0}}
+      \prod_{j=1}^{i} \Lambda^{(\ell_j)}(X)
+    \right)}_{=:\,C_{i,\ell,\ell_0,q}\;\in\;\bbZ}      \\[4pt]
+     & = (-1)^{\ell} F_\ell(X)
+    + \sum_{i=0}^{\ell-1} \sum_{\ell_0=0}^{\ell-i}
+    F_i^{(\ell_0)}(X) \cdot C_{i,\ell,\ell_0,q},
+  \end{align*}
+  where the leading term isolates $i = \ell,\, \ell_0 = 0$, the unique case with $\ell_1 = \cdots = \ell_i = 1$, which contributes the factor $(-1)^\ell$.
+
+  \medskip\noindent\textit{Forward direction.} When $\deg(F_i) \leq k$ for all $i$, each $F_i^{(\ell_0)}$ has degree at most $k$, so the entire expression $F^{(\ell)} \bmod \Lambda(X) = F_{\langle\ell\rangle}(X)$ has degree at most $k$. Since $\ell$ was arbitrary, $\pdeg(F) \leq k$.
+
+  \medskip\noindent\textit{Reverse direction.} Rearranging the identity above gives
+  \[
+    (-1)^\ell F_\ell(X) = F_{\langle\ell\rangle}(X) - \sum_{i=0}^{\ell-1}\sum_{\ell_0=0}^{\ell-i} F_i^{(\ell_0)}(X)\cdot C_{i,\ell,\ell_0,q}.
+  \]
+  We argue by induction on $\ell$. The base case $\ell = 0$ gives $F_0 = F_{\langle 0\rangle}$ directly, so $\deg(F_0) \leq \pdeg(F)$. In the inductive step, assuming $\deg(F_i) \leq \pdeg(F)$ for all $i < \ell$, every term $F_i^{(\ell_0)}$ on the right has degree at most $\pdeg(F)$, so $\deg(F_\ell) \leq \pdeg(F)$ as well. Hence, $\max_{i \geq 0}\deg(F_i) \leq \pdeg(F)$. The two directions together give $\pdeg(F) = \max_{i \geq 0} \deg(F_i)$.
+\end{proof}
+
+
+
+\subsubsection{Multiplicities}\label{subsec:pdeg-mult}
+
+Now the pseudopolynomials are special because even though we may have a very large degree pseudopolynomials the multiplicities of an irreducible factor is small. The following lemma gives a bound on the multiplicity modulo $q$.
+
+\begin{lemma}{Multiplicity Bound for Pseudopolynomials}{pdeg-mult-bound}
+  Let $k < q$, and let $F(X)$ be a nonzero $k$-pseudopolynomial of degree $D$ over $\bbF_q$. For an irreducible polynomial $H(X) \in \bbF_q[X]$, let $\mu$ be the highest power of $H(X)$ that divides $F(X)$. Then:
+  \[
+    \mu \;\bmod\; q \;\in\; \left[0,\; k + \left\lfloor\frac{D}{q}\right\rfloor\right].
+  \]
+\end{lemma}
+
+\begin{proof}
+  Pick a root $\alpha \in \overline{\bbF_q}$ of $H(X)$, so that $\mu = \mult(F, \alpha)$ and $F^{(\mu)}(\alpha) \neq 0$. By \lemref{lem:pdeg-char}, the base-$\Lambda$ expansion of $F$ has the form $F(X) = \sum_{i=0}^{t-1} F_i(X)\Lambda(X)^i$ with $t = \lfloor D/q \rfloor + 1$ and $\deg(F_i) \leq k$.
+
+  It suffices to show $F^{(\ell)}(X) = 0$ for every $\ell$ with $\ell \bmod q \in [k + t, q - 1]$, since this would confine $\mu \bmod q$ to $[0, k + t - 1] = [0, k + \lfloor D/q \rfloor]$.
+
+  Expanding via the product rule:
+  \[
+    F^{(\ell)}(X) = \sum_{i=0}^{t-1} \sum_{\substack{\ell_0, \ell_1, \ldots, \ell_i \\ \sum \ell_j = \ell}} F_i^{(\ell_0)}(X) \cdot \prod_{j=1}^{i} \Lambda^{(\ell_j)}(X).
+  \]
+  A summand vanishes if $\ell_0 > k$, since $\deg(F_i) \leq k$ forces $F_i^{(\ell_0)} = 0$. It vanishes if some $\ell_j \notin \{0, 1, q\}$, since $\Lambda^{(\ell_j)} = 0$ for such $\ell_j$. It also vanishes mod $\Lambda$ if some $\ell_j = 0$, since that contributes a factor $\Lambda^{(0)} = \Lambda$. Thus, every nonzero summand must have $\ell_0 \in [0, k]$ and $\ell_1, \ldots, \ell_i \in \{1, q\}$.
+
+  When $\ell \bmod q \in [k + t, q - 1]$, no such decomposition is possible: a sum of one integer from $[0,k]$ and at most $t - 1$ integers from $\{1, q\}$ has residue mod $q$ at most $k + (t - 1) < k + t$. So every summand vanishes, giving $F^{(\ell)}(X) = 0$.
+\end{proof}
+
+From this lemma we can get a relation of size of a set of zero and the degree of then interpolated pseudopolynomials which becomes zero at the set. For any $S \subseteq \bbF_q$, and any $c, k, M$ satisfying
+$$  |S| < \frac{c}{M} \cdot k,$$ there exists a nonzero $k$-pseudopolynomial $F(X)$ of degree $D < cq$ such that for all $\alpha \in S$, $\mult(F,\alpha) \geq M$. This follows from dimension and constraint counting.
+
+In the reverse direction, the following theorem shows that when $q$ is prime, every nonzero $k$-pseudopolynomial of degree $D < cq$ has at most $2\frac{c}{M}k$ roots of multiplicity at least $M$.
+
+\begin{Theorem}{High Multiplicity Zeroes Bound, \cite{Kopparty2026}}{high-mult-zeroes}
+  Let $q$ be prime, and let $F(X)$ be a nonzero $k$-pseudopolynomial of degree $D < cq$ over $\bbF_q$. Suppose $M$ satisfies $c < M < q$. Then:
+  \[
+    \bigl|\{\alpha \in \bbF_q \mid \mult(F,\alpha) \geq M\}\bigr|
+    \leq \min\!\left(\frac{c}{M - c + 1}\cdot k + c,\;\; k\right).
+  \]
+\end{Theorem}
+
+We will not prove this theorem. The proof uses some arguments from \cite{Guruswami2014} on wronskian ranks. The full proof of this theorem is in \cite[Section 5.7]{Kopparty2026}.
+
+\subsubsection{Codes From Pseudopolynomials}
+Now using Pseudopolynomials we can create codes similar to univariate multiplicity codes.  Let $\Sigma = \bbF_q^M$. The codewords lie in $\Sigma^{\bbF_q}$: for each $k$-pseudopolynomial $F(X)$ of degree $D < cq$, the codeword $\enc(F): \bbF_q \to \Sigma^{\bbF_q}$ is defined:
+\[
+  \enc(F)(\alpha) = \bigl(F^{(0)}(\alpha),\, F^{(1)}(\alpha),\, \ldots,\, F^{(M-1)}(\alpha)\bigr).
+\]
+This code has cardinality $|\Sigma|^{ck/M}$, block length $q$, rate $R = \frac{c}{M}\cdot\frac{k}{q}$, and minimum distance at least
+\[
+  \left(1 - \min\!\left(\frac{k}{q},\;\; \frac{c}{M-c+1}\cdot\frac{k}{q} + \frac{c}{q},\;\; \frac{c}{M}\right)\right)\cdot q,
+\]
+which is always at least $(1 - 2R)\cdot q$.
+
+\subsection{Twisted Pseudopolynomials}\label{subsec:twisted-pp}
+
+\begin{Definition}{$r$-Twisted Pseudopolynomial}{twisted-pp}
+  Suppose $r : \bbF_q \to \bbF_q$ is a function. Let $k < q$. We say $F(X) \in \bbF_q[X]$ is an \emph{$r$-twisted $(h, M)$-pseudopolynomial} if for all $\ell < M$, there is some $U_\ell(X) \in \bbF_q[X]$ of degree at most $h$ such that:
+  \[
+    F_{\langle\ell\rangle} = r \cdot U_\ell.
+  \]
+\end{Definition}
+
+The following lemma shows that any two $r$-twisted $(h, M)$-pseudopolynomials with degree at most $cq$ are very closely related, provided $h$ and $c$ are small enough.
+
+\begin{lemma}{}{lem:twisted-two}
+  Let $c, h, M$ be parameters, with $c < M/2$. Let $r : \bbF_q \to \bbF_q$. Suppose $F(X), G(X) \in \bbF_q[X]$ with $\deg(F), \deg(G) < cq$ are both $r$-twisted $(h, M)$-pseudopolynomials and $k > \nicefrac{M}{M - 2c} \cdot (h + 1)$. Then there exist nonzero $k$-pseudopolynomials $A(X), B(X)$, with $\deg(A), \deg(B) < Mq$, such that:
+  \[
+    A(X) \cdot F(X) = B(X) \cdot G(X).
+  \]
+\end{lemma}
+
+\begin{proof}
+  Now if $k\geq q$ then the result is immediate. So assume $k<q$. Since $F,G$ both are $r$-twisted $(h,M)$-pseudopolynomial for each $\ell < M$, we have:
+  \[
+    F_{\langle\ell\rangle} = r \cdot U_\ell, \qquad G_{\langle\ell\rangle} = r \cdot V_\ell,
+  \]
+  where $U_\ell(X), V_\ell(X) \in \bbF_q[X]$ have degrees at most $h$.
+
+  The goal is to find $A$ and $B$ in the base-$\Lambda$ form
+  \[
+    A(X) = \sum_{i=0}^{M-c-1} A_i(X)\,\Lambda(X)^i, \qquad
+    B(X) = \sum_{i=0}^{M-c-1} B_i(X)\,\Lambda(X)^i,
+  \]
+  with $\deg(A_i), \deg(B_i) \leq k$, so that $AF = BG$. Treating the coefficients of the $A_i$ and $B_i$ as unknowns, their total count exceeds $2(M-c)\cdot k$.
+
+  The condition $AF = BG$ is captured by requiring $(A \cdot F)_{\langle\ell\rangle} = (B \cdot G)_{\langle\ell\rangle}$ for each $\ell < M$. Expanding each pseudoderivative using the twisted conditions on $F$ and $G$, these equalities can be packaged into a single identity in $\bbF_q[X, T]$:
+  \[
+    \left(\sum_{\ell_1 < M} A_{\langle\ell_1\rangle}(X)\cdot T^{\ell_1}\right)
+    \cdot
+    \left(\sum_{\ell_2 < M} U_{\ell_2}(X)\cdot T^{\ell_2}\right)
+    =
+    \left(\sum_{\ell_3 < M} B_{\langle\ell_3\rangle}(X)\cdot T^{\ell_3}\right)
+    \cdot
+    \left(\sum_{\ell_4 < M} V_{\ell_4}(X)\cdot T^{\ell_4}\right)
+    \pmod{T^M}.
+  \]
+  Each of the $M$ coefficient equalities (in $\bbF_q[X]$, of degree at most $h + k$) is a homogeneous linear condition on the unknowns, giving at most $(h + k + 1)\cdot M$ constraints in total. Since by assumption
+  \[
+    (h + k + 1)\cdot M < 2k\cdot(M - c),
+  \]
+  the number of constraints is strictly less than the number of unknowns, guaranteeing a nonzero solution.
+
+  It remains to verify that any such solution satisfies $AF = BG$ as a polynomial identity, not merely on $\bbF_q$. The construction ensures $(A \cdot F - B \cdot G)_{\langle\ell\rangle} = 0$ for every $\ell < M$, so every point of $\bbF_q$ is a root of $AF - BG$ of multiplicity at least $M$. But
+  \[
+    \deg(A \cdot F - B \cdot G) < cq + (M - c)q = Mq,
+  \]
+  so the polynomial $AF - BG$ has more roots (counting multiplicity) than its degree, forcing $AF - BG = 0$.
+\end{proof}
+
+The next lemma shows that if we have many $r$-twisted $(h, M)$-pseudopolynomials with degree at most $cq$ and $c, h$ small, then they are nontrivially related. The smallness requirement on $c$ is weaker, but the deduced relation is also weaker.
+
+\begin{lemma}{}{twisted-many}
+  Let $m, c, h, M$ be parameters, with $c < \nicefrac{m-1}{m}M$. Let $r : \bbF_q \to \bbF_q$.
+
+  Suppose $F_1(X), \ldots, F_m(X) \in \bbF_q[X]$ with $\deg(F_i) < cq$ are all $r$-twisted $(h, M)$-pseudopolynomials. Let $k > \nicefrac{M}{(m-1)M - mc} \cdot (h + 1)$. Then there exist $k$-pseudopolynomials $A_1(X), \ldots, A_m(X)$ with $\deg(A_i) < Mq$ and not all zero, such that:
+  \[
+    \sum_{i} A_i(X)\, F_i(X) = 0.
+  \]
+\end{lemma}
+The proof is exactly like that of \lemref{lem:twisted-two}, which is the $m = 2$ case. The exact same argument also gives robust version.
+
+\begin{Theorem}{Robust Version for Many}{twisted-robust-many}
+  Let $m, c, h, \gamma, M$ be parameters, with $c < \nicefrac{(m-1) - m\gamma}{m}M$. Let $r_1, \ldots, r_m : \bbF_q \to \bbF_q$, with:
+  \[
+    \bigl|\{\alpha \in \bbF_q \mid r_i(\alpha) \neq r_j(\alpha) \text{ for some } i, j\}\bigr| \leq \gamma q.
+  \]
+  Suppose $F_1(X), \ldots, F_m(X) \in \bbF_q[X]$ with $\deg(F_i) < cq$ are $r_i$-twisted $(h, M)$-pseudopolynomials. Let $k > \nicefrac{M}{(m - 1 - m\gamma)M - mc} \cdot (h + 1)$. Then there exist $k$-pseudopolynomials $A_1(X), \ldots, A_m(X)$, with $\deg(A_i) < Mq$, not all zero, such that:
+  \[
+    \sum_{i} A_i(X)\, F_i(X) = 0.
+  \]
+\end{Theorem}
