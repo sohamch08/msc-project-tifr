@@ -72,3 +72,12 @@ $$\deg(F)=\deg(E\cdot G)\in q\bbZ+\lt[\frac{q}2,\frac{q}2+2e\rt]\subseteq q\bbZ+
 Since  $\lt(-\frac18q,\frac38q\rt)$ and 
 $\lt.\lt[\frac12q,\frac34q\rt.\rt)$ are disjoint sets modulo $q$. So $\deg(F-E\cdot G)\neq \max\{\deg(F),\deg(E\cdot G)\}$. 
 Therefore, many monomials of high degree in $F$ and $E\cdot G$ got canceled in $F-E\cdot G$. So $F$ and $E\cdot G$ have the same leading monomial. Let the leading coefficients of $F, E$ are $a,b$. Then the leading coefficient of $G$ which must equal $\nicefrac{a}b$. So the algorithm in each iteration of the while loop correctly computes the leading coefficient of the rest of the polynomial. Hence, the algorithm correctly outputs $\tr\circ G$. 
+\subsection{Alternate Proof of Weil Bound for Additive Characters of Small Field}
+
+The pseudopolynomial machinery also yields an elementary proof of the Weil bound for additive character sums over fields of small characteristic, in the spirit of Stepanov's method. We give a sketch here.
+
+\paragraph*{Setup.}
+Let $q$ have characteristic $p$, and let $\tr : \bbF_q \to \bbF_p$ and $\mathbf{TR}(X) \in \bbF_q[X]$ be the field trace map and trace polynomial respectively. For a function $r : \bbF_q \to \bbF_q$, call a polynomial $F(X)$ an \emph{$r$-guided $(h,M)$-pseudopolynomial} if for every $\ell < M$ there exists $U_\ell(X) \in \bbF_q[X]$ with $\deg(U_\ell) \leq h$, such that whenever $r(\alpha) = 0$:
+\[
+  F_{\langle\ell\rangle}(\alpha) = U_\ell(\alpha).
+\]

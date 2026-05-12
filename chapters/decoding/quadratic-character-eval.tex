@@ -116,13 +116,13 @@ Similarly, we get
 \begin{equation}\label{eq:derivative-of-BG}
   G^{(\ell)}(\alpha)
   =
-  (\chi\circ g)(\alpha)\,
+  (\psi\circ g)(\alpha)\,
   H_{g,w,\ell}(\alpha)\,
   g^{M-\ell}(\alpha),
   \implies
   (B\cdot G)^{(\ell)}(\alpha)
   =
-  (\chi\circ g)(\alpha)\cdot
+  (\psi\circ g)(\alpha)\cdot
   \sum_{\ell_1+\ell_2=\ell}
   B_{\langle \ell_1\rangle}(\alpha)
   G_{g,w,\ell_2}(\alpha)
@@ -142,7 +142,7 @@ We therefore impose, for each $0\le \ell<M$, the polynomial identity
 \end{equation}
 Both sides have degree at most $3e+dM$. Hence, the total number of linear conditions arising from all these identities is at most \(
 M(3e+dM+1),
-\) which is strictly smaller than $N$ by Equation \eqref{eq:FG-relate-num-var}. Therefore there exists a nontrivial choice of $A(X),B(X)$ satisfying Equation \eqref{eq:solution-for-A-B}. Finally, combining Equations \eqref{eq:derivative-of-AF}, \eqref{eq:derivative-of-BG}, and \eqref{eq:solution-for-A-B}, and using the fact that $r(\alpha)=(\chi\circ g)(\alpha)$ for all $\alpha\in\mathbb F_q\setminus S$, we obtain Equation \eqref{eq:twisted-relate-FG}, and hence $A(X)F(X)=B(X)G(X)$.
+\) which is strictly smaller than $N$ by Equation \eqref{eq:FG-relate-num-var}. Therefore there exists a nontrivial choice of $A(X),B(X)$ satisfying Equation \eqref{eq:solution-for-A-B}. Finally, combining Equations \eqref{eq:derivative-of-AF}, \eqref{eq:derivative-of-BG}, and \eqref{eq:solution-for-A-B}, and using the fact that $r(\alpha)=(\psi\circ g)(\alpha)$ for all $\alpha\in\mathbb F_q\setminus S$, we obtain Equation \eqref{eq:twisted-relate-FG}, and hence $A(X)F(X)=B(X)G(X)$.
 
 \paragraph*{Step 2: Recovering the factors of $g(X)$}
 
@@ -235,3 +235,52 @@ Now we can also think of the character as $\psi:\bbF_q\to \{0\}\cup\bbF_q^{*^{(\
     \Return{$f(X)$}
   }
 \end{algorithm}
+\subsection{Alternate Proof Weil Bound on Multiplicative Character using Pseudopolynomials}
+
+The pseudopolynomial framework developed in \S\ref{sec:pseudopolynomials} yields clean alternative proofs of the Weil bounds for multiplicative character sums. The key input is \PdegMultBoundlem, which constrains the multiplicity of any irreducible factor of a pseudopolynomial modulo $q$.
+
+\paragraph*{Weil bound for the quadratic residue character.}
+We prove \WeilBoundPsiNondthm for $\eta$. Let $f(X), g(X) \in \bbF_q[X]$ be distinct monic squarefree polynomials of degree at most $d \leq O(\eps\sqrt{q})$. We claim
+\[
+  \Delta(\eta \circ f,\, \eta \circ g) \;\geq\; \Bigl(\tfrac{1}{2} - \eps\Bigr)q.
+\]
+Set $M = \frac{2}{\eps}d$ and $c = d$, and define
+\[
+  F(X) = f(X)^{\frac{q-1}{2}+M}, \qquad G(X) = g(X)^{\frac{q-1}{2}+M}.
+\]
+Since $f^{(q-1)/2}(\alpha) = \eta(f(\alpha))$ for every $\alpha \in \bbF_q$, $F$ is an $(\eta\circ f)$-twisted $(dM, M)$-pseudopolynomial and $G$ is an $(\eta\circ g)$-twisted $(dM, M)$-pseudopolynomial, both with $h = dM$.
+
+Suppose for contradiction that $\Delta(\eta\circ f, \eta\circ g) \leq \gamma q$ for $\gamma = \frac{1}{2} - \eps$. With
+\[
+  k \;=\; \frac{1}{\eps}\cdot(h+1) \;\leq\; O\!\left(\frac{d^2}{\eps^2}\right) \;<\; \frac{q}{4},
+\]
+\lemref{twisted-robust-two} produces nonzero $k$-pseudopolynomials $A(X), B(X)$ of degree less than $Mq$ satisfying $A(X)\cdot F(X) = B(X)\cdot G(X)$.
+
+Let $H(X)$ be an irreducible polynomial that appears with distinct factor multiplicity in $f(X)$ and $g(X)$ --- such $H$ exists since $f \neq g$ are squarefree. Without loss of generality $H \mid f$ but $H \nmid g$, so $\mult(H, F) \equiv \frac{q-1}{2} + M \pmod{q}$ while $\mult(H, G) = 0$. From $AF = BG$:
+\[
+  \mult(H, A) + \frac{q-1}{2} + M \;\equiv\; \mult(H, B) \pmod{q}.
+\]
+By \PdegMultBoundlem, both $\mult(H, A) \bmod q$ and $\mult(H, B) \bmod q$ lie in $[0, k + O(d)] \subseteq [0, q/4 + O(d)]$. But the identity forces $\mult(H, B)$ to sit $\approx q/2$ away from $\mult(H, A)$ modulo $q$, which is outside this range — a contradiction.
+
+\paragraph*{Weil bound for the $m$-th power residue character.}
+We prove the Weil bound for $\psi$ with $\ord(\psi) = m$, $m$ prime. Suppose $f, g \in \bbF_q[X]$ are distinct monic polynomials of degree $d \leq O_m(\eps\sqrt{q})$, each irreducible factor appearing with multiplicity in $\{1, 2, \ldots, m-1\}$. We claim
+\[
+  \Delta(\psi \circ f,\, \psi \circ g) \;\geq\; \Bigl(1 - \tfrac{1}{m} - \eps\Bigr)q.
+\]
+Set $M = O_m(d/\eps)$, $c = O_m(d)$, $F(X) = f(X)^{(q-1)/m+M}$, $G(X) = g(X)^{(q-1)/m+M}$. For $i \in [m]$ let
+\[
+  r_i(\alpha) = \bigl(\psi^{i-1} \circ f(\alpha)\bigr)\cdot\bigl(\psi^{m-i} \circ g(\alpha)\bigr), \qquad
+  F_i(X) = F(X)^{i-1}\cdot G(X)^{m-i}.
+\]
+Each $F_i$ is an $r_i$-twisted $(O_m(dM), M)$-pseudopolynomial.
+
+Suppose $\Delta(\psi \circ f, \psi \circ g) \leq \gamma q$ for $\gamma = 1 - \frac{1}{m} - \eps$, so $|\{\alpha \mid r_i(\alpha) \neq r_j(\alpha)\text{ for some }i,j\}| \leq \gamma q$. With $h = O_m(dM)$ and
+\[
+  k = \frac{1}{\eps}\cdot(h+1) \leq O\!\left(\frac{d^2}{\eps^2}\right) < \frac{q}{2m},
+\]
+\TwistedRobustManythm gives $k$-pseudopolynomials $A_1(X), \ldots, A_m(X)$, not all zero, with $\deg(A_i) < Mq$ and
+\[
+  \sum_{i=1}^{m} A_i(X)\cdot F(X)^{i-1}\cdot G(X)^{m-i} = 0.
+\]
+Let $H(X)$ be an irreducible polynomial that appears with distinct factor multiplicity in $f(X)$ and $g(X)$. By \PdegMultBoundlem, all the nonzero terms in the above sum have distinct factor multiplicity of $H(X)$ modulo $q$ (because the contribution $(i-1)\,\mult(H,F)+(m-i)\,\mult(H,G)$ takes $m$ pairwise distinct values mod $q$ as $i$ varies, and $k < q/(2m)$ prevents the $A_i$ terms from closing the gap). Therefore the sum cannot be zero, which is a contradiction.
+
