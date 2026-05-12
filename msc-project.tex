@@ -31,30 +31,30 @@
 	% {\large\scshape\color{white} 2024}\par
 	\endgroup}
 	
-\titleformat{\section}
-  {\normalfont\Large\bfseries}
-  {\S\hspace{0.25em}\thesection}
-  {1em}
-  {}
-
-\usepackage{xhfill}
-
-\usetikzlibrary{calc} 
-
-\titleformat{\chapter}[display]
-{}
-{\hfill \tikz[remember picture] \node[] (nr) {\fontsize{20}{70}\selectfont\color{mytoccolor}\textsc{Chapter~~} \fontsize{60}{70}\selectfont\color{mytoccolor}\thechapter};
+	
+	\usepackage{xhfill}
+	
+	\usetikzlibrary{calc} 
+	
+	\titleformat{\chapter}[display]
+	{}
+	{\hfill \tikz[remember picture] \node[] (nr) {\fontsize{20}{70}\selectfont\color{mytoccolor}\textsc{Chapter~~} \fontsize{60}{70}\selectfont\color{mytoccolor}\thechapter};
 	\begin{tikzpicture}[overlay,remember picture]
 		\coordinate (rightborder) at ($(nr)+(100,0)$);
 		\coordinate (right) at ($(nr.east) + (0.5,0)$);
 		\draw[line width=4.5em] (right) -- (rightborder);
-\end{tikzpicture}}
-{-1ex}
-{\filleft\fontsize{30}{50}\selectfont}
-[\vspace{-1ex}]
-
-\usetikzlibrary{arrows.meta, automata, calc,bending,positioning, quotes,
+	\end{tikzpicture}}
+	{-1ex}
+	{\filleft\fontsize{30}{50}\selectfont}
+	[\vspace{-1ex}]
+	
+	\usetikzlibrary{arrows.meta, automata, calc,bending,positioning, quotes,
 	overlay-beamer-styles}
+	\titleformat{\section}
+		{\normalfont\Large\bfseries}
+		{\S\hspace{0.25em}\thesection}
+		{1em}
+		{}
 
 \pgfplotsset{compat=1.18}
 
@@ -66,16 +66,91 @@
 %----------------------------------------------------------------------------------------
 \thispagestyle{empty}
 
+\begin{titlepage}
+	% TIFR logo colors
+	\definecolor{tifrnavy}{HTML}{2D4889}
+	\definecolor{tifrblue}{HTML}{2F88C9}
+	\begin{tikzpicture}[remember picture, overlay]
 
+		%% ── Logo: top-right ──────────────────────────────────────────────
+		\node[anchor=north east, inner sep=30pt]
+		at (current page.north east)
+		{\includegraphics[height=2.5cm]{images/tifr-logo}};
 
-% \begin{titlepage}
+		%% ── Full-width coloured block ────────────────────────────────────
+		\fill[tifrnavy]
+		([yshift=-0.31\paperheight] current page.north west)
+		rectangle
+		([yshift=-0.62\paperheight] current page.north east);
 
-% 	\begin{tikzpicture}[remember picture,overlay]
-% 		\node [xshift=\paperwidth/2,yshift=\paperheight/2] at (current page.south west)[minimum width=\paperwidth,minimum height=\paperheight,top color=mycolor1,bottom color=mycolor2]{};
-% 	\end{tikzpicture}\\[3\baselineskip]
+		%% ── Thin accent stripe at top of block ───────────────────────────
+		\fill[tifrblue]
+		([yshift=-0.31\paperheight] current page.north west)
+		rectangle
+		([yshift=-0.325\paperheight] current page.north east);
 
-% 	\titre{MSc. Project Report:\\[5pt] Survey on Equations over Finite Fields}
-% \end{titlepage}
+		%% ── Text inside block (right-justified) ─────────────────────────
+		% Report type
+		\node[anchor=north east, text=white!90!tifrnavy, font=\sffamily\bfseries\LARGE,
+			inner sep=0pt, text width=0.88\paperwidth, align=right]
+		at ([xshift=-0.06\paperwidth, yshift=-0.35\paperheight] current page.north east)
+		{MSc Project Report};
+
+		% Title
+		\node[anchor=north east, text=white, font=\huge\selectfont\sffamily\bfseries,
+			inner sep=0pt, text width=0.92\paperwidth, align=right]
+		at ([xshift=-0.06\paperwidth, yshift=-0.405\paperheight] current page.north east)
+		{Exponential Sums and Weil Bounds: A Survey of Elementary Methods and Decoding Applications};
+
+		% Year
+		\node[anchor=north east, text=tifrblue!30!white, font=\sffamily\large\bfseries,
+			inner sep=0pt, text width=0.88\paperwidth, align=right]
+		at ([xshift=-0.06\paperwidth, yshift=-0.483\paperheight] current page.north east)
+		{May, 2026};
+
+		% Author name
+		\node[anchor=north east, text=white!70!tifrblue, font=\sffamily\bfseries\LARGE,
+			inner sep=0pt, text width=0.88\paperwidth, align=right]
+		at ([xshift=-0.06\paperwidth, yshift=-0.518\paperheight] current page.north east)
+		{Soham Chatterjee};
+
+		% Supervisor
+		\node[anchor=north east, text=white!85!tifrnavy, font=\sffamily\Large,
+			inner sep=0pt, text width=0.88\paperwidth, align=right]
+		at ([xshift=-0.06\paperwidth, yshift=-0.568\paperheight] current page.north east)
+		{\textit{Supervisor:} \textbf{Mrinal Kumar}};
+
+		%% ── Thin accent stripe at bottom of block ────────────────────────
+		\fill[tifrblue]
+		([yshift=-0.605\paperheight] current page.north west)
+		rectangle
+		([yshift=-0.62\paperheight] current page.north east);
+
+		%% ── Bottom rule ──────────────────────────────────────────────────
+		\draw[tifrnavy, line width=0.8pt]
+		([yshift=80pt] current page.south west) --
+		([yshift=80pt] current page.south east);
+
+		%% ── Bottom-left: institution ─────────────────────────────────────
+		\node[anchor=south west, text=black,
+			inner sep=0pt,
+			font=\large,
+			text width=0.50\paperwidth, align=left]
+		at ([xshift=28pt, yshift=25pt] current page.south west)
+		{\textbf{School of Technology and Computer Science}\\[2pt]
+			Tata Institute of Fundamental Research, Mumbai};
+
+		%% ── Bottom-right: email / website ───────────────────────────────
+		\node[anchor=south east, text=black,
+			inner sep=0pt,
+			font=\large,
+			text width=0.42\paperwidth, align=right]
+		at ([xshift=-28pt, yshift=25pt] current page.south east)
+		{\href{mailto:soham.chatterjee@tifr.res.in}{\textcolor{black}{\texttt{soham.chatterjee@tifr.res.in}}}\\[2pt]
+			Website: \href{https://sohamch08.github.io}{\textcolor{black}{\texttt{sohamch08.github.io}}}};
+
+	\end{tikzpicture}
+\end{titlepage}
 
 \newpage
 
@@ -109,7 +184,7 @@
 \fontdimen16\textfont2=3pt
 \fontdimen17\textfont2=3pt
 %\setcounter{page}{1}
-% \include{chapters/introduction}
+\include{chapters/introduction}
 \include{chapters/finite-fields/finite-fields}
 \include{chapters/character_sums/character-sums}
 \include{chapters/equations-over-fq/equations-over-finite-fields}
