@@ -2,6 +2,7 @@
 
 \subsection{Pseudopolynomials}
 \begin{Definition}{Pseudoderivative}{pseudoderivative}
+  \index{pseudoderivative}\index{pseudopolynomial!pseudoderivative}%
   Let $F(X) \in \bbF_q[X]$. Define the $\ell$-th \emph{pseudoderivative} of $F$, denoted $F_{\langle\ell\rangle}(X)$, to be the unique polynomial of degree at most $q - 1$ whose evaluations on $\bbF_q$ agree with the evaluations of $F^{(\ell)}(X)$. Explicitly:
   \[
     F_{\langle\ell\rangle}(X) = \Bigl(F^{(\ell)}(X) \bmod \Lambda(X)\Bigr),
@@ -12,11 +13,12 @@
 \end{Definition}
 
 \begin{Definition}{Pseudodegree}{pseudodegree}
+  \index{pseudodegree}\index{pseudopolynomial!pseudodegree}%
   Let $F(X) \in \bbF_q[X]$. We define the \emph{pseudodegree} of $F$, denoted $\pdeg(F)$, to be:
   \[
     \max_{\ell \geq 0} \deg(F_{\langle\ell\rangle}).
   \]
-  We say $F(X)$ is a \emph{$k$-pseudopolynomial} if $\pdeg(F) \leq k$. When $\deg(F) = d$ we refer to $F$ as a \emph{$k$-pseudopolynomial of degree $d$}.
+  We say $F(X)$ is a \emph{$k$-pseudopolynomial}\index{pseudopolynomial!$k$-pseudopolynomial} if $\pdeg(F) \leq k$. When $\deg(F) = d$ we refer to $F$ as a \emph{$k$-pseudopolynomial of degree $d$}\index{pseudopolynomial!$k$-pseudopolynomial of degree $d$}.
 \end{Definition}
 
 By definition, we have same basic observations on how $\pdeg$ behaves on addition and multiplication of polynomials.
@@ -31,6 +33,7 @@ By definition, we have same basic observations on how $\pdeg$ behaves on additio
 
 \subsubsection{Algebraic Characterization}
 \begin{lemma}{Algebraic Characterization of Pseudodegree}{lem:pdeg-char}
+  \index{pseudodegree!algebraic characterization}\index{base-$\Lambda$ expansion}%
   Let $F(X) \in \bbF_q[X]$, and let $F(X) = \sum_{i \geq 0} F_i(X)\,\Lambda(X)^i$, with each $\deg(F_i) < q$, be the base-$\Lambda(X)$ expansion of $F(X)$. Then $\pdeg(F) = \max_{i \geq 0} \deg(F_i)$.
 \end{lemma}
 
@@ -75,6 +78,7 @@ By definition, we have same basic observations on how $\pdeg$ behaves on additio
 Now the pseudopolynomials are special because even though we may have a very large degree pseudopolynomials the multiplicities of an irreducible factor is small. The following lemma gives a bound on the multiplicity modulo $q$.
 
 \begin{lemma}{Multiplicity Bound for Pseudopolynomials}{lem:pdeg-mult-bound}
+  \index{pseudopolynomial!multiplicity bound}\index{multiplicity!bound for pseudopolynomials}%
   Let $k < q$, and let $F(X)$ be a nonzero $k$-pseudopolynomial of degree $D$ over $\bbF_q$. For an irreducible polynomial $H(X) \in \bbF_q[X]$, let $\mu$ be the highest power of $H(X)$ that divides $F(X)$. Then:
   \[
     \mu \;\bmod\; q \;\in\; \left[0,\; k + \left\lfloor\frac{D}{q}\right\rfloor\right].
@@ -101,6 +105,7 @@ $$  |S| < \frac{c}{M} \cdot k,$$ there exists a nonzero $k$-pseudopolynomial $F(
 In the reverse direction, the following theorem shows that when $q$ is prime, every nonzero $k$-pseudopolynomial of degree $D < cq$ has at most $2\frac{c}{M}k$ roots of multiplicity at least $M$.
 
 \begin{Theorem}{High Multiplicity Zeroes Bound, \cite{Kopparty2026}}{high-mult-zeroes}
+  \index{pseudopolynomial!high multiplicity zeroes bound}\index{Wronskian criterion}%
   Let $q$ be prime, and let $F(X)$ be a nonzero $k$-pseudopolynomial of degree $D < cq$ over $\bbF_q$. Suppose $M$ satisfies $c < M < q$. Then:
   \[
     \bigl|\{\alpha \in \bbF_q \mid \mult(F,\alpha) \geq M\}\bigr|
@@ -124,6 +129,7 @@ which is always at least $(1 - 2R)\cdot q$.
 \subsection{Twisted Pseudopolynomials}\label{subsec:twisted-pp}
 
 \begin{Definition}{$r$-Twisted Pseudopolynomial}{twisted-pp}
+  \index{pseudopolynomial!twisted}\index{twisted pseudopolynomial}%
   Suppose $r : \bbF_q \to \bbF_q$ is a function. Let $k < q$. We say $F(X) \in \bbF_q[X]$ is an \emph{$r$-twisted $(h, M)$-pseudopolynomial} if for all $\ell < M$, there is some $U_\ell(X) \in \bbF_q[X]$ of degree at most $h$ such that:
   \[
     F_{\langle\ell\rangle} = r \cdot U_\ell.

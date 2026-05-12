@@ -149,5 +149,25 @@ $\mfn^{(k)}(h)=q^{k\cdot\deg(h)}$ & Norm of $h\in\Phi^{(k)}$ over $E$; analog of
 
 \multicolumn{2}{@{}l}{\textit{Absolute Varieties}}\\[2pt]
 $\mcA$ & Variety  defined over $\bbF_q$\\
-$Z_k(\mcA)$ & Number of $\bbF_{q^k}$-rational points of $\mcA$: $|\{(\alpha_1,\dots,\alpha_n)\in\mcA : \alpha_i\in\bbF_{q^k}\}|$
+$Z_k(\mcA)$ & Number of $\bbF_{q^k}$-rational points of $\mcA$: $|\{(\alpha_1,\dots,\alpha_n)\in\mcA : \alpha_i\in\bbF_{q^k}\}|$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Hasse Derivatives}}\\[2pt]
+$F^{(\ell)}(X)$ & $\ell$-th Hasse derivative of $F(X)$: coefficient of $Z^\ell$ in $F(X+Z)$\\
+$\mult(F, \alpha)$ & Multiplicity of vanishing of $F$ at $\alpha$: largest $r$ with $(X-\alpha)^r \mid F(X)$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Pseudopolynomials}}\\[2pt]
+$\Lambda(X)$ & The polynomial $X^q - X$ over $\bbF_q$\\
+$F_{\langle\ell\rangle}(X)$ & $\ell$-th pseudoderivative of $F$: unique polynomial of degree $<q$ agreeing with $F^{(\ell)}$ on $\bbF_q$\\
+$\pdeg(F)$ & Pseudodegree of $F$: $\max_{\ell \geq 0}\deg(F_{\langle\ell\rangle})$\\
+$F_i(X)$ & Coefficient polynomials in the base-$\Lambda$ expansion $F = \sum_i F_i \Lambda^i$, with $\deg(F_i) < q$\\[6pt]
+
+\multicolumn{2}{@{}l}{\textit{Decoding from Character Evaluations}}\\[2pt]
+$r : \bbF_q \to \{0,\pm 1\}$ & Received (noisy) word; approximates $\psi \circ g$ or $\tr \circ g$\\
+$e$ & Number of errors: $|\{\alpha \in \bbF_q : r(\alpha) \neq (\psi \circ g)(\alpha)\}|$\\
+$S$ & Error set: $\{\alpha \in \bbF_q : r(\alpha) \neq (\psi \circ g)(\alpha)\}$\\
+$Z_S(X)$ & Error locator polynomial: $\prod_{\alpha \in S}(X - \alpha)$\\
+$\Delta(r_1, r_2)$ & Hamming distance: $|\{\alpha \in \bbF_q : r_1(\alpha) \neq r_2(\alpha)\}|$\\
+$G(X)$ & Auxiliary polynomial $g(X)^{(q-1)/2 + M}$ encoding the character values\\
+$E(X)$ & High-multiplicity error-locating pseudopolynomial; multiple of $Z_S^M$\\
+$y_F$ & Codeword associated to a $k$-pseudopolynomial $F$: $\alpha \mapsto (F^{(0)}(\alpha),\ldots,F^{(M-1)}(\alpha))$
 \end{longtable}
