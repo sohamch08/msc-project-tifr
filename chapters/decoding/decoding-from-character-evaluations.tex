@@ -1,4 +1,4 @@
-\chapter{Decoding from Character Evaluations}
+\chapter{Decoding from Character Evaluations}\label{chap:decoding}
 
 Character sums of polynomials over finite fields carry deep arithmetic information, and one of the most striking manifestations of this is that they give rise to good error-correcting codes. The mechanism is simple: two polynomials whose character evaluations are close must be nearly indistinguishable by the character, and the Weil bounds make this precise. For a multiplicative character $\psi$ of $\bbF_q$ and two polynomials $f, g \in \bbF_q[X]$ of small degree, the Weil bound controls gives a lower bound on the Hamming distance between the codewords $(\psi(f(\alpha)))_{\alpha \in \bbF_q}$ and $(\psi(g(\alpha)))_{\alpha \in \bbF_q}$. The resulting codes turn out to have distance approaching $q/2$ while the message length grows polynomially in $q$.
 
@@ -10,3 +10,4 @@ The goal of this chapter is to present the first polynomial-time algorithms for 
 
 \input{chapters/decoding/pseudopolynomials}
 \input{chapters/decoding/quadratic-character-eval}
+\input{chapters/decoding/even-char-eval}
