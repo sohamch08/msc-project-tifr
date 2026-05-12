@@ -18,7 +18,7 @@ So define $V_{\ell}(X)=\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(X)
 
 \begin{algorithm}
   \KwIn{Noisy received word $r:\bbF_q\to \{0,1\}$ with parameters degree $d\leq O(\eps\sqrt{q})$, error-bound $e\leq \lt(\nicefrac18-\eps\rt)q$.}
-  \KwOut{Find a monomial of the closest codeword $\tr\circ g$.}
+  \KwOut{Find the closest codeword $\tr\circ g$ where $g\in\bbF_q[X]$ of degree at most $d$.}
   \caption{Decoding from $\nicefrac18^{th}$ of distance of Dual BCH Codes}
   \DontPrintSemicolon
   \Begin{
@@ -31,7 +31,7 @@ So define $V_{\ell}(X)=\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(X)
       \If{no such $h^*$ exists}{Continue}
       Let $aX^{\deg(F)}$ and $bX^{\deg(E)}$ are leading monomials of $F,E$ respectively\;
       $a_d\longleftarrow \nicefrac{a}b$\;
-      $P\longleftarrow P+(a_d)X^d$\;
+      $P\longleftarrow P+a_dX^d$\;
       \For{$\alpha\in\bbF_q$}{
         $r(\alpha)\longleftarrow r(\alpha)-\tr(a_d\alpha^d)$
       }
@@ -40,4 +40,30 @@ So define $V_{\ell}(X)=\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(X)
     \Return{$P$}
   }
 \end{algorithm}
-\subsection{Relating $F,E$ and $G$ and Their Leading Coefficients}
+\subsection{Relating \texorpdfstring{$F,E$ and $G$}{F,E and G} and Their Leading Coefficients}
+Suppose the algorithm was able to find the polynomials $F,E,V_0,\dots, V_{M-1}$ such that for all $\alpha\in\bbF_q$ and $0\leq\ell<M$, $$F^{(\ell)}(\alpha)=r(\alpha)\cdot E^{(\ell)}(\alpha)+V_{\ell}(\alpha)$$Here we will anlayze the last few steps of the algorithm correctly determines the monomials of $G$ and their coefficients. 
+
+\paragraph*{Step 1: Relating $F,E$ and $G$:} Like in the case of Multiplicative characters we want pseudopolynomials $A,B\in\bbF_q[X]$ such that 
+\begin{equation}\label{eq:dual-bch-relation}
+  A(X)\big(F(X)-E(X)\cdot G(X)\big)=B(X)
+\end{equation}
+So we set the parameters $t,k\in\bbN$ such that $t=\nicefrac38\cdot M$ and $k=e+4dM$. We claim there exists pseudopolynomials $A,B\in\bbF_q[X]$ of the form $$A(X)=\sum_{i=0}^{t-1}A_i(X)\Lm^i(X),\qquad B(X)=\sum_{i=0}^{t+c+\frac{d}2-1}B_i(X)\Lm^i(X)$$ where $\deg(A_i)\leq k$ and $\deg(B_j)\leq k+h+dM$ for all $i\in \{0,\dots, t-1\}$ and $j\in\{0,\dots, t+c+\frac{d}2-1\}$ such that \eqref{eq:dual-bch-relation} holds. The total number of coefficients of $A,B$ is $N=t(k+1)+(t+c+\nicefrac{d}2)\cdot (k+h+dM+1)$. Now Substituting the values of $t,k$ we get \begin{equation}\label{eq:dual-bch-num-coeff}
+  N>\frac38M(e+4dM)+\frac78M(3e+5dM)>3eM+5dM^2
+\end{equation}Using the \eqref{eq:dual-bch-relation} we impose the linear constraints using the coefficients that for all $0\leq \ell<M$ and for $\alpha\in\bbF_q\setminus S$\begin{equation}\label{eq:dual-bch-constraints}
+  (A\cdot (F-E\cdot G))^{(\ell)}(\alpha)=B^{(\ell)}(\alpha)
+\end{equation} 
+So this says the polynomial equation $A(X)\cdot (F(X)-E(X)\cdot G(X))-B(X)$ vanishes at every $\alpha\in\bbF_q\setminus S$ with multiplicity at least $M$. So this has at least \begin{equation}\label{eq:dual-bch-roots}
+  M\cdot |\bbF_q\setminus S|geq M(q-e)>\lt(\frac78+\eps\rt)M
+\end{equation}
+many roots with counting multiplicity. On the other hand the degree bounds of $A(X)\cdot (F(X)-E(X)\cdot G(X))-B(X)$ gives 
+\begin{equation}\label{eq:dual-bch-degree-bound}
+  \deg(A\cdot (F-E\cdot G)-B)\leq \max (\deg(A)+\deg(F-EG),\deg(B))<\lt(\frac78+\frac{\eps}2\rt)MQ
+\end{equation}
+So comparing \eqref{eq:dual-bch-degree-bound} with \eqref{eq:dual-bch-roots} we get $A(X)\cdot (F(X)-E(X)\cdot G(X))\equiv B(X)$. Now it remains to show that from \eqref{eq:dual-bch-constraints} can be enforced using fewer than $N$ linear equations. Now for each $\ell\in\{0,\dots, M-1\}$ we have $$A_{\la\ell\ra}(X)=\sum_{i=0}^{t-1}(-1)^iA_i^{(\ell-i)}(X),\quad B_{\la\ell\ra}(X)=\sum_{i=0}^{t+c+\frac{d}2-1}(-1)^iB_i^{(\ell-i)}(X),\quad E_{\la\ell\ra}(X)=\sum_{i=0}^c(-1)^iE_i^{(\ell-i)}(X)$$such that for all $\alpha\in\bbF_q$ we have $A^{(\ell)}(\alpha)=A_{\la\ell\ra}(\alpha)$, $B^{(\ell)}(\alpha)=B_{\la\ell\ra}(\alpha)$ and $E^{(\ell)}(\alpha)=E_{\la\ell\ra}(\alpha)$. Thus, for any $\alpha\in\bbF_q\setminus S$ we have 
+\begin{align*}
+  (F-E\cdot G)^{(\ell)}(\alpha) & = \lt(r(\alpha)E^{(\ell)}(\alpha)+V_{\ell}(\alpha)\rt)-\sum_{\ell_1+\ell_2=\ell}E^{(\ell_1)}(\alpha)\cdot G^{(\ell_2)}(\alpha)\\ 
+  & = \lt(r(\alpha)E_{\la\ell\ra}(\alpha)+V_{\ell}(\alpha)\rt)-\lt(E_{\la\ell\ra}(\alpha)G(\alpha)+\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(\alpha)\cdot G_{g,\ell_2}(\alpha)\rt)\\ 
+  & = (r(\alpha)-G(\alpha))E_{\la\ell\ra}(\alpha)+\lt(V_{\ell}(\alpha)-\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(\alpha)G_{g,\ell_2}(\alpha)\rt)\\ 
+  & = 0+W_{\ell}(\alpha)=W_{\ell}(\alpha)
+\end{align*}where $W_{\ell}(X)$ is the polynomial of degree at most $h+dM$ given by $$W_{\ell}(X)=V_{\ell}(X)-\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(X)G_{g,\ell_2}(X)$$So for any $\alpha\in\bbF_q\setminus S$ we have $$(A\cdot (F-E\cdot G))^{(\ell)}(\alpha) = \sum_{\ell_1+\ell_2=\ell}A^{(\ell_1)}(\alpha)\cdot (F-E\cdot G)^{(\ell_2)}(\alpha)=\sum_{\ell_1+\ell_2=\ell}A_{\la\ell_1\ra}(\alpha)\cdot W_{\ell_2}(\alpha)$$SO we have the linear constraints for every $0\leq \ell<M$ the following polynomial equations $$\sum_{\ell_1+\ell_2=\ell}A_{\la\ell_1\ra}(X)\cdot W_{\ell_2}(X)=B_{\ell}(X)$$Both left and right of the quality degrees are equal, $3e+dM$. So the number of constrains imposed is at most $M\cdot (3e+dM+1)<3eM+5dM^2$. Combining this with \eqref{eq:dual-bch-num-coeff} we get a non-zero solution for $A,B$ such that \eqref{eq:dual-bch-relation} is satisfied. 
+\paragraph*{Step 2: Relating the Leading Coefficients:} f
