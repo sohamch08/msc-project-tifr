@@ -1,0 +1,107 @@
+\chapter{Modulus Bounds from Power Sum Estimates}
+
+A recurring step in the proof of the Weil bounds is the following: one shows that the power sums $\omega_1^k + \cdots + \omega_l^k$ grow at most like $B^k$, and then concludes that each reciprocal root $\omega_j$ of the associated $L$-function satisfies $|\omega_j| \leq B = q^{1/2}$. This appendix collects the analytic and number-theoretic lemmas that make this deduction rigorous. The logical order is: simultaneous Diophantine approximation (\lemref{lem:simultaneous-diophantine-approximation}) feeds into a lower bound on the real parts of power sums (\lemref{lem:large-real-part-powers}), which in turn implies the modulus bounds (\lemref{lem:power-sum-bound-implies-modulus-bound} and \lemref{lem:real-part-bound-implies-modulus-bound}).
+
+The first lemma deduces modulus bounds directly from a growth hypothesis on the absolute value of the power sum, using an analytic function argument.
+
+\begin{Lemma}{}{lem:power-sum-bound-implies-modulus-bound}
+  Let $\omega_1,\dots,\omega_l$ be complex numbers, and let $B > 0$. If
+  \[
+    |\omega_1^k + \cdots + \omega_l^k| = O(B^k)
+    \quad \text{for all } k\in\bbN
+  \]
+  then $|\omega_j| \le B $ for all $j = 1,\dots,l$.
+\end{Lemma}
+\begin{proof}
+  For $|z| < 1$ we have the following series for $\log(1-z)$:
+  \[
+    -\log(1-z) = z + \frac{1}{2}z^2 + \frac{1}{3}z^3 + \cdots = \sum_{k=1}^{\infty} \frac{1}{k} z^k.
+  \]
+  So for $|z| < \frac{1}{|\omega|}$ we have $-\log(1-\omega z) = \sum_{k=1}^{\infty} \frac{1}{k}\omega^k z^k$, and therefore
+  \[
+    -\sum_{j=1}^{l} \log(1 - \omega_j z) = \sum_{k=1}^{\infty} \frac{1}{k}\Bigl(\omega_1^k + \cdots + \omega_l^k\Bigr) z^k.
+  \]
+  By hypothesis, $|\omega_1^k + \cdots + \omega_l^k| = O(B^k)$, so this series is convergent for $|z| < B^{-1}$. Hence the function on the left is analytic for $|z| < B^{-1}$, which means $1 - \omega_j z \neq 0$ whenever $|z| < B^{-1}$.
+
+  Now if $|\omega_j| > B$ for some $j$, take $z = \frac{1}{\omega_j}$. Then $|z| = \frac{1}{|\omega_j|} < B^{-1}$, but $1 - \omega_j \cdot \frac{1}{\omega_j} = 0$, a contradiction \ctr. Hence $|\omega_j| \leq B$ for all $j \in [l]$.
+\end{proof}
+The second lemma is a strengthening: it suffices to bound only the real part of the power sum rather than its absolute value. This is the form that actually appears in the Weil bound argument, where the power sums are shown to be dominated by $B^k$ after taking real parts via a suitable averaging.
+
+\begin{Lemma}{}{lem:real-part-bound-implies-modulus-bound}
+  Let $\omega_1,\dots,\omega_l$ be complex numbers, and let $B > 0$. If
+  \[
+    \Re(\omega_1^k + \cdots + \omega_l^k) \le B^k
+    \quad \text{for } k = 1,2,\dots,
+  \]
+  then $|\omega_j| \le B $ for all $j = 1,\dots,l$.
+\end{Lemma}
+\begin{proof}
+  The proof follows the same argument as \lemref{lem:power-sum-bound-implies-modulus-bound}. Since $\Re(\omega_1^k+\cdots+\omega_l^k) \leq |\omega_1^k+\cdots+\omega_l^k|$, the series
+  \[
+    -\sum_{j=1}^{l}\log(1-\omega_j z) = \sum_{k=1}^{\infty}\frac{1}{k}\Bigl(\omega_1^k+\cdots+\omega_l^k\Bigr)z^k
+  \]
+  has real part bounded by $\sum_{k=1}^\infty \frac{1}{k} B^k |z|^k < \infty$ for $|z| < B^{-1}$. Hence the left side is analytic for $|z| < B^{-1}$, so $1-\omega_j z \neq 0$ for such $z$. If $|\omega_j| > B$, taking $z = 1/\omega_j$ gives $|z| < B^{-1}$ but $1-\omega_j z = 0$, a contradiction \ctr. Hence $|\omega_j| \leq B$ for all $j \in [l]$.
+\end{proof}
+
+The next lemma is Dirichlet's theorem on simultaneous Diophantine approximation. It is the number-theoretic engine behind the final lemma: it produces integers $k$ for which $e^{2\pi i k\theta_j}$ is simultaneously close to $1$ for each $j$, making the real parts of $\omega_j^k$ large.
+
+\begin{Lemma}{}{lem:simultaneous-diophantine-approximation}
+  Let $\theta_1,\dots,\theta_l$ be real numbers. Then there exist $(l+1)$-tuples of integers $(k, m_1,\dots,m_l)$ with arbitrarily large $k > 0$ such that
+  \[
+    \left|\theta_i - \frac{m_i}{k}\right| < k^{-1 - (1/l)} \quad (i = 1,\dots,l).
+  \]
+\end{Lemma}
+\begin{proof}
+  For any $x\in\bbR$, write $x = [x] + \{x\}$ where $[x]$ is the integer part and $\{x\}\in[0,1)$ is the fractional part. Let $N > 0$ be an integer. Consider the $N^l + 1$ points
+  \[
+    \bigl(\{u\theta_1\},\,\dots,\,\{u\theta_l\}\bigr), \quad u = 0,1,\dots,N^l.
+  \]
+  These are $N^l+1$ points in the half-open unit cube $0\leq x_j < 1$. This unit cube can be decomposed into $N^l$ half-open small cubes of side $N^{-1}$. Hence, there will be two points lying in the same small cube. Let these two points have parameters $u'$ and $u$ with $u'<u$. Then
+  \[
+    |\{u\theta_j\} - \{u'\theta_j\}| < N^{-1} \quad \forall\, j\in[l],
+  \]
+  or equivalently $|u\theta_j - u'\theta_j - m_j| < N^{-1}$ for certain integers $m_1,\dots,m_l$. Let $k = u - u'$. Then $k < N^l$ and
+  \[
+    |k\theta_j - m_j| < N^{-1} \quad \forall\, j\in[l].
+  \]
+  Since $k\leq N^l$, we have $N \geq k^{1/l}$, and so $kN\geq k^{1+1/l}$. Therefore,
+  \[
+    \left|\theta_j - \frac{m_j}{k}\right| < \frac{1}{kN} \leq k^{-1-1/l} \quad \forall\, j\in[l].
+  \]
+  If any $\theta_j$ is irrational, as $N\to\infty$ the inequality $|k\theta_j-m_j|<N^{-1}$ cannot hold for bounded $k$, so there exist tuples with arbitrarily large $k$. If all $\theta_j = a_j/b$ are rational (with $b>0$), set $k=tb$, $m_j=ta_j$ for $t=1,2,\dots$
+\end{proof}
+
+The final lemma is the strongest of the four. It says that for any collection of nonzero complex numbers, there are infinitely many $k$ at which the real part of their $k$-th power sum is essentially as large as the sum of the $k$-th powers of their moduli. Together with the preceding lemma, this completes the chain of implications used to bound the reciprocal roots of $L$-functions.
+
+\begin{Lemma}{}{lem:large-real-part-powers}
+  Let $\omega_1,\dots,\omega_l$ be non-zero complex numbers. Then there exist infinitely many positive integers $k$ such that
+  \[
+    \Re(\omega_1^k + \cdots + \omega_l^k)
+    >
+    \left(1 - 2\pi k^{-1/l}\right)\left(|\omega_1|^k + \cdots + |\omega_l|^k\right).
+  \]
+  Hence, for any given $\varepsilon > 0$, there exist infinitely many $k$ such that
+  \[
+    \Re(\omega_1^k + \cdots + \omega_l^k)
+    >
+    (1 - \varepsilon)\left(|\omega_1|^k + \cdots + |\omega_l|^k\right).
+  \]
+\end{Lemma}
+\begin{proof}
+  Write $\omega_j = |\omega_j|\,e(\theta_j)$ for real $\theta_j$, where $e(\theta) := e^{2\pi i\theta}$. By \lemref{lem:simultaneous-diophantine-approximation} applied to $\theta_1,\dots,\theta_l$, there are infinitely many positive integers $k$ and integers $m_1,\dots,m_l$ such that
+  \[
+    |k\theta_j - m_j| < k^{-1/l} \quad \forall\, j\in[l].
+  \]
+  For any such $k$, using $|e(\alpha)-e(\beta)| \leq 2\pi|\alpha-\beta|$ for real $\alpha,\beta$:
+  \[
+    |e(k\theta_j) - 1|
+    = |e(k\theta_j) - e(m_j)|
+    \leq 2\pi|k\theta_j - m_j|
+    < 2\pi k^{-1/l}.
+  \]
+  Hence, $\Re(e(k\theta_j)) > 1 - 2\pi k^{-1/l}$, and so
+  \[
+    \Re(\omega_j^k) = |\omega_j|^k\,\Re(e(k\theta_j)) > \bigl(1-2\pi k^{-1/l}\bigr)|\omega_j|^k \quad \forall\, j\in[l].
+  \]
+  Summing over $j$ gives the stated inequality. The $\varepsilon$-version follows by taking $k$ large enough that $2\pi k^{-1/l} < \varepsilon$.
+\end{proof}

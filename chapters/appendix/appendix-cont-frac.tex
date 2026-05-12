@@ -1,0 +1,118 @@
+\chapter{Continued Fractions over Polynomial Rings}
+\label{sec:cont-frac}
+
+Just as every real number has a continued fraction expansion obtained by iterating the floor function, every rational function $r_0/r_1\in\bbF_q(X)$ has an analogous expansion obtained by iterating polynomial division. The role of the floor function is played by the leading term of the quotient in the Euclidean algorithm, and the resulting \emph{partial quotients} $A_0, A_1, \ldots, A_s$ are polynomials over $\bbF_q$.
+
+Concretely, we write
+\[
+  \frac{r_0}{r_1} = A_0 + \cfrac{1}{A_1 + \cfrac{1}{A_2 + \cdots}} =: [A_0, A_1, A_2, \ldots, A_s].
+\]
+The \emph{convergents} of this expansion are the rational functions $[A_0, A_1, \ldots, A_i] = P_i/Q_i$, where $(P_i)$ and $(Q_i)$ are sequences of polynomials defined by the recurrences
+\[
+  P_{i} = A_i P_{i-1} + P_{i-2}, \qquad Q_{i} = A_i Q_{i-1} + Q_{i-2},
+\]
+starting from $P_{-1} = 1$, $P_0 = A_0$, $Q_{-1} = 0$, $Q_0 = 1$.
+
+\medskip
+Let $r_0,r_1\in\bbF_q[X]$ with $r_1\neq 0$. Applying the Euclidean algorithm yields a sequence
+$$r_i=A_ir_{i+1}+r_{i+2},\quad i=0,1,\dots,s,$$
+where $0\leq\deg(r_{i+1})<\deg(r_i)$ for $i=1,\dots,s$ and $r_{s+2}=0$. Here $A_0,A_1,\dots,A_s\in\bbF_q[X]$, with $A_1,\dots,A_s$ of positive degree. This gives the \emph{continued fraction expansion}
+$$\frac{r_0}{r_1}=A_0+\dfrac{1}{A_1+\dfrac{1}{A_2+\cdots}}=:[A_0,A_1,A_2,\dots,A_s].$$
+Define polynomials $P_i,Q_i\in\bbF_q[X]$ for $i=-1,0,1,\dots,s$ by the recurrences
+\begin{align*}
+  P_{-1}=1,\quad P_0=A_0,\quad & P_i=A_iP_{i-1}+P_{i-2}\quad (i=1,\dots,s), \\
+  Q_{-1}=0,\quad Q_0=1,\quad   & Q_i=A_iQ_{i-1}+Q_{i-2}\quad (i=1,\dots,s).
+\end{align*}
+It is clear that $\deg(P_{i-1})<\deg(P_i)$ and $\deg(Q_{i-1})<\deg(Q_i)$ for $i=1,\dots,s$. We extend the definition of degree by $\deg(f/g)=\deg(f)-\deg(g)$ for a rational function $f/g$.
+
+\begin{Lemma}{Rational Approximants via Convergents}{lem:cf-rational-approx}
+  For any rational function $\rho$ of nonnegative degree,
+  $$[A_0,A_1,\dots,A_{i-1},\rho]=\frac{\rho P_{i-1}+P_{i-2}}{\rho Q_{i-1}+Q_{i-2}}\quad\text{for }i=1,\dots,s+1.$$
+\end{Lemma}
+\begin{proof}
+  We prove by induction on $i$. For $i=1$:
+  \[
+    [A_0,\rho] = A_0 + \frac{1}{\rho}
+    \qquad\text{and}\qquad
+    \frac{\rho P_0 + P_{-1}}{\rho Q_0 + Q_{-1}} = \frac{\rho A_0 + 1}{\rho} = A_0 + \frac{1}{\rho}.
+  \]
+  So the base case holds. Now suppose the identity holds for some $i$ with $1\leq i\leq s$. Since $A_i+\rho^{-1}$ is of positive degree, we can apply the inductive hypothesis with $A_i+\rho^{-1}$ in place of $\rho$:
+  \begin{align*}
+    [A_0,\dots,A_i,\rho]
+    &= [A_0,\dots,A_{i-1},\,A_i+\rho^{-1}] \\
+    &= \frac{(A_i+\rho^{-1})\,P_{i-1}+P_{i-2}}{(A_i+\rho^{-1})\,Q_{i-1}+Q_{i-2}} \\
+    &= \frac{\rho^{-1}P_{i-1} + A_i P_{i-1}+P_{i-2}}{\rho^{-1}Q_{i-1} + A_i Q_{i-1}+Q_{i-2}} \\
+    &= \frac{\rho^{-1}P_{i-1} + P_i}{\rho^{-1}Q_{i-1} + Q_i} \\
+    &= \frac{P_{i-1}+\rho P_i}{Q_{i-1}+\rho Q_i},
+  \end{align*}
+  where we used the recurrences $P_i = A_iP_{i-1}+P_{i-2}$ and $Q_i = A_iQ_{i-1}+Q_{i-2}$. This is precisely the formula for index $i+1$, completing the induction. 
+\end{proof}
+
+\begin{corollary}{Convergents Formula}{cor:piqi-is-expression}
+  For $i=0,1,\dots,s$ we have $[A_0,A_1,\dots,A_i]=P_i/Q_i$.
+\end{corollary}
+\begin{proof}
+  Apply \lemref{lem:cf-rational-approx} with $\rho = A_i$ (and index $i$): $[A_0,\ldots,A_{i-1},A_i] = (A_i P_{i-1}+P_{i-2})/(A_i Q_{i-1}+Q_{i-2}) = P_i/Q_i$. 
+\end{proof}
+
+\begin{Lemma}{Representation of $r_0/r_1$ via Convergents}{lem:cf-r0r1-rep}
+  For $i=0,1,\dots,s$ we have
+  $$\frac{r_0}{r_1}=\frac{P_i+\beta_i P_{i-1}}{Q_i+\beta_i Q_{i-1}},$$
+  where $\beta_i=r_{i+2}/r_{i+1}$ is a rational function of negative degree.
+\end{Lemma}
+\begin{proof}
+  We proceed by induction on $i$. For $i=0$:
+  \[
+    \frac{P_0+\beta_0 P_{-1}}{Q_0+\beta_0 Q_{-1}}
+    = \frac{A_0 + \beta_0}{1}
+    = A_0 + \frac{r_2}{r_1}
+    = \frac{A_0 r_1 + r_2}{r_1}
+    = \frac{r_0}{r_1}.
+  \]
+  Now suppose the identity holds for some $0\leq i<s$. We show it for $i+1$. Using the recurrences $P_{i+1}=A_{i+1}P_i+P_{i-1}$ and $Q_{i+1}=A_{i+1}Q_i+Q_{i-1}$:
+  \begin{align*}
+    \frac{P_{i+1}+\beta_{i+1}P_i}{Q_{i+1}+\beta_{i+1}Q_i}
+    &= \frac{(A_{i+1}+\beta_{i+1})\,P_i + P_{i-1}}{(A_{i+1}+\beta_{i+1})\,Q_i + Q_{i-1}}.
+  \end{align*}
+  Now observe that
+  \[
+    A_{i+1}+\beta_{i+1}
+    = A_{i+1}+\frac{r_{i+3}}{r_{i+2}}
+    = \frac{A_{i+1}\,r_{i+2}+r_{i+3}}{r_{i+2}}
+    = \frac{r_{i+1}}{r_{i+2}}
+    = \beta_i^{-1},
+  \]
+  where we used the Euclidean division $r_{i+1}=A_{i+1}r_{i+2}+r_{i+3}$. Substituting:
+  \[
+    = \frac{\beta_i^{-1}\,P_i + P_{i-1}}{\beta_i^{-1}\,Q_i + Q_{i-1}}
+    = \frac{P_i + \beta_i P_{i-1}}{Q_i + \beta_i Q_{i-1}}
+    = \frac{r_0}{r_1},
+  \]
+  where the last equality is the induction hypothesis. 
+\end{proof}
+
+\begin{Lemma}{Determinant Identity for Convergents}{lem:cf-determinant}
+  For $i=0,1,\dots,s$ we have $P_iQ_{i-1}-P_{i-1}Q_i=(-1)^{i-1}$.
+\end{Lemma}
+\begin{proof}
+  We prove by induction. For $i=0$:
+  \[
+    P_0 Q_{-1} - P_{-1} Q_0 = A_0\cdot 0 - 1\cdot 1 = -1 = (-1)^{-1}.
+  \]
+  Suppose the identity holds for some $i$. Then:
+  \begin{align*}
+    P_{i+1}Q_i - P_i Q_{i+1}
+    &= (A_{i+1}P_i+P_{i-1})\,Q_i - P_i\,(A_{i+1}Q_i+Q_{i-1}) \\
+    &= A_{i+1}P_i Q_i + P_{i-1}Q_i - A_{i+1}P_i Q_i - P_i Q_{i-1} \\
+    &= P_{i-1}Q_i - P_i Q_{i-1} \\
+    &= -(P_i Q_{i-1} - P_{i-1}Q_i) \\
+    &= -(-1)^{i-1} = (-1)^i. 
+  \end{align*}
+\end{proof}
+
+\begin{corollary}{Coprimality of Convergents}{cor:piqi-coprime}
+  For $i=0,1,\dots,s$ we have $\gcd(P_i,Q_i)=1$.
+\end{corollary}
+\begin{proof}
+  Let $d_i=\gcd(P_i,Q_i)$. By \lemref{lem:cf-determinant}, $d_i$ divides $P_iQ_{i-1}-P_{i-1}Q_i=(-1)^{i-1}$, so $d_i=1$. 
+\end{proof}

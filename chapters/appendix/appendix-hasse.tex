@@ -1,0 +1,65 @@
+\chapter{Hasse Derivatives}
+\label{chap:hasse}
+
+\begin{definition}{Hasse Derivative}{}
+  Let $\bbF$ be any field. Let $P\in\bbF[X_1,\dots,X_n]$. Then $\ovi\in \bbZ_0^n$ Hasse derivative of $P$ is denoted by $P^{(\ovi)}(X_1,\dots, X_n)$ or $H^{(\ovi)}(P)$ which is the coefficient of $Z^{i_1}\cdots Z_n^{i_n}\eqqcolon \ovZ^{\ovi}$ in the polynomial  $P(X_1+Z_1,\dots, X_n+Z_n)$. Thus $$P(X_1+Z_1,\dots, X_n+Z_n)= \sum_{\ovi} P^{(\ovi)}(X_1,\dots, X_n)\cdot \ovZ^{ \ovi}$$
+\end{definition}
+
+For univariate polynomials we immediately get a closed form formula of $k^{th}$ hasse derivative. Let $f\in\bbF[X]$ where $f(X)=\sum_{i=0}^da_iX^i$. Then $$f^{(k)}(X)=\sum_{i=0}^d \binom{k}{i}\cdot a_iX^{i-k}$$
+
+From the definition we have the following observation
+\begin{observation}
+  For any $f,f_1,f_2\in\bbF_q[X_1,\dots, X_n]$ and $\alpha\in\bbF$ and for any $\ovk\in\bbZ^n$ we have\begin{enumerate}[label=(\roman*)]
+    \item $(f_1+f_2)^{(\ovk)}(X_1,\dots, X_n)=f_1^{(\ovk)}(X_1,\dots, X_n)+f_2^{(\ovk)}(X_1,\dots, X_n)$
+    \item $(\alpha\cdot f)^{(\ovk)}(X_1,\dots, X_n)=\alpha\cdot f^{(\ovk)}(X_1,\dots, X_n)$.
+  \end{enumerate}
+\end{observation}
+Since throughout this report we only use hasse derivatives in the context of univariate polynomials we will only focus on univariate polynomials and see some properties of hasse derivatives. Here we take $\bbF$ to be any field.
+\begin{Lemma}{}{lem:hasse-product-rule}
+  \begin{enumerate}[label=(\roman*)]
+    \item For $f_1,\dots, f_t\in\bbF[X]$ then we have $$(f_1\cdot f_t)^{(n)}(X)=\sum_{\substack{n_1,\dots, n_t\geq 0\\ n_1+\cdots n_t=n}}\prod_{i=1}^tf_i^{(n_i)}(X)$$
+    \item For any $\alpha\in\bbF$ we have $$\lt((X-c)^t\rt)^{(n)}=\binom{t}n\cdot (X-c)^{t-n}.$$
+    \item For $0\leq n\leq $ and $f,g\in \bbF[X]$we have $$\lt(gf^t\rt)^{(n)}(X)=\tdg\cdot f^{t-n}(X)$$ where $\tdg\in\bbF[X]$ with $\deg(\tdg)\leq \deg(g)+n(\deg(f)-1)$.
+  \end{enumerate}
+\end{Lemma}
+\begin{proof}
+  \begin{enumerate}[label=(\roman*)]
+    \item Since the hasse derivative operator is linear it is enough to show this property for monomials. So suppose $f_j(X)=X^{k_j}$ for all $j\in[t]$. Then $f_1\cdots f_t=X^{\sum_{j=1}^t k_j}$. Therefore, $$(f_1\cdots f_t)^{(n)}(X)=\binom{\sum_{j=1}^t k_j}t,\qquad \prod_{j=1}^t f_j^{n_j}(X)=\prod_{j=1}^t \binom{k_j}{n_j}\ \text{ for all }n_j\in \bbZ_0, j\in[t]$$So it is enough to show that $$\binom{\sum_{j=1}^t k_j}t=\sum_{\substack{n_1,\dots, n_t\geq 0\\ n_1+\cdots n_t=n}}\prod_{j=1}^t \binom{k_j}{n_j}$$But this is true by comparing the coefficients of $X^n$ in $(X+1)^{\sum_{j=1}^t k_j}=\prod_{j=1}^t(X+1)^{k_j}$. So we have the result.
+    \item Now take $f_j(X)=X-c$ for all $j\in[t]$. Then $f_j^{(n)}(X)=1$ if $n=1$ and $0$ if $n>1$. Therefore, if we use the first part on $f_1,\dots, f_j$ in the sum on right-hand side the only terms which survives are when each $n_j$ are either $0$ or $1$. The number of such terms are $\binom{t}n$ and each term is $(X-c)^{t-n}$.
+    \item Again by using the first part we get $$(gf^t)^{(n)}(X)=\sum_{\substack{n_0,n_1,\dots, n_t\geq 0\\ n_0+n_1+\cdots +n_t=n}}g^{(n_0)}(X)\prod_{j=1}^t f^{(n_j)}(X)$$Now each summand is divisible by $f^{t-n}$. Hence, there exists some $\tdg\in\bbF[X]$ such that  $(gf^t)^{(n)}(X)=\tdg(X)\cdot f^{t-n}(X)$. Furthermore, $$\deg(\tdg)=\deg\lt( (gf^{t})^{(n)}\rt)-(t-n)\deg(f)\leq\deg(g)+t\deg(f)-n-(t-n)\deg(f)=\deg(g)+(\deg(f)-1)$$
+  \end{enumerate}
+  So we have the Lemma.
+\end{proof}
+
+Now for our use-case in \autoref{chap:decoding} we use the polynomial $\Lm(X)=X^q-X$ and its powers. And we compute its derivatives to do polynomial arithmetic.
+\begin{observation}
+  For $\Lm(X)$ and for any $\ell\in\bbZ_0$ $$\Lm^{(\ell)}(X)=\begin{cases}
+    \Lm(X) & \ell=0\\ -1 & \ell=1 \\ 1 & \ell =q \\ 0 & \text{otherwise}
+  \end{cases}$$
+\end{observation}
+\begin{Lemma}{}{lem:derivative-xq-x}\label{lem:DerivativeXqX}
+  Suppose $U(X), V(X) \in \bbF_q[X]$, $\deg(V) < q$, $i \geq 0$, and $U(X) = V(X)\cdot \Lambda^i(X)$. Then for $0 \leq \ell < q$,
+  \[
+    U^{(\ell)}(X) \equiv (-1)^i \cdot V^{(\ell-i)}(X)
+    \pmod{\Lambda(X)}.
+  \]
+\end{Lemma}
+\begin{proof}
+  Now using the \lemref[(i)]{lem:hasse-product-rule} we get $$U^{(\ell)}(X)=\sum_{\substack{\ell_0,\dots, \ell_i\geq 0\\ \ell_0+\cdots +\ell_i=\ell}}V^{(\ell_0)}(X)\prod_{j=1}^i \Lambda^{(\ell_j)}(X)$$Now if $\ell<i$ then in every summand one of $\ell_1,\dots, \ell_i$ must equal $0$. Therefore, all the terms are multiples of $\Lm(X)$. So $U^{(\ell)}(X)$ is a multiple of $\Lm(X)$.
+
+  Now from the above observation if $\ell\geq i$ then all but at most one of these terms is a multiple of $\Lm(X)$. Since $\ell<q$ every term has all the $\ell_j<q$. Therefore, $\ell_1,\dots, \ell_i\in\{0,1\}$. If at least one of $\ell_1,\dots,\ell_i$ equals to $0$ then $\Lm(X)$ survives as a factor of the term. So the only remaining term is $\ell_1=\cdots =\ell_i=1$. In this case $\ell_0=\ell-i$ and therefore this term equals $V^{(\ell-i)}(X)\cdot (-1)^i$. Hence we have the Lemma.
+\end{proof}
+As a corollary of the \lemref[(i,iii)]{lem:hasse-product-rule} and the above Lemma we get the following result which is very usefull to us in \autoref{chap:decoding}.
+\begin{corollary}{}{cor:derivative-of-g}
+  Let $f\in\bbF_q[X]$ ($q$ odd) be a polynomial with $\deg(g)\leq d$. Then the $\ell^{th}$ derivative of $g^j(X)$ is of the form $$(g^j)^{(\ell)}(X)=G_{g,j,\ell}(X)\cdot g(X)^{j-\ell}$$where $G_{g,j,\ell}(X)\in\bbF_q[X]$ and $\deg(G_{g,j,\ell})\leq d\ell-\ell$.
+
+  Moreover, for $q$ even case if we take the polynomial $\tr\circ g(X)$ where $\tr$ is the absolute trace function from $\bbF_q\to\bbF_2$ then for any $\ell$, $$G^{(\ell)}(X)=\begin{cases}
+    G(X) & \ell=0\\ G_{g,\ell}(X) & \ell>0
+  \end{cases}$$where $G_{g,\ell}\in\bbF_q[X]$ with $\deg(G_{g,\ell})\leq d\ell$.
+\end{corollary}
+\begin{theorem}{}{thm:hasse-bivariate}
+  Suppose $\Char(\bbF)=p$ where $p$ is a prime. Let $Q(X,Y)\in\bbF[X,Y]$ be a polynomial and define $h(X)=Q\lt(X,X^{p^s}\rt)$ for some $s\in\bbN$. Then for all $0\leq n<p^s$ $$h^{(n)}(X)=Q^{(n,0)}\lt(X,X^{p^s}\rt)$$where $Q^{(i,0)}$ is the $i^{th}$ partial derivative of $Q$ with respect to $X$ where we consider $Q$ as a polynomial of $\bbF[Y][X]$.
+\end{theorem}
+\begin{proof}
+  Since hasse derivative is a linear operator it suffices to prove the above for monomials of the form $X^iY^j$. So suppose $Q(X,Y)=X^iY^j$. Then $h(X)=Q(X,X^{p^s})=X^i\cdot \lt(X^{p^s}\rt)^j$. Now take $f_1(X)=X^i$ and $f_2=\cdots =f_{k+1}=X^{p^s}$. Then $h=f_1\cdots f_{k+1}$. So by \lemref[(i)]{lem:hasse-product-rule} $$h^{(n)}(X)=\sum_{\substack{n_1,\dots, n_{k+1}\geq 0\\ n_1+\cdots n_{k+1}=n}}\prod_{i=1}^{k+1}f_i^{(n_i)}(X)$$Since $p\mid \binom{p^s}n$ for all $0\leq n<p^s$ we have $$(X^{p^s})^{(n)}=\binom{p^s}X^{p^s-n}\equiv 0$$Therefore the only term which survives is when $n_1=\cdots n_{k+1}=0$ and $n_0=n$. That means $h^{(n)}=Q^{(n,0)}(X,X^{p^s})$.
+\end{proof}

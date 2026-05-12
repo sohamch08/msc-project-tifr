@@ -2,18 +2,6 @@
 
 In this section we will try to give bounds on the absolute value of deviation of number of zeros from the average number of zeros. And then we will give upper bounds on the absolute values of $\Wpsil{k}{f}$, $\Wchil{k}{g}$ and $\Wmixl{k}{f}{g}$. But here we will count the solutions or give the bounds on absolute value on lifted characters in a finite extension field $E=\bbF_{q^k}$ of $\bbF_q$.  For any polynomial $P(X,Y)\in\bbF_q[X,Y]$ we denote the number of solutions of $P(X,Y)=0$ in the field $ E$ by $Z_E(P(X,Y)=0)$.
 
-Before we dive deeper into the weil bounds first we prove an auxiliary lemma which will help us to give bounds to the complex roots. 
-\begin{lemma}{}{lem:power-sum-bound-implies-modulus-bound}
-  Let $\omega_1,\dots,\omega_l$ be complex numbers, and let $B > 0$. If
-  \[
-    |\omega_1^k + \cdots + \omega_l^k| = O(B^k)
-    \quad \text{for all } k\in\bbN
-  \]
-  then $|\omega_j| \le B $ for all $j = 1,\dots,l$.
-\end{lemma}
-\begin{proof}
-  For $|z|<1$ we have the following series for $\log(1-z)$: $$-\log(1-z)=\sum_{t=1}^{\infty}\frac1tz^t$$So for $|z|<\frac1{|\omega|}$ we have $$-\log(1-\omega z)=\sum_{t=1}^{\infty}\frac1t\om^tz^t\implies -\sum_{i=1}^k\log (1-\om_iz)=\sum_{t=1}^{\infty}\frac1t\lt(\sum_{i=1}^k\om_i^t\rt)z^t$$Now this series is convergent for $|z|<B^{-1}$. Hence, the function is analytic for $|z|<B^{-1}$. Thus, $1-\om_iz\neq 0$ if $|z|<B^{-1}$. If $|\om_i|>B$ then take $z=\frac1{\om_i}$. Then $|z|<B^{-1}$. Hence, the series should approach to infinity as $1-\om_iz=0$. But the right-hand side gives a finite value. Hence, contradiction \ctr Therefore $|\om_i|<B$ for all $i\in[t]$. 
-\end{proof}
 
 \subsection{Bound for Multiplicative Character Sums}\label{subsec:mchar-weil-bound}
 Let $\psi\in\Mq$ be a non-trivial multiplicative character. And let $\chi_0\in\Xq$ be the trivial additive character. Let $f(X)\in\bbF_q[X]$ is a monic polynomial with precisely $m$ distinct roots. Let $g(X)=0$. Then $W\lt(\psi,\chi_0;f,0\rt)=\Wpsi{f}$ and $W^{(k)}\lt(\psi^{(k)},\chi_0^{(k)};f,0\rt)=\Wpsil{k}{f}$. So by \LiftedLRootscor there exists complex numbers $w_1,\dots, w_{m-1}\in\bbC$ such that \begin{equation}\label{eq:mchar-complex-root-sum}

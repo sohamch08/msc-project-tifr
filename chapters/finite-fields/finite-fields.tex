@@ -2,7 +2,7 @@
 
 Fields are the most fundamental algebraic structures in which one can add, subtract, multiply, and divide (by nonzero elements) without leaving the set. Commonly known examples of fields are set of rationals $\bbQ$, or real numbers $\bbR$, or complex numbers $\bbC$. But the set of integers $\bbZ$ form a ring but not a field, since most elements have no multiplicative inverse. A \emph{finite field} is a field that contains only finitely many elements. We assume the reader is familiar with basic ring theory; for a thorough treatment see~\cite{Artin2011}. Before proceeding, we recall the definitions of rings and fields.
 
-\begin{Definition}{Rings and Fields}{def:ring-types}
+\begin{definition}{Rings and Fields}{def:ring-types}
   \begin{enumerate}[label={(\roman*)}]
     \item A ring $R$ is an abelian group with a multiplication operation such that the ring is closed under the multiplication operation. We assume the ring has a multiplicative identity $e\in R$ such that for all element $a\in R$, $ea=ae=a$. 
     \item A ring is called \emph{commutative} if the multiplication operation is commutative.
@@ -10,7 +10,7 @@ Fields are the most fundamental algebraic structures in which one can add, subtr
     \item A ring is called a \emph{division ring} (or \emph{skew field}) if the nonzero elements of $R$ form a group under the multiplication operation. 
     \item A commutative division ring is called a \emph{field}.
   \end{enumerate}
-\end{Definition}
+\end{definition}
 
 For any ring $R$ with identity, the \emph{characteristic}, $\Char(R)$ is the smallest positive integer $n$ such that $n\cdot 1=0$, or $0$ if no such $n$ exists. One can show that the characteristic of an integral domain is always either $0$ or a prime; see~\cite{Artin2011} for a proof. Since every field is an integral domain, the characteristic of a field is always $0$ or a prime $p$.
 
