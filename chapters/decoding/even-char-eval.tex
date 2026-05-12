@@ -3,4 +3,41 @@ In this section we basically decode the famous Dual BCH codes. We first discuss 
   \item $\tdg$ has only odd degree monomials
   \item $h(X)$ has $0$ constant term
 \end{enumerate}
-Now for any $\alpha\in\bbF_q$, we have $\tr\circ g(\alpha)=\tr(a)+\tr\circ \tdg(\alpha)$. Therefore, either $\tr\circ g=\tr\circ \tdg$ or $\tr\circ g=1+\tr\circ \tdg$. So we assume $g$ only has odd degree monomials. So now take the $\chi_1\in\Xq$ canonical additive character of $\bbF_q$. Then for any $\alpha$, $\chi_1(\alpha)=(-1)^{\tr(\alpha)}$. So for a polynomial $g\in\bbF_q[X]$ of degree at most $d$, the encoding of the dual BCH code is $$\enc(g)=\lt(\chi_1\circ g(\alpha)\rt)_{\alpha\in\bbF_q}$$ by \WeilBoundChithm we have $$\lt|\sum_{\alpha\in\bbF_q}\chi_1\circ g(\alpha)\rt|\leq (d-1)\sqrt{q}$$Therefore for any two distinct polynomials $g_1,g_2\in\bbF_q[X]$ of degree $d$ we have $$\lt|\sum_{\alpha\in\bbF_q}\chi_1\circ (g_1-g_2)(\alpha)\rt|\leq O(d\sqrt{q})$$So if $d=o(\sqrt{q})$ then we have $\Dl(\tr\circ g_1,\tr\circ g_2)\in\lt(\frac12\pm O\lt(\frac{d}{\sqrt{q}}\rt)\rt)q$. This gives the distance of the dual BCH code. Since we are taking power of $(-1)$ we will assume the codeword is $\tr\circ g(\alpha)$ instead of $(-1)^{\tr\circ g(\alpha)}$  since taking the power is just mapping it to the $\bbF_q$ field. 
+Now for any $\alpha\in\bbF_q$, we have $\tr\circ g(\alpha)=\tr(a)+\tr\circ \tdg(\alpha)$. Therefore, either $\tr\circ g=\tr\circ \tdg$ or $\tr\circ g=1+\tr\circ \tdg$. So we assume $g$ only has odd degree monomials. So now take the $\chi_1\in\Xq$ canonical additive character of $\bbF_q$. Then for any $\alpha$, $\chi_1(\alpha)=(-1)^{\tr(\alpha)}$. So for a polynomial $g\in\bbF_q[X]$ of degree at most $d$, the encoding of the dual BCH code is $$\enc(g)=\lt(\chi_1\circ g(\alpha)\rt)_{\alpha\in\bbF_q}$$ by \WeilBoundChithm we have $$\lt|\sum_{\alpha\in\bbF_q}\chi_1\circ g(\alpha)\rt|\leq (d-1)\sqrt{q}$$Therefore for any two distinct polynomials $g_1,g_2\in\bbF_q[X]$ of degree $d$ we have $$\lt|\sum_{\alpha\in\bbF_q}\chi_1\circ (g_1-g_2)(\alpha)\rt|\leq O(d\sqrt{q})$$So if $d=o(\sqrt{q})$ then we have $\Dl(\tr\circ g_1,\tr\circ g_2)\in\lt(\frac12\pm O\lt(\frac{d}{\sqrt{q}}\rt)\rt)q$. This gives the distance of the dual BCH code. Since we are taking power of $(-1)$ we will assume the codeword is $\tr\circ g(\alpha)$ instead of $(-1)^{\tr\circ g(\alpha)}$  since taking the power is just mapping it to the $\bbF_q$ field. Below we give the algorithm of decoding from $\nicefrac18^{th}$ of the distance of dual BCH codes from \cite{Kopparty2026}
+
+\subsection{Algorithm}
+Like in the case of decoding from multiplicative character evaluations we proceed with Berlekamp-Welch like arguments. The approach is very similar to that of previous section but because we are working with additive characters there will be some differences.
+
+If we were in a zero error setting then we know the polynomial $G=\tr\circ g$ is the original codeword. But we have the received word $r:\bbF_q\to \{0,1\}$ very close to the original codeword. Let $S=\{\alpha\in\bbF_q\colon \tr\circ g(\alpha)\neq r(\alpha)\}$. So $|S|=e$.  Let $Z_S(X)=\prod_{\alpha\in S}(X-\alpha)^M$. Hence $Z_S$ has zero at every point of $S$ with multiplicity $M$. Again we take a non-zero multiple of $Z_S(X)$, $E(X)$ which is a $h$-pseudopolynomial of degree $\leq cq$. So it suffices to have $ch=em$ to get such polynomial. But the degree of $E(X)$ is of the form $iq+j$ for some $i\in\{0,\dots, c\}$ and $j\in \{0,\dots, h\}$. We multiply $E(X)$ with $\Lambda^{c-i}$ so that the degree become $cq+j$. So let $h^*=j$. Like the case of multiplicative characters for all $0\leq \ell<M-1$, $\deg(E_{\la \ell\ra})\leq h$. So we take the polynomial $E(X)\cdot G(X)$. So now we compute derivatives of $E\cdot G$. For any $\alpha\in\bbF_q$ and $0\leq \ell<M$ we have \begin{align*}
+  (E\cdot G)^{(\ell)}(\alpha) & = \sum_{\ell_1+\ell_2=\ell}E^{(\ell_1)}(\alpha)\cdot G^{(\ell_2)}(\alpha)                                                                                             \\
+                              & = E^{(\ell)}(\alpha)\cdot G(\alpha)+\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E^{(\ell_1)}(\alpha)\cdot G^{(\ell_2)}(\alpha)                                              \\
+                              & = E^{(\ell)}(\alpha)\cdot G(\alpha) + \lt(\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(\alpha)\cdot G_{g,\ell_2}(\alpha)\rt)        & \byc{derivative-of-g} \\
+                              & = E^{(\ell)}(\alpha)\cdot \tr\circ g(\alpha)+\lt(\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(\alpha)\cdot G_{g,\ell_2}(\alpha)\rt)
+\end{align*}
+So define $V_{\ell}(X)=\sum_{\ell_1+\ell_2=\ell, \ell_1<\ell}E_{\la\ell_1\ra}(X)\cdot G_{g,\ell_2}(X)$. Then we have $$(E\cdot G)^{(\ell)}(\alpha)=r(\alpha)\cdot E^{(\ell)}(\alpha)+V_{\ell}(\alpha)$$ where $\deg(V_{\ell})\leq h+dM$. The change to $r(\alpha)$ from $\tr\circ g(\alpha)$ is valid because $E^{(\ell)}(\alpha)=0$ for all $0\leq \ell<M-1$ at all error points i.e., for all $\alpha\in S$. The degree bound for $E\cdot G$ we get is $\deg(E\cdot G)=(cq+h^*)+d\cdot \frac{q}2$. So we get $E\cdot G, V_0,\dots, V_{M-1}$ which satisfies the above equations with proper degree bounds. So we have the algorithm:
+
+\begin{algorithm}
+  \KwIn{Noisy received word $r:\bbF_q\to \{0,1\}$ with parameters degree $d\leq O(\eps\sqrt{q})$, error-bound $e\leq \lt(\nicefrac18-\eps\rt)q$.}
+  \KwOut{Find a monomial of the closest codeword $\tr\circ g$.}
+  \caption{Decoding from $\nicefrac18^{th}$ of distance of Dual BCH Codes}
+  \DontPrintSemicolon
+  \Begin{
+    $P=0$\;
+    \While{$d>0$}{
+      Set $M=\nicefrac{16}{\eps}d$, $c=\nicefrac{M}2$, $h=2e$\;
+      \For{$h^*\in \{0,\dots, h\}$}{
+        Solve linear system to find $F(X),E(X), V_0,\dots, V_{M-1}\in\bbF_q[X]$ with $\deg(F)=(\nicefrac{d}2+c)q+h^*$ and $\deg(E)=cq+h^*$ where $E$ is a $h$-pseudopolynomial, $\deg(V_{i})\leq h+dM$ for all $0\leq i<M$ such that $$F^{(\ell)}(\alpha)=r(\alpha)\cdot E^{(\ell)}(\alpha)+V_{\ell}(\alpha)$$for all $\alpha\in\bbF_q$ and $0\leq \ell<M$. \;
+      }
+      \If{no such $h^*$ exists}{Continue}
+      Let $aX^{\deg(F)}$ and $bX^{\deg(E)}$ are leading monomials of $F,E$ respectively\;
+      $a_d\longleftarrow \nicefrac{a}b$\;
+      $P\longleftarrow P+(a_d)X^d$\;
+      \For{$\alpha\in\bbF_q$}{
+        $r(\alpha)\longleftarrow r(\alpha)-\tr(a_d\alpha^d)$
+      }
+      $d\longleftarrow d-2$\;
+    }
+    \Return{$P$}
+  }
+\end{algorithm}
+\subsection{Relating $F,E$ and $G$ and Their Leading Coefficients}

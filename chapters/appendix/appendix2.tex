@@ -134,8 +134,12 @@ Now for our use-case in \autoref{chap:decoding} we use the polynomial $\Lm(X)=X^
   Now from the above observation if $\ell\geq i$ then all but at most one of these terms is a multiple of $\Lm(X)$. Since $\ell<q$ every term has all the $\ell_j<q$. Therefore, $\ell_1,\dots, \ell_i\in\{0,1\}$. If at least one of $\ell_1,\dots,\ell_i$ equals to $0$ then $\Lm(X)$ survives as a factor of the term. So the only remaining term is $\ell_1=\cdots =\ell_i=1$. In this case $\ell_0=\ell-i$ and therefore this term equals $V^{(\ell-i)}(X)\cdot (-1)^i$. Hence we have the lemma. 
 \end{proof}
 As a corollary of the \lemref[(i,iii)]{lem:hasse-product-rule} and the above lemma we get the following result which is very usefull to us in \autoref{chap:decoding}. 
-\begin{corolary}{}{}
-  Let $f\in\bbF_q[X]$ be a polynomial with $\deg(g)\leq d$. Then the $\ell^{th}$ derivative of $g^j(X)$ is of the form $$(g^j)^{(\ell)}(X)=G_{g,j,\ell}(X)\cdot g(X)^{j-\ell}$$where $G_{g,j,\ell}(X)\in\bbF_q[X]$ and $\deg(G_{g,j,\ell})\leq d\ell-\ell$. 
+\begin{corolary}{}{cor:derivative-of-g}
+  Let $f\in\bbF_q[X]$ ($q$ odd) be a polynomial with $\deg(g)\leq d$. Then the $\ell^{th}$ derivative of $g^j(X)$ is of the form $$(g^j)^{(\ell)}(X)=G_{g,j,\ell}(X)\cdot g(X)^{j-\ell}$$where $G_{g,j,\ell}(X)\in\bbF_q[X]$ and $\deg(G_{g,j,\ell})\leq d\ell-\ell$. 
+
+  Moreover, for $q$ even case if we take the polynomial $\tr\circ g(X)$ where $\tr$ is the absolute trace function from $\bbF_q\to\bbF_2$ then for any $\ell$, $$G^{(\ell)}(X)=\begin{cases}
+    G(X) & \ell=0\\ G_{g,\ell}(X) & \ell>0
+  \end{cases}$$where $G_{g,\ell}\in\bbF_q[X]$ with $\deg(G_{g,\ell})\leq d\ell$. 
 \end{corolary}
 \begin{Theorem}{}{thm:hasse-bivariate}
   Suppose $\Char(\bbF)=p$ where $p$ is a prime. Let $Q(X,Y)\in\bbF[X,Y]$ be a polynomial and define $h(X)=Q\lt(X,X^{p^s}\rt)$ for some $s\in\bbN$. Then for all $0\leq n<p^s$ $$h^{(n)}(X)=Q^{(n,0)}\lt(X,X^{p^s}\rt)$$where $Q^{(i,0)}$ is the $i^{th}$ partial derivative of $Q$ with respect to $X$ where we consider $Q$ as a polynomial of $\bbF[Y][X]$. 
