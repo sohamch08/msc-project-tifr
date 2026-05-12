@@ -9,26 +9,22 @@ composing the absolute trace with polynomials supported on odd-degree monomials.
 families, the distance analysis reduces entirely to the Weil bound --- in the case of dual BCH codes,
 to such an extent that, absent the Weil bound, the existence of binary codes with these parameters
 is not known by any other means. Until recently the decoding problem for these codes was open
-even for non-constant degree; the situation was resolved by Kopparty~\cite{Kop26}, whose
-algorithm combines the Berlekamp--Welch framework with the Stepanov polynomial method and
+even for non-constant degree; the situation was resolved by \cite{Kopparty2026}, whose
+algorithm combines the Berlekamp--Welch like framework with the Stepanov polynomial method and
 introduces a class of high-degree polynomials --- pseudopolynomials --- as the right algebraic object
 for capturing the structure of character evaluations. The Stepanov method is also the elementary
 route to the Weil bound itself; the same machinery that proves the bound thus also decodes the
 codes it gives rise to. This report develops both threads in a unified, self-contained way.
 
-The bounds are obtained without cohomological machinery, in the sense of Schmidt's
-\emph{Equations over Finite Fields: An Elementary Approach}. The polynomial method of
-Stepanov, extended by Bombieri, works directly via auxiliary polynomials on two specific curves:
+The polynomial method of
+Stepanov and Bombieri, works directly via auxiliary polynomials on two specific curves:
 $Y^d = f(X)$ for multiplicative character sums and $Y^q - Y = f(X)$ for additive character
-sums. The primary references are Schmidt (Chapters~I--II) and Ireland--Rosen's
-\emph{A Classical Introduction to Modern Number Theory}.
-
+sums. The primary references are \cite[Chapter~I-II]{Schmidt1976} and \cite[Chapter~2,5,6]{Lidl1996}
 The report is organized as follows. Chapter~1 develops the theory of finite fields: field extensions,
 the Frobenius automorphism, and trace and norm maps. Chapter~2 treats characters of finite
 abelian groups and finite fields, Gaussian and Jacobi sums, and develops the analytic infrastructure
 of $L$-functions --- the Riemann zeta function and its function-field analogue over $\bbF_q[X]$, the
-Dirichlet $L$-function $L(s, \chi)$, and the function-field Riemann Hypothesis for the location of
-its zeros --- which is then used to prove the Davenport--Hasse lifting theorem relating Gaussian
+Dirichlet $L$-function $L(s, \chi)$ --- which is then used to prove the Davenport--Hasse lifting theorem relating Gaussian
 and Jacobi sums over $\bbF_q$ to those over its extensions. Chapter~3 addresses the problem of
 counting solutions to equations over finite fields and derives Weil-type bounds for additive,
 multiplicative, and quadratic character sums, together with the corresponding estimates for
@@ -45,7 +41,9 @@ The report assumes familiarity with algebra at the level of groups, rings, and f
 algebra. No prior exposure to algebraic geometry or analytic number theory is required.
 
 \medskip
-\noindent
+\begin{flushright}
 Soham Chatterjee \\
+School of Technology and Computer Science\\
 Tata Institute of Fundamental Research, Mumbai \\
 May 2026
+\end{flushright}
