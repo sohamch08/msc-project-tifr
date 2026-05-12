@@ -98,10 +98,15 @@ When the character is the quadratic character\index{quadratic character} $\eta$,
 \index{Weil sum!continued fraction method}%
 
 There is a remarkable connection between Weil sums for the quadratic character $\eta$ and the \emph{continued fraction algorithm}\index{continued fraction algorithm} for rational functions over $\bbF_q$. We collect the necessary algebraic facts about continued fractions of rational functions in Appendix~\ref{sec:cont-frac-fq}; here we set up the specific expansion needed for the application to character sums and state the main results.
-% TODO: Write some intro on continued fraction P,Q
+Recall from Appendix~\ref{sec:cont-frac-fq} that every rational function $r_0/r_1\in\bbF_q(X)$ with $r_1\neq 0$ admits a unique \emph{continued fraction expansion}
+$$\frac{r_0}{r_1} = A_0 + \cfrac{1}{A_1+\cfrac{1}{A_2+\cdots}} =: [A_0,A_1,\dots,A_s],$$
+where $A_0,A_1,\dots,A_s\in\bbF_q[X]$ are the \emph{partial quotients} produced by the Euclidean algorithm applied to $r_0$ and $r_1$, with $A_1,\dots,A_s$ all of positive degree. Associated to this expansion are the \emph{convergents} $P_i/Q_i := [A_0,A_1,\dots,A_i]$, where the numerator and denominator sequences are defined by the recurrences
+$$P_{-1}=1,\quad P_0=A_0,\quad P_i = A_i P_{i-1}+P_{i-2}, \qquad Q_{-1}=0,\quad Q_0=1,\quad Q_i = A_i Q_{i-1}+Q_{i-2}.$$
+Each $P_i/Q_i$ is a best rational approximation to $r_0/r_1$, and the denominators $Q_i$ are pairwise coprime with strictly increasing degrees.
+
 For $q$ odd, put $G(X)=X^q-X$, let $f\in\bbF_q[X]$ be a polynomial of positive degree with no roots in $\bbF_q$, and set $F(X)=f(X)^{(q-1)/2}$. Consider the continued fraction expansions
 $$\frac{F(X)-1}{G(X)}=[A_0,A_1,\dots,A_s]\qquad\text{and}\qquad\frac{F(X)+1}{G(X)}=[a_0,a_1,\dots,a_t]$$
-with $P_i,Q_i$ and $p_i,q_i$ the corresponding numerator/denominator sequences from Appendix~\ref{sec:cont-frac-fq}. It is clear that $A_0=a_0$. Define $n_f$ to be the largest integer $m$ such that $A_i=a_i$ for $i=0,1,\dots,m$.
+with $P_i,Q_i$ and $p_i,q_i$ the corresponding convergent sequences. It is clear that $A_0=a_0$. Define $n_f$ to be the largest integer $m$ such that $A_i=a_i$ for $i=0,1,\dots,m$.
 
 \begin{lemma}{}{lem:cf-nf-cases}
   For $q$ odd, put $G(X)=X^q-X$, let $f\in\bbF_q[X]$ be a polynomial of positive degree with no roots in $\bbF_q$, and set $F(X)=f(X)^{(q-1)/2}$. Let $$\frac{F(X)-1}{G(X)}=[A_0,A_1,\dots,A_s]\qquad\text{and}\qquad\frac{F(X)+1}{G(X)}=[a_0,a_1,\dots,a_t]$$Then either $n_f=s=t-1$ or $n_f=t=s-1$.
