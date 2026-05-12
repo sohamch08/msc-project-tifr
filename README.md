@@ -9,7 +9,7 @@
 <h2 align="center">Exponential Sums and Weil Bounds:<br>A Survey of Elementary Methods and Decoding Applications</h2>
 
 <p align="center">
-  <a href="msc-project.pdf">
+  <a href="https://github.com/sohamch08/msc-project-tifr/releases/latest">
     <img src="https://img.shields.io/badge/PDF-Download-red?style=for-the-badge&logo=adobeacrobatreader&logoColor=white" alt="Download PDF">
   </a>
   <a href="https://sohamch08.github.io">
@@ -25,9 +25,8 @@
 This repository contains the source for my **MSc Project Report** submitted at the **Tata Institute of Fundamental Research (TIFR), Mumbai** in **May 2026**.
 
 **Author:** [Soham Chatterjee](https://sohamch08.github.io/)  
-**Supervisor:** [Prof. Mrinal Kumar](https://www.tcs.tifr.res.in/~mrinal/)  
-**Institute:** School of Technology and Computer Science, TIFR, Mumbai  
-**Contact:** soham.chatterjee@tifr.res.in
+**Supervisor:** [Prof. Mrinal Kumar](https://mrinalkr.bitbucket.io/)  
+**Institute:** School of Technology and Computer Science, TIFR, Mumbai
 
 ---
 
@@ -54,21 +53,11 @@ The report is organized as follows:
 
 ---
 
-## Appendices
-
-- **Algebraic and Analytic Background** — Galois theory facts, meromorphic continuation, Fermat's little theorem, roots of unity identity, elementary symmetric polynomials
-- **Modulus Bounds from Power Sum Estimates** — Four lemmas (Diophantine approximation → large real parts → modulus bounds) used in the Weil bound argument
-- **Continued Fractions over Polynomial Rings** — Euclidean algorithm, convergents, determinant identity, coprimality
-- **Hasse Derivatives** — Multivariate and univariate theory, product rule, $\Lambda(X) = X^q - X$ computations
-
----
-
 ## References
 
 The primary references for this report include:
 
 - **Equations over Finite Fields** — W. M. Schmidt (Springer, 1976)
-- **Algebraic Curves over a Finite Field** — Hirschfeld, Korchmáros, Torres (Princeton, 2008)
 - **Finite Fields** — Lidl and Niederreiter (Cambridge, 2nd ed., 1997)
 - **Analytic Number Theory** — Iwaniec and Kowalski (AMS, 2004)
 - **An Invitation to Modern Number Theory** — Miller and Takloo-Bighash (Princeton, 2006)
@@ -78,20 +67,4 @@ The primary references for this report include:
 
 ## Typesetting
 
-The report is typeset in LaTeX using a custom theorem and layout style.
-Source files are organized as follows:
-
-```
-msc-project.tex          ← main file
-chapters/
-  finite-fields/
-  character_sums/
-  equations-over-fq/
-  weil/
-  decoding/
-  appendix/
-images/                  ← tifr-logo.pdf
-refs.bib                 ← bibliography
-```
-
-Build with any standard LaTeX compiler (`pdflatex` or `lualatex`).
+The report is typeset in LaTeX using my own theme, [Eye-Candy-Lecture-Notes-Theme](https://github.com/sohamch08/Eye-Candy-Lecture-Notes-Theme), which is also included in this repository.
