@@ -9,5 +9,6 @@ Despite this theoretical richness, decoding these codes from a constant fraction
 The goal of this chapter is to present the first polynomial-time algorithms for decoding both code families from a constant fraction of errors, following Kopparty. The algorithms combine two classical ideas: the \emph{Berlekamp--Welch} framework, which uses a high-multiplicity error-locator polynomial to zero out error positions and reduces decoding to a linear system, and the \emph{Stepanov polynomial method}, the elementary approach to the Weil bounds that works by interpolating auxiliary polynomials vanishing with high multiplicity at points of interest. The fusion of these two ideas gives rise to what we call \emph{pseudopolynomials}: high-degree polynomials all of whose Hasse derivatives, when evaluated on $\bbF_q$, agree with polynomials of much smaller degree. These objects turn out to be the correct algebraic framework for capturing the special structure of character evaluations of polynomials.
 
 \input{chapters/decoding/pseudopolynomials}
+% TODO: weil bound prove using pseudopoly
 \input{chapters/decoding/quadratic-character-eval}
 \input{chapters/decoding/even-char-eval}
