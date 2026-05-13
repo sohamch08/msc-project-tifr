@@ -15,9 +15,6 @@
   <a href="https://sohamch08.github.io">
     <img src="https://img.shields.io/badge/Website-sohamch08.github.io-1E90FF?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Website">
   </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge&logo=open-source-initiative&logoColor=white" alt="License">
-  </a>
 </p>
 
 ---
