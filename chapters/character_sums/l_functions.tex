@@ -11,7 +11,7 @@ Before specialising to the function-field setting, it is helpful to pause and de
 \begin{enumerate}
   \item\textbf{Zeta functions} arise when the coefficients are the trivial ones, $a_n\equiv 1$, so that the Dirichlet series simply counts the size of some arithmetic object. The prototype is the \emph{Riemann zeta function} $\zeta(s)=\sum_n n^{-s}$, which encodes the multiplicative structure of $\bbZ$. 
 
-  \item\textbf{$L$-functions} arise when the coefficients are \emph{twisted} by a character $\Lambda$, giving $L(s,\Lambda)=\sum_{h\colon\text{monic}} \Lambda(h)/\mfn(h)^s$. The character $\Lambda$ is what allows one to isolate arithmetic information that a zeta function averages over. Since $L$-functions are defined using polynomials over a finite fields and then we can talk about the prime analogue in polynomial rings i.e. irreducible polynomials. Taking the trivial character $\Lambda\equiv 1$ recovers $\zeta$ up to finitely many Euler factors, so zeta functions are the ``character-free'' special case of $L$-functions.
+  \item\textbf{$L$-functions} arise when the coefficients are \emph{twisted} by a character $\Lambda$, giving $L(s,\Lambda)=\sum_{h\colon\text{monic}} \Lambda(h)/\mfn(h)^s$. The character $\Lambda$ is what allows one to isolate arithmetic information that a zeta function averages over. Since $L$-functions are defined using polynomials over a finite field and then we can talk about the prime analogue in polynomial rings i.e. irreducible polynomials. Taking the trivial character $\Lambda\equiv 1$ recovers $\zeta$ up to finitely many Euler factors, so zeta functions are the ``character-free'' special case of $L$-functions.
 \end{enumerate}
 
 The rest of this section unfolds this dictionary in two parallel worlds. First we recall the classical story over $\bbQ$ --- the Riemann zeta function, its zeros, and its $L$-function generalisations --- so that the relevant analytic phenomena are in view. Like in the case we go to $\bbQ$ the fraction field of $\bbZ$, we  develop the function-field $\bbF_q(X)$ analog: the zeta function associated to $\bbF_q[X]$ and its twists by multiplicative characters of $\bbF_q$. The zeta function turns out to be a rational function of $q^{-s}$, and the analog of the Riemann Hypothesis is a theorem (due to Weil) rather than an open problem.
@@ -20,12 +20,12 @@ The rest of this section unfolds this dictionary in two parallel worlds. First w
 The prototype of everything that follows is the \emph{Riemann zeta function}.\index{Riemann, Bernhard}
 \begin{Definition}{Riemann Zeta Function}{}
   \index{zeta function!Riemann}%
-  For any complex number $s\in\bbC$, the zeta functions at $s$ is $$\zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}$$
+  For any complex number $s\in\bbC$, the zeta function at $s$ is $$\zeta(s)=\sum_{n=1}^{\infty}\frac{1}{n^s}$$
 \end{Definition}
 
 which converges absolutely in the right half-plane $\Re(s)>1$. In fact for $s\in\bbC$ with $\Re(s)>1$ the product $\prod_{n=2}^{\infty}\zeta(n)$ also converges. Most proofs in this subsection are omitted, especially those relying on contour integration or the Mellin transform; the emphasis is on statements together with their arithmetic meaning.
 
-\begin{Theorem}{Euler Productfor $\zeta(s)$}{euler-product-classical}%
+\begin{Theorem}{Euler Product for $\zeta(s)$}{euler-product-classical}%
   \index{Euler product!classical}\index{Euler product!function-field}%
   For $s\in\bbC$ with $\Re(s)>1$,
   $$\zeta(s)=\prod_{p\text{ prime}}\frac{1}{1-p^{-s}}.$$
@@ -50,7 +50,7 @@ From now on whenever we say zeta function we often mean the analytic continuatio
 \begin{Theorem}{Trivial Zeros and Symmetry of Non-trivial Zeros}{}
   The only zeros of $\zeta(s)$ where $s\in\bbC$ for $\Re(s)<0$ are at $s=-2n$ for $n\in\bbN$. In the critical strip the zeros lie symmetrically around the critical line $\Re(s)=\nicefrac12$ i.e. if $a+ib$ is a zero so is $1-a+ib$.
 \end{Theorem}
-regarding the zeros of the zeta functionThe line $\Re(s)=1/2$ is the \emph{critical line}\index{critical line}, and the most famous open problem in mathematics is:
+regarding the zeros of the zeta function. The line $\Re(s)=1/2$ is the \emph{critical line}\index{critical line}, and the most famous open problem in mathematics is:
 
 \begin{Theoremcon}
   \index{Riemann hypothesis}\index{Riemann Hypothesis!classical}\index{Riemann Hypothesis!function fields}%

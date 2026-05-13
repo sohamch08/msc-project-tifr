@@ -1,5 +1,5 @@
 \section{Characters of Finite Fields}\label{sec:chars-finite-fields}
-In a finite field $\bbF_q$ there are two inherent group structures--namely, the additive group and the multiplicatve group. The nonzero elements of $\bbF_q$ forms a cyclic group of $q-1$ elements under multiplication and the whole $\bbF_q$ forms a group of $q$ elements under addition.
+In a finite field $\bbF_q$ there are two inherent group structures--namely, the additive group and the multiplicative group. The nonzero elements of $\bbF_q$ forms a cyclic group of $q-1$ elements under multiplication and the whole $\bbF_q$ forms a group of $q$ elements under addition.
 
 \subsection{Additive Characters of \texorpdfstring{$\bbF_q$}{Fq}}
 We first turn to the additive group of $\bbF_q$. Characters of the additive group $\bbF_q$ are called \emph{additive characters}\index{character!additive} of $\bbF_q$. We denote the set of all additive characters of $\bbF_q$ by $\bm{\mcX}_q$. 
@@ -38,10 +38,10 @@ The orthogonality relations in \obsref{obs:orthogonal-relation} when applied to 
 \subsection{Multiplicative Characters of \texorpdfstring{$\bbF_q$}{Fq}}\label{sec:mult-char}
 Characters of the multiplicate group $\bbF_q^*$ are called \emph{multiplicative characters}\index{character!multiplicative} of $\bbF_q$. We denote the set of all multiplicative characters of $\bbF_q$ by $\bm{\mcM}_q$. Since $\bbF_q^*$ is a cyclic group of order $q-1$ by \lemref{lem:chars-cyclic-group} we have the following:
 \begin{lemma}{Structure of Multiplicative Characters}{lem:mult-char-define}
-  The group of multiplicative characters of $\bbF_q$ is a cycic group of order $q-1$ and are given by $\{\psi_j\colon 0\leq j\leq q-2\}$ where if $g$ is the generator of $\bbF_q^*$ then for all $k\in\{0,1,\dots, q-2\}$ we have $\psi_j(g^k)=e^{2\pi i\frac{jk}{q-1}}$ where $\psi_0$ is the identity element of the group and the trivial character.
+  The group of multiplicative characters of $\bbF_q$ is a cyclic group of order $q-1$ and are given by $\{\psi_j\colon 0\leq j\leq q-2\}$ where if $g$ is the generator of $\bbF_q^*$ then for all $k\in\{0,1,\dots, q-2\}$ we have $\psi_j(g^k)=e^{2\pi i\frac{jk}{q-1}}$ where $\psi_0$ is the identity element of the group and the trivial character.
 \end{lemma}
 
-Every multiplicative character $\psi$ of $\bbF_q$ has the property that $\psi^{q-1}=\psi_0$. Let $\psi$ is generator of the cyclic group of multiplicative characters. Then $\psi$ is called the \emph{principal character}\index{character!principal}\index{principal character}\index{multiplicative character!exponent $d$}. For any multiplicative character $\psi$ of $\bbF_q$ we say $\psi$ is of \emph{order}\index{character!order} $d$ if $\psi^d=\psi_0$ and $d$ is the smallest positive integer with this property. We use $\ord(\psi)$ to denote the order of $\psi$. Hence $d\mid q-1$. We say $\psi$ is of \emph{exponent}\index{character!exponent} $e$ is $\psi^e=\psi_0$. Clearly $d\mid e$ where $d$ is the order of $\psi$. Let $\Mq^{(e)}$ denote the set of all multiplicative characters of $\Mq$ of exponent $e$. 
+Every multiplicative character $\psi$ of $\bbF_q$ has the property that $\psi^{q-1}=\psi_0$. Let $\psi$ be the generator of the cyclic group of multiplicative characters. Then $\psi$ is called the \emph{principal character}\index{character!principal}\index{principal character}\index{multiplicative character!exponent $d$}. For any multiplicative character $\psi$ of $\bbF_q$ we say $\psi$ is of \emph{order}\index{character!order} $d$ if $\psi^d=\psi_0$ and $d$ is the smallest positive integer with this property. We use $\ord(\psi)$ to denote the order of $\psi$. Hence $d\mid q-1$. We say $\psi$ is of \emph{exponent}\index{character!exponent} $e$ if $\psi^e=\psi_0$. Clearly $d\mid e$ where $d$ is the order of $\psi$. Let $\Mq^{(e)}$ denote the set of all multiplicative characters of $\Mq$ of exponent $e$. 
 
 \begin{note}
   For odd $q$ a special multiplicative character of interest is the \emph{quadratic character}\index{character!quadratic}\index{quadratic character}\index{quadratic residue}. It is denoted by $\eta$. It only takes the value $\pm1$. So $\ord{\eta}=2$. For all $\alpha\in \bbF_q^*$, $\eta(\alpha)=1$ if $\alpha$ is a \emph{quadratic residue} and $-1$ if $\alpha$ is a non-quadratic residue. Therefore for all $\alpha\in\bbF_q$, we have $\eta(\alpha)=\alpha^{\nicefrac{(q-1)}{2}}$. The \emph{Legendre symbol}\index{Legendre symbol} $\Leg{\alpha}{q}$ for any $\alpha\in\bbF_q$ is defined by $\eta(\alpha)=\Leg{\alpha}{q}$
@@ -53,7 +53,7 @@ For any multiplicative character $\psi$ of $\bbF_q$, the value of $\psi(-1)$ is 
   For any multiplicative character $\psi\in\Mq$, $\psi(-1)=-1$ if and only if $\frac{q-1}m$ is odd and $m$ is even.
 \end{observation}
 \begin{observation}
-  If $\psi\in\Mq$ is the principle multiplicative character of $\bbF_q$ then $\psi(-1)=-1$. 
+  If $\psi\in\Mq$ is the principal multiplicative character of $\bbF_q$ then $\psi(-1)=-1$. 
 \end{observation}
 
 
@@ -99,7 +99,7 @@ Let $E$ be a finite extension field of $\bbF_q$. Let $\chi_1$ and $\mu_1$ be the
 
 Then $\chi_1$ and $\mu_1$ are related by the identity $$\chi_1(Tr_{E/\bbF_q}(\alpha))=\mu_1(\alpha) \quad \forall\ \alpha\in E$$Since the trace function satisfies transitivity property we have $\tr_E=\tr_{\bbF_q}\circ\tr_{E/\bbF_q}$. Hence for all $\alpha\in E$, $\mu_1(\alpha)=\chi_1(\tr_{E/\bbF_q}(\alpha))$.
 
-Similarly if $\psi_1$ and $\lambda_1$ are principle multiplicative characters of $\bbF_q$ and $E$ respectively then, $$\lambda_1(\alpha)=\psi_1(\norm_{E/\bbF_q}(\alpha))\quad \forall\ \alpha\in E^*$$ where $\norm_{E/\bbF_q}$ is the \emph{norm function}\index{norm function}\index{norm!of a field extension} from $E$ to $\bbF_q$.
+Similarly if $\psi_1$ and $\lambda_1$ are principal multiplicative characters of $\bbF_q$ and $E$ respectively then, $$\lambda_1(\alpha)=\psi_1(\norm_{E/\bbF_q}(\alpha))\quad \forall\ \alpha\in E^*$$ where $\norm_{E/\bbF_q}$ is the \emph{norm function}\index{norm function}\index{norm!of a field extension} from $E$ to $\bbF_q$.
 
 In the opposite way for any additive character $\chi$ of $\bbF_q$ or multiplicative character $\psi$ of $\bbF_q$ we can lift the characters to an additive and multiplicative character of $E$ respectively by taking $\chi\circ\tr_{E/\bbF_q}$ and $\psi\circ\norm_{E/\bbF_q}$ respectively. We denote these by $\chi^{(r)}\coloneqq \chi\circ\tr_{E/\bbF_q}$ and $\psi^{(r)}\coloneqq \psi\circ\norm_{E/\bbF_q}$ where $r=[E:\bbF_q]$.
 

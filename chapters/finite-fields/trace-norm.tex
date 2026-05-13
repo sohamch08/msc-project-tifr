@@ -1,6 +1,6 @@
 \section{Trace and Norm}
-Let $V$ is an $n$-dimensional vector space over $K$ where $K$ is a field.
-Let $\vph:V\to V$ is any linear operator.
+Let $V$ be an $n$-dimensional vector space over $K$ where $K$ is a field.
+Let $\vph:V\to V$ be any linear operator.
 For any basis of $V$ we can generate the matrix of $\vph$ with respect to that basis.
 This is called the \emph{matrix representation} of $\vph$ and denoted by $[\vph]$.
 
@@ -65,9 +65,9 @@ Now the elements $\tr_{L/K}(\alpha)$ and $\norm_{L/K}(\alpha)$ can be expressed 
   where $n=[L\colon K]$. Therefore, $\deg(P_{\alpha,L/K})=[L\colon K]$.
 \end{Definition}
 
-Note that here we defined the characteristic polynomial to be of the form $\det(X\cot I_n-A)$ instead of $\det(A-X\cdot I_n)$ which we typically do in linear algebra. This is because we want our polynomials to monic.
+Note that here we defined the characteristic polynomial to be of the form $\det(X\cdot I_n-A)$ instead of $\det(A-X\cdot I_n)$ which we typically do in linear algebra. This is because we want our polynomials to monic.
 
-If $A$ is a square matrix then the trace of $A$ and the determinant of $A$ appears as signed coefficients in its characteristic polynomial.$$\det(X\cdot I_n-A)=X^^n-\tr(A)X^{n-1}+\cdots +(-1)^n\det(A)$$
+If $A$ is a square matrix then the trace of $A$ and the determinant of $A$ appears as signed coefficients in its characteristic polynomial.$$\det(X\cdot I_n-A)=X^n-\tr(A)X^{n-1}+\cdots +(-1)^n\det(A)$$
 Therefore \begin{equation}\label{eq:char-poly-trace-norm}
   P_{\alpha,L/K}(X)=X^n-\tr_{L/K}(\alpha)X^{n-1}+\cdots +(-1)^n\norm_{L/K}(\alpha)
 \end{equation}Below we show a Cayley-Hamilton like theorem for characteristic polynomial of field elements.
